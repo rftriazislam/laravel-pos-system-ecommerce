@@ -30,6 +30,22 @@ class CategoryController extends Controller
         $categories = $categories->paginate(15);
         return view('backend.product.categories.index', compact('categories', 'sort_search'));
     }
+    
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function test()
+    {
+        // echo "dddd";
+        $breadcrumbs = [['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Layouts"], ['name' => "Layout Empty"]];
+        // return view('/content/page-layouts/layout-empty', ['breadcrumbs' => $breadcrumbs]);
+
+        // dd(2);
+        return view('backend.test', ['breadcrumbs' => $breadcrumbs]);
+    }
 
     /**
      * Show the form for creating a new resource.
