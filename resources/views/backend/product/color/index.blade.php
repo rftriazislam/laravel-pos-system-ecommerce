@@ -1,6 +1,12 @@
-@extends('backend.layouts.app')
+@extends('layouts/contentLayoutMaster')
+
+@section('title', 'Colors')
 
 @section('content')
+
+{{-- @extends('backend.layouts.app')
+
+@section('content') --}}
 
 <div class="aiz-titlebar text-left mt-2 mb-3">
     <div class="align-items-center">
@@ -29,10 +35,10 @@
                             <td>{{$key+1}}</td>
                             <td>{{$color->name}}</td>
                             <td class="text-right">
-                                <a class="btn btn-soft-primary btn-icon btn-circle btn-sm" href="{{route('colors.edit', ['id'=>$color->id, 'lang'=>env('DEFAULT_LANGUAGE')] )}}" title="{{ translate('Edit') }}">
+                                <a class="btn btn-primary btn-icon btn-circle btn-sm" href="{{route('colors.edit', ['id'=>$color->id, 'lang'=>env('DEFAULT_LANGUAGE')] )}}" title="{{ translate('Edit') }}">
                                     <i class="las la-edit"></i>
                                 </a>
-                                <a href="#" class="btn btn-soft-danger btn-icon btn-circle btn-sm confirm-delete" data-href="{{route('colors.destroy', $color->id)}}" title="{{ translate('Delete') }}">
+                                <a href="#" class="btn btn-danger btn-icon btn-circle btn-sm confirm-delete" data-href="{{route('colors.destroy', $color->id)}}" title="{{ translate('Delete') }}">
                                     <i class="las la-trash"></i>
                                 </a>
                             </td>
