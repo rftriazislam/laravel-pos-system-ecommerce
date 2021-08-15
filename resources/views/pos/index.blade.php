@@ -1,4 +1,9 @@
-@extends('backend.layouts.app')
+{{-- @extends('backend.layouts.app')
+
+@section('content') --}}
+@extends('layouts/contentLayoutMaster')
+
+@section('title', 'Pos Manager')
 
 @section('content')
 
@@ -199,7 +204,7 @@
 
 @endsection
 
-@section('modal')
+@section('page-modal')
     <!-- Address Modal -->
     <div id="new-customer" class="modal fade" role="dialog">
         <div class="modal-dialog modal-dialog-centered modal-dialog-zoom" role="document">
@@ -314,7 +319,7 @@
 @endsection
 
 
-@section('script')
+@section('page-script')
     <script type="text/javascript">
 
         var products = null;
