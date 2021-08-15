@@ -4,12 +4,14 @@
 @else
 <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/vendors.min.css')) }}" />
 @endif
-
+<!-- vendor css files select 2 -->
+<link rel="stylesheet" href="{{ asset('resources/'.mix('vendors/css/forms/select/select2.min.css')) }}">
 @yield('vendor-style')
 <!-- END: Vendor CSS-->
 
 <!-- BEGIN: Theme CSS-->
 <link rel="stylesheet" href="{{ asset('public/'.mix('css/core.css')) }}" />
+
 
 @php $configData = Helper::applClasses(); @endphp
 
@@ -22,6 +24,8 @@
 
 {{-- Page Styles --}}
 @yield('page-style')
+
+
 
 <!-- laravel style -->
 <link rel="stylesheet" href="{{ asset('public/'.mix('css/overrides.css')) }}" />

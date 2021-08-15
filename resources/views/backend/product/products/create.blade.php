@@ -1,4 +1,10 @@
-@extends('backend.layouts.app')
+@extends('layouts/contentLayoutMaster')
+{{-- @extends('backend.layouts.app') --}}
+
+@section('title', 'Product Add')
+
+
+
 
 @section('content')
 <div class="aiz-titlebar text-left mt-2 mb-3">
@@ -10,21 +16,24 @@
             <div class="col-lg-8">
                 @csrf
                 <input type="hidden" name="added_by" value="admin">
+
+                {{-- product information  --}}
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">{{translate('Product Information')}}</h5>
                     </div>
                     <div class="card-body">
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-3 col-from-label">{{translate('Product Name')}} <span class="text-danger">*</span></label>
                             <div class="col-md-8">
                                 <input type="text" class="form-control" name="name" placeholder="{{ translate('Product Name') }}" onchange="update_sku()" required>
                             </div>
                         </div>
-                        <div class="form-group row" id="category">
+                        
+                        <div class="form-group p-1 row" id="category">
                             <label class="col-md-3 col-from-label">{{translate('Category')}} <span class="text-danger">*</span></label>
                             <div class="col-md-8">
-                                <select class="form-control aiz-selectpicker" name="category_id" id="category_id" data-live-search="true" required>
+                                <select class="select2 form-select" name="category_id" id="category_id" data-live-search="true" required>
                                     @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->getTranslation('name') }}</option>
                                     @foreach ($category->childrenCategories as $childCategory)
@@ -34,10 +43,10 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group row" id="brand">
+                        <div class="form-group p-1 row" id="brand">
                             <label class="col-md-3 col-from-label">{{translate('Brand')}}</label>
                             <div class="col-md-8">
-                                <select class="form-control aiz-selectpicker" name="brand_id" id="brand_id" data-live-search="true">
+                                <select class="select2 form-select" name="brand_id" id="brand_id" data-live-search="true">
                                     <option value="">{{ translate('Select Brand') }}</option>
                                     @foreach (\App\Brand::all() as $brand)
                                     <option value="{{ $brand->id }}">{{ $brand->getTranslation('name') }}</option>
@@ -45,19 +54,19 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-3 col-from-label">{{translate('Unit')}}</label>
                             <div class="col-md-8">
                                 <input type="text" class="form-control" name="unit" placeholder="{{ translate('Unit (e.g. KG, Pc etc)') }}" required>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-3 col-from-label">{{translate('Minimum Purchase Qty')}} <span class="text-danger">*</span></label>
                             <div class="col-md-8">
                                 <input type="number" lang="en" class="form-control" name="min_qty" value="1" min="1" required>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-3 col-from-label">{{translate('Tags')}} <span class="text-danger">*</span></label>
                             <div class="col-md-8">
                                 <input type="text" class="form-control aiz-tag-input" name="tags[]" placeholder="{{ translate('Type and hit enter to add a tag') }}">
@@ -69,7 +78,7 @@
                         $pos_addon = \App\Addon::where('unique_identifier', 'pos_system')->first();
                         @endphp
                         @if ($pos_addon != null && $pos_addon->activated == 1)
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-3 col-from-label">{{translate('Barcode')}}</label>
                             <div class="col-md-8">
                                 <input type="text" class="form-control" name="barcode" placeholder="{{ translate('Barcode') }}">
@@ -81,11 +90,11 @@
                         $refund_request_addon = \App\Addon::where('unique_identifier', 'refund_request')->first();
                         @endphp
                         @if ($refund_request_addon != null && $refund_request_addon->activated == 1)
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-3 col-from-label">{{translate('Refundable')}}</label>
                             <div class="col-md-8">
-                                <label class="aiz-switch aiz-switch-success mb-0">
-                                    <input type="checkbox" name="refundable" checked>
+                                <label class="form-check form-check-success form-switch mb-0">
+                                    <input type="checkbox" class="form-check-input" name="refundable" checked>
                                     <span></span>
                                 </label>
                             </div>
@@ -93,35 +102,36 @@
                         @endif
                     </div>
                 </div>
+                {{-- product Imgae  --}}
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">{{translate('Product Images')}}</h5>
                     </div>
                     <div class="card-body">
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-3 col-form-label" for="signinSrEmail">{{translate('Gallery Images')}} <small>(600x600)</small></label>
                             <div class="col-md-8">
                                 <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                     </div>
-                                    <div class="form-control file-amount">{{ translate('Choose File') }}</div>
-                                    <input type="hidden" name="photos" class="selected-files">
+                                    
+                                    <input type="file" name="photos" class="selected-files"><div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                 </div>
                                 <div class="file-preview box sm">
                                 </div>
                                 <small class="text-muted">{{translate('These images are visible in product details page gallery. Use 600x600 sizes images.')}}</small>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-3 col-form-label" for="signinSrEmail">{{translate('Thumbnail Image')}} <small>(300x300)</small></label>
                             <div class="col-md-8">
                                 <div class="input-group" data-toggle="aizuploader" data-type="image">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                     </div>
-                                    <div class="form-control file-amount">{{ translate('Choose File') }}</div>
-                                    <input type="hidden" name="thumbnail_img" class="selected-files">
+                                   
+                                    <input type="file" name="thumbnail_img" class="selected-files"> <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                 </div>
                                 <div class="file-preview box sm">
                                 </div>
@@ -130,22 +140,23 @@
                         </div>
                     </div>
                 </div>
+                {{-- product video  --}}
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">{{translate('Product Videos')}}</h5>
                     </div>
                     <div class="card-body">
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-3 col-from-label">{{translate('Video Provider')}}</label>
                             <div class="col-md-8">
-                                <select class="form-control aiz-selectpicker" name="video_provider" id="video_provider">
+                                <select class="select2 form-select" name="video_provider" id="video_provider">
                                     <option value="youtube">{{translate('Youtube')}}</option>
                                     <option value="dailymotion">{{translate('Dailymotion')}}</option>
                                     <option value="vimeo">{{translate('Vimeo')}}</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-3 col-from-label">{{translate('Video Link')}}</label>
                             <div class="col-md-8">
                                 <input type="text" class="form-control" name="video_link" placeholder="{{ translate('Video Link') }}">
@@ -154,36 +165,37 @@
                         </div>
                     </div>
                 </div>
+                 {{-- product variation  --}}
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">{{translate('Product Variation')}}</h5>
                     </div>
                     <div class="card-body">
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <div class="col-md-3">
                                 <input type="text" class="form-control" value="{{translate('Colors')}}" disabled>
                             </div>
                             <div class="col-md-8">
-                                <select class="form-control aiz-selectpicker" data-live-search="true" data-selected-text-format="count" name="colors[]" id="colors" multiple disabled>
+                                <select class="select2 form-select" data-live-search="true" data-selected-text-format="count" name="colors[]" id="colors" multiple disabled>
                                     @foreach (\App\Color::orderBy('name', 'asc')->get() as $key => $color)
-                                    <option  value="{{ $color->code }}" data-content="<span><span class='size-15px d-inline-block mr-2 rounded border' style='background:{{ $color->code }}'></span><span>{{ $color->name }}</span></span>"></option>
+                                    <option  value="{{ $color->code }}" data-content="<span><span class='size-15px d-inline-block mr-2 rounded border' style='background:{{ $color->code }}'></span><span>{{ $color->name }}</span></span>">{{ $color->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="col-md-1">
-                                <label class="aiz-switch aiz-switch-success mb-0">
-                                    <input value="1" type="checkbox" name="colors_active">
+                                <label class="form-check form-check-success form-switch mb-0">
+                                    <input value="1" type="checkbox" class="form-check-input" name="colors_active">
                                     <span></span>
                                 </label>
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <div class="col-md-3">
                                 <input type="text" class="form-control" value="{{translate('Attributes')}}" disabled>
                             </div>
                             <div class="col-md-8">
-                                <select name="choice_attributes[]" id="choice_attributes" class="form-control aiz-selectpicker" data-selected-text-format="count" data-live-search="true" multiple data-placeholder="{{ translate('Choose Attributes') }}">
+                                <select name="choice_attributes[]" id="choice_attributes" class="select2 form-select" data-selected-text-format="count" data-live-search="true" multiple data-placeholder="{{ translate('Choose Attributes') }}">
                                     @foreach (\App\Attribute::all() as $key => $attribute)
                                     <option value="{{ $attribute->id }}">{{ $attribute->getTranslation('name') }}</option>
                                     @endforeach
@@ -200,32 +212,33 @@
                         </div>
                     </div>
                 </div>
+                 {{-- product Price and stock  --}}
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">{{translate('Product price + stock')}}</h5>
                     </div>
                     <div class="card-body">
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-3 col-from-label">{{translate('Unit price')}} <span class="text-danger">*</span></label>
                             <div class="col-md-6">
                                 <input type="number" lang="en" min="0" value="0" step="0.01" placeholder="{{ translate('Unit price') }}" name="unit_price" class="form-control" required>
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
 	                        <label class="col-sm-3 control-label" for="start_date">{{translate('Discount Date Range')}}</label>
 	                        <div class="col-sm-9">
 	                          <input type="text" class="form-control aiz-date-range" name="date_range" placeholder="Select Date" data-time-picker="true" data-format="DD-MM-Y HH:mm:ss" data-separator=" to " autocomplete="off">
 	                        </div>
 	                    </div>
 
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-3 col-from-label">{{translate('Discount')}} <span class="text-danger">*</span></label>
                             <div class="col-md-6">
                                 <input type="number" lang="en" min="0" value="0" step="0.01" placeholder="{{ translate('Discount') }}" name="discount" class="form-control" required>
                             </div>
                             <div class="col-md-3">
-                                <select class="form-control aiz-selectpicker" name="discount_type">
+                                <select class="select2 form-select" name="discount_type">
                                     <option value="amount">{{translate('Flat')}}</option>
                                     <option value="percent">{{translate('Percent')}}</option>
                                 </select>
@@ -234,7 +247,7 @@
 
                         @if(\App\Addon::where('unique_identifier', 'club_point')->first() != null &&
                             \App\Addon::where('unique_identifier', 'club_point')->first()->activated)
-                            <div class="form-group row">
+                            <div class="form-group p-1 row">
                                 <label class="col-md-3 col-from-label">
                                     {{translate('Set Point')}}
                                 </label>
@@ -245,13 +258,13 @@
                         @endif
 
                         <div id="show-hide-div">
-                            <div class="form-group row">
+                            <div class="form-group p-1 row">
                                 <label class="col-md-3 col-from-label">{{translate('Quantity')}} <span class="text-danger">*</span></label>
                                 <div class="col-md-6">
                                     <input type="number" lang="en" min="0" value="0" step="1" placeholder="{{ translate('Quantity') }}" name="current_stock" class="form-control" required>
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            <div class="form-group p-1 row">
                                 <label class="col-md-3 col-from-label">
                                     {{translate('SKU')}}
                                 </label>
@@ -266,21 +279,22 @@
                         </div>
                     </div>
                 </div>
+                {{-- product Discription  --}}
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">{{translate('Product Description')}}</h5>
                     </div>
                     <div class="card-body">
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-3 col-from-label">{{translate('Description')}}</label>
                             <div class="col-md-8">
-                                <textarea class="aiz-text-editor" name="description"></textarea>
+                                <textarea class="form-control" name="description"></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
 
-<!--                <div class="card">
+                <!--                <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">{{translate('Product Shipping Cost')}}</h5>
                     </div>
@@ -294,7 +308,7 @@
                         <h5 class="mb-0 h6">{{translate('PDF Specification')}}</h5>
                     </div>
                     <div class="card-body">
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-3 col-form-label" for="signinSrEmail">{{translate('PDF Specification')}}</label>
                             <div class="col-md-8">
                                 <div class="input-group" data-toggle="aizuploader" data-type="document">
@@ -315,19 +329,19 @@
                         <h5 class="mb-0 h6">{{translate('SEO Meta Tags')}}</h5>
                     </div>
                     <div class="card-body">
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-3 col-from-label">{{translate('Meta Title')}}</label>
                             <div class="col-md-8">
                                 <input type="text" class="form-control" name="meta_title" placeholder="{{ translate('Meta Title') }}">
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-3 col-from-label">{{translate('Description')}}</label>
                             <div class="col-md-8">
                                 <textarea name="meta_description" rows="8" class="form-control"></textarea>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-3 col-form-label" for="signinSrEmail">{{ translate('Meta Image') }}</label>
                             <div class="col-md-8">
                                 <div class="input-group" data-toggle="aizuploader" data-type="image">
@@ -357,28 +371,28 @@
 
                     <div class="card-body">
                         @if (get_setting('shipping_type') == 'product_wise_shipping')
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-6 col-from-label">{{translate('Free Shipping')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
-                                    <input type="radio" name="shipping_type" value="free" checked>
+                                <label class="form-check form-check-success form-switch mb-0">
+                                    <input type="radio" class="form-check-input" name="shipping_type" value="free" checked>
                                     <span></span>
                                 </label>
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-6 col-from-label">{{translate('Flat Rate')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
-                                    <input type="radio" name="shipping_type" value="flat_rate">
+                                <label class="form-check form-check-success form-switch mb-0">
+                                    <input type="radio" class="form-check-input" name="shipping_type" value="flat_rate">
                                     <span></span>
                                 </label>
                             </div>
                         </div>
 
                         <div class="flat_rate_shipping_div" style="display: none">
-                            <div class="form-group row">
+                            <div class="form-group p-1 row">
                                 <label class="col-md-6 col-from-label">{{translate('Shipping cost')}}</label>
                                 <div class="col-md-6">
                                     <input type="number" lang="en" min="0" value="0" step="0.01" placeholder="{{ translate('Shipping cost') }}" name="flat_shipping_cost" class="form-control" required>
@@ -386,11 +400,11 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-6 col-from-label">{{translate('Is Product Quantity Mulitiply')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
-                                    <input type="checkbox" name="is_quantity_multiplied" value="1">
+                                <label class="form-check form-check-success form-switch mb-0">
+                                    <input type="checkbox" class="form-check-input" name="is_quantity_multiplied" value="1">
                                     <span></span>
                                 </label>
                             </div>
@@ -411,7 +425,7 @@
                         <h5 class="mb-0 h6">{{translate('Low Stock Quantity Warning')}}</h5>
                     </div>
                     <div class="card-body">
-                        <div class="form-group mb-3">
+                        <div class="form-group p-1 mb-3">
                             <label for="name">
                                 {{translate('Quantity')}}
                             </label>
@@ -429,31 +443,31 @@
 
                     <div class="card-body">
 
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-6 col-from-label">{{translate('Show Stock Quantity')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
-                                    <input type="radio" name="stock_visibility_state" value="quantity" checked>
+                                <label class="form-check form-check-success form-switch mb-0">
+                                    <input type="radio" class="form-check-input" name="stock_visibility_state" value="quantity" checked>
                                     <span></span>
                                 </label>
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-6 col-from-label">{{translate('Show Stock With Text Only')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
-                                    <input type="radio" name="stock_visibility_state" value="text">
+                                <label class="form-check form-check-success form-switch mb-0">
+                                    <input type="radio" class="form-check-input" name="stock_visibility_state" value="text">
                                     <span></span>
                                 </label>
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-6 col-from-label">{{translate('Hide Stock')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
-                                    <input type="radio" name="stock_visibility_state" value="hide">
+                                <label class="form-check form-check-success form-switch mb-0">
+                                    <input type="radio" class="form-check-input" name="stock_visibility_state" value="hide">
                                     <span></span>
                                 </label>
                             </div>
@@ -468,11 +482,11 @@
                     </div>
                     <div class="card-body">
                         @if (get_setting('cash_payment') == '1')
-                            <div class="form-group row">
+                            <div class="form-group p-1 row">
                                 <label class="col-md-6 col-from-label">{{translate('Status')}}</label>
                                 <div class="col-md-6">
-                                    <label class="aiz-switch aiz-switch-success mb-0">
-                                        <input type="checkbox" name="cash_on_delivery" value="1" checked="">
+                                    <label class="form-check form-check-success form-switch mb-0">
+                                        <input type="checkbox" class="form-check-input" name="cash_on_delivery" value="1" checked="">
                                         <span></span>
                                     </label>
                                 </div>
@@ -493,11 +507,11 @@
                         <h5 class="mb-0 h6">{{translate('Featured')}}</h5>
                     </div>
                     <div class="card-body">
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-6 col-from-label">{{translate('Status')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
-                                    <input type="checkbox" name="featured" value="1">
+                                <label class="form-check form-check-success form-switch mb-0">
+                                    <input type="checkbox" class="form-check-input" name="featured" value="1">
                                     <span></span>
                                 </label>
                             </div>
@@ -510,11 +524,11 @@
                         <h5 class="mb-0 h6">{{translate('Todays Deal')}}</h5>
                     </div>
                     <div class="card-body">
-                        <div class="form-group row">
+                        <div class="form-group p-1 row">
                             <label class="col-md-6 col-from-label">{{translate('Status')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
-                                    <input type="checkbox" name="todays_deal" value="1">
+                                <label class="form-check form-check-success form-switch mb-0">
+                                    <input type="checkbox" class="form-check-input" name="todays_deal" value="1">
                                     <span></span>
                                 </label>
                             </div>
@@ -527,11 +541,11 @@
                         <h5 class="mb-0 h6">{{translate('Flash Deal')}}</h5>
                     </div>
                     <div class="card-body">
-                        <div class="form-group mb-3">
+                        <div class="form-group p-1 mb-3">
                             <label for="name">
                                 {{translate('Add To Flash')}}
                             </label>
-                            <select class="form-control aiz-selectpicker" name="flash_deal_id" id="flash_deal">
+                            <select class="select2 form-select" name="flash_deal_id" id="flash_deal">
                                 <option value="">Choose Flash Title</option>
                                 @foreach(\App\FlashDeal::where("status", 1)->get() as $flash_deal)
                                     <option value="{{ $flash_deal->id}}">
@@ -541,17 +555,17 @@
                             </select>
                         </div>
 
-                        <div class="form-group mb-3">
+                        <div class="form-group p-1 mb-3">
                             <label for="name">
                                 {{translate('Discount')}}
                             </label>
                             <input type="number" name="flash_discount" value="0" min="0" step="1" class="form-control">
                         </div>
-                        <div class="form-group mb-3">
+                        <div class="form-group p-1 mb-3">
                             <label for="name">
                                 {{translate('Discount Type')}}
                             </label>
-                            <select class="form-control aiz-selectpicker" name="flash_discount_type" id="flash_discount_type">
+                            <select class="select2 form-select" name="flash_discount_type" id="flash_discount_type">
                                 <option value="">Choose Discount Type</option>
                                 <option value="amount">{{translate('Flat')}}</option>
                                 <option value="percent">{{translate('Percent')}}</option>
@@ -565,7 +579,7 @@
                         <h5 class="mb-0 h6">{{translate('Estimate Shipping Time')}}</h5>
                     </div>
                     <div class="card-body">
-                        <div class="form-group mb-3">
+                        <div class="form-group p-1 mb-3">
                             <label for="name">
                                 {{translate('Shipping Days')}}
                             </label>
@@ -591,11 +605,11 @@
                         </label>
 
                         <div class="form-row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group p-1 col-md-6">
                                 <input type="number" lang="en" min="0" value="0" step="0.01" placeholder="{{ translate('Tax') }}" name="tax[]" class="form-control" required>
                             </div>
-                            <div class="form-group col-md-6">
-                                <select class="form-control aiz-selectpicker" name="tax_type[]">
+                            <div class="form-group p-1 col-md-6">
+                                <select class="select2 form-select" name="tax_type[]">
                                     <option value="amount">{{translate('Flat')}}</option>
                                     <option value="percent">{{translate('Percent')}}</option>
                                 </select>
@@ -650,13 +664,13 @@
             success: function(data) {
                 var obj = JSON.parse(data);
                 $('#customer_choice_options').append('\
-                <div class="form-group row">\
+                <div class="form-group p-1 row">\
                     <div class="col-md-3">\
                         <input type="hidden" name="choice_no[]" value="'+i+'">\
                         <input type="text" class="form-control" name="choice[]" value="'+name+'" placeholder="{{ translate('Choice Title') }}" readonly>\
                     </div>\
                     <div class="col-md-8">\
-                        <select class="form-control aiz-selectpicker attribute_choice" data-live-search="true" name="choice_options_'+ i +'[]" multiple>\
+                        <select class="select2 form-select attribute_choice" data-live-search="true" name="choice_options_'+ i +'[]" multiple>\
                             '+obj+'\
                         </select>\
                     </div>\
@@ -697,7 +711,7 @@
     });
 
     function delete_row(em){
-        $(em).closest('.form-group row').remove();
+        $(em).closest('.form-group p-1 row').remove();
         update_sku();
     }
 
@@ -736,3 +750,5 @@
 </script>
 
 @endsection
+
+
