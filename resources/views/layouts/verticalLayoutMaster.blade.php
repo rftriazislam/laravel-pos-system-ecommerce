@@ -69,7 +69,7 @@ data-asset-path="{{ asset('/')}}">
   @include('panels/footer')
 
   {{-- include page modal --}}
-  @yield('page-modal')
+  @yield('modal')
 
   {{-- include default scripts --}}
   @include('panels/scripts')
