@@ -36,12 +36,13 @@ data-asset-path="{{ asset('/')}}">
       </div>
     </div>
   </div>
+  @yield('modal')
   <!-- End: Content-->
 
   @if($configData['blankPage'] == false)
   @include('content/pages/customizer')
 
-  @include('content/pages/buy-now')
+  {{-- @include('content/pages/buy-now') --}}
   @endif
 
   <div class="sidenav-overlay"></div>
