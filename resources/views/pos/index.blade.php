@@ -15,8 +15,8 @@
                 <div class="col-lg-5">
                     <div class="card">
                         <div class="card-header d-block">
-                            <div class="form-group">
-                                <input class="form-control form-control-sm" type="text" name="keyword" placeholder="Search by Product Name/Barcode" onkeyup="filterProducts()">
+                            <div class="form-group mb-1">
+                                <input class="form-control" type="text" name="keyword" placeholder="Search by Product Name/Barcode" onkeyup="filterProducts()">
                             </div>
                             <div class="row gutters-5">
                                 <div class="col-md-6">
@@ -204,7 +204,7 @@
 
 @endsection
 
-@section('page-modal')
+@section('modal')
     <!-- Address Modal -->
     <div id="new-customer" class="modal fade" role="dialog">
         <div class="modal-dialog modal-dialog-centered modal-dialog-zoom" role="document">
@@ -319,7 +319,7 @@
 @endsection
 
 
-@section('page-script')
+@section('script')
     <script type="text/javascript">
 
         var products = null;
