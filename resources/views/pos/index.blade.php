@@ -20,7 +20,7 @@
                             </div>
                             <div class="row gutters-5">
                                 <div class="col-md-6">
-                                    <select name="poscategory" class="form-control form-control-sm aiz-selectpicker" data-live-search="true" onchange="filterProducts()">
+                                    <select name="poscategory" class="form-control select2 aiz-selectpicker" data-live-search="true" onchange="filterProducts()">
                                         <option value="">All Categories</option>
                                         @foreach (\App\Category::all() as $key => $category)
                                             <option value="category-{{ $category->id }}">{{ $category->getTranslation('name') }}</option>
@@ -28,7 +28,7 @@
                                     </select>
                                 </div>
                                 <div class="col-md-6">
-                                    <select name="brand"  class="form-control form-control-sm aiz-selectpicker" data-live-search="true" onchange="filterProducts()">
+                                    <select name="brand"  class="form-control select2 aiz-selectpicker" data-live-search="true" onchange="filterProducts()">
                                         <option value="">All Brands</option>
                                         @foreach (\App\Brand::all() as $key => $brand)
                                             <option value="{{ $brand->id }}">{{ $brand->getTranslation('name') }}</option>
@@ -54,7 +54,7 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="flex-grow-1">
-                                    <select name="user_id" class="form-control form-control-sm aiz-selectpicker pos-customer" data-live-search="true" onchange="getShippingAddress()">
+                                    <select name="user_id" class="select2 form-control aiz-selectpicker pos-customer" data-live-search="true" onchange="getShippingAddress()">
                                         <option value="">{{translate('Walk In Customer')}}</option>
                                         @foreach (\App\Customer::all() as $key => $customer)
                                             @if ($customer->user)
@@ -118,7 +118,7 @@
                                                     <td>{{ single_price($cartItem['price']*$cartItem['quantity']) }}</td>
                                                     <td class="text-right">
                                                         <button type="button" class="btn btn-circle btn-icon btn-sm btn-danger" onclick="removeFromCart({{ $key }})">
-                                                            <i class="las la-trash-alt"></i>
+                                                            <i data-feather='trash'></i>
                                                         </button>
                                                     </td>
                                                 </tr>
@@ -161,8 +161,8 @@
                     <div class="pos-footer mar-btm">
                         <div class="d-flex justify-content-between">
                             <div class="d-flex">
-                                <div class="dropdown mr-3 dropup">
-                                    <button class="btn btn-outline-dark btn-styled dropdown-toggle" type="button" data-toggle="dropdown">
+                                <div class="dropdown me-2 dropup">
+                                    <button class="btn btn-outline-primary waves-effect dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                         {{translate('Shipping')}}
                                     </button>
                                     <div class="dropdown-menu p-3 dropdown-menu-lg">
@@ -178,7 +178,7 @@
                                     </div>
                                 </div>
                                 <div class="dropdown dropup">
-                                    <button class="btn btn-outline-dark btn-styled dropdown-toggle" type="button" data-toggle="dropdown">
+                                    <button class="btn btn-outline-primary waves-effect dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                         {{translate('Discount')}}
                                     </button>
                                     <div class="dropdown-menu p-3 dropdown-menu-lg">

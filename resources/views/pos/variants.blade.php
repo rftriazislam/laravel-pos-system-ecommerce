@@ -7,15 +7,15 @@
         @foreach ($stocks as $key => $stock)
             <div class="col-lg-3 col-sm-6">
                 <label class="aiz-megabox d-block">
-                    <input id="aiz-pos-varient-input" class="form-check-input me-1" type="radio" name="variant" value="{{ $stock->variant }}" @if ($stock->qty <= 0)
+                    <input class="form-check-input me-1 aiz-pos-varient-input" type="radio" name="variant" value="{{ $stock->variant }}" @if ($stock->qty <= 0)
                         disabled
                     @endif>
-                    <span class="d-flex flex-sm-row p-2 text-end border-secondary pad-all card aiz-megabox-elem">
+                    <span class="d-flex flex-sm-row p-2 border-secondary pad-all card aiz-megabox-elem">
                         <span class="flex-grow-1 pad-lft pl-2">
                             <span class="d-block strong-600">{{ $stock->variant }}</span>
                             <span class="d-block">Price: {{ single_price($stock->price) }}</span>
                             <span class="badge badge-inline @if ($stock->qty <= 0)
-                                badge-secondary
+                                bg-secondary
                             @else
                             bg-success
                             @endif">Stock: {{ $stock->qty }}</span>

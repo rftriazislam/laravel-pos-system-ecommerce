@@ -18,9 +18,16 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 .aiz-megabox > input:checked ~ .aiz-megabox-elem {
     border: 1px solid #7367f0 !important;
 }
-#aiz-pos-varient-input {
+label.aiz-megabox {
+    position: relative;
+}
+.aiz-pos-varient-input {
     position: absolute;
     z-index: 9;
-    left: 25px;
-    top: 24%;
+    left: 6px;
+    top: 4%;
+}
+.dropdown-menu.dropdown-menu-lg {
+    width: 320px;
+    min-width: 320px;
 }
