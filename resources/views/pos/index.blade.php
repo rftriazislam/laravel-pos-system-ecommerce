@@ -63,7 +63,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <button type="button" class="btn btn-icon btn-soft-dark ml-3" data-bs-target="#new-customer" data-bs-toggle="modal" data-bs-target="#select2InModal" >
+                                <button type="button" class="btn btn-icon btn-icon btn-outline-primary waves-effect ms-2" data-bs-target="#new-customer" data-bs-toggle="modal" data-bs-target="#select2InModal" >
 									<i data-feather='truck'></i>
 								</button>
                             </div>
@@ -247,7 +247,7 @@
                         </div>
                         <div class="form-group">
                             <div class=" row">
-                                <label class="col-sm-2 control-label" for="email">{{translate('Country')}}</label>
+                                <label class="col-sm-2 control-label" for="country">{{translate('Country')}}</label>
                                 <div class="col-sm-10">
                                     <select name="country" id="country" class="form-control select2 aiz-selectpicker" required data-placeholder="{{translate('Select country')}}">
                                         @foreach (\App\Country::where('status',1)->get() as $key => $country)
