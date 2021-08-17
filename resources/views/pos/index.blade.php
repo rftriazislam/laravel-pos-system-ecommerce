@@ -63,8 +63,8 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <button type="button" class="btn btn-icon btn-soft-dark ml-3" data-target="#new-customer" data-toggle="modal">
-									<i class="las la-truck"></i>
+                                <button type="button" class="btn btn-icon btn-soft-dark ml-3" data-bs-target="#new-customer" data-bs-toggle="modal" data-bs-target="#select2InModal" >
+									<i data-feather='truck'></i>
 								</button>
                             </div>
                         </div>
@@ -192,7 +192,7 @@
                                 </div>
                             </div>
                             <div class="">
-                                <button type="button" class="btn btn-primary" data-target="#order-confirm" data-toggle="modal">{{ translate('Pay With Cash') }}</button>
+                                <button type="button" class="btn btn-primary" data-bs-target="#order-confirm" data-bs-toggle="modal">{{ translate('Pay With Cash') }}</button>
                             </div>
                         </div>
                     </div>
@@ -211,15 +211,15 @@
             <div class="modal-content">
                 <div class="modal-header bord-btm">
                     <h4 class="modal-title h6">{{translate('Shipping Address')}}</h4>
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="shipping_address">
 
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-styled btn-base-3" data-dismiss="modal" id="close-button">{{translate('Close')}}</button>
-                    <button type="button" class="btn btn-primary btn-styled btn-base-1" data-dismiss="modal">{{translate('Confirm')}}</button>
+                    <button type="button" class="btn btn-styled btn-base-3" data-bs-dismiss="modal" id="close-button">{{translate('Close')}}</button>
+                    <button type="button" class="btn btn-primary btn-styled btn-base-1" data-bs-dismiss="modal">{{translate('Confirm')}}</button>
                 </div>
             </div>
         </div>
@@ -231,7 +231,7 @@
             <div class="modal-content">
                 <div class="modal-header bord-btm">
                     <h4 class="modal-title h6">{{translate('Shipping Address')}}</h4>
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form class="form-horizontal" action="{{ route('addresses.store') }}" method="POST" enctype="multipart/form-data">
                 	@csrf
@@ -249,7 +249,7 @@
                             <div class=" row">
                                 <label class="col-sm-2 control-label" for="email">{{translate('Country')}}</label>
                                 <div class="col-sm-10">
-                                    <select name="country" id="country" class="form-control aiz-selectpicker" required data-placeholder="{{translate('Select country')}}">
+                                    <select name="country" id="country" class="form-control select2 aiz-selectpicker" required data-placeholder="{{translate('Select country')}}">
                                         @foreach (\App\Country::where('status',1)->get() as $key => $country)
                                             <option value="{{ $country->name }}">{{ $country->name }}</option>
                                         @endforeach
@@ -283,7 +283,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-styled btn-base-3" data-dismiss="modal">{{translate('Close')}}</button>
+                        <button type="button" class="btn btn-styled btn-base-3" data-bs-dismiss="modal">{{translate('Close')}}</button>
                         <button type="submit" class="btn btn-primary btn-styled btn-base-1">{{translate('Save')}}</button>
                     </div>
                 </form>
@@ -304,13 +304,13 @@
             <div class="modal-content" id="variants">
                 <div class="modal-header bord-btm">
                     <h4 class="modal-title h6">{{translate('Order Confirmation')}}</h4>
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <p>{{translate('Are you sure to confirm this order?')}}</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-styled btn-base-3" data-dismiss="modal">{{translate('Close')}}</button>
+                    <button type="button" class="btn btn-styled btn-base-3" data-bs-dismiss="modal">{{translate('Close')}}</button>
                     <button type="button" onclick="submitOrder('cash')" class="btn btn-styled btn-base-1 btn-primary">{{translate('Comfirm Order')}}</button>
                 </div>
             </div>
