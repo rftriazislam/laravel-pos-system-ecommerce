@@ -34,3 +34,6 @@ label.aiz-megabox {
 .form-group {
     margin-bottom: 1rem;
 }
+.c-pointer {
+    cursor: pointer !important;
+}
