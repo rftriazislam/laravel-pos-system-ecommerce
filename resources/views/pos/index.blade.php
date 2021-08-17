@@ -100,9 +100,9 @@
                                                 @endphp
                                                 <tr>
                                                     <td>
-                                                        <span class="media">
+                                                        <span class="media d-flex">
                                                             <div class="media-left">
-                                                                <img class="mr-3" height="60" src="{{ uploaded_asset(\App\Product::find($cartItem['id'])->thumbnail_img) }}" >
+                                                                <img class="me-2" height="60" src="{{ uploaded_asset(\App\Product::find($cartItem['id'])->thumbnail_img) }}" >
                                                             </div>
                                                             <div class="media-body">
                                                                 {{ \App\Product::find($cartItem['id'])->name }} ({{ $cartItem['variant'] }})
@@ -161,32 +161,32 @@
                     <div class="pos-footer mar-btm">
                         <div class="d-flex justify-content-between">
                             <div class="d-flex">
-                                <div class="dropdown me-2 dropup">
+                                <div class="me-2 dropup dropdown-icon-wrapper">
                                     <button class="btn btn-outline-primary waves-effect dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                         {{translate('Shipping')}}
+                                        <i data-feather='chevron-up'></i>
                                     </button>
-                                    <div class="dropdown-menu p-3 dropdown-menu-lg">
-                                        <div class="radio radio-inline">
-                                            <input type="radio" name="shipping" id="radioExample_2a" value="0" checked onchange="setShipping()">
-                                            <label for="radioExample_2a">{{translate('Without Shipping Charge')}}</label>
+                                    <div class="dropdown-menu p-2 dropdown-menu-lg">
+                                        <div class="form-check form-check-primary mb-1">
+                                            <input type="radio" id="radioExample_2a" name="shipping" class="form-check-input" value="0" checked onchange="setShipping()"/>
+                                            <label class="form-check-label" for="radioExample_2a">{{translate('Without Shipping Charge')}}</label>
                                         </div>
 
-                                        <div class="radio radio-inline">
-                                            <input type="radio" name="shipping" id="radioExample_2b" value="1" onchange="setShipping()">
-                                            <label for="radioExample_2b">{{translate('With Shipping Charge')}}</label>
+                                        <div class="form-check form-check-primary">
+                                            <input type="radio" id="radioExample_2b" name="shipping" class="form-check-input" value="1" onchange="setShipping()"/>
+                                            <label class="form-check-label" for="radioExample_2b">{{translate('With Shipping Charge')}}</label>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="dropdown dropup">
+                                <div class="btn-group dropup dropdown-icon-wrapper">
                                     <button class="btn btn-outline-primary waves-effect dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                         {{translate('Discount')}}
+                                        <i data-feather='chevron-up'></i>
                                     </button>
-                                    <div class="dropdown-menu p-3 dropdown-menu-lg">
+                                    <div class="dropdown-menu p-2 dropdown-menu-lg">
                                         <div class="input-group">
                                             <input type="number" min="0" placeholder="Amount" name="discount" class="form-control" value="{{ Session::get('pos_discount', 0) }}" required onchange="setDiscount()">
-                                            <div class="input-group-append">
-                                                <span class="input-group-text">{{ translate('Flat') }}</span>
-                                            </div>
+                                            <span class="input-group-text">{{ translate('Flat') }}</span>
                                         </div>
                                     </div>
                                 </div>

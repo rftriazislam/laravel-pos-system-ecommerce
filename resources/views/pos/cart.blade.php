@@ -28,9 +28,9 @@
                         @endphp
                         <tr>
                             <td>
-                                <span class="media">
+                                <span class="media d-flex">
                                     <div class="media-left">
-                                        <img class="mr-3" height="60" src="{{ uploaded_asset(\App\Product::find($cartItem['id'])->thumbnail_img) }}" >
+                                        <img class="me-2" height="60" src="{{ uploaded_asset(\App\Product::find($cartItem['id'])->thumbnail_img) }}" >
                                     </div>
                                     <div class="media-body">
                                         {{ \App\Product::find($cartItem['id'])->name }} ({{ $cartItem['variant'] }})
