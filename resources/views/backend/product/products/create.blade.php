@@ -116,7 +116,8 @@
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                     </div>
                                     
-                                    <input type="file" name="photos" class="selected-files"><div class="form-control file-amount">{{ translate('Choose File') }}</div>
+                                    <div class="form-control file-amount">{{ translate('Choose File') }}</div>
+                                    <input type="hidden" name="photos" class="selected-files">
                                 </div>
                                 <div class="file-preview box sm">
                                 </div>
@@ -131,7 +132,8 @@
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                     </div>
                                    
-                                    <input type="file" name="thumbnail_img" class="selected-files"> <div class="form-control file-amount">{{ translate('Choose File') }}</div>
+                                    <div class="form-control file-amount">{{ translate('Choose File') }}</div>
+                                    <input type="hidden" name="thumbnail_img" class="selected-files">
                                 </div>
                                 <div class="file-preview box sm">
                                 </div>
@@ -324,6 +326,8 @@
                         </div>
                     </div>
                 </div>
+
+                {{-- meta tag --}}
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">{{translate('SEO Meta Tags')}}</h5>
@@ -620,7 +624,7 @@
                 </div>
 
             </div>
-            <div class="col-12">
+            <div class="col-lg-12">
                 <div class="btn-toolbar float-right mb-3" role="toolbar" aria-label="Toolbar with button groups">
                     <div class="btn-group mr-2" role="group" aria-label="First group">
                         <button type="submit" name="button" value="draft" class="btn btn-warning">{{ translate('Save As Draft') }}</button>

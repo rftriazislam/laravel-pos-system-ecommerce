@@ -1,4 +1,6 @@
 <!-- BEGIN: Vendor CSS-->
+
+
 @if($configData['direction'] === 'rtl' && isset($configData['direction']))
 <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/vendors-rtl.min.css')) }}" />
 @else
@@ -12,6 +14,8 @@
 <!-- BEGIN: Theme CSS-->
 <link rel="stylesheet" href="{{ asset('public/'.mix('css/core.css')) }}" />
 
+<!-- aiz css -->
+<link rel="stylesheet" href="{{ asset('public/assets/css/aiz-core.css') }}">
 
 @php $configData = Helper::applClasses(); @endphp
 

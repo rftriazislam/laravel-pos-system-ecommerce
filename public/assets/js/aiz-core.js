@@ -1,3 +1,4 @@
+
 //custom jquery method for toggle attr
 $.fn.toggleAttr = function (attr, attr1, attr2) {
     return this.each(function () {
@@ -9,6 +10,8 @@ $.fn.toggleAttr = function (attr, attr1, attr2) {
 (function ($) {
     // USE STRICT
     "use strict";
+   
+  
 
     AIZ.data = {
         csrf: $('meta[name="csrf-token"]').attr("content"),
@@ -44,6 +47,10 @@ $.fn.toggleAttr = function (attr, attr1, attr2) {
                 var value = $(this)
                     .closest(".file-preview-item")
                     .data("id");
+
+                    console.log($(this)
+                    .closest(".file-preview")
+                    .prev('[data-toggle="aizuploader"]').find(".selected-files").val());
                 var selected = $(this)
                     .closest(".file-preview")
                     .prev('[data-toggle="aizuploader"]')
@@ -1744,9 +1751,11 @@ $.fn.toggleAttr = function (attr, attr1, attr2) {
                 });
         },
         trimAppUrl: function(){
+            console.log(AIZ.data.appUrl);
             if(AIZ.data.appUrl.slice(-1) == '/'){
+                
                 AIZ.data.appUrl = AIZ.data.appUrl.slice(0, AIZ.data.appUrl.length -1);
-                // console.log(AIZ.data.appUrl);
+               
             }
         },
         setCookie: function(cname, cvalue, exdays) {
