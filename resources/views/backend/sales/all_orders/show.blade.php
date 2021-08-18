@@ -14,9 +14,9 @@
             $delivery_status = $order->delivery_status;
             $payment_status = $order->payment_status;
             @endphp
-            
+
             <!--Assign Delivery Boy-->
-            @if (\App\Addon::where('unique_identifier', 'delivery_boy')->first() != null && 
+            @if (\App\Addon::where('unique_identifier', 'delivery_boy')->first() != null &&
                 \App\Addon::where('unique_identifier', 'delivery_boy')->first()->activated)
                 <div class="col-md-3 ml-auto">
                     <label for=assign_deliver_boy"">{{translate('Assign Deliver Boy')}}</label>
@@ -34,7 +34,7 @@
                     @endif
                 </div>
             @endif
-            
+
             <div class="col-md-3 ml-auto">
                 <label for=update_payment_status"">{{translate('Payment Status')}}</label>
                 <select class="form-control aiz-selectpicker"  data-minimum-results-for-search="Infinity" id="update_payment_status">
@@ -238,7 +238,7 @@
                 AIZ.plugins.notify('success', '{{ translate('Delivery boy has been assigned') }}');
             });
         });
-        
+
         $('#update_delivery_status').on('change', function(){
             var order_id = {{ $order->id }};
             var status = $('#update_delivery_status').val();
