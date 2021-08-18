@@ -5,6 +5,13 @@
 
 @section('title', 'Pos Manager')
 
+@section('vendor-style')
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/extensions/toastr.min.css')) }}">
+@endsection
+@section('page-style')
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">
+@endsection
+
 @section('content')
 
 <section class="gry-bg py-4 profile">
@@ -318,6 +325,9 @@
     </div><!-- /.modal -->
 @endsection
 
+@section('vendor-script')
+    <script src="{{ asset('resources/'.mix('vendors/js/extensions/toastr.min.js')) }}"></script>
+@endsection
 
 @section('script')
     <script type="text/javascript">
@@ -433,7 +443,7 @@
         }
 
         function add_new_address(){
-             var customer_id = $('#customer_id').val();
+            var customer_id = $('#customer_id').val();
             $('#set_customer_id').val(customer_id);
             $('#new-address-modal').modal('show');
             $("#close-button").click();
@@ -451,14 +461,26 @@
             var shipping = $('input[name=shipping]:checked').val();
             var discount = $('input[name=discount]').val();
             var address = $('input[name=address_id]:checked').val();
+            var isRtl = $('html').attr('data-textdirection') === 'rtl'
+            var typeError = $('#type-error')
 
             $.post('{{ route('pos.order_place') }}',{_token:'{{ csrf_token() }}', user_id:user_id, name:name, email:email, address:address, country:country, city:city, postal_code:postal_code, phone:phone, shipping_address:address, payment_type:payment_type, shipping:shipping, discount:discount}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Order Completed Successfully.') }}');
+                    // AIZ.plugins.notify('success', '{{ translate('Order Completed Successfully.') }}');
+                    toastr['success']('Order Completed Successfully.', 'Success!', {
+                        closeButton: true,
+                        tapToDismiss: false,
+                        rtl: isRtl
+                    });
                     location.reload();
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    // AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    toastr['error']('Something went wrong', 'Error!', {
+                        closeButton: true,
+                        tapToDismiss: false,
+                        rtl: isRtl
+                        });
                 }
             });
         }
