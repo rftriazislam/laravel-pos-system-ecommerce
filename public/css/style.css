@@ -9,3 +9,31 @@ NOTE:
 ------
 PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+
+.absolute-top-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.aiz-megabox > input:checked ~ .aiz-megabox-elem {
+    border: 1px solid #7367f0 !important;
+}
+label.aiz-megabox {
+    position: relative;
+}
+.aiz-pos-varient-input {
+    position: absolute;
+    z-index: 9;
+    left: 6px;
+    top: 4%;
+}
+.dropdown-menu.dropdown-menu-lg {
+    width: 320px;
+    min-width: 320px;
+}
+.form-group {
+    margin-bottom: 1rem;
+}
+.c-pointer {
+    cursor: pointer !important;
+}

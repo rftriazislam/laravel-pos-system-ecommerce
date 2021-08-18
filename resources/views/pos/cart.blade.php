@@ -28,9 +28,9 @@
                         @endphp
                         <tr>
                             <td>
-                                <span class="media">
+                                <span class="media d-flex">
                                     <div class="media-left">
-                                        <img class="mr-3" height="60" src="{{ uploaded_asset(\App\Product::find($cartItem['id'])->thumbnail_img) }}" >
+                                        <img class="me-2" height="60" src="{{ uploaded_asset(\App\Product::find($cartItem['id'])->thumbnail_img) }}" >
                                     </div>
                                     <div class="media-body">
                                         {{ \App\Product::find($cartItem['id'])->name }} ({{ $cartItem['variant'] }})
@@ -45,7 +45,9 @@
                             <td>{{ single_price($cartItem['price']) }}</td>
                             <td>{{ single_price($cartItem['price']*$cartItem['quantity']) }}</td>
                             <td class="text-right">
-                                <button type="button" class="btn btn-circle btn-icon btn-sm btn-danger" onclick="removeFromCart({{ $key }})"><i class="las la-trash-alt"></i></button>
+                                <button type="button" class="btn btn-circle btn-icon btn-sm btn-danger" onclick="removeFromCart({{ $key }})">
+                                    <i data-feather='trash'></i>
+                                </button>
                             </td>
                         </tr>
                     @empty
@@ -83,3 +85,6 @@
         </tbody>
     </table>
 </div>
+<script>
+        feather.replace()
+</script>
