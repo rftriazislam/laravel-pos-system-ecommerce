@@ -200,46 +200,47 @@
         </div>
         <div class="row">
             <div class="col-12">
-              <div class="ag-grid-btns d-flex justify-content-between flex-wrap mb-1">
-                <div class="dropdown sort-dropdown mb-1 mb-sm-0">
-                  <button
-                    class="btn filter-btn dropdown-toggle border text-dark"
-                    type="button"
-                    id="dropdownMenuButton6"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    1 - 20 of 500
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton6">
-                    <a class="dropdown-item" href="javascript:void(0);">20</a>
-                    <a class="dropdown-item" href="javascript:void(0);">50</a>
-                    <a class="dropdown-item" href="javascript:void(0);">100</a>
-                    <a class="dropdown-item" href="javascript:void(0);">150</a>
-                  </div>
-                </div>
-                <input
-                type="text"
-                class="col-2 ag-grid-filter form-control w-50 mr-1 mb-1 mb-sm-0" value="{{ $date }}" name="date" placeholder="{{ translate('Filter by date') }}" data-format="DD-MM-Y" data-separator=" to " data-advanced-range="true" autocomplete="off"/>
+                <form class="" id="sort_orders" action="" method="GET">
+                    <div class="card-header row gutters-5">
+                      <div class="col text-center text-md-left">
+                        <h5 class="mb-md-0 h6">{{ translate('Inhouse Orders') }}</h5>
+                      </div>
+                      <div class="col-lg-2">
+                          <div class="form-group mb-0">
+                              <input type="text" class="aiz-date-range form-control" value="{{ $date }}" name="date" placeholder="{{ translate('Filter by date') }}" data-format="DD-MM-Y" data-separator=" to " data-advanced-range="true" autocomplete="off">
+                          </div>
+                      </div>
+                        <div class="col-lg-2 ml-auto">
+                          <select class="form-control aiz-selectpicker" name="payment_type" id="payment_type" onchange="sort_orders()">
+                              <option value="">{{translate('Filter by Payment Status')}}</option>
+                              <option value="paid"  @isset($payment_status) @if($payment_status == 'paid') selected @endif @endisset>{{translate('Paid')}}</option>
+                              <option value="unpaid"  @isset($payment_status) @if($payment_status == 'unpaid') selected @endif @endisset>{{translate('Un-Paid')}}</option>
+                          </select>
+                        </div>
 
-
-
-                <div class="ag-btns d-flex flex-wrap">
-                  <input
-                    type="text"
-                    class="col-2 ag-grid-filter form-control w-50 mr-1 mb-1 mb-sm-0"
-                    id="search" name="search" @isset($sort_search) value="{{ $sort_search }}" @endisset placeholder="{{ translate('Type Order code & hit Enter') }}"/>
-
-                  <div class="btn-export col-2" >
-                    <button class="btn btn-primary ag-grid-export-btn">{{ translate('Filter') }}</button>
-
-                  </div>
-                </div>
-              </div>
+                        <div class="col-lg-2 ml-auto">
+                          <select class="form-control aiz-selectpicker" name="delivery_status" id="delivery_status" onchange="sort_orders()">
+                              <option value="">{{translate('Filter by Deliver Status')}}</option>
+                              <option value="pending" @isset($delivery_status) @if($delivery_status == 'pending') selected @endif @endisset>{{translate('Pending')}}</option>
+                              <option value="confirmed"   @isset($delivery_status) @if($delivery_status == 'confirmed') selected @endif @endisset>{{translate('Confirmed')}}</option>
+                              <option value="on_delivery"   @isset($delivery_status) @if($delivery_status == 'on_delivery') selected @endif @endisset>{{translate('On delivery')}}</option>
+                              <option value="delivered"   @isset($delivery_status) @if($delivery_status == 'delivered') selected @endif @endisset>{{translate('Delivered')}}</option>
+                          </select>
+                        </div>
+                        <div class="col-lg-2">
+                          <div class="form-group mb-0">
+                            <input type="text" class="form-control" id="search" name="search"@isset($sort_search) value="{{ $sort_search }}" @endisset placeholder="{{ translate('Type Order code & hit Enter') }}">
+                          </div>
+                        </div>
+                        <div class="col-auto">
+                          <div class="form-group mb-0">
+                            <button type="submit" class="btn btn-primary">{{ translate('Filter') }}</button>
+                          </div>
+                        </div>
+                    </div>
+                  </from>
             </div>
           </div>
-
         <div class="table-responsive">
           <table class="table table-bordered">
             <thead>
