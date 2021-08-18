@@ -1,4 +1,5 @@
 @extends('layouts/contentLayoutMaster')
+{{-- @extends('backend.layouts.app') --}}
 
 @section('title', 'Colors')
 
