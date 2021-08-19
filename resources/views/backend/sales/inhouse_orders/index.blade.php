@@ -14,7 +14,7 @@
             <div class="col-12">
                 <form class="" id="sort_orders" action="" method="GET">
                     <div class="card-header row gutters-5">
-                      <div class="col text-center text-md-left">
+                      <div class="col  text-md-left">
                         <h5 class="mb-md-0 h6">{{ translate('Inhouse Orders') }}</h5>
                       </div>
                       <div class="col-lg-2">
@@ -23,7 +23,7 @@
                           </div>
                       </div>
                         <div class="col-lg-2 ml-auto">
-                          <select class="form-control aiz-selectpicker" name="payment_type" id="payment_type" onchange="sort_orders()">
+                          <select class="form-control " name="payment_type" id="payment_type" onchange="sort_orders()">
                               <option value="">{{translate('Filter by Payment Status')}}</option>
                               <option value="paid"  @isset($payment_status) @if($payment_status == 'paid') selected @endif @endisset>{{translate('Paid')}}</option>
                               <option value="unpaid"  @isset($payment_status) @if($payment_status == 'unpaid') selected @endif @endisset>{{translate('Un-Paid')}}</option>
@@ -31,7 +31,7 @@
                         </div>
 
                         <div class="col-lg-2 ml-auto">
-                          <select class="form-control aiz-selectpicker" name="delivery_status" id="delivery_status" onchange="sort_orders()">
+                          <select class="form-control " name="delivery_status" id="delivery_status" onchange="sort_orders()">
                               <option value="">{{translate('Filter by Deliver Status')}}</option>
                               <option value="pending" @isset($delivery_status) @if($delivery_status == 'pending') selected @endif @endisset>{{translate('Pending')}}</option>
                               <option value="confirmed"   @isset($delivery_status) @if($delivery_status == 'confirmed') selected @endif @endisset>{{translate('Confirmed')}}</option>
@@ -108,9 +108,9 @@
                         </td>
                         <td>
                             @if ($order->payment_status == 'paid')
-                              <span class="btn btn-inline btn-success">{{translate('Paid')}}</span>
+                              <span class="badge badge-pill  badge-light-success">{{translate('Paid')}}</span>
                             @else
-                              <span class="btn btn-inline btn-danger">{{translate('Unpaid')}}</span>
+                              <span class="badge badge-pill  badge-light-danger">{{translate('Unpaid')}}</span>
                             @endif
                         </td>
                         @if ($refund_request_addon != null && $refund_request_addon->activated == 1)
