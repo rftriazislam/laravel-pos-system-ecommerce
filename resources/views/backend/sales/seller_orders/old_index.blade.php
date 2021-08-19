@@ -1,4 +1,4 @@
-@extends('layouts/contentLayoutMaster')
+@extends('backend.layouts.app')
 
 @section('content')
 @php
@@ -8,19 +8,17 @@
 <div class="card">
     <form class="" action="" method="GET">
         <div class="card-header row gutters-5">
-            <div class="col  text-md-left">
+            <div class="col text-center text-md-left">
                 <h5 class="mb-md-0 h6">{{ translate('Seller Orders') }}</h5>
             </div>
-
             <div class="col-lg-2">
                 <div class="form-group mb-0">
                     <input type="text" class="aiz-date-range form-control" value="{{ $date }}" name="date" placeholder="{{ translate('Filter by date') }}" data-format="DD-MM-Y" data-separator=" to " data-advanced-range="true" autocomplete="off">
                 </div>
             </div>
-
             <div class="col-lg-2">
                 <div class="form-group mb-0">
-                    <select class="form-control   mb-2 mb-md-0" id="seller_id" name="seller_id">
+                    <select class="form-control form-control-sm aiz-selectpicker mb-2 mb-md-0" id="seller_id" name="seller_id">
                         <option value="">{{ translate('All Sellers') }}</option>
                         @foreach (App\Seller::all() as $key => $seller)
                             @if ($seller->user != null && $seller->user->shop != null)
@@ -45,8 +43,8 @@
         </div>
     </form>
 
-    <div class="table-responsive">
-        <table class="table table-bordered">
+    <div class="card-body">
+        <table class="table aiz-table mb-0">
             <thead>
                 <tr>
                     <th data-breakpoints="lg">#</th>
@@ -106,9 +104,9 @@
                             </td>
                             <td>
                                 @if ($order->payment_status == 'paid')
-                                  <span class="badge badge-pill  badge-light-success">{{translate('Paid')}}</span>
+                                  <span class="badge badge-inline badge-success">{{translate('Paid')}}</span>
                                 @else
-                                  <span class="badge badge-pill  badge-light-danger">{{translate('Unpaid')}}</span>
+                                  <span class="badge badge-inline badge-danger">{{translate('Unpaid')}}</span>
                                 @endif
                             </td>
                             @if ($refund_request_addon != null && $refund_request_addon->activated == 1)
@@ -122,14 +120,14 @@
                             @endif
 
                             <td class="text-right">
-                                <a class="btn btn-soft-primary btn-icon rounded-circle btn-outline-secondary btn-sm" href="{{route('seller_orders.show', encrypt($order->id))}}" title="{{ translate('View') }}">
-                                    <i data-feather='eye'></i>
+                                <a class="btn btn-soft-primary btn-icon btn-circle btn-sm" href="{{route('seller_orders.show', encrypt($order->id))}}" title="{{ translate('View') }}">
+                                    <i class="las la-eye"></i>
                                 </a>
-                                <a class="btn btn-soft-primary btn-icon rounded-circle btn-outline-secondary btn-sm" href="{{ route('invoice.download', $order->id) }}" title="{{ translate('Download Invoice') }}">
-                                    <i data-feather='download'></i>
+                                <a class="btn btn-soft-primary btn-icon btn-circle btn-sm" href="{{ route('invoice.download', $order->id) }}" title="{{ translate('Download Invoice') }}">
+                                    <i class="las la-download"></i>
                                 </a>
-                                <a href="#" class="btn btn-icon rounded-circle btn-outline-danger btn-sm confirm-delete" data-href="{{route('orders.destroy', $order->id)}}" title="{{ translate('Delete') }}">
-                                    <i data-feather='trash-2'></i>
+                                <a href="#" class="btn btn-soft-danger btn-icon btn-circle btn-sm confirm-delete" data-href="{{route('orders.destroy', $order->id)}}" title="{{ translate('Delete') }}">
+                                    <i class="las la-trash"></i>
                                 </a>
                             </td>
                         </tr>
@@ -149,7 +147,7 @@
     @include('modals.delete_modal')
 @endsection
 
-@section('script')
+     @section('vendor-script')
     <script type="text/javascript">
         function sort_orders(el){
             $('#sort_orders').submit();

@@ -18,50 +18,60 @@
                     <div class="col-12">
                         <form class="" id="sort_orders" action="" method="GET">
                             <div class="card-header row gutters-5">
-                                <div class="col text-center text-md-left">
+                                <div class="col  text-md-left">
                                     <h5 class="mb-md-0 h6">{{ translate('All Orders') }}</h5>
                                 </div>
 
 
+
                                 <div class="col-lg-2 ml-auto">
-                                    <div class="dropdown mb-2 mb-md-0">
-                                        <button class="btn border dropdown-toggle" type="button" data-toggle="dropdown">
-                                            {{translate('Bulk Action')}}
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-outline-dark dropdown-toggle"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            {{ translate('Bulk Action') }}
                                         </button>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#" onclick="bulk_delete()"> {{translate('Delete selection')}}</a>
-                        <!--                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModal">
-                                                <i class="las la-sync-alt"></i>
-                                                {{translate('Change Order Status')}}
-                                            </a>-->
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="javascript:void(0);" href="#"
+                                                onclick="bulk_delete()"> {{ translate('Delete selection') }}</a>
                                         </div>
                                     </div>
+                                </div>
 
-                                  </div>
-
-
-                                  {{-- <div class="btn-group">
-                                    <button
-                                      type="button"
-                                      class="btn btn-outline-primary dropdown-toggle"
-                                      data-toggle="dropdown"
-                                      aria-haspopup="true"
-                                      aria-expanded="false"
-                                    >
-                                      Primary
-                                    </button>
-                                    <div class="dropdown-menu">
-                                      <a class="dropdown-item" href="javascript:void(0);">Option 1</a>
-                                      <a class="dropdown-item" href="javascript:void(0);">Option 2</a>
-                                      <a class="dropdown-item" href="javascript:void(0);">Option 3</a>
-                                      <div class="dropdown-divider"></div>
-                                      <a class="dropdown-item" href="javascript:void(0);">Separated link</a>
+                                <!-- Change Status Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">
+                                                    {{ translate('Choose an order status') }}
+                                                </h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <select class="form-control " onchange="change_status()"
+                                                    data-minimum-results-for-search="Infinity" id="update_delivery_status">
+                                                    <option value="pending">{{ translate('Pending') }}</option>
+                                                    <option value="confirmed">{{ translate('Confirmed') }}</option>
+                                                    <option value="picked_up">{{ translate('Picked Up') }}</option>
+                                                    <option value="on_the_way">{{ translate('On The Way') }}</option>
+                                                    <option value="delivered">{{ translate('Delivered') }}</option>
+                                                    <option value="cancelled">{{ translate('Cancel') }}</option>
+                                                </select>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                  </div> --}}
-
+                                </div>
                                 <div class="col-lg-2 ml-auto">
-                                    <select class="form-control aiz-selectpicker" name="delivery_status"
-                                        id="delivery_status" onchange="sort_orders()">
+                                    <select class="form-control " name="delivery_status" id="basicSelect"
+                                        onchange="sort_orders()">
                                         <option value="pending" @if ($delivery_status == 'pending') selected @endif>{{ translate('Pending') }}</option>
                                         <option value="confirmed" @if ($delivery_status == 'confirmed') selected @endif>{{ translate('Confirmed') }}</option>
                                         <option value="picked_up" @if ($delivery_status == 'picked_up') selected @endif>{{ translate('Picked Up') }}</option>
@@ -70,12 +80,13 @@
                                         <option value="cancelled" @if ($delivery_status == 'cancelled') selected @endif>{{ translate('Cancel') }}</option>
                                     </select>
                                 </div>
+
+
                                 <div class="col-lg-2">
                                     <div class="form-group mb-0">
-                                        <input type="text" class="aiz-date-range form-control" value="{{ $date }}"
-                                            name="date" placeholder="{{ translate('Filter by date') }}"
-                                            data-format="DD-MM-Y" data-separator=" to " data-advanced-range="true"
-                                            autocomplete="off">
+                                        <input type="text" class=" aiz-date-range form-control" value="{{ $date }}" name="date"
+                                            placeholder="{{ translate('Filter by date') }}" data-format="DD-MM-Y"
+                                            data-separator=" to " data-advanced-range="true" autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="col-lg-2">
@@ -125,8 +136,8 @@
                             @foreach ($orders as $key => $order)
                                 <tr>
                                     <!--                    <td>
-                            {{ $key + 1 + ($orders->currentPage() - 1) * $orders->perPage() }}
-                        </td>-->
+                                {{ $key + 1 + ($orders->currentPage() - 1) * $orders->perPage() }}
+                            </td>-->
                                     <td>
                                         <div class="form-group">
                                             <div class="aiz-checkbox-inline">
@@ -166,9 +177,11 @@
                                     </td>
                                     <td>
                                         @if ($order->payment_status == 'paid')
-                                            <span class="btn badge-inline btn-success">{{ translate('Paid') }}</span>
+                                            <span
+                                                class="badge badge-pill  badge-light-success">{{ translate('Paid') }}</span>
                                         @else
-                                            <span class="btn badge-inline btn-danger">{{ translate('Unpaid') }}</span>
+                                            <span
+                                                class="badge badge-pill  badge-light-danger">{{ translate('Unpaid') }}</span>
                                         @endif
                                     </td>
                                     @if ($refund_request_addon != null && $refund_request_addon->activated == 1)
@@ -181,20 +194,21 @@
                                         </td>
                                     @endif
                                     <td class="text-right">
-                                        <a class="avatar-content"
+                                        <a class="btn btn-soft-primary btn-icon rounded-circle btn-outline-secondary btn-sm"
                                             href="{{ route('all_orders.show', encrypt($order->id)) }}"
                                             title="{{ translate('View') }}">
                                             <i data-feather='eye'></i>
                                         </a>
-                                        <a class="btn btn-soft-primary btn-icon btn-circle btn-sm"
+                                        <a class="btn btn-soft-primary btn-icon rounded-circle btn-outline-secondary btn-sm"
                                             href="{{ route('invoice.download', $order->id) }}"
                                             title="{{ translate('Download Invoice') }}">
                                             <i data-feather='download'></i>
                                         </a>
-                                        <a href="#" class="btn btn-soft-danger btn-icon btn-circle btn-sm confirm-delete"
+                                        <a href="#"
+                                            class="btn btn-icon rounded-circle btn-outline-danger btn-sm confirm-delete"
                                             data-href="{{ route('orders.destroy', $order->id) }}"
                                             title="{{ translate('Delete') }}">
-                                            <i data-feather='delete'></i>
+                                            <i data-feather='trash-2'></i>
                                         </a>
                                     </td>
                                 </tr>
@@ -255,7 +269,7 @@
         function bulk_delete() {
 
 
-          console.log('ss');
+            console.log('ss');
             var data = new FormData($('#sort_orders')[0]);
             $.ajax({
                 headers: {
@@ -276,6 +290,9 @@
         }
     </script>
 @endsection
-@section('vendor-script')
-<script src="{{asset('js/scripts/components/components-dropdowns.js')}}"></script>
+@section('script')
+    <script src="{{ asset('public/js/scripts/components/components-dropdowns.js') }}"></script>
+    <script src="{{ asset('public/assets/js/aiz-core.js') }}"></script>
+
+
 @endsection
