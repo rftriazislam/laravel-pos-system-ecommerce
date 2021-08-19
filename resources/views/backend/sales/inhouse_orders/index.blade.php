@@ -1,5 +1,5 @@
 @extends('layouts/contentLayoutMaster')
-@section('title', 'All Orders')
+
 @section('content')
 @php
     $refund_request_addon = \App\Addon::where('unique_identifier', 'refund_request')->first();
@@ -9,11 +9,7 @@
 <div class="row" >
     <div class="col-12">
       <div class="card">
-        <div class="card-header">
-          <h4 class="card-title">{{ translate('Inhouse Orders') }}</h4>
 
-
-        </div>
         <div class="row">
             <div class="col-12">
                 <form class="" id="sort_orders" action="" method="GET">
@@ -128,14 +124,14 @@
                         @endif
 
                         <td class="text-right">
-                            <a class="btn btn-soft-primary btn-icon btn-circle btn-sm" href="{{route('inhouse_orders.show', encrypt($order->id))}}" title="{{ translate('View') }}">
-                                <i class="las la-eye"></i>
+                            <a class="btn btn-soft-primary btn-icon rounded-circle btn-outline-secondary btn-sm" href="{{route('inhouse_orders.show', encrypt($order->id))}}" title="{{ translate('View') }}">
+                                <i data-feather='eye'></i>
                             </a>
-                            <a class="btn btn-soft-primary btn-icon btn-circle btn-sm" href="{{ route('invoice.download', $order->id) }}" title="{{ translate('Download Invoice') }}">
-                                <i class="las la-download"></i>
+                            <a class="btn btn-soft-primary btn-icon rounded-circle btn-outline-secondary btn-sm" href="{{ route('invoice.download', $order->id) }}" title="{{ translate('Download Invoice') }}">
+                                <i data-feather='download'></i>
                             </a>
-                            <a href="#" class="btn btn-soft-danger btn-icon btn-circle btn-sm confirm-delete" data-href="{{route('orders.destroy', $order->id)}}" title="{{ translate('Delete') }}">
-                                <i class="las la-trash"></i>
+                            <a href="#" class="btn btn-icon rounded-circle btn-outline-danger btn-sm confirm-delete" data-href="{{route('orders.destroy', $order->id)}}" title="{{ translate('Delete') }}">
+                                <i data-feather='trash-2'></i>
                             </a>
                         </td>
                     </tr>
@@ -170,5 +166,15 @@
         function sort_orders(el){
             $('#sort_orders').submit();
         }
+
+
+            $(".confirm-delete").click(function (e) {
+                e.preventDefault();
+                var url = $(this).data("href");
+                $("#delete-modal").modal("show");
+                $("#delete-link").attr("href", url);
+            });
+
+
     </script>
 @endsection
