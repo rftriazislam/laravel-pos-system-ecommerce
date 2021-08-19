@@ -31,7 +31,7 @@
     @endforeach
     <input type="hidden" id="customer_id" value="{{$user_id}}" >
     <div class="" onclick="add_new_address()">
-        <div class="border p-3 rounded mb-3 bord-all pad-all c-pointer text-center bg-white">
+        <div class="border p-2 rounded mb-3 bord-all pad-all c-pointer text-center bg-white">
             <i class="fa fa-plus fa-2x"></i>
             <div class="alpha-7">{{ translate('Add New Address') }}</div>
         </div>

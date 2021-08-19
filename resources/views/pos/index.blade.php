@@ -5,6 +5,13 @@
 
 @section('title', 'Pos Manager')
 
+@section('vendor-style')
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/extensions/toastr.min.css')) }}">
+@endsection
+@section('page-style')
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">
+@endsection
+
 @section('content')
 
 <section class="gry-bg py-4 profile">
@@ -20,7 +27,7 @@
                             </div>
                             <div class="row gutters-5">
                                 <div class="col-md-6">
-                                    <select name="poscategory" class="form-control form-control-sm aiz-selectpicker" data-live-search="true" onchange="filterProducts()">
+                                    <select name="poscategory" class="form-control select2 aiz-selectpicker" data-live-search="true" onchange="filterProducts()">
                                         <option value="">All Categories</option>
                                         @foreach (\App\Category::all() as $key => $category)
                                             <option value="category-{{ $category->id }}">{{ $category->getTranslation('name') }}</option>
@@ -28,7 +35,7 @@
                                     </select>
                                 </div>
                                 <div class="col-md-6">
-                                    <select name="brand"  class="form-control form-control-sm aiz-selectpicker" data-live-search="true" onchange="filterProducts()">
+                                    <select name="brand"  class="form-control select2 aiz-selectpicker" data-live-search="true" onchange="filterProducts()">
                                         <option value="">All Brands</option>
                                         @foreach (\App\Brand::all() as $key => $brand)
                                             <option value="{{ $brand->id }}">{{ $brand->getTranslation('name') }}</option>
@@ -54,7 +61,7 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="flex-grow-1">
-                                    <select name="user_id" class="form-control form-control-sm aiz-selectpicker pos-customer" data-live-search="true" onchange="getShippingAddress()">
+                                    <select name="user_id" class="select2 form-control aiz-selectpicker pos-customer" data-live-search="true" onchange="getShippingAddress()">
                                         <option value="">{{translate('Walk In Customer')}}</option>
                                         @foreach (\App\Customer::all() as $key => $customer)
                                             @if ($customer->user)
@@ -63,8 +70,8 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <button type="button" class="btn btn-icon btn-soft-dark ml-3" data-target="#new-customer" data-toggle="modal">
-									<i class="las la-truck"></i>
+                                <button type="button" class="btn btn-icon btn-icon btn-outline-primary waves-effect ms-2" data-bs-target="#new-customer" data-bs-toggle="modal" data-bs-target="#select2InModal" >
+									<i data-feather='truck'></i>
 								</button>
                             </div>
                         </div>
@@ -100,9 +107,9 @@
                                                 @endphp
                                                 <tr>
                                                     <td>
-                                                        <span class="media">
+                                                        <span class="media d-flex">
                                                             <div class="media-left">
-                                                                <img class="mr-3" height="60" src="{{ uploaded_asset(\App\Product::find($cartItem['id'])->thumbnail_img) }}" >
+                                                                <img class="me-2" height="60" src="{{ uploaded_asset(\App\Product::find($cartItem['id'])->thumbnail_img) }}" >
                                                             </div>
                                                             <div class="media-body">
                                                                 {{ \App\Product::find($cartItem['id'])->name }} ({{ $cartItem['variant'] }})
@@ -118,7 +125,7 @@
                                                     <td>{{ single_price($cartItem['price']*$cartItem['quantity']) }}</td>
                                                     <td class="text-right">
                                                         <button type="button" class="btn btn-circle btn-icon btn-sm btn-danger" onclick="removeFromCart({{ $key }})">
-                                                            <i class="las la-trash-alt"></i>
+                                                            <i data-feather='trash'></i>
                                                         </button>
                                                     </td>
                                                 </tr>
@@ -161,38 +168,38 @@
                     <div class="pos-footer mar-btm">
                         <div class="d-flex justify-content-between">
                             <div class="d-flex">
-                                <div class="dropdown mr-3 dropup">
-                                    <button class="btn btn-outline-dark btn-styled dropdown-toggle" type="button" data-toggle="dropdown">
+                                <div class="me-2 dropup dropdown-icon-wrapper">
+                                    <button class="btn btn-outline-primary waves-effect dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                         {{translate('Shipping')}}
+                                        <i data-feather='chevron-up'></i>
                                     </button>
-                                    <div class="dropdown-menu p-3 dropdown-menu-lg">
-                                        <div class="radio radio-inline">
-                                            <input type="radio" name="shipping" id="radioExample_2a" value="0" checked onchange="setShipping()">
-                                            <label for="radioExample_2a">{{translate('Without Shipping Charge')}}</label>
+                                    <div class="dropdown-menu p-2 dropdown-menu-lg">
+                                        <div class="form-check form-check-primary mb-1">
+                                            <input type="radio" id="radioExample_2a" name="shipping" class="form-check-input" value="0" checked onchange="setShipping()"/>
+                                            <label class="form-check-label" for="radioExample_2a">{{translate('Without Shipping Charge')}}</label>
                                         </div>
 
-                                        <div class="radio radio-inline">
-                                            <input type="radio" name="shipping" id="radioExample_2b" value="1" onchange="setShipping()">
-                                            <label for="radioExample_2b">{{translate('With Shipping Charge')}}</label>
+                                        <div class="form-check form-check-primary">
+                                            <input type="radio" id="radioExample_2b" name="shipping" class="form-check-input" value="1" onchange="setShipping()"/>
+                                            <label class="form-check-label" for="radioExample_2b">{{translate('With Shipping Charge')}}</label>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="dropdown dropup">
-                                    <button class="btn btn-outline-dark btn-styled dropdown-toggle" type="button" data-toggle="dropdown">
+                                <div class="btn-group dropup dropdown-icon-wrapper">
+                                    <button class="btn btn-outline-primary waves-effect dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                         {{translate('Discount')}}
+                                        <i data-feather='chevron-up'></i>
                                     </button>
-                                    <div class="dropdown-menu p-3 dropdown-menu-lg">
+                                    <div class="dropdown-menu p-2 dropdown-menu-lg">
                                         <div class="input-group">
                                             <input type="number" min="0" placeholder="Amount" name="discount" class="form-control" value="{{ Session::get('pos_discount', 0) }}" required onchange="setDiscount()">
-                                            <div class="input-group-append">
-                                                <span class="input-group-text">{{ translate('Flat') }}</span>
-                                            </div>
+                                            <span class="input-group-text">{{ translate('Flat') }}</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="">
-                                <button type="button" class="btn btn-primary" data-target="#order-confirm" data-toggle="modal">{{ translate('Pay With Cash') }}</button>
+                                <button type="button" class="btn btn-primary" data-bs-target="#order-confirm" data-bs-toggle="modal">{{ translate('Pay With Cash') }}</button>
                             </div>
                         </div>
                     </div>
@@ -211,15 +218,15 @@
             <div class="modal-content">
                 <div class="modal-header bord-btm">
                     <h4 class="modal-title h6">{{translate('Shipping Address')}}</h4>
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="shipping_address">
 
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-styled btn-base-3" data-dismiss="modal" id="close-button">{{translate('Close')}}</button>
-                    <button type="button" class="btn btn-primary btn-styled btn-base-1" data-dismiss="modal">{{translate('Confirm')}}</button>
+                    <button type="button" class="btn btn-styled btn-base-3" data-bs-dismiss="modal" id="close-button">{{translate('Close')}}</button>
+                    <button type="button" class="btn btn-primary btn-styled btn-base-1" data-bs-dismiss="modal">{{translate('Confirm')}}</button>
                 </div>
             </div>
         </div>
@@ -231,7 +238,7 @@
             <div class="modal-content">
                 <div class="modal-header bord-btm">
                     <h4 class="modal-title h6">{{translate('Shipping Address')}}</h4>
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form class="form-horizontal" action="{{ route('addresses.store') }}" method="POST" enctype="multipart/form-data">
                 	@csrf
@@ -247,9 +254,9 @@
                         </div>
                         <div class="form-group">
                             <div class=" row">
-                                <label class="col-sm-2 control-label" for="email">{{translate('Country')}}</label>
+                                <label class="col-sm-2 control-label" for="country">{{translate('Country')}}</label>
                                 <div class="col-sm-10">
-                                    <select name="country" id="country" class="form-control aiz-selectpicker" required data-placeholder="{{translate('Select country')}}">
+                                    <select name="country" id="country" class="form-control select2 aiz-selectpicker" required data-placeholder="{{translate('Select country')}}">
                                         @foreach (\App\Country::where('status',1)->get() as $key => $country)
                                             <option value="{{ $country->name }}">{{ $country->name }}</option>
                                         @endforeach
@@ -283,7 +290,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-styled btn-base-3" data-dismiss="modal">{{translate('Close')}}</button>
+                        <button type="button" class="btn btn-styled btn-base-3" data-bs-dismiss="modal">{{translate('Close')}}</button>
                         <button type="submit" class="btn btn-primary btn-styled btn-base-1">{{translate('Save')}}</button>
                     </div>
                 </form>
@@ -304,13 +311,13 @@
             <div class="modal-content" id="variants">
                 <div class="modal-header bord-btm">
                     <h4 class="modal-title h6">{{translate('Order Confirmation')}}</h4>
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <p>{{translate('Are you sure to confirm this order?')}}</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-styled btn-base-3" data-dismiss="modal">{{translate('Close')}}</button>
+                    <button type="button" class="btn btn-styled btn-base-3" data-bs-dismiss="modal">{{translate('Close')}}</button>
                     <button type="button" onclick="submitOrder('cash')" class="btn btn-styled btn-base-1 btn-primary">{{translate('Comfirm Order')}}</button>
                 </div>
             </div>
@@ -318,6 +325,9 @@
     </div><!-- /.modal -->
 @endsection
 
+@section('vendor-script')
+    <script src="{{ asset('resources/'.mix('vendors/js/extensions/toastr.min.js')) }}"></script>
+@endsection
 
 @section('script')
     <script type="text/javascript">
@@ -433,7 +443,7 @@
         }
 
         function add_new_address(){
-             var customer_id = $('#customer_id').val();
+            var customer_id = $('#customer_id').val();
             $('#set_customer_id').val(customer_id);
             $('#new-address-modal').modal('show');
             $("#close-button").click();
@@ -451,14 +461,26 @@
             var shipping = $('input[name=shipping]:checked').val();
             var discount = $('input[name=discount]').val();
             var address = $('input[name=address_id]:checked').val();
+            var isRtl = $('html').attr('data-textdirection') === 'rtl'
+            var typeError = $('#type-error')
 
             $.post('{{ route('pos.order_place') }}',{_token:'{{ csrf_token() }}', user_id:user_id, name:name, email:email, address:address, country:country, city:city, postal_code:postal_code, phone:phone, shipping_address:address, payment_type:payment_type, shipping:shipping, discount:discount}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Order Completed Successfully.') }}');
+                    // AIZ.plugins.notify('success', '{{ translate('Order Completed Successfully.') }}');
+                    toastr['success']('Order Completed Successfully.', 'Success!', {
+                        closeButton: true,
+                        tapToDismiss: false,
+                        rtl: isRtl
+                    });
                     location.reload();
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    // AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    toastr['error']('Something went wrong', 'Error!', {
+                        closeButton: true,
+                        tapToDismiss: false,
+                        rtl: isRtl
+                        });
                 }
             });
         }
