@@ -5,16 +5,16 @@
 
 @section('vendor-style')
   <!-- vendor css files -->
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/charts/apexcharts.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/toastr.min.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/dataTables.bootstrap5.min.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/responsive.bootstrap4.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/charts/apexcharts.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/extensions/toastr.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/tables/datatable/dataTables.bootstrap5.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/tables/datatable/responsive.bootstrap4.min.css')) }}">
 @endsection
 @section('page-style')
   <!-- Page css files -->
-  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/charts/chart-apex.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('css/base/pages/app-invoice-list.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/plugins/charts/chart-apex.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/pages/app-invoice-list.css')) }}">
   @endsection
 
 @section('content')
@@ -26,12 +26,12 @@
       <div class="card card-congratulations">
         <div class="card-body text-center">
           <img
-            src="{{asset('images/elements/decore-left.png')}}"
+            src="{{asset('public/'.'images/elements/decore-left.png')}}"
             class="congratulations-img-left"
             alt="card-img-left"
           />
           <img
-            src="{{asset('images/elements/decore-right.png')}}"
+            src="{{asset('public/'.'images/elements/decore-right.png')}}"
             class="congratulations-img-right"
             alt="card-img-right"
           />
@@ -255,7 +255,7 @@
                 <h6>12 Invoices have been paid</h6>
                 <p>Invoices are paid to the company</p>
                 <div class="d-flex align-items-center">
-                  <img class="me-1" src="{{asset('images/icons/json.png')}}" alt="data.json" height="23" />
+                  <img class="me-1" src="{{asset('public/'.'images/icons/json.png')}}" alt="data.json" height="23" />
                   <h6 class="more-info mb-0">data.json</h6>
                 </div>
               </div>
@@ -268,7 +268,7 @@
                 <div class="d-flex align-items-center">
                   <div class="avatar me-50">
                     <img
-                      src="{{asset('images/portrait/small/avatar-s-9.jpg')}}"
+                      src="{{asset('public/'.'images/portrait/small/avatar-s-9.jpg')}}"
                       alt="Avatar"
                       width="38"
                       height="38"
@@ -295,7 +295,7 @@
                     class="avatar pull-up"
                   >
                     <img
-                      src="{{asset('images/portrait/small/avatar-s-9.jpg')}}"
+                      src="{{asset('public/'.'images/portrait/small/avatar-s-9.jpg')}}"
                       alt="Avatar"
                       width="33"
                       height="33"
@@ -309,7 +309,7 @@
                     class="avatar pull-up"
                   >
                     <img
-                      src="{{asset('images/portrait/small/avatar-s-6.jpg')}}"
+                      src="{{asset('public/'.'images/portrait/small/avatar-s-6.jpg')}}"
                       alt="Avatar"
                       width="33"
                       height="33"
@@ -323,7 +323,7 @@
                     class="avatar pull-up"
                   >
                     <img
-                      src="{{asset('images/portrait/small/avatar-s-8.jpg')}}"
+                      src="{{asset('public/'.'images/portrait/small/avatar-s-8.jpg')}}"
                       alt="Avatar"
                       width="33"
                       height="33"
@@ -337,7 +337,7 @@
                     class="avatar pull-up"
                   >
                     <img
-                      src="{{asset('images/portrait/small/avatar-s-7.jpg')}}"
+                      src="{{asset('public/'.'images/portrait/small/avatar-s-7.jpg')}}"
                       alt="Avatar"
                       width="33"
                       height="33"
@@ -351,7 +351,7 @@
                     class="avatar pull-up"
                   >
                     <img
-                      src="{{asset('images/portrait/small/avatar-s-20.jpg')}}"
+                      src="{{asset('public/'.'images/portrait/small/avatar-s-20.jpg')}}"
                       alt="Avatar"
                       width="33"
                       height="33"
@@ -426,21 +426,21 @@
           <div class="design-group pt-25">
             <h6 class="section-label">Members</h6>
             <div class="avatar">
-              <img src="{{asset('images/portrait/small/avatar-s-9.jpg')}}" width="34" height="34" alt="Avatar" />
+              <img src="{{asset('public/'.'images/portrait/small/avatar-s-9.jpg')}}" width="34" height="34" alt="Avatar" />
             </div>
             <div class="avatar bg-light-danger">
               <div class="avatar-content">PI</div>
             </div>
             <div class="avatar">
               <img
-                src="{{asset('images/portrait/small/avatar-s-14.jpg')}}"
+                src="{{asset('public/'.'images/portrait/small/avatar-s-14.jpg')}}"
                 width="34"
                 height="34"
                 alt="Avatar"
               />
             </div>
             <div class="avatar">
-              <img src="{{asset('images/portrait/small/avatar-s-7.jpg')}}" width="34" height="34" alt="Avatar" />
+              <img src="{{asset('public/'.'images/portrait/small/avatar-s-7.jpg')}}" width="34" height="34" alt="Avatar" />
             </div>
             <div class="avatar bg-light-secondary">
               <div class="avatar-content">AL</div>
@@ -498,17 +498,17 @@
 
 @section('vendor-script')
   <!-- vendor files -->
-  <script src="{{ asset(mix('vendors/js/charts/apexcharts.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/extensions/moment.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/jquery.dataTables.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/datatables.buttons.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/dataTables.bootstrap5.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/dataTables.responsive.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/responsive.bootstrap4.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/charts/apexcharts.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/extensions/toastr.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/extensions/moment.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/tables/datatable/jquery.dataTables.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/tables/datatable/datatables.buttons.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/tables/datatable/dataTables.bootstrap5.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/tables/datatable/dataTables.responsive.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/tables/datatable/responsive.bootstrap4.js')) }}"></script>
 @endsection
 @section('page-script')
   <!-- Page js files -->
-  <script src="{{ asset(mix('js/scripts/pages/dashboard-analytics.js')) }}"></script>
-  <script src="{{ asset(mix('js/scripts/pages/app-invoice-list.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('js/scripts/pages/dashboard-analytics.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('js/scripts/pages/app-invoice-list.js')) }}"></script>
 @endsection

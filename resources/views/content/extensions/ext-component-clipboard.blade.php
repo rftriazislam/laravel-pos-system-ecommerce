@@ -3,10 +3,10 @@
 @section('title', 'Clipboard')
 
 @section('vendor-style')
-<link rel="stylesheet" href="{{asset('vendors/css/extensions/toastr.min.css')}}">
+<link rel="stylesheet" href="{{asset('public/vendors/css/extensions/toastr.min.css')}}">
 @endsection
 @section('page-style')
-<link rel="stylesheet" href="{{asset('css/base/plugins/extensions/ext-component-toastr.css')}}">
+<link rel="stylesheet" href="{{asset('public/css/base/plugins/extensions/ext-component-toastr.css')}}">
 @endsection
 
 @section('content')
@@ -38,9 +38,9 @@
 @endsection
 
 @section('vendor-script')
-<script src="{{asset('vendors/js/extensions/toastr.min.js')}}"></script>
+<script src="{{asset('public/vendors/js/extensions/toastr.min.js')}}"></script>
 @endsection
 @section('page-script')
 <!-- Page js files -->
-<script src="{{ asset(mix('js/scripts/extensions/ext-component-clipboard.js')) }}"></script>
+<script src="{{ asset(mpublic/ix('js/scripts/extensions/ext-component-clipboard.js')) }}"></script>
 @endsection

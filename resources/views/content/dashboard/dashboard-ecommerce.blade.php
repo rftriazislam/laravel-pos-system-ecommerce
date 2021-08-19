@@ -5,14 +5,14 @@
 
 @section('vendor-style')
   {{-- vendor css files --}}
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/charts/apexcharts.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/toastr.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/charts/apexcharts.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/extensions/toastr.min.css')) }}">
 @endsection
 @section('page-style')
   {{-- Page css files --}}
-  <link rel="stylesheet" href="{{ asset(mix('css/base/pages/dashboard-ecommerce.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/charts/chart-apex.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/pages/dashboard-ecommerce.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/plugins/charts/chart-apex.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">
 @endsection
 
 @section('content')
@@ -29,7 +29,7 @@
             <a href="#">$48.9k</a>
           </h3>
           <button type="button" class="btn btn-primary">View Sales</button>
-          <img src="{{asset('images/illustration/badge.svg')}}" class="congratulation-medal" alt="Medal Pic" />
+          <img src="{{asset('public/'.'images/illustration/badge.svg')}}" class="congratulation-medal" alt="Medal Pic" />
         </div>
       </div>
     </div>
@@ -229,7 +229,7 @@
                     <div class="d-flex align-items-center">
                       <div class="avatar rounded">
                         <div class="avatar-content">
-                          <img src="{{asset('images/icons/toolbox.svg')}}" alt="Toolbar svg" />
+                          <img src="{{asset('public/'.'images/icons/toolbox.svg')}}" alt="Toolbar svg" />
                         </div>
                       </div>
                       <div>
@@ -267,7 +267,7 @@
                     <div class="d-flex align-items-center">
                       <div class="avatar rounded">
                         <div class="avatar-content">
-                          <img src="{{asset('images/icons/parachute.svg')}}" alt="Parachute svg" />
+                          <img src="{{asset('public/'.'images/icons/parachute.svg')}}" alt="Parachute svg" />
                         </div>
                       </div>
                       <div>
@@ -305,7 +305,7 @@
                     <div class="d-flex align-items-center">
                       <div class="avatar rounded">
                         <div class="avatar-content">
-                          <img src="{{asset('images/icons/brush.svg')}}" alt="Brush svg" />
+                          <img src="{{asset('public/'.'images/icons/brush.svg')}}" alt="Brush svg" />
                         </div>
                       </div>
                       <div>
@@ -343,7 +343,7 @@
                     <div class="d-flex align-items-center">
                       <div class="avatar rounded">
                         <div class="avatar-content">
-                          <img src="{{asset('images/icons/star.svg')}}" alt="Star svg" />
+                          <img src="{{asset('public/'.'images/icons/star.svg')}}" alt="Star svg" />
                         </div>
                       </div>
                       <div>
@@ -381,7 +381,7 @@
                     <div class="d-flex align-items-center">
                       <div class="avatar rounded">
                         <div class="avatar-content">
-                          <img src="{{asset('images/icons/book.svg')}}" alt="Book svg" />
+                          <img src="{{asset('public/'.'images/icons/book.svg')}}" alt="Book svg" />
                         </div>
                       </div>
                       <div>
@@ -419,7 +419,7 @@
                     <div class="d-flex align-items-center">
                       <div class="avatar rounded">
                         <div class="avatar-content">
-                          <img src="{{asset('images/icons/rocket.svg')}}" alt="Rocket svg" />
+                          <img src="{{asset('public/'.'images/icons/rocket.svg')}}" alt="Rocket svg" />
                         </div>
                       </div>
                       <div>
@@ -457,7 +457,7 @@
                     <div class="d-flex align-items-center">
                       <div class="avatar rounded">
                         <div class="avatar-content">
-                          <img src="{{asset('images/icons/speaker.svg')}}" alt="Speaker svg" />
+                          <img src="{{asset('public/'.'images/icons/speaker.svg')}}" alt="Speaker svg" />
                         </div>
                       </div>
                       <div>
@@ -502,7 +502,7 @@
     <div class="col-lg-4 col-md-6 col-12">
       <div class="card card-developer-meetup">
         <div class="meetup-img-wrapper rounded-top text-center">
-          <img src="{{asset('images/illustration/email.svg')}}" alt="Meeting Pic" height="170" />
+          <img src="{{asset('public/'.'images/illustration/email.svg')}}" alt="Meeting Pic" height="170" />
         </div>
         <div class="card-body">
           <div class="meetup-header d-flex align-items-center">
@@ -545,7 +545,7 @@
               title="Billy Hopkins"
               class="avatar pull-up"
             >
-              <img src="{{asset('images/portrait/small/avatar-s-9.jpg')}}" alt="Avatar" width="33" height="33" />
+              <img src="{{asset('public/'.'images/portrait/small/avatar-s-9.jpg')}}" alt="Avatar" width="33" height="33" />
             </div>
             <div
               data-bs-toggle="tooltip"
@@ -554,7 +554,7 @@
               title="Amy Carson"
               class="avatar pull-up"
             >
-              <img src="{{asset('images/portrait/small/avatar-s-6.jpg')}}" alt="Avatar" width="33" height="33" />
+              <img src="{{asset('public/'.'images/portrait/small/avatar-s-6.jpg')}}" alt="Avatar" width="33" height="33" />
             </div>
             <div
               data-bs-toggle="tooltip"
@@ -563,7 +563,7 @@
               title="Brandon Miles"
               class="avatar pull-up"
             >
-              <img src="{{asset('images/portrait/small/avatar-s-8.jpg')}}" alt="Avatar" width="33" height="33" />
+              <img src="{{asset('public/'.'images/portrait/small/avatar-s-8.jpg')}}" alt="Avatar" width="33" height="33" />
             </div>
             <div
               data-bs-toggle="tooltip"
@@ -573,7 +573,7 @@
               class="avatar pull-up"
             >
               <img
-                src="{{asset('images/portrait/small/avatar-s-20.jpg')}}"
+                src="{{asset('public/'.'images/portrait/small/avatar-s-20.jpg')}}"
                 alt="Avatar"
                 width="33"
                 height="33"
@@ -587,7 +587,7 @@
               class="avatar pull-up"
             >
               <img
-                src="{{asset('images/portrait/small/avatar-s-20.jpg')}}"
+                src="{{asset('public/'.'images/portrait/small/avatar-s-20.jpg')}}"
                 alt="Avatar"
                 width="33"
                 height="33"
@@ -621,7 +621,7 @@
           <div class="browser-states">
             <div class="d-flex">
               <img
-                src="{{asset('images/icons/google-chrome.png')}}"
+                src="{{asset('public/'.'images/icons/google-chrome.png')}}"
                 class="rounded me-1"
                 height="30"
                 alt="Google Chrome"
@@ -636,7 +636,7 @@
           <div class="browser-states">
             <div class="d-flex">
               <img
-                src="{{asset('images/icons/mozila-firefox.png')}}"
+                src="{{asset('public/'.'images/icons/mozila-firefox.png')}}"
                 class="rounded me-1"
                 height="30"
                 alt="Mozila Firefox"
@@ -651,7 +651,7 @@
           <div class="browser-states">
             <div class="d-flex">
               <img
-                src="{{asset('images/icons/apple-safari.png')}}"
+                src="{{asset('public/'.'images/icons/apple-safari.png')}}"
                 class="rounded me-1"
                 height="30"
                 alt="Apple Safari"
@@ -666,7 +666,7 @@
           <div class="browser-states">
             <div class="d-flex">
               <img
-                src="{{asset('images/icons/internet-explorer.png')}}"
+                src="{{asset('public/'.'images/icons/internet-explorer.png')}}"
                 class="rounded me-1"
                 height="30"
                 alt="Internet Explorer"
@@ -680,7 +680,7 @@
           </div>
           <div class="browser-states">
             <div class="d-flex">
-              <img src="{{asset('images/icons/opera.png')}}" class="rounded me-1" height="30" alt="Opera Mini" />
+              <img src="{{asset('public/'.'images/icons/opera.png')}}" class="rounded me-1" height="30" alt="Opera Mini" />
               <h6 class="align-self-center mb-0">Opera Mini</h6>
             </div>
             <div class="d-flex align-items-center">
@@ -813,10 +813,10 @@
 
 @section('vendor-script')
   {{-- vendor files --}}
-  <script src="{{ asset(mix('vendors/js/charts/apexcharts.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/charts/apexcharts.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/extensions/toastr.min.js')) }}"></script>
 @endsection
 @section('page-script')
   {{-- Page js files --}}
-  <script src="{{ asset(mix('js/scripts/pages/dashboard-ecommerce.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('js/scripts/pages/dashboard-ecommerce.js')) }}"></script>
 @endsection

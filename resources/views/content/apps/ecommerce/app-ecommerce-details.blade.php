@@ -4,16 +4,16 @@
 
 @section('vendor-style')
   {{-- Vendor Css files --}}
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/forms/spinner/jquery.bootstrap-touchspin.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/swiper.min.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/toastr.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/forms/spinner/jquery.bootstrap-touchspin.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/extensions/swiper.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/extensions/toastr.min.css')) }}">
 @endsection
 
 @section('page-style')
   {{-- Page Css files --}}
-  <link rel="stylesheet" href="{{ asset(mix('css/base/pages/app-ecommerce-details.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/form-number-input.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/pages/app-ecommerce-details.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/plugins/forms/form-number-input.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">
 
 @endsection
 
@@ -27,7 +27,7 @@
         <div class="col-12 col-md-5 d-flex align-items-center justify-content-center mb-2 mb-md-0">
           <div class="d-flex align-items-center justify-content-center">
             <img
-              src="{{asset('images/pages/eCommerce/1.png')}}"
+              src="{{asset('public/'.'images/pages/eCommerce/1.png')}}"
               class="img-fluid product-img"
               alt="product image"
             />
@@ -175,7 +175,7 @@
                 <small class="text-body">by Apple</small>
               </div>
               <div class="img-container w-50 mx-auto py-75">
-                <img src="{{asset('images/elements/apple-watch.png')}}" class="img-fluid" alt="image" />
+                <img src="{{asset('public/'.'images/elements/apple-watch.png')}}" class="img-fluid" alt="image" />
               </div>
               <div class="item-meta">
                 <ul class="unstyled-list list-inline mb-25">
@@ -196,7 +196,7 @@
                 <small class="text-body">by Apple</small>
               </div>
               <div class="img-container w-50 mx-auto py-50">
-                <img src="{{asset('images/elements/macbook-pro.png')}}" class="img-fluid" alt="image" />
+                <img src="{{asset('public/'.'images/elements/macbook-pro.png')}}" class="img-fluid" alt="image" />
               </div>
               <div class="item-meta">
                 <ul class="unstyled-list list-inline mb-25">
@@ -217,7 +217,7 @@
                 <small class="text-body">by Apple</small>
               </div>
               <div class="img-container w-50 mx-auto py-75">
-                <img src="{{asset('images/elements/homepod.png')}}" class="img-fluid" alt="image" />
+                <img src="{{asset('public/'.'images/elements/homepod.png')}}" class="img-fluid" alt="image" />
               </div>
               <div class="item-meta">
                 <ul class="unstyled-list list-inline mb-25">
@@ -238,7 +238,7 @@
                 <small class="text-body">by Apple</small>
               </div>
               <div class="img-container w-50 mx-auto py-75">
-                <img src="{{asset('images/elements/magic-mouse.png')}}" class="img-fluid" alt="image" />
+                <img src="{{asset('public/'.'images/elements/magic-mouse.png')}}" class="img-fluid" alt="image" />
               </div>
               <div class="item-meta">
                 <ul class="unstyled-list list-inline mb-25">
@@ -259,7 +259,7 @@
                 <small class="text-body">by Apple</small>
               </div>
               <div class="img-container w-50 mx-auto py-75">
-                <img src="{{asset('images/elements/iphone-x.png')}}" class="img-fluid" alt="image" />
+                <img src="{{asset('public/'.'images/elements/iphone-x.png')}}" class="img-fluid" alt="image" />
               </div>
               <div class="item-meta">
                 <ul class="unstyled-list list-inline mb-25">
@@ -287,13 +287,13 @@
 
 @section('vendor-script')
   {{-- Vendor js files --}}
-  <script src="{{ asset(mix('vendors/js/forms/spinner/jquery.bootstrap-touchspin.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/extensions/swiper.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/forms/spinner/jquery.bootstrap-touchspin.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/extensions/swiper.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/extensions/toastr.min.js')) }}"></script>
 @endsection
 
 @section('page-script')
   {{-- Page js files --}}
-  <script src="{{ asset(mix('js/scripts/pages/app-ecommerce-details.js')) }}"></script>
-  <script src="{{ asset(mix('js/scripts/forms/form-number-input.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('js/scripts/pages/app-ecommerce-details.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('js/scripts/forms/form-number-input.js')) }}"></script>
 @endsection
