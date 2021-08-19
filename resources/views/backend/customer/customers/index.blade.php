@@ -1,205 +1,179 @@
-@extends('backend.layouts.app')
+@extends('layouts/contentLayoutMaster')
+
+@section('title', 'Customer List')
+
+@section('vendor-style')
+	{{-- Page Css files --}}
+	<link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/tables/datatable/dataTables.bootstrap4.min.css')) }}">
+	<link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/tables/datatable/responsive.bootstrap4.min.css')) }}">
+	<link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/tables/datatable/buttons.bootstrap4.min.css')) }}">
+@endsection
+
+@section('page-style')
+	{{-- Page Css files --}}
+	<link rel="stylesheet" href="{{ asset('public/'.mix('css/base/plugins/forms/form-validation.css')) }}">
+	<link rel="stylesheet" href="{{ asset('public/'.mix('css/base/pages/app-user.css')) }}">
+@endsection
 
 @section('content')
+	<!-- users list start -->
+	<section class="app-user-list">
+		<!-- users filter start -->
+		<div class="card">
+			<h5 class="card-header">Search Filter</h5>
+			<div class="d-flex justify-content-between align-items-center mx-50 row pt-0 pb-2">
+				<div class="col-md-4 user_role">
+					<select id="UserRole" class="form-select text-capitalize mb-md-0 mb-2">
+						<option value=""> Select Role </option>
+						<option value="Admin" class="text-capitalize">Admin</option>
+						<option value="Author" class="text-capitalize">Author</option>
+						<option value="Editor" class="text-capitalize">Editor</option>
+						<option value="Maintainer" class="text-capitalize">Maintainer</option>
+						<option value="Subscriber" class="text-capitalize">Subscriber</option>
+					</select>
+				</div>
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
-    <div class="align-items-center">
-        <h1 class="h3">{{translate('All Customers')}}</h1>
-    </div>
-</div>
+				<div class="col-md-4 user_plan">
+					<select id="UserPlan" class="form-select text-capitalize mb-md-0 mb-2">
+						<option value=""> Select Plan </option>
+						<option value="Basic" class="text-capitalize">Basic</option>
+						<option value="Company" class="text-capitalize">Company</option>
+						<option value="Enterprise" class="text-capitalize">Enterprise</option>
+						<option value="Team" class="text-capitalize">Team</option>
+					</select>
+				</div>
 
+				<div class="col-md-4 user_status">
+					<select id="FilterTransaction" class="form-select text-capitalize mb-md-0 mb-2xx">
+						<option value=""> Select Status </option>
+						<option value="Pending" class="text-capitalize">Pending</option>
+						<option value="Active" class="text-capitalize">Active</option>
+						<option value="Inactive" class="text-capitalize">Inactive</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<!-- users filter end -->
 
-<div class="card">
-    <form class="" id="sort_customers" action="" method="GET">
-        <div class="card-header row gutters-5">
-            <div class="col">
-                <h5 class="mb-0 h6">{{translate('Customers')}}</h5>
-            </div>
-            
-            <div class="dropdown mb-2 mb-md-0">
-                <button class="btn border dropdown-toggle" type="button" data-toggle="dropdown">
-                    {{translate('Bulk Action')}}
-                </button>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#" onclick="bulk_delete()">{{translate('Delete selection')}}</a>
-                </div>
-            </div>
-            
-            <div class="col-md-3">
-                <div class="form-group mb-0">
-                    <input type="text" class="form-control" id="search" name="search"@isset($sort_search) value="{{ $sort_search }}" @endisset placeholder="{{ translate('Type email or name & Enter') }}">
-                </div>
-            </div>
-        </div>
-    
-        <div class="card-body">
-            <table class="table aiz-table mb-0">
-                <thead>
-                    <tr>
-                        <!--<th data-breakpoints="lg">#</th>-->
-                        <th>
-                            <div class="form-group">
-                                <div class="aiz-checkbox-inline">
-                                    <label class="aiz-checkbox">
-                                        <input type="checkbox" class="check-all">
-                                        <span class="aiz-square-check"></span>
-                                    </label>
-                                </div>
-                            </div>
-                        </th>
-                        <th>{{translate('Name')}}</th>
-                        <th data-breakpoints="lg">{{translate('Email Address')}}</th>
-                        <th data-breakpoints="lg">{{translate('Phone')}}</th>
-                        <th data-breakpoints="lg">{{translate('Package')}}</th>
-                        <th data-breakpoints="lg">{{translate('Wallet Balance')}}</th>
-                        <th>{{translate('Options')}}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($customers as $key => $customer)
-                        @if ($customer->user != null)
-                            <tr>
-                                <!--<td>{{ ($key+1) + ($customers->currentPage() - 1)*$customers->perPage() }}</td>-->
-                                <td>
-                                    <div class="form-group">
-                                        <div class="aiz-checkbox-inline">
-                                            <label class="aiz-checkbox">
-                                                <input type="checkbox" class="check-one" name="id[]" value="{{$customer->id}}">
-                                                <span class="aiz-square-check"></span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>@if($customer->user->banned == 1) <i class="fa fa-ban text-danger" aria-hidden="true"></i> @endif {{$customer->user->name}}</td>
-                                <td>{{$customer->user->email}}</td>
-                                <td>{{$customer->user->phone}}</td>
-                                <td>
-                                    @if ($customer->user->customer_package != null)
-                                    {{$customer->user->customer_package->getTranslation('name')}}
-                                    @endif
-                                </td>
-                                <td>{{single_price($customer->user->balance)}}</td>
-                                <td class="text-right">
-                                    <a href="{{route('customers.login', encrypt($customer->id))}}" class="btn btn-soft-primary btn-icon btn-circle btn-sm" title="{{ translate('Log in as this Customer') }}">
-                                        <i class="las la-edit"></i>
-                                    </a>
-                                    @if($customer->user->banned != 1)
-                                    <a href="#" class="btn btn-soft-danger btn-icon btn-circle btn-sm" onclick="confirm_ban('{{route('customers.ban', $customer->id)}}');" title="{{ translate('Ban this Customer') }}">
-                                        <i class="las la-user-slash"></i>
-                                    </a>
-                                    @else
-                                    <a href="#" class="btn btn-soft-success btn-icon btn-circle btn-sm" onclick="confirm_unban('{{route('customers.ban', $customer->id)}}');" title="{{ translate('Unban this Customer') }}">
-                                        <i class="las la-user-check"></i>
-                                    </a>
-                                    @endif
-                                    <a href="#" class="btn btn-soft-danger btn-icon btn-circle btn-sm confirm-delete" data-href="{{route('customers.destroy', $customer->id)}}" title="{{ translate('Delete') }}">
-                                        <i class="las la-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        @endif
-                    @endforeach
-                </tbody>
-            </table>
-            <div class="aiz-pagination">
-                {{ $customers->appends(request()->input())->links() }}
-            </div>
-        </div>
-    </form>
-</div>
+		<!-- list section start -->
+		<div class="card" style="padding: 21px;">
+			<div class="card-datatable table-responsive pt-0">
+				<table class="user-list-table table">
+					<thead class="thead-light">
+						<tr>
+							<th>SL</th>
+							<th>Name</th>
+							<th>Email Address</th>
+							<th>Role</th>
+							<th>Phone</th>
+							<th>Package</th>
+							<th>Wallet Balance</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
 
+					<tbody>
+						@php
+							$count = 1;
+						@endphp
+						@foreach ($customers as $customer)
+							<tr>
+								<td>{{ $count++ }}</td>
+								<td>{{ $customer->user->name }}</td>
+								<td>{{ $customer->user->email }}</td>
+								<td>{{ $customer->user->user_type }}</td>
+								<td>{{ $customer->user->phone }}</td>
+								<td>
+									@if ($customer->user->customer_package)
+										{{ $customer->user->customer_package->getTranslation('name') }}
+									@endif
+								</td>
+								<td>{{ single_price($customer->user->balance) }}</td>
+								<td class="text-center">
+									<a class="btn btn-sm btn-icon rounded-circle btn-outline-primary" href="{{ route('customers.show',encrypt($customer->id)) }}">
+										<i data-feather="eye"></i>
+									</a>
+									<a class="btn btn-sm btn-icon rounded-circle btn-outline-primary" href="{{ route('customers.edit', encrypt($customer->id)) }}">
+										<i data-feather='edit'></i>
+									</a>
+									<a class="btn btn-sm btn-icon rounded-circle btn-outline-danger" href="{{ route('customers.destroy',$customer->id) }}"><i data-feather='trash-2'></i></a>
+								</td>
+							</tr>
+						@endforeach
+					</tbody>
+				</table>
+			</div>
 
-<div class="modal fade" id="confirm-ban">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title h6">{{translate('Confirmation')}}</h5>
-                <button type="button" class="close" data-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <p>{{translate('Do you really want to ban this Customer?')}}</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal">{{translate('Cancel')}}</button>
-                <a type="button" id="confirmation" class="btn btn-primary">{{translate('Proceed!')}}</a>
-            </div>
-        </div>
-    </div>
-</div>
+			<!-- Modal to add new user starts-->
+			<div class="modal modal-slide-in new-user-modal fade" id="modals-slide-in">
+				<div class="modal-dialog">
+					<form class="add-new-user modal-content pt-0">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+						<div class="modal-header mb-1"><h5 class="modal-title" id="exampleModalLabel">New User</h5></div>
 
-<div class="modal fade" id="confirm-unban">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title h6">{{translate('Confirmation')}}</h5>
-                <button type="button" class="close" data-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <p>{{translate('Do you really want to unban this Customer?')}}</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal">{{translate('Cancel')}}</button>
-                <a type="button" id="confirmationunban" class="btn btn-primary">{{translate('Proceed!')}}</a>
-            </div>
-        </div>
-    </div>
-</div>
+						<div class="modal-body flex-grow-1">
+							<div class="form-group">
+								<label class="form-label" for="basic-icon-default-fullname">Full Name</label>
+								<input type="text" class="form-control dt-full-name" id="basic-icon-default-fullname" placeholder="John Doe" name="user-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2"/>
+							</div>
+
+							<div class="form-group">
+								<label class="form-label" for="basic-icon-default-uname">Username</label>
+								<input type="text" id="basic-icon-default-uname" class="form-control dt-uname" placeholder="Web Developer" aria-label="jdoe1" aria-describedby="basic-icon-default-uname2" name="user-name"/>
+							</div>
+
+							<div class="form-group">
+								<label class="form-label" for="basic-icon-default-email">Email</label>
+								<input type="text" id="basic-icon-default-email" class="form-control dt-email" placeholder="john.doe@example.com" aria-label="john.doe@example.com" aria-describedby="basic-icon-default-email2" name="user-email"/>
+								<small class="form-text text-muted"> You can use letters, numbers & periods </small>
+							</div>
+
+							<div class="form-group">
+								<label class="form-label" for="user-role">User Role</label>
+								<select id="user-role" class="form-control">
+									<option value="subscriber">Subscriber</option>
+									<option value="editor">Editor</option>
+									<option value="maintainer">Maintainer</option>
+									<option value="author">Author</option>
+									<option value="admin">Admin</option>
+								</select>
+							</div>
+
+							<div class="form-group mb-2">
+								<label class="form-label" for="user-plan">Select Plan</label>
+								<select id="user-plan" class="form-control">
+									<option value="basic">Basic</option>
+									<option value="enterprise">Enterprise</option>
+									<option value="company">Company</option>
+									<option value="team">Team</option>
+								</select>
+							</div>
+
+							<button type="submit" class="btn btn-primary mr-1 data-submit">Submit</button>
+							<button type="reset" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- Modal to add new user Ends-->
+		</div>
+		<!-- list section end -->
+	</section>
+	<!-- users list ends -->
 @endsection
 
-@section('modal')
-    @include('modals.delete_modal')
-@endsection
+@section('vendor-script')
+	{{-- Vendor js files --}}
+	<script src="{{ asset('public/'.mix('vendors/js/tables/datatable/jquery.dataTables.min.js')) }}"></script>
+	<script src="{{ asset('public/vendors/js/tables/datatable/datatables.bootstrap4.min.js') }}"></script>
+	<script src="{{ asset('public/'.mix('vendors/js/tables/datatable/dataTables.responsive.min.js')) }}"></script>
+	<script src="{{ asset('public/'.mix('vendors/js/tables/datatable/responsive.bootstrap4.js')) }}"></script>
+	<script src="{{ asset('public/'.mix('vendors/js/tables/datatable/datatables.buttons.min.js')) }}"></script>
+	<script src="{{ asset('public/vendors/js/tables/datatable/buttons.bootstrap4.min.js') }}"></script>
+	<script src="{{ asset('public/'.mix('vendors/js/forms/validation/jquery.validate.min.js')) }}"></script>
+	{{-- <script src="{{ asset('public/'.mix('js/scripts/pages/app-user-list.js')) }}"></script> --}}
 
-@section('script')
-    <script type="text/javascript">
-        
-        $(document).on("change", ".check-all", function() {
-            if(this.checked) {
-                // Iterate each checkbox
-                $('.check-one:checkbox').each(function() {
-                    this.checked = true;                        
-                });
-            } else {
-                $('.check-one:checkbox').each(function() {
-                    this.checked = false;                       
-                });
-            }
-          
-        });
-        
-        function sort_customers(el){
-            $('#sort_customers').submit();
-        }
-        function confirm_ban(url)
-        {
-            $('#confirm-ban').modal('show', {backdrop: 'static'});
-            document.getElementById('confirmation').setAttribute('href' , url);
-        }
-
-        function confirm_unban(url)
-        {
-            $('#confirm-unban').modal('show', {backdrop: 'static'});
-            document.getElementById('confirmationunban').setAttribute('href' , url);
-        }
-        
-        function bulk_delete() {
-            var data = new FormData($('#sort_customers')[0]);
-            $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                url: "{{route('bulk-customer-delete')}}",
-                type: 'POST',
-                data: data,
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function (response) {
-                    if(response == 1) {
-                        location.reload();
-                    }
-                }
-            });
-        }
-    </script>
+	<script type="text/javascript">
+		$('.user-list-table').DataTable();
+	</script>
 @endsection

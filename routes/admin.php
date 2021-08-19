@@ -276,4 +276,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::any('/uploaded-files/file-info', 'AizUploadController@file_info')->name('uploaded-files.info');
     Route::resource('/uploaded-files', 'AizUploadController');
     Route::get('/uploaded-files/destroy/{id}', 'AizUploadController@destroy')->name('uploaded-files.destroy');
+
+    Route::get('/clear',function () {
+        Artisan::call('cache:clear');
+        Artisan::call('config:clear');
+        Artisan::call('config:cache');
+        Artisan::call('view:clear');
+        Artisan::call('route:clear');
+
+        return 'Clear All Successfully';
+    });
 });

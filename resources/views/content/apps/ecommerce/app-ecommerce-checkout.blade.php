@@ -4,18 +4,18 @@
 
 @section('vendor-style')
   <!-- Vendor css files -->
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/forms/wizard/bs-stepper.min.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/forms/spinner/jquery.bootstrap-touchspin.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/toastr.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/forms/wizard/bs-stepper.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/forms/spinner/jquery.bootstrap-touchspin.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/extensions/toastr.min.css')) }}">
 @endsection
 
 @section('page-style')
   <!-- Page css files -->
-  <link rel="stylesheet" href="{{ asset(mix('css/base/pages/app-ecommerce.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/pickers/form-pickadate.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/form-wizard.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/form-number-input.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/pages/app-ecommerce.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/plugins/forms/pickers/form-pickadate.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/plugins/forms/form-wizard.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/plugins/forms/form-number-input.css')) }}">
 @endsection
 
 @section('content')
@@ -73,7 +73,7 @@
           <div class="card ecommerce-card">
             <div class="item-img">
               <a href="{{url('app/ecommerce/details')}}">
-                <img src="{{asset('images/pages/eCommerce/1.png')}}" alt="img-placeholder" />
+                <img src="{{asset('public/'.'images/pages/eCommerce/1.png')}}" alt="img-placeholder" />
               </a>
             </div>
             <div class="card-body">
@@ -124,7 +124,7 @@
           <div class="card ecommerce-card">
             <div class="item-img">
               <a href="{{url('app/ecommerce/details')}}">
-                <img src="{{asset('images/pages/eCommerce/2.png')}}" alt="img-placeholder" />
+                <img src="{{asset('public/'.'images/pages/eCommerce/2.png')}}" alt="img-placeholder" />
               </a>
             </div>
             <div class="card-body">
@@ -177,7 +177,7 @@
           <div class="card ecommerce-card">
             <div class="item-img">
               <a href="{{url('app/ecommerce/details')}}">
-                <img src="{{asset('images/pages/eCommerce/3.png')}}" alt="img-placeholder" />
+                <img src="{{asset('public/'.'images/pages/eCommerce/3.png')}}" alt="img-placeholder" />
               </a>
             </div>
             <div class="card-body">
@@ -225,7 +225,7 @@
           <div class="card ecommerce-card">
             <div class="item-img">
               <a href="{{url('app/ecommerce/details')}}">
-                <img src="{{asset('images/pages/eCommerce/4.png')}}" alt="img-placeholder" />
+                <img src="{{asset('public/'.'images/pages/eCommerce/4.png')}}" alt="img-placeholder" />
               </a>
             </div>
             <div class="card-body">
@@ -278,7 +278,7 @@
           <div class="card ecommerce-card">
             <div class="item-img">
               <a href="{{url('app/ecommerce/details')}}">
-                <img src="{{asset('images/pages/eCommerce/5.png')}}" alt="img-placeholder" />
+                <img src="{{asset('public/'.'images/pages/eCommerce/5.png')}}" alt="img-placeholder" />
               </a>
             </div>
             <div class="card-body">
@@ -333,7 +333,7 @@
           <div class="card ecommerce-card">
             <div class="item-img">
               <a href="{{url('app/ecommerce/details')}}">
-                <img src="{{asset('images/pages/eCommerce/6.png')}}" alt="img-placeholder" />
+                <img src="{{asset('public/'.'images/pages/eCommerce/6.png')}}" alt="img-placeholder" />
               </a>
             </div>
             <div class="card-body">
@@ -651,12 +651,12 @@
 
 @section('vendor-script')
   <!-- Vendor js files -->
-  <script src="{{ asset(mix('vendors/js/forms/wizard/bs-stepper.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/forms/spinner/jquery.bootstrap-touchspin.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/forms/wizard/bs-stepper.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/forms/spinner/jquery.bootstrap-touchspin.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/extensions/toastr.min.js')) }}"></script>
 @endsection
 
 @section('page-script')
   <!-- Page js files -->
-  <script src="{{ asset(mix('js/scripts/pages/app-ecommerce-checkout.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('js/scripts/pages/app-ecommerce-checkout.js')) }}"></script>
 @endsection

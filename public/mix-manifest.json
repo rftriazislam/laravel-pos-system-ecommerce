@@ -548,11 +548,11 @@
     "/fonts/flag-icon-css/css/flag-icon.min.css": "/fonts/flag-icon-css/css/flag-icon.min.css",
     "/fonts/font-awesome/css/font-awesome.css": "/fonts/font-awesome/css/font-awesome.css",
     "/fonts/font-awesome/css/font-awesome.min.css": "/fonts/font-awesome/css/font-awesome.min.css",
-    "/data/ajax.php": "/data/ajax.php",
-    "/data/invoice-list.json": "/data/invoice-list.json",
-    "/data/jstree-data.json": "/data/jstree-data.json",
-    "/data/kanban.json": "/data/kanban.json",
-    "/data/search.json": "/data/search.json",
-    "/data/table-datatable.json": "/data/table-datatable.json",
-    "/data/user-list.json": "/data/user-list.json"
+    "public/data/ajax.php": "public/data/ajax.php",
+    "public/data/invoice-list.json": "public/data/invoice-list.json",
+    "public/data/jstree-data.json": "public/data/jstree-data.json",
+    "public/data/kanban.json": "public/data/kanban.json",
+    "public/data/search.json": "public/data/search.json",
+    "public/data/table-datatable.json": "public/data/table-datatable.json",
+    "public/data/user-list.json": "public/data/user-list.json"
 }

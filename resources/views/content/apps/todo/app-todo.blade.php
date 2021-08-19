@@ -5,22 +5,22 @@
 
 @section('vendor-style')
   <!-- vendor css files -->
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/editors/quill/katex.min.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/editors/quill/monokai-sublime.min.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/editors/quill/quill.snow.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/forms/select/select2.min.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/pickers/flatpickr/flatpickr.min.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/dragula.min.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/toastr.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/editors/quill/katex.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/editors/quill/monokai-sublime.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/editors/quill/quill.snow.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/forms/select/select2.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/pickers/flatpickr/flatpickr.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/extensions/dragula.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/extensions/toastr.min.css')) }}">
 @endsection
 
 @section('page-style')
   <!-- Page css files -->
-  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/form-quill-editor.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/pickers/form-flat-pickr.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/form-validation.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('css/base/pages/app-todo.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/plugins/forms/form-quill-editor.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/plugins/forms/pickers/form-flat-pickr.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/plugins/forms/form-validation.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/pages/app-todo.css')) }}">
 @endsection
 
 @section('content-sidebar')
@@ -94,7 +94,7 @@
             <small class="text-nowrap text-muted me-1">Aug 08</small>
             <div class="avatar">
               <img
-                src="{{asset('images/portrait/small/avatar-s-4.jpg')}}"
+                src="{{asset('public/'.'images/portrait/small/avatar-s-4.jpg')}}"
                 alt="user-avatar"
                 height="32"
                 width="32"
@@ -147,7 +147,7 @@
             <small class="text-nowrap text-muted me-1">Aug 28</small>
             <div class="avatar">
               <img
-                src="{{asset('images/portrait/small/avatar-s-5.jpg')}}"
+                src="{{asset('public/'.'images/portrait/small/avatar-s-5.jpg')}}"
                 alt="user-avatar"
                 height="32"
                 width="32"
@@ -175,7 +175,7 @@
             <small class="text-nowrap text-muted me-1">Aug 18</small>
             <div class="avatar">
               <img
-                src="{{asset('images/portrait/small/avatar-s-8.jpg')}}"
+                src="{{asset('public/'.'images/portrait/small/avatar-s-8.jpg')}}"
                 alt="user-avatar"
                 height="32"
                 width="32"
@@ -228,7 +228,7 @@
             <small class="text-nowrap text-muted me-1">Aug 24</small>
             <div class="avatar">
               <img
-                src="{{asset('images/portrait/small/avatar-s-11.jpg')}}"
+                src="{{asset('public/'.'images/portrait/small/avatar-s-11.jpg')}}"
                 alt="user-avatar"
                 height="32"
                 width="32"
@@ -257,7 +257,7 @@
             <small class="text-nowrap text-muted me-1">Aug 27</small>
             <div class="avatar">
               <img
-                src="{{asset('images/portrait/small/avatar-s-4.jpg')}}"
+                src="{{asset('public/'.'images/portrait/small/avatar-s-4.jpg')}}"
                 alt="user-avatar"
                 height="32"
                 width="32"
@@ -306,7 +306,7 @@
             <small class="text-nowrap text-muted me-1">Sept 15</small>
             <div class="avatar">
               <img
-                src="{{asset('images/portrait/small/avatar-s-11.jpg')}}"
+                src="{{asset('public/'.'images/portrait/small/avatar-s-11.jpg')}}"
                 alt="user-avatar"
                 height="32"
                 width="32"
@@ -334,7 +334,7 @@
             <small class="text-nowrap text-muted me-1">Aug 28</small>
             <div class="avatar">
               <img
-                src="{{asset('images/portrait/small/avatar-s-7.jpg')}}"
+                src="{{asset('public/'.'images/portrait/small/avatar-s-7.jpg')}}"
                 alt="user-avatar"
                 height="32"
                 width="32"
@@ -402,7 +402,7 @@
             <small class="text-nowrap text-muted me-1">Sept 05</small>
             <div class="avatar">
               <img
-                src="{{asset('images/portrait/small/avatar-s-17.jpg')}}"
+                src="{{asset('public/'.'images/portrait/small/avatar-s-17.jpg')}}"
                 alt="user-avatar"
                 height="32"
                 width="32"
@@ -478,7 +478,7 @@
             <small class="text-nowrap text-muted me-1">Aug 10</small>
             <div class="avatar">
               <img
-                src="{{asset('images/portrait/small/avatar-s-2.jpg')}}"
+                src="{{asset('public/'.'images/portrait/small/avatar-s-2.jpg')}}"
                 alt="user-avatar"
                 height="32"
                 width="32"
@@ -525,25 +525,25 @@
               <label for="task-assigned" class="form-label d-block">Assignee</label>
               <select class="select2 form-select" id="task-assigned" name="task-assigned">
                 <option
-                  data-img="{{asset('images/portrait/small/avatar-s-3.jpg')}}"
+                  data-img="{{asset('public/'.'images/portrait/small/avatar-s-3.jpg')}}"
                   value="Phill Buffer"
                   selected
                 >
                   Phill Buffer
                 </option>
-                <option data-img="{{asset('images/portrait/small/avatar-s-1.jpg')}}" value="Chandler Bing">
+                <option data-img="{{asset('public/'.'images/portrait/small/avatar-s-1.jpg')}}" value="Chandler Bing">
                   Chandler Bing
                 </option>
-                <option data-img="{{asset('images/portrait/small/avatar-s-4.jpg')}}" value="Ross Geller">
+                <option data-img="{{asset('public/'.'images/portrait/small/avatar-s-4.jpg')}}" value="Ross Geller">
                   Ross Geller
                 </option>
-                <option data-img="{{asset('images/portrait/small/avatar-s-6.jpg')}}" value="Monica Geller">
+                <option data-img="{{asset('public/'.'images/portrait/small/avatar-s-6.jpg')}}" value="Monica Geller">
                   Monica Geller
                 </option>
-                <option data-img="{{asset('images/portrait/small/avatar-s-2.jpg')}}" value="Joey Tribbiani">
+                <option data-img="{{asset('public/'.'images/portrait/small/avatar-s-2.jpg')}}" value="Joey Tribbiani">
                   Joey Tribbiani
                 </option>
-                <option data-img="{{asset('images/portrait/small/avatar-s-11.jpg')}}" value="Rachel Green">
+                <option data-img="{{asset('public/'.'images/portrait/small/avatar-s-11.jpg')}}" value="Rachel Green">
                   Rachel Green
                 </option>
               </select>
@@ -596,17 +596,17 @@
 
 @section('vendor-script')
 <!-- vendor js files -->
-  <script src="{{ asset(mix('vendors/js/editors/quill/katex.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/editors/quill/highlight.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/editors/quill/quill.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/forms/select/select2.full.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/pickers/flatpickr/flatpickr.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/extensions/dragula.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/forms/validation/jquery.validate.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/editors/quill/katex.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/editors/quill/highlight.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/editors/quill/quill.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/forms/select/select2.full.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/pickers/flatpickr/flatpickr.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/extensions/dragula.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/forms/validation/jquery.validate.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/extensions/toastr.min.js')) }}"></script>
 @endsection
 
 @section('page-script')
   <!-- Page js files -->
-  <script src="{{ asset(mix('js/scripts/pages/app-todo.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('js/scripts/pages/app-todo.js')) }}"></script>
 @endsection

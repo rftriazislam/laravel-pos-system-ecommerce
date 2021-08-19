@@ -31,7 +31,7 @@ $(function () {
   // Users List datatable
   if (dtUserTable.length) {
     dtUserTable.DataTable({
-      ajax: assetPath + 'data/user-list.json', // JSON file to add data
+      ajax: assetPath + 'public/data/user-list.json', // JSON file to add data
       columns: [
         // columns according to JSON
         { data: 'responsive_id' },
@@ -61,7 +61,7 @@ $(function () {
             if ($image) {
               // For Avatar image
               var $output =
-                '<img src="' + assetPath + 'images/avatars/' + $image + '" alt="Avatar" height="32" width="32">';
+                '<img src="' + assetPath + 'public/images/avatars/' + $image + '" alt="Avatar" height="32" width="32">';
             } else {
               // For Avatar badge
               var stateNum = Math.floor(Math.random() * 6) + 1;

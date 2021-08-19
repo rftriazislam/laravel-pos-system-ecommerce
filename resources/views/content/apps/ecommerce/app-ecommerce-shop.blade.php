@@ -4,14 +4,14 @@
 
 @section('vendor-style')
 <!-- Vendor css files -->
-<link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/nouislider.min.css')) }}">
-<link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/toastr.min.css')) }}">
+<link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/extensions/nouislider.min.css')) }}">
+<link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/extensions/toastr.min.css')) }}">
 @endsection
 @section('page-style')
 <!-- Page css files -->
-<link rel="stylesheet" href="{{ asset(mix('css/base/plugins/extensions/ext-component-sliders.css')) }}">
-<link rel="stylesheet" href="{{ asset(mix('css/base/pages/app-ecommerce.css')) }}">
-<link rel="stylesheet" href="{{ asset(mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">
+<link rel="stylesheet" href="{{ asset('public/'.mix('css/base/plugins/extensions/ext-component-sliders.css')) }}">
+<link rel="stylesheet" href="{{ asset('public/'.mix('css/base/pages/app-ecommerce.css')) }}">
+<link rel="stylesheet" href="{{ asset('public/'.mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">
 @endsection
 
 @section('content-sidebar')
@@ -95,7 +95,7 @@
       <a href="{{url('app/ecommerce/details')}}">
         <img
           class="img-fluid card-img-top"
-          src="{{asset('images/pages/eCommerce/1.png')}}"
+          src="{{asset('public/'.'images/pages/eCommerce/1.png')}}"
           alt="img-placeholder"
       /></a>
     </div>
@@ -147,7 +147,7 @@
       <a href="{{url('app/ecommerce/details')}}">
         <img
           class="img-fluid card-img-top"
-          src="{{asset('images/pages/eCommerce/2.png')}}"
+          src="{{asset('public/'.'images/pages/eCommerce/2.png')}}"
           alt="img-placeholder"
         />
       </a>
@@ -199,7 +199,7 @@
       <a href="{{url('app/ecommerce/details')}}"
         ><img
           class="img-fluid card-img-top"
-          src="{{asset('images/pages/eCommerce/3.png')}}"
+          src="{{asset('public/'.'images/pages/eCommerce/3.png')}}"
           alt="img-placeholder"
       /></a>
     </div>
@@ -254,7 +254,7 @@
       <a href="{{url('app/ecommerce/details')}}">
         <img
           class="img-fluid card-img-top"
-          src="{{asset('images/pages/eCommerce/4.png')}}"
+          src="{{asset('public/'.'images/pages/eCommerce/4.png')}}"
           alt="img-placeholder"
       /></a>
     </div>
@@ -305,7 +305,7 @@
       <a href="{{url('app/ecommerce/details')}}">
         <img
           class="img-fluid card-img-top"
-          src="{{asset('images/pages/eCommerce/5.png')}}"
+          src="{{asset('public/'.'images/pages/eCommerce/5.png')}}"
           alt="img-placeholder"
         />
       </a>
@@ -359,7 +359,7 @@
       <a href="{{url('app/ecommerce/details')}}">
         <img
           class="img-fluid card-img-top"
-          src="{{asset('images/pages/eCommerce/6.png')}}"
+          src="{{asset('public/'.'images/pages/eCommerce/6.png')}}"
           alt="img-placeholder"
         />
       </a>
@@ -412,7 +412,7 @@
       <a href="{{url('app/ecommerce/details')}}">
         <img
           class="img-fluid card-img-top"
-          src="{{asset('images/pages/eCommerce/7.png')}}"
+          src="{{asset('public/'.'images/pages/eCommerce/7.png')}}"
           alt="img-placeholder"
         />
       </a>
@@ -466,7 +466,7 @@
       <a href="{{url('app/ecommerce/details')}}">
         <img
           class="img-fluid card-img-top"
-          src="{{asset('images/pages/eCommerce/8.png')}}"
+          src="{{asset('public/'.'images/pages/eCommerce/8.png')}}"
           alt="img-placeholder"
         />
       </a>
@@ -517,7 +517,7 @@
       <a href="{{url('app/ecommerce/details')}}">
         <img
           class="img-fluid card-img-top"
-          src="{{asset('images/pages/eCommerce/9.png')}}"
+          src="{{asset('public/'.'images/pages/eCommerce/9.png')}}"
           alt="img-placeholder"
         />
       </a>
@@ -593,11 +593,11 @@
 
 @section('vendor-script')
 <!-- Vendor js files -->
-<script src="{{ asset(mix('vendors/js/extensions/wNumb.min.js')) }}"></script>
-<script src="{{ asset(mix('vendors/js/extensions/nouislider.min.js')) }}"></script>
-<script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>
+<script src="{{ asset('public/'.mix('vendors/js/extensions/wNumb.min.js')) }}"></script>
+<script src="{{ asset('public/'.mix('vendors/js/extensions/nouislider.min.js')) }}"></script>
+<script src="{{ asset('public/'.mix('vendors/js/extensions/toastr.min.js')) }}"></script>
 @endsection
 @section('page-script')
 <!-- Page js files -->
-<script src="{{ asset(mix('js/scripts/pages/app-ecommerce.js')) }}"></script>
+<script src="{{ asset('public/'.mix('js/scripts/pages/app-ecommerce.js')) }}"></script>
 @endsection

@@ -5,20 +5,20 @@
 
 @section('vendor-style')
   <!-- vendor css files -->
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/editors/quill/katex.min.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/editors/quill/monokai-sublime.min.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/editors/quill/quill.snow.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/toastr.min.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/forms/select/select2.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/editors/quill/katex.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/editors/quill/monokai-sublime.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/editors/quill/quill.snow.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/extensions/toastr.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/forms/select/select2.min.css')) }}">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Roboto+Slab&family=Slabo+27px&family=Sofia&family=Ubuntu+Mono&display=swap" rel="stylesheet">
 @endsection
 
 @section('page-style')
   <!-- Page css files -->
-  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/form-quill-editor.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('css/base/pages/app-email.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/plugins/forms/form-quill-editor.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/pages/app-email.css')) }}">
 @endsection
 
 <!-- Sidebar Area -->
@@ -126,7 +126,7 @@
       <li class="d-flex user-mail mail-read">
         <div class="mail-left pe-50">
           <div class="avatar">
-            <img src="{{asset('images/portrait/small/avatar-s-20.jpg')}}" alt="avatar img holder" />
+            <img src="{{asset('public/'.'images/portrait/small/avatar-s-20.jpg')}}" alt="avatar img holder" />
           </div>
           <div class="user-action">
             <div class="form-check">
@@ -161,7 +161,7 @@
       <li class="d-flex user-mail">
         <div class="mail-left pe-50">
           <div class="avatar">
-            <img src="{{asset('images/portrait/small/avatar-s-17.jpg')}}" alt="Generic placeholder image" />
+            <img src="{{asset('public/'.'images/portrait/small/avatar-s-17.jpg')}}" alt="Generic placeholder image" />
           </div>
           <div class="user-action">
             <div class="form-check">
@@ -194,7 +194,7 @@
       <li class="d-flex user-mail mail-read">
         <div class="mail-left pe-50">
           <div class="avatar">
-            <img src="{{asset('images/portrait/small/avatar-s-7.jpg')}}" alt="Generic placeholder image" />
+            <img src="{{asset('public/'.'images/portrait/small/avatar-s-7.jpg')}}" alt="Generic placeholder image" />
           </div>
           <div class="user-action">
             <div class="form-check">
@@ -227,7 +227,7 @@
       <li class="d-flex user-mail mail-read">
         <div class="mail-left pe-50">
           <div class="avatar">
-            <img src="{{asset('images/portrait/small/avatar-s-5.jpg')}}" alt="Generic placeholder image" />
+            <img src="{{asset('public/'.'images/portrait/small/avatar-s-5.jpg')}}" alt="Generic placeholder image" />
           </div>
           <div class="user-action">
             <div class="form-check">
@@ -260,7 +260,7 @@
       <li class="d-flex user-mail">
         <div class="mail-left pe-50">
           <div class="avatar">
-            <img src="{{asset('images/portrait/small/avatar-s-3.jpg')}}" alt="Generic placeholder image" />
+            <img src="{{asset('public/'.'images/portrait/small/avatar-s-3.jpg')}}" alt="Generic placeholder image" />
           </div>
           <div class="user-action">
             <div class="form-check">
@@ -296,7 +296,7 @@
       <li class="d-flex user-mail">
         <div class="mail-left pe-50">
           <div class="avatar">
-            <img src="{{asset('images/portrait/small/avatar-s-8.jpg')}}" alt="Generic placeholder image" />
+            <img src="{{asset('public/'.'images/portrait/small/avatar-s-8.jpg')}}" alt="Generic placeholder image" />
           </div>
           <div class="user-action">
             <div class="form-check">
@@ -331,7 +331,7 @@
       <li class="d-flex user-mail mail-read">
         <div class="mail-left pe-50">
           <div class="avatar">
-            <img src="{{asset('images/portrait/small/avatar-s-11.jpg')}}" alt="Generic placeholder image" />
+            <img src="{{asset('public/'.'images/portrait/small/avatar-s-11.jpg')}}" alt="Generic placeholder image" />
           </div>
           <div class="user-action">
             <div class="form-check">
@@ -366,7 +366,7 @@
       <li class="d-flex user-mail mail-read">
         <div class="mail-left pe-50">
           <div class="avatar">
-            <img src="{{asset('images/portrait/small/avatar-s-10.jpg')}}" alt="Generic placeholder image" />
+            <img src="{{asset('public/'.'images/portrait/small/avatar-s-10.jpg')}}" alt="Generic placeholder image" />
           </div>
           <div class="user-action">
             <div class="form-check">
@@ -401,7 +401,7 @@
       <li class="d-flex user-mail mail-read">
         <div class="mail-left pe-50">
           <div class="avatar">
-            <img src="{{asset('images/portrait/small/avatar-s-6.jpg')}}" alt="Generic placeholder image" />
+            <img src="{{asset('public/'.'images/portrait/small/avatar-s-6.jpg')}}" alt="Generic placeholder image" />
           </div>
           <div class="user-action">
             <div class="form-check">
@@ -434,7 +434,7 @@
       <li class="d-flex user-mail">
         <div class="mail-left pe-50">
           <div class="avatar">
-            <img src="{{asset('images/portrait/small/avatar-s-9.jpg')}}" alt="Generic placeholder image" />
+            <img src="{{asset('public/'.'images/portrait/small/avatar-s-9.jpg')}}" alt="Generic placeholder image" />
           </div>
           <div class="user-action">
             <div class="form-check">
@@ -467,7 +467,7 @@
       <li class="d-flex user-mail">
         <div class="mail-left pe-50">
           <div class="avatar">
-            <img src="{{asset('images/portrait/small/avatar-s-20.jpg')}}" alt="Generic placeholder image" />
+            <img src="{{asset('public/'.'images/portrait/small/avatar-s-20.jpg')}}" alt="Generic placeholder image" />
           </div>
           <div class="user-action">
             <div class="form-check">
@@ -500,7 +500,7 @@
       <li class="d-flex user-mail mail-read">
         <div class="mail-left pe-50">
           <div class="avatar">
-            <img src="{{asset('images/portrait/small/avatar-s-17.jpg')}}" alt="Generic placeholder image" />
+            <img src="{{asset('public/'.'images/portrait/small/avatar-s-17.jpg')}}" alt="Generic placeholder image" />
           </div>
           <div class="user-action">
             <div class="form-check">
@@ -618,7 +618,7 @@
             <div class="user-details d-flex justify-content-between align-items-center flex-wrap">
               <div class="avatar me-75">
                 <img
-                  src="{{asset('images/portrait/small/avatar-s-9.jpg')}}"
+                  src="{{asset('public/'.'images/portrait/small/avatar-s-9.jpg')}}"
                   alt="avatar img holder"
                   width="48"
                   height="48"
@@ -699,7 +699,7 @@
             <div class="user-details d-flex justify-content-between align-items-center flex-wrap">
               <div class="avatar me-75">
                 <img
-                  src="{{asset('images/portrait/small/avatar-s-18.jpg')}}"
+                  src="{{asset('public/'.'images/portrait/small/avatar-s-18.jpg')}}"
                   alt="avatar img holder"
                   width="48"
                   height="48"
@@ -783,11 +783,11 @@
               </div>
               <div class="d-flex flex-column">
                 <a href="#" class="mb-50">
-                  <img src="{{asset('images/icons/doc.png')}}" class="me-25" alt="png" height="18" />
+                  <img src="{{asset('public/'.'images/icons/doc.png')}}" class="me-25" alt="png" height="18" />
                   <small class="text-muted fw-bolder">interdum.docx</small>
                 </a>
                 <a href="#">
-                  <img src="{{asset('images/icons/jpg.png')}}" class="me-25" alt="png" height="18" />
+                  <img src="{{asset('public/'.'images/icons/jpg.png')}}" class="me-25" alt="png" height="18" />
                   <small class="text-muted fw-bolder">image.png</small>
                 </a>
               </div>
@@ -965,13 +965,13 @@
 
 @section('vendor-script')
 <!-- vendor js files -->
-  <script src="{{ asset(mix('vendors/js/editors/quill/katex.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/editors/quill/highlight.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/editors/quill/quill.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/forms/select/select2.full.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/editors/quill/katex.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/editors/quill/highlight.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/editors/quill/quill.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/extensions/toastr.min.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('vendors/js/forms/select/select2.full.min.js')) }}"></script>
 @endsection
 @section('page-script')
   <!-- Page js files -->
-  <script src="{{ asset(mix('js/scripts/pages/app-email.js')) }}"></script>
+  <script src="{{ asset('public/'.mix('js/scripts/pages/app-email.js')) }}"></script>
 @endsection

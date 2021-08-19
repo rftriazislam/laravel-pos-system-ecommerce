@@ -3,12 +3,12 @@
 @section('title', 'Feather Icons')
 
 @section('vendor-style')
-<link rel="stylesheet" href="{{asset('vendors/css/extensions/toastr.min.css')}}">
+<link rel="stylesheet" href="{{asset('public/vendors/css/extensions/toastr.min.css')}}">
 @endsection
 
 @section('page-style')
-<link rel="stylesheet" href="{{asset('css/base/plugins/extensions/ext-component-toastr.css')}}">
-<link rel="stylesheet" href="{{asset('css/base/pages/ui-feather.css')}}">
+<link rel="stylesheet" href="{{asset('public/css/base/plugins/extensions/ext-component-toastr.css')}}">
+<link rel="stylesheet" href="{{asset('public/css/base/pages/ui-feather.css')}}">
 @endsection
 
 @section('content')
@@ -30,8 +30,8 @@
 @endsection
 
 @section('vendor-script')
-<script src="{{asset('vendors/js/extensions/toastr.min.js')}}"></script>
+<script src="{{asset('public/vendors/js/extensions/toastr.min.js')}}"></script>
 @endsection
 @section('page-script')
-<script src="{{asset('js/scripts/ui/ui-feather.js')}}"></script>
+<script src="{{asset('public/js/scripts/ui/ui-feather.js')}}"></script>
 @endsection
