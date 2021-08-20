@@ -1,13 +1,12 @@
-@extends('layouts/contentLayoutMaster')
-
+@extends('backend.layouts.app')
 
 @section('content')
 
 <div class="card">
-    <div class="card-header border-bottom p-1">
-        <h4 class="">{{ translate('Order Details') }}</h4>
+    <div class="card-header">
+        <h1 class="h2 fs-16 mb-0">{{ translate('Order Details') }}</h1>
     </div>
-    <div class="card-body mt-1">
+    <div class="card-body">
         <div class="row gutters-5">
             <div class="col text-center text-md-left">
             </div>
@@ -20,7 +19,7 @@
             @if (\App\Addon::where('unique_identifier', 'delivery_boy')->first() != null &&
                 \App\Addon::where('unique_identifier', 'delivery_boy')->first()->activated)
                 <div class="col-md-3 ml-auto">
-                    <label for="assign_deliver_boy">{{translate('Assign Deliver Boy')}}</label>
+                    <label for=assign_deliver_boy"">{{translate('Assign Deliver Boy')}}</label>
                     @if($delivery_status == 'pending' || $delivery_status == 'picked_up')
                     <select class="form-control aiz-selectpicker" data-live-search="true" data-minimum-results-for-search="Infinity" id="assign_deliver_boy">
                         <option value="">{{translate('Select Delivery Boy')}}</option>
@@ -37,16 +36,16 @@
             @endif
 
             <div class="col-md-3 ml-auto">
-                <label class="mb-50" for="update_payment_status">{{translate('Payment Status')}}</label>
-                <select class="form-control "  data-minimum-results-for-search="Infinity" id="update_payment_status">
+                <label for=update_payment_status"">{{translate('Payment Status')}}</label>
+                <select class="form-control aiz-selectpicker"  data-minimum-results-for-search="Infinity" id="update_payment_status">
                     <option value="paid" @if ($payment_status == 'paid') selected @endif>{{translate('Paid')}}</option>
                     <option value="unpaid" @if ($payment_status == 'unpaid') selected @endif>{{translate('Unpaid')}}</option>
                 </select>
             </div>
             <div class="col-md-3 ml-auto">
-                <label class="mb-50" for="update_delivery_status">{{translate('Delivery Status')}}</label>
+                <label for=update_delivery_status"">{{translate('Delivery Status')}}</label>
                 @if($delivery_status != 'delivered' && $delivery_status != 'cancelled')
-                    <select class="form-control "  data-minimum-results-for-search="Infinity" id="update_delivery_status">
+                    <select class="form-control aiz-selectpicker"  data-minimum-results-for-search="Infinity" id="update_delivery_status">
                         <option value="pending" @if ($delivery_status == 'pending') selected @endif>{{translate('Pending')}}</option>
                         <option value="confirmed" @if ($delivery_status == 'confirmed') selected @endif>{{translate('Confirmed')}}</option>
                         <option value="picked_up" @if ($delivery_status == 'picked_up') selected @endif>{{translate('Picked Up')}}</option>
@@ -60,8 +59,8 @@
                 @endif
             </div>
         </div>
-        <div class="row gutters-5 ">
-            <div class="col  text-md-left">
+        <div class="row gutters-5">
+            <div class="col text-center text-md-left">
                 <address>
                     <strong class="text-main">{{ json_decode($order->shipping_address)->name }}</strong><br>
                     {{ json_decode($order->shipping_address)->email }}<br>
@@ -172,7 +171,7 @@
                 </table>
             </div>
         </div>
-        <div class="clearfix float-end">
+        <div class="clearfix float-right">
             <table class="table">
                 <tbody>
                     <tr>
@@ -217,8 +216,8 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="text-end no-print">
-                <a href="{{ route('invoice.download', $order->id) }}" type="button" class="btn btn-icon btn-light"><i data-feather='printer'></i></a>
+            <div class="text-right no-print">
+                <a href="{{ route('invoice.download', $order->id) }}" type="button" class="btn btn-icon btn-light"><i class="las la-print"></i></a>
             </div>
         </div>
 
