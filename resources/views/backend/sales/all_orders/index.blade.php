@@ -25,11 +25,11 @@
 
 
                                 <div class="col-lg-2 ml-auto">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-outline-dark dropdown-toggle"
+                                    <div class="">
+                                        <a  class=" form-control dropdown-toggle"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             {{ translate('Bulk Action') }}
-                                        </button>
+                                        </a>
                                         <div class="dropdown-menu">
                                             <a class="dropdown-item" href="javascript:void(0);" href="#"
                                                 onclick="bulk_delete()"> {{ translate('Delete selection') }}</a>
