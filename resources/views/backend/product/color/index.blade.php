@@ -9,11 +9,11 @@
 
 @section('content') --}}
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+{{-- <div class="aiz-titlebar text-left mt-2 mb-3">
     <div class="align-items-center">
         <h1 class="h3">{{translate('All Colors')}}</h1>
     </div>
-</div>
+</div> --}}
 
 <div class="row">
     <div class="col-md-7">
@@ -36,11 +36,11 @@
                             <td>{{$key+1}}</td>
                             <td>{{$color->name}}</td>
                             <td class="text-right">
-                                <a class="btn btn-primary btn-icon btn-circle btn-sm" href="{{route('colors.edit', ['id'=>$color->id, 'lang'=>env('DEFAULT_LANGUAGE')] )}}" title="{{ translate('Edit') }}">
-                                    <i class="las la-edit"></i>
+                                <a class="btn btn-primary btn-icon btn-circle" href="{{route('colors.edit', ['id'=>$color->id, 'lang'=>env('DEFAULT_LANGUAGE')] )}}" title="{{ translate('Edit') }}">
+                                    <i data-feather='edit'></i>
                                 </a>
-                                <a href="#" class="btn btn-danger btn-icon btn-circle btn-sm confirm-delete" data-href="{{route('colors.destroy', $color->id)}}" title="{{ translate('Delete') }}">
-                                    <i class="las la-trash"></i>
+                                <a href="#" class="btn btn-danger btn-icon btn-circle confirm-delete" data-href="{{route('colors.destroy', $color->id)}}" title="{{ translate('Delete') }}">
+                                    <i data-feather='trash'></i>
                                 </a>
                             </td>
                         </tr>
