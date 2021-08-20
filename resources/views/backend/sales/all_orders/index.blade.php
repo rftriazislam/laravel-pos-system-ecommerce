@@ -292,7 +292,5 @@
 @endsection
 @section('script')
     <script src="{{ asset('public/js/scripts/components/components-dropdowns.js') }}"></script>
-    <script src="{{ asset('public/assets/js/aiz-core.js') }}"></script>
-
 
 @endsection
