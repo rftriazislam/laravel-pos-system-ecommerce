@@ -46,8 +46,9 @@
 </script>
 <!-- Aiz js -->
 <script src="{{ asset('public/assets/js/vendors.js') }}" ></script>
-
 <script src="{{ asset('public/assets/js/aiz-core.js') }}" ></script>
+
+
 
 @if($configData['blankPage'] === false)
 <script src="{{ asset('public/'.mix('js/scripts/customizer.js')) }}"></script>
