@@ -946,6 +946,7 @@ $.fn.toggleAttr = function (attr, attr1, attr2) {
         dateRange: function () {
             $(".aiz-date-range").each(function () {
                 var $this = $(this);
+                console.log($this);
                 var today = moment().startOf("day");
                 var value = $this.val();
                 var startDate = false;
@@ -1011,10 +1012,7 @@ $.fn.toggleAttr = function (attr, attr1, attr2) {
                     });
                 } else {
                     $this.on("apply.daterangepicker", function (ev, picker) {
-                        $this.val(
-                            picker.startDate.format(format) +
-                                separator +
-                                picker.endDate.format(format)
+                        $this.val(picker.startDate.format(format) + separator + picker.endDate.format(format)
                         );
                     });
                 }
@@ -1751,7 +1749,7 @@ $.fn.toggleAttr = function (attr, attr1, attr2) {
                 });
         },
         trimAppUrl: function(){
-            console.log(AIZ.data.appUrl);
+            // console.log(AIZ.data.appUrl);
             if(AIZ.data.appUrl.slice(-1) == '/'){
                 
                 AIZ.data.appUrl = AIZ.data.appUrl.slice(0, AIZ.data.appUrl.length -1);

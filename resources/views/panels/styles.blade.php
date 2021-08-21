@@ -14,6 +14,7 @@
 
 <!-- BEGIN: Theme CSS-->
 <link rel="stylesheet" href="{{ asset('public/'.mix('css/core.css')) }}" />
+<link rel="stylesheet" href="{{ static_asset('assets/css/aiz-core.css') }}">
 @php $configData = Helper::applClasses(); @endphp
 
 <!-- BEGIN: Page CSS-->
