@@ -1,10 +1,9 @@
-@extends('backend.layouts.app')
+{{-- @extends('backend.layouts.app') --}}
+@extends('layouts/contentLayoutMaster')
 
+@section('title', 'Attribute Value Update')
 @section('content')
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
-    <h5 class="mb-0 h6">{{translate('Attribute Value Information')}}</h5>
-</div>
 
 <div class="col-lg-8 mx-auto">
     <div class="card">
@@ -30,7 +29,7 @@
                       <input type="text" placeholder="{{ translate('Color Code')}}" id="code" name="code" class="form-control" required value="{{ $attribute_value->code }}">
                   </div>
               </div> --}}
-              <div class="form-group mb-0 text-right">
+              <div class="form-group mb-0 d-flex justify-content-end">
                   <button type="submit" class="btn btn-primary">{{translate('Save')}}</button>
               </div>
             </form>

@@ -1,12 +1,10 @@
-@extends('backend.layouts.app')
+{{-- @extends('backend.layouts.app') --}}
+@extends('layouts/contentLayoutMaster')
 
+@section('title', 'Attributes')
 @section('content')
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
-	<div class="align-items-center">
-		<h1 class="h3">{{translate('All Attributes')}}</h1>
-	</div>
-</div>
+
 
 <div class="row">
 	<div class="col-md-7">
@@ -19,7 +17,7 @@
 					<thead>
 						<tr>
 							<th>#</th>
-							<th>{{ translate('Name')}}</th>
+							<th width="60%;">{{ translate('Name')}}</th>
 							<th class="text-right">{{ translate('Options')}}</th>
 						</tr>
 					</thead>
@@ -29,14 +27,14 @@
 								<td>{{$key+1}}</td>
 								<td>{{$attribute->getTranslation('name')}}</td>
 								<td class="text-right">
-									<a class="btn btn-soft-info btn-icon btn-circle btn-sm" href="{{route('attributes.show', $attribute->id)}}" title="{{ translate('Attribute values') }}">
-										<i class="las la-cog"></i>
+									<a class="btn btn-info btn-icon btn-circle" href="{{route('attributes.show', $attribute->id)}}" title="{{ translate('Attribute values') }}">
+										<i data-feather='settings'></i>
 									</a>
-									<a class="btn btn-soft-primary btn-icon btn-circle btn-sm" href="{{route('attributes.edit', ['id'=>$attribute->id, 'lang'=>env('DEFAULT_LANGUAGE')] )}}" title="{{ translate('Edit') }}">
-										<i class="las la-edit"></i>
+									<a class="btn btn-primary btn-icon btn-circle" href="{{route('attributes.edit', ['id'=>$attribute->id, 'lang'=>env('DEFAULT_LANGUAGE')] )}}" title="{{ translate('Edit') }}">
+										<i data-feather='edit'></i>
 									</a>
-									<a href="#" class="btn btn-soft-danger btn-icon btn-circle btn-sm confirm-delete" data-href="{{route('attributes.destroy', $attribute->id)}}" title="{{ translate('Delete') }}">
-										<i class="las la-trash"></i>
+									<a href="#" class="btn btn-danger btn-icon btn-circle confirm-delete" data-href="{{route('attributes.destroy', $attribute->id)}}" title="{{ translate('Delete') }}">
+										<i data-feather='trash'></i>
 									</a>
 								</td>
 							</tr>
@@ -58,7 +56,7 @@
 						<label for="name">{{translate('Name')}}</label>
 						<input type="text" placeholder="{{ translate('Name')}}" id="name" name="name" class="form-control" required>
 					</div>
-					<div class="form-group mb-3 text-right">
+					<div class="form-group mb-3 d-flex justify-content-end">
 						<button type="submit" class="btn btn-primary">{{translate('Save')}}</button>
 					</div>
 				</form>

@@ -1,17 +1,12 @@
-@extends('backend.layouts.app')
+{{-- @extends('backend.layouts.app') --}}
+@extends('layouts/contentLayoutMaster')
 
+@section('title', 'Categories')
 @section('content')
-<div class="aiz-titlebar text-left mt-2 mb-3">
-    <div class="row align-items-center">
-        <div class="col-md-6">
-            <h1 class="h3">{{translate('All categories')}}</h1>
-        </div>
-        <div class="col-md-6 text-md-right">
-            <a href="{{ route('categories.create') }}" class="btn btn-primary">
-                <span>{{translate('Add New category')}}</span>
-            </a>
-        </div>
-    </div>
+<div class="d-flex justify-content-end pb-2">
+    <a href="{{ route('categories.create') }}" class="btn btn-primary">
+        <span>{{translate('Add New category')}}</span>
+    </a>
 </div>
 <div class="card">
     <div class="card-header d-block d-md-flex">
@@ -37,7 +32,7 @@
                     <th data-breakpoints="lg">{{translate('Icon')}}</th>
                     <th data-breakpoints="lg">{{translate('Featured')}}</th>
                     <th data-breakpoints="lg">{{translate('Commission')}}</th>
-                    <th width="10%" class="text-right">{{translate('Options')}}</th>
+                    <th width="15%" class="text-right">{{translate('Options')}}</th>
                 </tr>
             </thead>
             <tbody>
@@ -74,18 +69,18 @@
                             @endif
                         </td>
                         <td>
-                            <label class="aiz-switch aiz-switch-success mb-0">
-                                <input type="checkbox" onchange="update_featured(this)" value="{{ $category->id }}" <?php if($category->featured == 1) echo "checked";?>>
+                            <label class="form-check form-check-success form-switch mb-0">
+                                <input type="checkbox"  class="form-check-input" onchange="update_featured(this)"  value="{{ $category->id }}" <?php if($category->featured == 1) echo "checked";?>>
                                 <span></span>
                             </label>
                         </td>
                         <td>{{ $category->commision_rate }} %</td>
                         <td class="text-right">
-                            <a class="btn btn-soft-primary btn-icon btn-circle btn-sm" href="{{route('categories.edit', ['id'=>$category->id, 'lang'=>env('DEFAULT_LANGUAGE')] )}}" title="{{ translate('Edit') }}">
-                                <i class="las la-edit"></i>
+                            <a class="btn btn-primary btn-icon btn-circle" href="{{route('categories.edit', ['id'=>$category->id, 'lang'=>env('DEFAULT_LANGUAGE')] )}}" title="{{ translate('Edit') }}">
+                                <i data-feather='edit'></i>
                             </a>
-                            <a href="#" class="btn btn-soft-danger btn-icon btn-circle btn-sm confirm-delete" data-href="{{route('categories.destroy', $category->id)}}" title="{{ translate('Delete') }}">
-                                <i class="las la-trash"></i>
+                            <a href="#" class="btn btn-danger btn-icon btn-circle confirm-delete" data-href="{{route('categories.destroy', $category->id)}}" title="{{ translate('Delete') }}">
+                                <i data-feather='trash'></i>
                             </a>
                         </td>
                     </tr>

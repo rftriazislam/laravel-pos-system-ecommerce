@@ -1,6 +1,6 @@
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'Colors')
+@section('title', 'Colors Update')
 
 @section('content')
 

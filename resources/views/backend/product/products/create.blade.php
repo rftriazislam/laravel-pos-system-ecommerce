@@ -7,9 +7,9 @@
 
 
 @section('content')
-<div class="aiz-titlebar text-left mt-2 mb-3">
+{{-- <div class="aiz-titlebar text-left mt-2 mb-3">
     <h5 class="mb-0 h6">{{translate('Add New Product')}}</h5>
-</div>
+</div> --}}
 <div class="">
     <form class="form form-horizontal mar-top" action="{{route('products.store')}}" method="POST" enctype="multipart/form-data" id="choice_form">
         <div class="row gutters-5">
@@ -365,7 +365,7 @@
             </div>
 
             <div class="col-lg-4">
-
+                {{-- Shipping Configuration --}}
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">
@@ -424,6 +424,7 @@
                     </div>
                 </div>
 
+                {{-- Low Stock Quantity Warning --}}
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">{{translate('Low Stock Quantity Warning')}}</h5>
@@ -438,6 +439,8 @@
                     </div>
                 </div>
 
+                {{-- Stock Visibility State --}}
+                
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">
@@ -479,7 +482,7 @@
 
                     </div>
                 </div>
-
+                {{-- Cash On Delivery --}}
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">{{translate('Cash On Delivery')}}</h5>
@@ -505,7 +508,7 @@
                         @endif
                     </div>
                 </div>
-
+                {{-- Featured --}}
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">{{translate('Featured')}}</h5>
@@ -522,7 +525,7 @@
                         </div>
                     </div>
                 </div>
-
+                {{-- Todays Deal --}}
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">{{translate('Todays Deal')}}</h5>
@@ -539,7 +542,7 @@
                         </div>
                     </div>
                 </div>
-
+                {{-- Flash Deal --}}
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">{{translate('Flash Deal')}}</h5>
@@ -577,7 +580,7 @@
                         </div>
                     </div>
                 </div>
-
+                {{-- Estimate Shipping Time --}}
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">{{translate('Estimate Shipping Time')}}</h5>
@@ -596,7 +599,7 @@
                         </div>
                     </div>
                 </div>
-
+                {{-- VAT & Tax --}}
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">{{translate('VAT & Tax')}}</h5>
@@ -624,8 +627,11 @@
                 </div>
 
             </div>
-            <div class="col-lg-12">
-                <div class="btn-toolbar float-right mb-3" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="col-lg-8">
+
+               
+
+                <div class="demo-inline-spacing btn-toolbar d-flex justify-content-end mb-3" role="toolbar" aria-label="Toolbar with button groups">
                     <div class="btn-group mr-2" role="group" aria-label="First group">
                         <button type="submit" name="button" value="draft" class="btn btn-warning">{{ translate('Save As Draft') }}</button>
                     </div>

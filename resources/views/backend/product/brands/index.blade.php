@@ -1,12 +1,9 @@
-@extends('backend.layouts.app')
+{{-- @extends('backend.layouts.app') --}}
+@extends('layouts/contentLayoutMaster')
 
+@section('title', 'Brands')
 @section('content')
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
-	<div class="align-items-center">
-			<h1 class="h3">{{translate('All Brands')}}</h1>
-	</div>
-</div>
 
 <div class="row">
 	<div class="col-md-7">
@@ -42,11 +39,11 @@
 		                            <img src="{{ uploaded_asset($brand->logo) }}" alt="{{translate('Brand')}}" class="h-50px">
 		                        </td>
 		                        <td class="text-right">
-		                            <a class="btn btn-soft-primary btn-icon btn-circle btn-sm" href="{{route('brands.edit', ['id'=>$brand->id, 'lang'=>env('DEFAULT_LANGUAGE')] )}}" title="{{ translate('Edit') }}">
-		                                <i class="las la-edit"></i>
+		                            <a class="btn btn-primary btn-icon btn-circle" href="{{route('brands.edit', ['id'=>$brand->id, 'lang'=>env('DEFAULT_LANGUAGE')] )}}" title="{{ translate('Edit') }}">
+										<i data-feather='edit'></i>
 		                            </a>
-		                            <a href="#" class="btn btn-soft-danger btn-icon btn-circle btn-sm confirm-delete" data-href="{{route('brands.destroy', $brand->id)}}" title="{{ translate('Delete') }}">
-		                                <i class="las la-trash"></i>
+		                            <a href="#" class="btn btn-danger btn-icon btn-circle confirm-delete" data-href="{{route('brands.destroy', $brand->id)}}" title="{{ translate('Delete') }}">
+										<i data-feather='trash'></i>
 		                            </a>
 		                        </td>
 		                    </tr>
@@ -67,11 +64,11 @@
 			<div class="card-body">
 				<form action="{{ route('brands.store') }}" method="POST">
 					@csrf
-					<div class="form-group mb-3">
+					<div class="form-group p-1">
 						<label for="name">{{translate('Name')}}</label>
 						<input type="text" placeholder="{{translate('Name')}}" name="name" class="form-control" required>
 					</div>
-					<div class="form-group mb-3">
+					<div class="form-group p-1">
 						<label for="name">{{translate('Logo')}} <small>({{ translate('120x80') }})</small></label>
 						<div class="input-group" data-toggle="aizuploader" data-type="image">
 							<div class="input-group-prepend">
@@ -83,15 +80,15 @@
 						<div class="file-preview box sm">
 						</div>
 					</div>
-					<div class="form-group mb-3">
+					<div class="form-group p-1">
 						<label for="name">{{translate('Meta Title')}}</label>
 						<input type="text" class="form-control" name="meta_title" placeholder="{{translate('Meta Title')}}">
 					</div>
-					<div class="form-group mb-3">
+					<div class="form-group p-1">
 						<label for="name">{{translate('Meta Description')}}</label>
 						<textarea name="meta_description" rows="5" class="form-control"></textarea>
 					</div>
-					<div class="form-group mb-3 text-right">
+					<div class="form-group p-1 d-flex justify-content-end">
 						<button type="submit" class="btn btn-primary">{{translate('Save')}}</button>
 					</div>
 				</form>

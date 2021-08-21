@@ -1,15 +1,15 @@
-@extends('layouts/contentLayoutMaster')
+@extends('backend.layouts.app')
 
 @section('content')
 
     <div class="card">
-        <div class="card-header border-bottom p-1">
-            <h4 class=" fs-16 mb-0">{{ translate('Order Details') }}</h4>
+        <div class="card-header">
+            <h1 class="h2 fs-16 mb-0">{{ translate('Order Details') }}</h1>
         </div>
 
-    	<div class="card-body mt-1">
+    	<div class="card-body">
             <div class="row gutters-5">
-                <div class="col  text-md-left">
+                <div class="col text-center text-md-left">
                     <address>
                         <strong class="text-main">{{ json_decode($order->shipping_address)->name }}</strong><br>
                          {{ json_decode($order->shipping_address)->email }}<br>
@@ -39,9 +39,9 @@
                                 @endphp
                             <td class="text-right">
                                 @if($status == 'delivered')
-                                    <span class="badge badge-pill  badge-light-success">{{ translate(ucfirst(str_replace('_', ' ', $status))) }}</span>
+                                    <span class="badge badge-inline badge-success">{{ translate(ucfirst(str_replace('_', ' ', $status))) }}</span>
                                 @else
-                                    <span class="badge badge-pill  badge-light-info">{{ translate(ucfirst(str_replace('_', ' ', $status))) }}</span>
+                                    <span class="badge badge-inline badge-info">{{ translate(ucfirst(str_replace('_', ' ', $status))) }}</span>
                                 @endif
                             </td>
                         </tr>
@@ -128,7 +128,7 @@
         				</tbody>
     				</table>
     		</div>
-    		<div class="clearfix float-end">
+    		<div class="clearfix float-right">
     			<table class="table">
           			<tbody>
             			<tr>
@@ -161,8 +161,8 @@
             			</tr>
           			</tbody>
     			</table>
-                <div class="text-end no-print">
-                    <a href="{{ route('invoice.download', $order->id) }}" type="button" class="btn btn-icon btn-light"><i data-feather='printer'></i></a>
+                <div class="text-right no-print">
+                    <a href="{{ route('invoice.download', $order->id) }}" type="button" class="btn btn-icon btn-light"><i class="las la-print"></i></a>
                 </div>
     		</div>
     	</div>

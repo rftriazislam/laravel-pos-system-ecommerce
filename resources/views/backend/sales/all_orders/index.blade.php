@@ -21,7 +21,7 @@
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             {{ translate('Bulk Action') }}
-                                        </button>
+                                        </a>
                                         <div class="dropdown-menu">
                                             <a class="dropdown-item" href="javascript:void(0);" href="#" onclick="bulk_delete()">
                                                 {{ translate('Delete selection') }}
@@ -255,10 +255,5 @@
                 }
             });
         }
-        $('.aiz-date-range').daterangepicker();
     </script>
-@endsection
-
-@section('vendor-script')
-    <script src="{{ asset('public/js/scripts/components/components-dropdowns.js') }}"></script>
 @endsection

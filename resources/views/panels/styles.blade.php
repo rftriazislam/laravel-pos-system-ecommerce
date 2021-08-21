@@ -6,6 +6,7 @@
 @else
 	<link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/vendors.min.css')) }}" />
 @endif
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
 <!-- vendor css files select 2 -->
 <link rel="stylesheet" href="{{ asset('resources/'.mix('vendors/css/forms/select/select2.min.css')) }}" />
@@ -14,7 +15,6 @@
 
 <!-- BEGIN: Theme CSS-->
 <link rel="stylesheet" href="{{ asset('public/'.mix('css/core.css')) }}" />
-<link rel="stylesheet" href="{{ static_asset('assets/css/aiz-core.css') }}">
 @php $configData = Helper::applClasses(); @endphp
 
 <!-- BEGIN: Page CSS-->
