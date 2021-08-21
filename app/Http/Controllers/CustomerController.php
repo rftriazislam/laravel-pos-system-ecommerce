@@ -75,11 +75,12 @@ class CustomerController extends Controller
 
     
     public function show($id) {
-        //
+        return redirect()->route('customers.index');        
     }
 
     
     public function edit($id) {
+        return redirect()->route('customers.index');
         $customer_id = decrypt($id);
         $user_info = Customer::select('customers.id as customer_id','users.*')
             ->leftJoin('users','users.id','customers.user_id')
@@ -95,6 +96,7 @@ class CustomerController extends Controller
 
     
     public function destroy($id) {
+        return redirect()->route('customers.index');
         Order::where('user_id', Customer::findOrFail($id)->user->id)->delete();
         User::destroy(Customer::findOrFail($id)->user->id);
         if(Customer::destroy($id)){

@@ -3,11 +3,8 @@
 <!-- BEGIN Vendor JS-->
 <!-- BEGIN: Page Vendor JS-->
 <script src="{{asset('public/'.mix('vendors/js/ui/jquery.sticky.js'))}}"></script>
- <!-- vendor files select 2  -->
- <script src="{{ asset('resources/'.mix('vendors/js/forms/select/select2.full.min.js')) }}"></script>
-
-
-
+<!-- vendor files select 2  -->
+<script src="{{ asset('resources/'.mix('vendors/js/forms/select/select2.full.min.js')) }}"></script>
 
 @yield('vendor-script')
 <!-- END: Page Vendor JS-->
@@ -49,9 +46,8 @@
 <script src="{{ asset('public/assets/js/aiz-core.js') }}" ></script>
 
 
-
 @if($configData['blankPage'] === false)
-<script src="{{ asset('public/'.mix('js/scripts/customizer.js')) }}"></script>
+    <script src="{{ asset('public/'.mix('js/scripts/customizer.js')) }}"></script>
 @endif
 <!-- END: Theme JS-->
 <!-- BEGIN: Page JS-->
