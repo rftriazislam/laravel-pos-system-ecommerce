@@ -1,11 +1,11 @@
-@extends('layouts/contentLayoutMaster')
+@extends('backend.layouts.app')
 
 @section('content')
 
 <div class="row">
     <div class="col-lg-6 mx-auto">
         <div class="card">
-            <div class="card-header border-bottom">
+            <div class="card-header">
                 <h5 class="mb-0 h6">{{translate('Staff Information')}}</h5>
             </div>
 
@@ -40,14 +40,14 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-from-label" for="name">{{translate('Role')}}</label>
                         <div class="col-sm-9">
-                            <select name="role_id" required class="form-control ">
+                            <select name="role_id" required class="form-control aiz-selectpicker">
                                 @foreach($roles as $role)
                                     <option value="{{$role->id}}" @php if($staff->role_id == $role->id) echo "selected"; @endphp >{{$role->name}}</option>
                                 @endforeach
                             </select>
                         </div>
                     </div>
-                    <div class="form-group mb-0 text-end">
+                    <div class="form-group mb-0 text-right">
                         <button type="submit" class="btn btn-sm btn-primary">{{translate('Save')}}</button>
                     </div>
                 </div>
