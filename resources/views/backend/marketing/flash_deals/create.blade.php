@@ -1,4 +1,4 @@
-@extends('backend.layouts.app')
+@extends('layouts/contentLayoutMaster')
 
 @section('content')
 
@@ -70,7 +70,7 @@
                         {{ translate('If any product has discount or exists in another flash deal, the discount will be replaced by this discount & time limit.') }}
                     </div>
                     <br>
-                    
+
                     <div class="form-group" id="discount_table">
 
                     </div>
