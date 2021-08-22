@@ -1,4 +1,4 @@
-@extends('backend.layouts.app')
+@extends('layouts/contentLayoutMaster')
 
 @section('content')
 
@@ -77,7 +77,7 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-from-label" for="products">{{translate('Products')}}</label>
                         <div class="col-sm-9">
-                            <select name="products[]" id="products" class="form-control aiz-selectpicker" multiple required data-placeholder="{{ translate('Choose Products') }}" data-live-search="true" data-selected-text-format="count">
+                            <select name="products[]" id="products" class="form-control select2 aiz-selectpicker" multiple required data-placeholder="{{ translate('Choose Products') }}" data-live-search="true" data-selected-text-format="count">
                                 @foreach(\App\Product::all() as $product)
                                     @php
                                         $flash_deal_product = \App\FlashDealProduct::where('flash_deal_id', $flash_deal->id)->where('product_id', $product->id)->first();
@@ -111,11 +111,11 @@
 @section('script')
     <script type="text/javascript">
         $(document).ready(function(){
-
             get_flash_deal_discount();
 
             $('#products').on('change', function(){
                 get_flash_deal_discount();
+                $('#discountSelect2').select2();
             });
 
             function get_flash_deal_discount(){
@@ -124,6 +124,7 @@
                     $.post('{{ route('flash_deals.product_discount_edit') }}', {_token:'{{ csrf_token() }}', product_ids:product_ids, flash_deal_id:{{ $flash_deal->id }}}, function(data){
                         $('#discount_table').html(data);
                         AIZ.plugins.fooTable();
+                        // initializeSelect2(data.find('#discountSelect2'));
                     });
                 }
                 else{

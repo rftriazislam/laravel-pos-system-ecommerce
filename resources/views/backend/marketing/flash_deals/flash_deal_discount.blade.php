@@ -39,7 +39,7 @@
                 <input type="number" lang="en" name="discount_{{ $id }}" value="{{ $product->discount }}" min="0" step="1" class="form-control" required>
             </td>
             <td>
-                <select class="form-control aiz-selectpicker" name="discount_type_{{ $id }}">
+                <select class="form-control select2 hide-search aiz-selectpicker" name="discount_type_{{ $id }}">
                   <option value="amount">{{ translate('Flat') }}</option>
                   <option value="percent">{{ translate('Percent') }}</option>
                 </select>

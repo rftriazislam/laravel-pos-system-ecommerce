@@ -1,4 +1,12 @@
-@extends('backend.layouts.app')
+@extends('layouts/contentLayoutMaster')
+
+
+@section('vendor-style')
+  <link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/extensions/toastr.min.css')) }}">
+@endsection
+@section('page-style')
+  <link rel="stylesheet" href="{{ asset('public/'.mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">
+@endsection
 
 @section('content')
 
@@ -52,24 +60,24 @@
                         <td>{{ date('d-m-Y H:i:s', $flash_deal->start_date) }}</td>
                         <td>{{ date('d-m-Y H:i:s', $flash_deal->end_date) }}</td>
                         <td>
-							<label class="aiz-switch aiz-switch-success mb-0">
-								<input onchange="update_flash_deal_status(this)" value="{{ $flash_deal->id }}" type="checkbox" <?php if($flash_deal->status == 1) echo "checked";?> >
+							<label class="form-check form-check-success form-switch mb-0">
+								<input onchange="update_flash_deal_status(this)" value="{{ $flash_deal->id }}" type="checkbox" class="form-check-input" <?php if($flash_deal->status == 1) echo "checked";?> >
 								<span class="slider round"></span>
 							</label>
 						</td>
 						<td>
-							<label class="aiz-switch aiz-switch-success mb-0">
-								<input onchange="update_flash_deal_feature(this)" value="{{ $flash_deal->id }}" type="checkbox" <?php if($flash_deal->featured == 1) echo "checked";?> >
+							<label class="form-check form-check-success form-switch mb-0">
+								<input onchange="update_flash_deal_feature(this)" value="{{ $flash_deal->id }}" type="checkbox" class="form-check-input" <?php if($flash_deal->featured == 1) echo "checked";?> >
 								<span class="slider round"></span>
 							</label>
 						</td>
 						<td>{{ url('flash-deal/'.$flash_deal->slug) }}</td>
 						<td class="text-right">
-                            <a class="btn btn-soft-primary btn-icon btn-circle btn-sm" href="{{route('flash_deals.edit', ['id'=>$flash_deal->id, 'lang'=>env('DEFAULT_LANGUAGE')] )}}" title="{{ translate('Edit') }}">
-                                <i class="las la-edit"></i>
+                            <a class="btn btn-sm btn-icon rounded-circle btn-outline-primary waves-effect" href="{{route('flash_deals.edit', ['id'=>$flash_deal->id, 'lang'=>env('DEFAULT_LANGUAGE')] )}}" title="{{ translate('Edit') }}">
+                                <i data-feather='edit'></i>
                             </a>
-                            <a href="#" class="btn btn-soft-danger btn-icon btn-circle btn-sm confirm-delete" data-href="{{route('flash_deals.destroy', $flash_deal->id)}}" title="{{ translate('Delete') }}">
-                                <i class="las la-trash"></i>
+                            <a href="#" class="btn btn-sm btn-icon rounded-circle btn-outline-danger waves-effect confirm-delete" data-href="{{route('flash_deals.destroy', $flash_deal->id)}}" title="{{ translate('Delete') }}">
+                                <i data-feather='trash-2'></i>
                             </a>
                         </td>
                     </tr>
@@ -104,7 +112,11 @@
                     location.reload();
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    toastr['error']('Something went wrong', 'Error!', {
+                        closeButton: true,
+                        tapToDismiss: false,
+                        rtl: isRtl
+                        });
                 }
             });
         }
@@ -120,7 +132,11 @@
                     location.reload();
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    toastr['error']('Something went wrong', 'Error!', {
+                        closeButton: true,
+                        tapToDismiss: false,
+                        rtl: isRtl
+                        });
                 }
             });
         }
