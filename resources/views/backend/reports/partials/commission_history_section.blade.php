@@ -19,7 +19,7 @@
         @endif
         <div class="col-md-3">
             <div class="form-group mb-0">
-                <input type="text" class="form-control form-control-sm aiz-date-range" id="search" name="date_range"@isset($date_range) value="{{ $date_range }}" @endisset placeholder="{{ translate('Daterange') }}">
+                <input type="text" class="form-control form-control-sm aiz-date-range" id="search" name="date_range" @isset($date_range) value="{{ $date_range }}" @endisset placeholder="{{ translate('Daterange') }}">
             </div>
         </div>
         <div class="col-md-2">
@@ -49,9 +49,7 @@
                     @if(isset($history->order))
                         {{ $history->order->code }}
                     @else
-                        <span class="badge badge-inline badge-danger">
-                            translate('Order Deleted')
-                        </span>
+                        <span class="badge badge-inline badge-danger">{{ translate('Order Deleted') }}</span>
                     @endif
                 </td>
                 <td>{{ $history->admin_commission }}</td>
