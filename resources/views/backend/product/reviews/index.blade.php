@@ -31,7 +31,9 @@
         </div>
     </div>
     <div class="card-body">
-        <table class="table aiz-table mb-0">
+        <div class="card-datatable table-responsive pt-0">
+
+        <table class="table mb-0">
             <thead>
                 <tr>
                     <th data-breakpoints="lg">#</th>
@@ -66,6 +68,7 @@
         </table>
         <div class="aiz-pagination">
             {{ $reviews->appends(request()->input())->links() }}
+        </div>
         </div>
     </div>
 </div>

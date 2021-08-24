@@ -20,7 +20,9 @@
         </form>
     </div>
     <div class="card-body">
-        <table class="table aiz-table mb-0">
+        <div class="card-datatable table-responsive pt-0">
+
+        <table class="table mb-0">
             <thead>
                 <tr>
                     <th data-breakpoints="lg">#</th>
@@ -75,12 +77,12 @@
                             </label>
                         </td>
                         <td>{{ $category->commision_rate }} %</td>
-                        <td class="text-right">
-                            <a class="btn btn-primary btn-icon btn-circle" href="{{route('categories.edit', ['id'=>$category->id, 'lang'=>env('DEFAULT_LANGUAGE')] )}}" title="{{ translate('Edit') }}">
+                        <td class="text-center">
+                            <a class="btn btn-soft-primary btn-icon rounded-circle btn-outline-secondary btn-sm" href="{{route('categories.edit', ['id'=>$category->id, 'lang'=>env('DEFAULT_LANGUAGE')] )}}" title="{{ translate('Edit') }}">
                                 <i data-feather='edit'></i>
                             </a>
-                            <a href="#" class="btn btn-danger btn-icon btn-circle confirm-delete" data-href="{{route('categories.destroy', $category->id)}}" title="{{ translate('Delete') }}">
-                                <i data-feather='trash'></i>
+                            <a href="#" class="btn btn-icon rounded-circle btn-outline-danger btn-sm confirm-delete" data-href="{{route('categories.destroy', $category->id)}}" title="{{ translate('Delete') }}">
+                                <i data-feather='trash-2'></i>
                             </a>
                         </td>
                     </tr>
@@ -89,6 +91,7 @@
         </table>
         <div class="aiz-pagination">
             {{ $categories->appends(request()->input())->links() }}
+        </div>
         </div>
     </div>
 </div>
