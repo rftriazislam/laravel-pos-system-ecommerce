@@ -37,8 +37,20 @@ label.aiz-megabox {
 .c-pointer {
     cursor: pointer !important;
 }
+/* Height Classes */
+.h-50px,
+.size-50px {
+    height: 50px;
+}
+.h-60px,
+.size-60px {
+    height: 60px;
+}
 
-
+/* Table Css */
+.table > :not(caption) > * > * {
+    padding: 0.72rem 1rem;
+}
 
 /*Aiz Uploader*/
 
@@ -287,7 +299,7 @@ label.aiz-megabox {
     .aiz-file-box-wrap {
         width: 25%;
     }
-    .modal-md{
+    .modal-md {
         max-width: 600px;
     }
 }
@@ -469,7 +481,6 @@ label.aiz-megabox {
     transition: opacity 0.3s 0s, visibility 0s 0s;
 }
 
-
 /*Aiz uploader end */
 
 /*tagify tag input*/
@@ -478,12 +489,12 @@ label.aiz-megabox {
     height: auto;
     padding: 0.465rem 1rem 0.2rem;
 }
-.aiz-tag-input .tagify__input{
+.aiz-tag-input .tagify__input {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.aiz-tag-input .tagify__input:before{
+.aiz-tag-input .tagify__input:before {
     line-height: 1;
     position: static;
 }
@@ -581,16 +592,16 @@ label.aiz-megabox {
 .note-dropdown-menu .dropdown-item h6 {
     font-size: 0.875rem;
 }
-.note-modal .note-group-select-from-files{
+.note-modal .note-group-select-from-files {
     display: none !important;
 }
-@media(max-width: 575px){
-    .note-video-clip{
+@media (max-width: 575px) {
+    .note-video-clip {
         max-width: 100%;
         height: auto;
     }
 }
-.aiz-editor-data img{
+.aiz-editor-data img {
     max-width: 100% !important;
     height: auto !important;
 }

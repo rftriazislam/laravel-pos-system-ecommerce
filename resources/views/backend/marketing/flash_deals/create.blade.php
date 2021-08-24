@@ -1,4 +1,4 @@
-@extends('backend.layouts.app')
+@extends('layouts/contentLayoutMaster')
 
 @section('content')
 
@@ -26,7 +26,7 @@
                     <div class="form-group row">
                         <label class="col-lg-3 control-label" for="name">{{translate('Text Color')}}</label>
                         <div class="col-lg-9">
-                            <select name="text_color" id="text_color" class="form-control aiz-selectpicker" required>
+                            <select name="text_color" id="text_color" class="form-control select2 hide-search" required>
                                 <option value="">{{translate('Select One')}}</option>
                                 <option value="white">{{translate('White')}}</option>
                                 <option value="dark">{{translate('Dark')}}</option>
@@ -37,9 +37,7 @@
                         <label class="col-md-3 col-form-label" for="signinSrEmail">{{translate('Banner')}} <small>(1920x500)</small></label>
                         <div class="col-md-9">
                             <div class="input-group" data-toggle="aizuploader" data-type="image">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
-                                </div>
+                                <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                 <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                 <input type="hidden" name="banner" class="selected-files">
                             </div>
@@ -58,7 +56,7 @@
                     <div class="form-group row mb-3">
                         <label class="col-sm-3 control-label" for="products">{{translate('Products')}}</label>
                         <div class="col-sm-9">
-                            <select name="products[]" id="products" class="form-control aiz-selectpicker" multiple required data-placeholder="{{ translate('Choose Products') }}" data-live-search="true" data-selected-text-format="count">
+                            <select name="products[]" id="products" class="form-control select2" multiple required data-placeholder="{{ translate('Choose Products') }}" data-live-search="true" data-selected-text-format="count">
                                 @foreach(\App\Product::orderBy('created_at', 'desc')->get() as $product)
                                     <option value="{{$product->id}}">{{ $product->getTranslation('name') }}</option>
                                 @endforeach
@@ -70,7 +68,7 @@
                         {{ translate('If any product has discount or exists in another flash deal, the discount will be replaced by this discount & time limit.') }}
                     </div>
                     <br>
-                    
+
                     <div class="form-group" id="discount_table">
 
                     </div>

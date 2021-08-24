@@ -22,7 +22,9 @@
                 <h5 class="mb-0 h6">{{ translate('Colors')}}</h5>
             </div>
             <div class="card-body">
-                <table class="table aiz-table mb-0">
+            <div class="card-datatable table-responsive pt-0">
+
+                <table class="table mb-0">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -35,12 +37,12 @@
                         <tr>
                             <td>{{$key+1}}</td>
                             <td>{{$color->name}}</td>
-                            <td class="text-right">
-                                <a class="btn btn-primary btn-icon btn-circle" href="{{route('colors.edit', ['id'=>$color->id, 'lang'=>env('DEFAULT_LANGUAGE')] )}}" title="{{ translate('Edit') }}">
+                            <td class="text-center">
+                                <a class="btn btn-soft-primary btn-icon rounded-circle btn-outline-secondary btn-sm" href="{{route('colors.edit', ['id'=>$color->id, 'lang'=>env('DEFAULT_LANGUAGE')] )}}" title="{{ translate('Edit') }}">
                                     <i data-feather='edit'></i>
                                 </a>
-                                <a href="#" class="btn btn-danger btn-icon btn-circle confirm-delete" data-href="{{route('colors.destroy', $color->id)}}" title="{{ translate('Delete') }}">
-                                    <i data-feather='trash'></i>
+                                <a href="#" class="btn btn-icon rounded-circle btn-outline-danger btn-sm confirm-delete" data-href="{{route('colors.destroy', $color->id)}}" title="{{ translate('Delete') }}">
+                                    <i data-feather='trash-2'></i>
                                 </a>
                             </td>
                         </tr>
@@ -50,6 +52,7 @@
                 <div class="aiz-pagination">
                     {{ $colors->appends(request()->input())->links() }}
                 </div>
+            </div>
             </div>
         </div>
     </div>

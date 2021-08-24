@@ -56,7 +56,7 @@ data-asset-path="{{ asset('/')}}">
   <!-- End: Content-->
 
   @if($configData['blankPage'] == false && isset($configData['blankPage']))
-  @include('content/pages/customizer')
+  {{-- @include('content/pages/customizer') --}}
 
   {{-- @include('content/pages/buy-now') --}}
   @endif
