@@ -1,7 +1,7 @@
 {{-- @extends('backend.layouts.app') --}}
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'Dropdown Item')
+@section('title', 'Dropdown Item Value')
 
 @section('page-style')
 	<style type="text/css">
@@ -46,7 +46,7 @@
 		<div class="col-md-5">
 			<div class="card">
 				<div class="card-header">
-					<h5 class="mb-0 h6">{{ translate('Dropdown Item')}}</h5>
+					<h5 class="mb-0 h6">{{ translate('Dropdown Item Value')}}</h5>
 				</div>
 				<div class="card-body">
 					<table class="table aiz-table mb-0">
