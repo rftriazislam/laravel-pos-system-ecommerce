@@ -21,9 +21,22 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
 
     Route::get('abc', 'CategoryController@test');
 
+    // Inventory Start
 
+    // Dropdown Item
+    Route::get('/dropdown_item','DropdownItemController@index')->name('dropdown_item.index');
+    // Route::get('/dropdown_item-add','DropdownItemController@add')->name('dropdown_item.add');
+    Route::post('/dropdown_item/save','DropdownItemController@save')->name('dropdown_item.save');
+    Route::post('/dropdown_item/get_dropdown_item_info','DropdownItemController@get_dropdown_item_info')->name('dropdown_item.get_dropdown_item_info');
+    Route::post('/dropdown_item/update','DropdownItemController@update')->name('dropdown_item.update');
+    Route::get('/dropdown_item/view/{id}','DropdownItemController@view')->name('dropdown_item.view');
+    Route::post('/dropdown_item/save_item_value/','DropdownItemController@save_item_value')->name('dropdown_item.save_item_value');
+    Route::post('/dropdown_item/update_item_value/','DropdownItemController@update_item_value')->name('dropdown_item.update_item_value');
+    Route::get('/dropdown_item/delete_item_value/{id}/{index}','DropdownItemController@delete_item_value')->name('dropdown_item.delete_item_value');
+    Route::get('/dropdown_item/status/{id}','DropdownItemController@status')->name('dropdown_item.status');
+    Route::get('/dropdown_item/delete/{id}','DropdownItemController@delete')->name('dropdown_item.delete');
 
-
+    // Inventory End
 
     Route::resource('categories', 'CategoryController');
    
