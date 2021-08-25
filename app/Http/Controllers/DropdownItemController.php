@@ -9,16 +9,16 @@ use DB;
 class DropdownItemController extends Controller
 {
     public function index(Request $request) {
-        // $products = DropdownItem->where('digital', 0)->orderBy('created_at', 'desc')->paginate(15);
-        $dropdown_item_list = DropdownItem::where('status',1)->get();
-        // dd($dropdown_item_list);
+        $dropdown_item_list = DropdownItem::get();
 
         return view('backend.inventory.dropdown_item.index', compact('dropdown_item_list'));
     }
 
     public function save(Request $request) {
+        // dd($request->all());
         DropdownItem::create([
             'name' => $request->name,
+            'status' => $request->status,
         ]);
 
         return redirect(route('dropdown_item.index'))->with('msg','Dropdown Item Added Successfully');
@@ -36,6 +36,7 @@ class DropdownItemController extends Controller
 
         $dropdown_item->update([
             'name' => $request->name,
+            'status' => $request->status,
         ]);
 
         return redirect(route('dropdown_item.index'))->with('msg','Dropdown Item Updated Successfully');
@@ -49,7 +50,10 @@ class DropdownItemController extends Controller
 
     public function view($id) {
         $dropdown_item_info = DropdownItem::find($id);
-        $dropdown_item_values = json_decode($dropdown_item_info->value)->values;
+        $dropdown_item_values = array();
+        if ($dropdown_item_info->value) {
+            $dropdown_item_values = json_decode($dropdown_item_info->value)->values;
+        }
 
         return view('backend.inventory.dropdown_item.view', compact('dropdown_item_info','dropdown_item_values'));
     }
@@ -59,9 +63,16 @@ class DropdownItemController extends Controller
         $id = $request->dropdown_item_id;
 
         $dropdown_item_info = DropdownItem::find($id);
-        $dropdown_item_values = json_decode($dropdown_item_info->value);
-        array_push($dropdown_item_values->values, $value_name);
-        $json_dropdown_item_value = json_encode($dropdown_item_values);
+        $json_dropdown_item_value = '';
+
+        if ($dropdown_item_info->value) {
+            $dropdown_item_values = json_decode($dropdown_item_info->value);
+            array_push($dropdown_item_values->values, $value_name);
+            $json_dropdown_item_value = json_encode($dropdown_item_values);
+        } else {
+            $json_dropdown_item_value = '{"values":["'.$value_name.'"]}';
+        }
+
 
         $dropdown_item_info->update([
             'value' => $json_dropdown_item_value,

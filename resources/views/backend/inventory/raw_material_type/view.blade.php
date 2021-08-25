@@ -1,7 +1,7 @@
 {{-- @extends('backend.layouts.app') --}}
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'Dropdown Item Value')
+@section('title', 'Raw Materials Attributes')
 
 @section('page-style')
 	<style type="text/css">
@@ -38,7 +38,7 @@
 		</div>
 
 		<div class="col-md-2 text-end">
-			<a href="{{ route('dropdown_item.index') }}" class="btn btn-outline-primary mb-2"><i data-feather='arrow-left-circle'></i> Go Back</a>
+			<a href="{{ route('raw_materials_type.index') }}" class="btn btn-outline-primary mb-2"><i data-feather='arrow-left-circle'></i> Go Back</a>
 		</div>
 	</div>
 
@@ -46,14 +46,14 @@
 		<div class="col-md-6">
 			<div class="card">
 				<div class="card-header">
-					<h5 class="mb-0 h6">{{ translate('Dropdown Item Value')}} ({{ translate($dropdown_item_info->name) }})</h5>
+					<h5 class="mb-0 h6">{{ translate('Raw Materials Attributes') }} ({{ translate($raw_materials_type_info->name) }})</h5>
 				</div>
 				<div class="card-body">
 					<table class="table aiz-table mb-0">
 						<thead>
 							<tr>
 								<th>#</th>
-								<th width="60%;" class="text-center">{{ translate('Item Value')}}</th>
+								<th width="60%;" class="text-center">{{ translate('Attributes')}}</th>
 								<th class="text-center">{{ translate('Options')}}</th>
 							</tr>
 						</thead>
@@ -62,15 +62,15 @@
 								$count = 1;
 								$index = 0;
 							@endphp
-							@foreach($dropdown_item_values as $value)
+							@foreach($raw_material_type_attributes as $attribute)
 								<tr>
 									<td>{{ $count++ }}</td>
-									<td>{{ $value }}</td>
+									<td>{{ $attribute }}</td>
 									<td class="text-center">
-										<span class="btn btn-sm btn-outline-primary btn-icon rounded-circle value-edit-btn" value-index="{{ $index }}" value-name="{{ $value }}">
+										<span class="btn btn-sm btn-outline-primary btn-icon rounded-circle attribute-edit-btn" attribute-index="{{ $index }}" attribute-name="{{ $attribute }}">
 											<i data-feather='edit'></i>
 										</span>
-			                            <a href="#" class="btn btn-sm btn-outline-danger btn-icon rounded-circle confirm-delete" data-href="{{ route('dropdown_item.delete_item_value',['id'=>$dropdown_item_info->id,'index'=>$index]) }}" title="{{ translate('Delete') }}">
+			                            <a href="#" class="btn btn-sm btn-outline-danger btn-icon rounded-circle confirm-delete" data-href="{{ route('raw_materials_type.delete_attribute',['id'=>$raw_materials_type_info->id,'index'=>$index]) }}" title="{{ translate('Delete') }}">
 			                                <i data-feather='trash'></i>
 			                            </a>
 									</td>
@@ -88,20 +88,20 @@
 		<div class="col-md-6">
 			<div class="card">
 				<div class="card-header">
-					<h5 class="mb-0 h6" id="head-name">{{ translate('Add New Dropdown Item Value') }}</h5>
+					<h5 class="mb-0 h6" id="head-name">{{ translate('Add New Raw Materials Attribute') }}</h5>
 				</div>
 				<div class="card-body">
-					<form id="dropdown_item_value_form" action="{{ route('dropdown_item.save_item_value') }}" method="POST">
+					<form id="attribute_form" action="{{ route('raw_materials_type.save_attribute') }}" method="POST">
 						@csrf
-						<input type="hidden" id="dropdown_item_id" name="dropdown_item_id" value="{{ $dropdown_item_info->id }}">
-						<input type="hidden" id="value_index" name="value_index" value="">
+						<input type="hidden" id="attribute_id" name="attribute_id" value="{{ $raw_materials_type_info->id }}">
+						<input type="hidden" id="attribute_index" name="attribute_index" value="">
 						<div class="form-group mb-3">
 							<label for="name">{{translate('Name')}}</label>
 							<input type="text" placeholder="{{ translate('Name')}}" id="name" name="name" class="form-control" value="" required>
 						</div>
 						<div class="form-group mb-3 d-flex justify-content-end">
-							<span class="btn btn-primary text-left" style="margin-right:20px;" id="value-btn-clear">{{ translate('Clear') }}</span>
-							<button type="submit" class="btn btn-primary" id="value-btn-name">{{ translate('Save') }}</button>
+							<span class="btn btn-primary text-left" style="margin-right:20px;" id="attribute-btn-clear">{{ translate('Clear') }}</span>
+							<button type="submit" class="btn btn-primary" id="attribute-btn-name">{{ translate('Save') }}</button>
 						</div>
 					</form>
 				</div>
@@ -116,22 +116,22 @@
 
 @section('script')
 	<script type="text/javascript">
-		$(document).on('click','.value-edit-btn',function(e) {
+		$(document).on('click','.attribute-edit-btn',function(e) {
 			e.preventDefault();
-			var value_index = $(this).attr('value-index');		
-			var value_name = $(this).attr('value-name');		
-        	$('#dropdown_item_value_form').attr("action","{{ route('dropdown_item.update_item_value') }}");
-        	$('#value_index').val(value_index);
-        	$('#name').val(value_name);
-        	$('#value-btn-name').html("Update");
+			var attribute_index = $(this).attr('attribute-index');		
+			var attribute_name = $(this).attr('attribute-name');		
+        	$('#attribute_form').attr("action","{{ route('raw_materials_type.update_attribute') }}");
+        	$('#attribute_index').val(attribute_index);
+        	$('#name').val(attribute_name);
+        	$('#attribute-btn-name').html("Update");
 		});
 
-		$(document).on('click','#value-btn-clear',function(e) {
+		$(document).on('click','#attribute-btn-clear',function(e) {
 			e.preventDefault();		
-        	$('#dropdown_item_value_form').attr("action","{{ route('dropdown_item.save_item_value') }}");
-        	$('#value_index').val('');
+        	$('#attribute_form').attr("action","{{ route('raw_materials_type.save_attribute') }}");
+        	$('#attribute_index').val('');
         	$('#name').val('');
-        	$('#value-btn-name').html("Save");
+        	$('#attribute-btn-name').html("Save");
 		});
 	</script>
 @endsection

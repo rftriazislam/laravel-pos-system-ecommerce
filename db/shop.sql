@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 25, 2021 at 05:55 AM
+-- Generation Time: Aug 25, 2021 at 11:16 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -1162,7 +1162,9 @@ CREATE TABLE `dropdown_items` (
 --
 
 INSERT INTO `dropdown_items` (`id`, `name`, `value`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Color', '{\"values\":[\"Black\",\"White\",\"Red Dew Hunt\",\"Blue\"]}', 1, '2021-08-24 16:42:29', '2021-08-24 21:37:12');
+(1, 'Color', '{\"values\":[\"Black\",\"White\",\"Red Dew Hunt\",\"Blue\"]}', 1, '2021-08-24 16:42:29', '2021-08-24 21:37:12'),
+(5, 'Dew Hunt', '{\"values\":[\"Salman\"]}', 1, '2021-08-25 09:04:59', '2021-08-25 11:20:52'),
+(7, 'Paper A', '', 0, '2021-08-25 14:16:30', '2021-08-25 14:16:30');
 
 -- --------------------------------------------------------
 
@@ -1783,6 +1785,29 @@ CREATE TABLE `proxypay_payments` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `raw_materials_types`
+--
+
+CREATE TABLE `raw_materials_types` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `value` text NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0 for deactive; 1 for active',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `raw_materials_types`
+--
+
+INSERT INTO `raw_materials_types` (`id`, `name`, `value`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'ABC Fabrics', '{\"attributes\":[\"Nature\",\"Color\",\"Country\",\"Unit\",\"Cost\"]}', 1, '2021-08-24 16:42:29', '2021-08-25 15:11:15'),
+(5, 'XYZ Fabrics', '{\"attributes\":[\"Nature\",\"Color\"]}', 1, '2021-08-25 09:04:59', '2021-08-25 15:11:22');
 
 -- --------------------------------------------------------
 
@@ -3484,7 +3509,17 @@ INSERT INTO `translations` (`id`, `lang`, `lang_key`, `lang_value`, `created_at`
 (1669, 'en', 'Cost', 'Cost', '2021-08-24 16:18:00', '2021-08-24 16:18:00'),
 (1670, 'en', 'Add New city', 'Add New city', '2021-08-24 16:18:00', '2021-08-24 16:18:00'),
 (1671, 'en', 'Add New Dropdown Item Value', 'Add New Dropdown Item Value', '2021-08-24 19:49:26', '2021-08-24 19:49:26'),
-(1672, 'en', 'Category has been deleted successfully', 'Category has been deleted successfully', '2021-08-24 20:52:42', '2021-08-24 20:52:42');
+(1672, 'en', 'Category has been deleted successfully', 'Category has been deleted successfully', '2021-08-24 20:52:42', '2021-08-24 20:52:42'),
+(1673, 'en', 'Dropdown Item Value', 'Dropdown Item Value', '2021-08-24 22:03:33', '2021-08-24 22:03:33'),
+(1674, 'en', 'Raw Materials Type', 'Raw Materials Type', '2021-08-25 10:46:37', '2021-08-25 10:46:37'),
+(1675, 'en', 'Materials Name', 'Materials Name', '2021-08-25 10:48:08', '2021-08-25 10:48:08'),
+(1676, 'en', 'Add New Raw Material Type', 'Add New Raw Material Type', '2021-08-25 10:48:08', '2021-08-25 10:48:08'),
+(1677, 'en', 'Raw Materials Attributes', 'Raw Materials Attributes', '2021-08-25 11:07:04', '2021-08-25 11:07:04'),
+(1678, 'en', 'Add New Raw Materials Attribute', 'Add New Raw Materials Attribute', '2021-08-25 11:07:04', '2021-08-25 11:07:04'),
+(1679, 'en', 'XYZ Fabrics', 'XYZ Fabrics', '2021-08-25 13:28:36', '2021-08-25 13:28:36'),
+(1680, 'en', 'ABC Fabrics', 'ABC Fabrics', '2021-08-25 13:28:46', '2021-08-25 13:28:46'),
+(1681, 'en', 'Dew Hunt', 'Dew Hunt', '2021-08-25 13:30:53', '2021-08-25 13:30:53'),
+(1682, 'en', 'Statu', 'Statu', '2021-08-25 14:26:15', '2021-08-25 14:26:15');
 
 -- --------------------------------------------------------
 
@@ -3944,6 +3979,12 @@ ALTER TABLE `proxypay_payments`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `raw_materials_types`
+--
+ALTER TABLE `raw_materials_types`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `reviews`
 --
 ALTER TABLE `reviews`
@@ -4248,7 +4289,7 @@ ALTER TABLE `customer_product_translations`
 -- AUTO_INCREMENT for table `dropdown_items`
 --
 ALTER TABLE `dropdown_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `flash_deals`
@@ -4395,6 +4436,12 @@ ALTER TABLE `proxypay_payments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `raw_materials_types`
+--
+ALTER TABLE `raw_materials_types`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
@@ -4482,7 +4529,7 @@ ALTER TABLE `ticket_replies`
 -- AUTO_INCREMENT for table `translations`
 --
 ALTER TABLE `translations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1673;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1683;
 
 --
 -- AUTO_INCREMENT for table `uploads`

@@ -1,7 +1,7 @@
 {{-- @extends('backend.layouts.app') --}}
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'Dropdown Item')
+@section('title', 'Raw Materials Type')
 
 @section('page-style')
 	<style type="text/css">
@@ -43,15 +43,15 @@
 	<div class="col-md-6">
 		<div class="card">
 			<div class="card-header">
-				<h5 class="mb-0 h6">{{ translate('Dropdown Item')}}</h5>
+				<h5 class="mb-0 h6">{{ translate('Raw Materials Type')}}</h5>
 			</div>
 			<div class="card-body">
 				<table class="table aiz-table mb-0">
 					<thead>
 						<tr>
 							<th>#</th>
-							<th width="50%;" class="text-center">{{ translate('Item Name')}}</th>
-							<th width="15%;" class="text-center">{{ translate('Status')}}</th>
+							<th width="50%;" class="text-center">{{ translate('Materials Name') }}</th>
+							<th width="15%;" class="text-center">{{ translate('Status') }}</th>
 							<th class="text-center">{{ translate('Options')}}</th>
 						</tr>
 					</thead>
@@ -59,25 +59,25 @@
 						@php
 							$count = 1;
 						@endphp
-						@foreach($dropdown_item_list as $dropdown_item)
+						@foreach($raw_material_type_list as $raw_material_type)
 							@php
 								$status = 'Active';
-								if ($dropdown_item->status == 0) {
+								if ($raw_material_type->status == 0) {
 									$status = 'Deactive';
 								}
 							@endphp
 							<tr>
 								<td>{{ $count++ }}</td>
-								<td>{{ $dropdown_item->name }}</td>
+								<td>{{ $raw_material_type->name }}</td>
 								<td class="text-center">{{ $status }}</td>
 								<td class="text-center">
-									<a class="btn btn-sm btn-outline-info btn-icon rounded-circle" href="{{ route('dropdown_item.view',$dropdown_item->id) }}">
+									<a class="btn btn-sm btn-outline-info btn-icon rounded-circle" href="{{ route('raw_materials_type.view',$raw_material_type->id) }}">
 										<i data-feather='eye'></i>
 									</a>
-									<span class="btn btn-sm btn-outline-primary btn-icon rounded-circle edit-btn" dropdown-item-id="{{ $dropdown_item->id }}">
+									<span class="btn btn-sm btn-outline-primary btn-icon rounded-circle edit-btn" raw-material-type-id="{{ $raw_material_type->id }}">
 										<i data-feather='edit'></i>
 									</span>
-		                            <a href="#" class="btn btn-sm btn-outline-danger btn-icon rounded-circle confirm-delete" data-href="{{ route('dropdown_item.delete',$dropdown_item->id) }}" title="{{ translate('Delete') }}">
+		                            <a href="#" class="btn btn-sm btn-outline-danger btn-icon rounded-circle confirm-delete" data-href="{{ route('raw_materials_type.delete',$raw_material_type->id) }}" title="{{ translate('Delete') }}">
 		                                <i data-feather='trash'></i>
 		                            </a>
 								</td>
@@ -92,14 +92,14 @@
 	<div class="col-md-6">
 		<div class="card">
 			<div class="card-header">
-				<h5 class="mb-0 h6" id="head-name">{{ translate('Add New Dropdown Item') }}</h5>
+				<h5 class="mb-0 h6" id="head-name">{{ translate('Add New Raw Material Type') }}</h5>
 			</div>
 			<div class="card-body">
-				<form id="dropdown_item_form" action="{{ route('dropdown_item.save') }}" method="POST">
+				<form id="raw_material_type_form" action="{{ route('raw_materials_type.save') }}" method="POST">
 					@csrf
-					<input type="hidden" id="dropdown_item_id" name="dropdown_item_id" value="">
+					<input type="hidden" id="raw_material_type_id" name="raw_material_type_id" value="">
 					<div class="form-group mb-2">
-						<label for="name">{{translate('Name')}}</label>
+						<label for="name">{{ translate('Name') }}</label>
 						<input type="text" placeholder="{{ translate('Name')}}" id="name" name="name" class="form-control" value="" required>
 					</div>
 					<div class="form-group mb-2">
@@ -134,16 +134,16 @@
 	<script type="text/javascript">
 		$(document).on('click','.edit-btn',function(e) {
 			e.preventDefault();
-			var dropdown_item_id = $(this).attr('dropdown-item-id');		
+			var raw_material_type_id = $(this).attr('raw-material-type-id');		
 	        $.ajax({
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
 	            type: "POST",
-	            url: "{{ route('dropdown_item.get_dropdown_item_info') }}",
-	            data: {id:dropdown_item_id},
+	            url: "{{ route('raw_materials_type.get_raw_materials_type_info') }}",
+	            data: {id:raw_material_type_id},
 	            success: function (data) {
-	            	var dropdown_item_info = data.dropdown_item_info;
+	            	var raw_material_type_info = data.raw_material_type_info;
 
-	            	if (dropdown_item_info.status == 0) {
+	            	if (raw_material_type_info.status == 0) {
 	            		$('#status-active').attr('checked',false);
 	            		$('#status-deactive').attr('checked',true);
 	            	} else {
@@ -151,9 +151,9 @@
 	            		$('#status-active').attr('checked',true);
 	            	}
 
-	            	$('#dropdown_item_form').attr("action","{{ route('dropdown_item.update') }}");
-	            	$('#dropdown_item_id').val(dropdown_item_info.id);
-	            	$('#name').val(dropdown_item_info.name);
+	            	$('#raw_material_type_form').attr("action","{{ route('raw_materials_type.update') }}");
+	            	$('#raw_material_type_id').val(raw_material_type_info.id);
+	            	$('#name').val(raw_material_type_info.name);
 	            	$('#btn-name').html("Update");
 	            },
 	            error: function (error) {
@@ -166,8 +166,8 @@
 			e.preventDefault();
 			$('#status-deactive').attr('checked',false);
 			$('#status-active').attr('checked',true);
-        	$('#dropdown_item_form').attr("action","{{ route('dropdown_item.save') }}");
-        	$('#dropdown_item_id').val('');
+        	$('#raw_material_type_form').attr("action","{{ route('raw_materials_type.save') }}");
+        	$('#raw_material_type_id').val('');
         	$('#name').val('');
         	$('#btn-name').html("Save");
 		});

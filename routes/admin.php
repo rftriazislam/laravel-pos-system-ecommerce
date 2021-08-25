@@ -25,7 +25,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
 
     // Dropdown Item
     Route::get('/dropdown_item','DropdownItemController@index')->name('dropdown_item.index');
-    // Route::get('/dropdown_item-add','DropdownItemController@add')->name('dropdown_item.add');
     Route::post('/dropdown_item/save','DropdownItemController@save')->name('dropdown_item.save');
     Route::post('/dropdown_item/get_dropdown_item_info','DropdownItemController@get_dropdown_item_info')->name('dropdown_item.get_dropdown_item_info');
     Route::post('/dropdown_item/update','DropdownItemController@update')->name('dropdown_item.update');
@@ -35,6 +34,18 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::get('/dropdown_item/delete_item_value/{id}/{index}','DropdownItemController@delete_item_value')->name('dropdown_item.delete_item_value');
     Route::get('/dropdown_item/status/{id}','DropdownItemController@status')->name('dropdown_item.status');
     Route::get('/dropdown_item/delete/{id}','DropdownItemController@delete')->name('dropdown_item.delete');
+
+    // Raw Materials Type
+    Route::get('/raw_materials_type','RawMaterialsTypeController@index')->name('raw_materials_type.index');
+    Route::post('/raw_materials_type/save','RawMaterialsTypeController@save')->name('raw_materials_type.save');
+    Route::post('/raw_materials_type/get_raw_materials_type_info','RawMaterialsTypeController@get_raw_materials_type_info')->name('raw_materials_type.get_raw_materials_type_info');
+    Route::post('/raw_materials_type/update','RawMaterialsTypeController@update')->name('raw_materials_type.update');
+    Route::get('/raw_materials_type/view/{id}','RawMaterialsTypeController@view')->name('raw_materials_type.view');
+    Route::post('/raw_materials_type/save_attribute/','RawMaterialsTypeController@save_attribute')->name('raw_materials_type.save_attribute');
+    Route::post('/raw_materials_type/update_attribute/','RawMaterialsTypeController@update_attribute')->name('raw_materials_type.update_attribute');
+    Route::get('/raw_materials_type/delete_attribute/{id}/{index}','RawMaterialsTypeController@delete_attribute')->name('raw_materials_type.delete_attribute');
+    Route::get('/raw_materials_type/status/{id}','RawMaterialsTypeController@status')->name('raw_materials_type.status');
+    Route::get('/raw_materials_type/delete/{id}','RawMaterialsTypeController@delete')->name('raw_materials_type.delete');
 
     // Inventory End
 

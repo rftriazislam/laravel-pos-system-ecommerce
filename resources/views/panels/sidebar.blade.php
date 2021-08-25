@@ -531,10 +531,10 @@
                         </li>
                     @endif
                     @if(Auth::user()->user_type == 'admin' || in_array('7', json_decode(Auth::user()->staff->role->permissions)))
-                        <li class="{{ 'newsletters.index' === Route::currentRouteName() ? 'active' : '' }}">
-                            <a href="{{route('newsletters.index')}}" class="d-flex align-items-center">
+                        <li class="{{ 'raw_materials_type.index' === Route::currentRouteName() ? 'active' : '' }}">
+                            <a href="{{route('raw_materials_type.index')}}" class="d-flex align-items-center">
                                 <i data-feather="circle"></i>
-                                <span class="menu-title text-truncate">{{ translate('Newsletters') }}</span>
+                                <span class="menu-title text-truncate">{{ translate('Raw Materials Type') }}</span>
                             </a>
                         </li>
                         @if (\App\Addon::where('unique_identifier', 'otp_system')->first() != null && \App\Addon::where('unique_identifier', 'otp_system')->first()->activated)
