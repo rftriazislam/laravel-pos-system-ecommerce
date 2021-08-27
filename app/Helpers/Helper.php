@@ -3,6 +3,7 @@
 namespace App\Helpers;
 
 use Config;
+use DB;
 
 class Helper
 {
@@ -135,5 +136,25 @@ class Helper
                 }
             }
         }
+    }
+
+    public static function is_dropdown($name = '') {
+        $dropdown_info = DB::table('dropdown_items')->where('name',$name)->first();
+        $is_dropdown = false;
+        if ($dropdown_info && $dropdown_info->value) {
+            $is_dropdown = true;
+        }
+
+        return $is_dropdown;
+    }
+
+    public static function get_dropdown_list($name = '') {
+        $dropdown_info = DB::table('dropdown_items')->where('name',$name)->first();
+        $dropdown_list = array();
+        if ($dropdown_info && $dropdown_info->value) {
+            $dropdown_list = json_decode($dropdown_info->value)->values;
+        }
+
+        return $dropdown_list;
     }
 }

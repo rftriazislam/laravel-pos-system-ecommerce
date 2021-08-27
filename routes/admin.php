@@ -47,6 +47,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::get('/raw_materials_type/status/{id}','RawMaterialsTypeController@status')->name('raw_materials_type.status');
     Route::get('/raw_materials_type/delete/{id}','RawMaterialsTypeController@delete')->name('raw_materials_type.delete');
 
+    // Raw Materials
+    Route::get('/raw_materials','RawMaterialsController@index')->name('raw_materials.index');
+    Route::get('/raw_materials/add','RawMaterialsController@add')->name('raw_materials.add');
+    Route::post('/raw_materials/get_raw_material_attribute_form','RawMaterialsController@get_raw_material_attribute_form')->name('raw_materials.get_raw_material_attribute_form');
+    Route::post('/raw_materials/save','RawMaterialsController@save')->name('raw_materials.save');
+    Route::get('/raw_materials/edit/{id}','RawMaterialsController@edit')->name('raw_materials.edit');
+    Route::post('/raw_materials/update','RawMaterialsController@update')->name('raw_materials.update');
+    Route::get('/raw_materials/delete/{id}','RawMaterialsController@delete')->name('raw_materials.delete');
+
     // Inventory End
 
     Route::resource('categories', 'CategoryController');
@@ -308,6 +317,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
         Artisan::call('view:clear');
         Artisan::call('route:clear');
 
-        return 'Clear All Successfully';
-    });
+        // return 'Clear All Successfully';
+        return view('backend.miscellaneous.clear_cache');
+    })->name('clear');
 });

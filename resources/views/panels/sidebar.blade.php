@@ -522,42 +522,22 @@
                     <span class="menu-title text-truncate">{{ translate('Inventory') }}</span>
                 </a>
                 <ul class="menu-content">
-                    @if(Auth::user()->user_type == 'admin' || in_array('2', json_decode(Auth::user()->staff->role->permissions)))
-                        <li class="{{ 'dropdown_item.index' === Route::currentRouteName() ? 'active' : '' }}">
-                            <a href="{{ route('dropdown_item.index') }}" class="d-flex align-items-center">
-                                <i data-feather="circle"></i>
-                                <span class="menu-title text-truncate">{{ translate('Dropdown Item') }}</span>
-                            </a>
-                        </li>
-                    @endif
-                    @if(Auth::user()->user_type == 'admin' || in_array('7', json_decode(Auth::user()->staff->role->permissions)))
-                        <li class="{{ 'raw_materials_type.index' === Route::currentRouteName() ? 'active' : '' }}">
-                            <a href="{{route('raw_materials_type.index')}}" class="d-flex align-items-center">
-                                <i data-feather="circle"></i>
-                                <span class="menu-title text-truncate">{{ translate('Raw Materials Type') }}</span>
-                            </a>
-                        </li>
-                        @if (\App\Addon::where('unique_identifier', 'otp_system')->first() != null && \App\Addon::where('unique_identifier', 'otp_system')->first()->activated)
-                            <li class="{{ 'sms.index' === Route::currentRouteName() ? 'active' : '' }}">
-                                <a href="{{route('sms.index')}}" class="d-flex align-items-center">
-                                    <span class="menu-title text-truncate">{{ translate('Bulk SMS') }}</span>
-                                    @if (env("DEMO_MODE") == "On")
-                                    <span class="badge badge-inline badge-danger">Addon</span>
-                                    @endif
-                                </a>
-                            </li>
-                        @endif
-                    @endif
-                    <li class="{{ 'subscribers.index' === Route::currentRouteName() ? 'active' : '' }}">
-                        <a href="{{ route('subscribers.index') }}" class="d-flex align-items-center">
+                    <li class="{{ 'dropdown_item.index' === Route::currentRouteName() ? 'active' : '' }}">
+                        <a href="{{ route('dropdown_item.index') }}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
-                            <span class="menu-title text-truncate">{{ translate('Subscribers') }}</span>
+                            <span class="menu-title text-truncate">{{ translate('Dropdown Item') }}</span>
                         </a>
                     </li>
-                    <li class="{{ 'coupon.index' === Route::currentRouteName() ? 'active' : '' }}">
-                        <a href="{{route('coupon.index')}}" class="d-flex align-items-center">
+                    <li class="{{ 'raw_materials_type.index' === Route::currentRouteName() ? 'active' : '' }}">
+                        <a href="{{route('raw_materials_type.index')}}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
-                            <span class="menu-title text-truncate">{{ translate('Coupon') }}</span>
+                            <span class="menu-title text-truncate">{{ translate('Raw Materials Type') }}</span>
+                        </a>
+                    </li>
+                    <li class="{{ 'raw_materials.index' === Route::currentRouteName() ? 'active' : '' }}">
+                        <a href="{{ route('raw_materials.index') }}" class="d-flex align-items-center">
+                            <i data-feather="circle"></i>
+                            <span class="menu-title text-truncate">{{ translate('Raw Materials') }}</span>
                         </a>
                     </li>
                 </ul>
@@ -1040,6 +1020,13 @@
                 </a>
             </li>
         @endif --}}
+
+        <li class="nav-item">
+            <a href="{{route('clear')}}" class="nav-link d-flex align-items-center" target="_blank">
+                <i data-feather="trash-2"></i>
+                <span>{{ translate('Clear Cache') }}</span>
+            </a>
+        </li>
      
       {{-- Foreach menu item ends --}}
     </ul>

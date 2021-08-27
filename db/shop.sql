@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 25, 2021 at 11:16 PM
+-- Generation Time: Aug 27, 2021 at 05:41 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -1150,8 +1150,8 @@ CREATE TABLE `customer_product_translations` (
 
 CREATE TABLE `dropdown_items` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `value` text NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `value` text DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0 for deactive; 1 for active',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1162,9 +1162,9 @@ CREATE TABLE `dropdown_items` (
 --
 
 INSERT INTO `dropdown_items` (`id`, `name`, `value`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Color', '{\"values\":[\"Black\",\"White\",\"Red Dew Hunt\",\"Blue\"]}', 1, '2021-08-24 16:42:29', '2021-08-24 21:37:12'),
-(5, 'Dew Hunt', '{\"values\":[\"Salman\"]}', 1, '2021-08-25 09:04:59', '2021-08-25 11:20:52'),
-(7, 'Paper A', '', 0, '2021-08-25 14:16:30', '2021-08-25 14:16:30');
+(1, 'Color', '{\"values\":[\"Black\",\"White\",\"Red\",\"Blue\"]}', 1, '2021-08-24 16:42:29', '2021-08-26 20:41:01'),
+(5, 'Country', '{\"values\":[\"Bangladesh\",\"USA\",\"UK\"]}', 1, '2021-08-25 09:04:59', '2021-08-26 16:43:06'),
+(7, 'Unit', '{\"values\":[\"Goj\",\"Meter\"]}', 0, '2021-08-25 14:16:30', '2021-08-26 16:43:58');
 
 -- --------------------------------------------------------
 
@@ -1789,13 +1789,42 @@ CREATE TABLE `proxypay_payments` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `raw_materials`
+--
+
+CREATE TABLE `raw_materials` (
+  `id` int(11) NOT NULL,
+  `raw_material_type_id` int(11) DEFAULT NULL,
+  `shipment_date` timestamp NULL DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `cost` double DEFAULT NULL,
+  `value` text DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0 for deactive; 1 for active',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `raw_materials`
+--
+
+INSERT INTO `raw_materials` (`id`, `raw_material_type_id`, `shipment_date`, `name`, `cost`, `value`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, '2021-08-26 18:00:00', 'ABC Fabrics', 200000, '{\"Nature\":\"Cotton\",\"color\":\"Black\",\"Country\":\"Bangladesh\",\"Unit\":\"Meter\"}', 1, '2021-08-26 19:03:40', '2021-08-26 19:03:40'),
+(2, 5, '2021-08-09 18:00:00', 'XYZ Buttons', 40000, '{\"Nature\":\"Jeans Button\",\"Color\":\"Black\"}', 1, '2021-08-26 19:34:14', '2021-08-26 20:30:36'),
+(3, 1, '2021-08-19 18:00:00', 'Dew Polyester', 25000, '{\"Nature\":\"Polyester\",\"color\":\"White\",\"Country\":\"USA\",\"Unit\":\"Meter\"}', 1, '2021-08-26 20:01:58', '2021-08-26 20:21:25'),
+(4, 1, '2021-08-26 18:00:00', 'BCD Fabrics', 10000, '{\"Nature\":\"Semi Cotton\",\"color\":\"Blue\",\"Country\":\"Bangladesh\",\"Unit\":\"Meter\"}', 1, '2021-08-26 20:15:53', '2021-08-26 20:29:36'),
+(6, 5, '2021-08-16 18:00:00', 'EGP Button', 5000, '{\"Nature\":\"Flat Buttons\",\"Color\":\"Red\"}', 0, '2021-08-26 20:34:54', '2021-08-26 20:41:35');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `raw_materials_types`
 --
 
 CREATE TABLE `raw_materials_types` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `value` text NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `value` text DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0 for deactive; 1 for active',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1806,8 +1835,8 @@ CREATE TABLE `raw_materials_types` (
 --
 
 INSERT INTO `raw_materials_types` (`id`, `name`, `value`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'ABC Fabrics', '{\"attributes\":[\"Nature\",\"Color\",\"Country\",\"Unit\",\"Cost\"]}', 1, '2021-08-24 16:42:29', '2021-08-25 15:11:15'),
-(5, 'XYZ Fabrics', '{\"attributes\":[\"Nature\",\"Color\"]}', 1, '2021-08-25 09:04:59', '2021-08-25 15:11:22');
+(1, 'Fabrics', '{\"attributes\":[\"Nature\",\"color\",\"Country\",\"Unit\"]}', 1, '2021-08-24 16:42:29', '2021-08-26 16:44:29'),
+(5, 'Buttons', '{\"attributes\":[\"Nature\",\"Color\"]}', 1, '2021-08-25 09:04:59', '2021-08-25 15:11:22');
 
 -- --------------------------------------------------------
 
@@ -3519,7 +3548,42 @@ INSERT INTO `translations` (`id`, `lang`, `lang_key`, `lang_value`, `created_at`
 (1679, 'en', 'XYZ Fabrics', 'XYZ Fabrics', '2021-08-25 13:28:36', '2021-08-25 13:28:36'),
 (1680, 'en', 'ABC Fabrics', 'ABC Fabrics', '2021-08-25 13:28:46', '2021-08-25 13:28:46'),
 (1681, 'en', 'Dew Hunt', 'Dew Hunt', '2021-08-25 13:30:53', '2021-08-25 13:30:53'),
-(1682, 'en', 'Statu', 'Statu', '2021-08-25 14:26:15', '2021-08-25 14:26:15');
+(1682, 'en', 'Statu', 'Statu', '2021-08-25 14:26:15', '2021-08-25 14:26:15'),
+(1683, 'en', 'Raw Materials', 'Raw Materials', '2021-08-26 09:45:59', '2021-08-26 09:45:59'),
+(1684, 'en', 'Translatable', 'Translatable', '2021-08-26 12:43:46', '2021-08-26 12:43:46'),
+(1685, 'en', 'No Parent', 'No Parent', '2021-08-26 12:43:46', '2021-08-26 12:43:46'),
+(1686, 'en', 'Ordering Number', 'Ordering Number', '2021-08-26 12:43:46', '2021-08-26 12:43:46'),
+(1687, 'en', 'Higher number has high priority', 'Higher number has high priority', '2021-08-26 12:43:46', '2021-08-26 12:43:46'),
+(1688, 'en', 'Physical', 'Physical', '2021-08-26 12:43:46', '2021-08-26 12:43:46'),
+(1689, 'en', 'Digital', 'Digital', '2021-08-26 12:43:46', '2021-08-26 12:43:46'),
+(1690, 'en', '200x200', '200x200', '2021-08-26 12:43:46', '2021-08-26 12:43:46'),
+(1691, 'en', '32x32', '32x32', '2021-08-26 12:43:46', '2021-08-26 12:43:46'),
+(1692, 'en', '#FFFFFF', '#FFFFFF', '2021-08-26 12:47:38', '2021-08-26 12:47:38'),
+(1693, 'en', 'This image is shown as cover banner in flash deal details page.', 'This image is shown as cover banner in flash deal details page.', '2021-08-26 12:47:38', '2021-08-26 12:47:38'),
+(1694, 'en', 'If any product has discount or exists in another flash deal, the discount will be replaced by this discount & time limit.', 'If any product has discount or exists in another flash deal, the discount will be replaced by this discount & time limit.', '2021-08-26 12:47:38', '2021-08-26 12:47:38'),
+(1695, 'en', 'Select Material', 'Select Material', '2021-08-26 13:03:56', '2021-08-26 13:03:56'),
+(1696, 'en', 'Select Material Type', 'Select Material Type', '2021-08-26 13:09:49', '2021-08-26 13:09:49'),
+(1697, 'en', 'Fabrics', 'Fabrics', '2021-08-26 16:44:24', '2021-08-26 16:44:24'),
+(1698, 'en', 'Buttons', 'Buttons', '2021-08-26 16:44:37', '2021-08-26 16:44:37'),
+(1699, 'en', 'Support Desk', 'Support Desk', '2021-08-26 17:48:25', '2021-08-26 17:48:25'),
+(1700, 'en', 'Type ticket code & Enter', 'Type ticket code & Enter', '2021-08-26 17:48:25', '2021-08-26 17:48:25'),
+(1701, 'en', 'User', 'User', '2021-08-26 17:48:25', '2021-08-26 17:48:25'),
+(1702, 'en', 'Last reply', 'Last reply', '2021-08-26 17:48:25', '2021-08-26 17:48:25'),
+(1703, 'en', 'Product Wish Report', 'Product Wish Report', '2021-08-26 17:48:57', '2021-08-26 17:48:57'),
+(1704, 'en', 'Number of Wish', 'Number of Wish', '2021-08-26 17:48:57', '2021-08-26 17:48:57'),
+(1705, 'en', 'Wallet Transaction Report', 'Wallet Transaction Report', '2021-08-26 17:49:16', '2021-08-26 17:49:16'),
+(1706, 'en', 'Wallet Transaction', 'Wallet Transaction', '2021-08-26 17:49:16', '2021-08-26 17:49:16'),
+(1707, 'en', 'Choose User', 'Choose User', '2021-08-26 17:49:16', '2021-08-26 17:49:16'),
+(1708, 'en', 'Step 1', 'Step 1', '2021-08-26 17:49:26', '2021-08-26 17:49:26'),
+(1709, 'en', 'Download the skeleton file and fill it with proper data', 'Download the skeleton file and fill it with proper data', '2021-08-26 17:49:26', '2021-08-26 17:49:26'),
+(1710, 'en', 'You can download the example file to understand how the data must be filled', 'You can download the example file to understand how the data must be filled', '2021-08-26 17:49:26', '2021-08-26 17:49:26'),
+(1711, 'en', 'Once you have downloaded and filled the skeleton file, upload it in the form below and submit', 'Once you have downloaded and filled the skeleton file, upload it in the form below and submit', '2021-08-26 17:49:26', '2021-08-26 17:49:26'),
+(1712, 'en', 'After uploading products you need to edit them and set product\'s images and choices', 'After uploading products you need to edit them and set product\'s images and choices', '2021-08-26 17:49:26', '2021-08-26 17:49:26'),
+(1713, 'en', 'Step 2', 'Step 2', '2021-08-26 17:49:26', '2021-08-26 17:49:26'),
+(1714, 'en', 'Category and Brand should be in numerical id', 'Category and Brand should be in numerical id', '2021-08-26 17:49:26', '2021-08-26 17:49:26'),
+(1715, 'en', 'You can download the pdf to get Category and Brand id', 'You can download the pdf to get Category and Brand id', '2021-08-26 17:49:26', '2021-08-26 17:49:26'),
+(1716, 'en', 'Upload Product File', 'Upload Product File', '2021-08-26 17:49:26', '2021-08-26 17:49:26'),
+(1717, 'en', 'Clear Cache', 'Clear Cache', '2021-08-26 20:53:26', '2021-08-26 20:53:26');
 
 -- --------------------------------------------------------
 
@@ -3976,6 +4040,12 @@ ALTER TABLE `product_translations`
 -- Indexes for table `proxypay_payments`
 --
 ALTER TABLE `proxypay_payments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `raw_materials`
+--
+ALTER TABLE `raw_materials`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -4436,6 +4506,12 @@ ALTER TABLE `proxypay_payments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `raw_materials`
+--
+ALTER TABLE `raw_materials`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `raw_materials_types`
 --
 ALTER TABLE `raw_materials_types`
@@ -4529,7 +4605,7 @@ ALTER TABLE `ticket_replies`
 -- AUTO_INCREMENT for table `translations`
 --
 ALTER TABLE `translations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1683;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1718;
 
 --
 -- AUTO_INCREMENT for table `uploads`

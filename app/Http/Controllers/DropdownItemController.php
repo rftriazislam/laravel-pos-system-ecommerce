@@ -8,7 +8,7 @@ use DB;
 
 class DropdownItemController extends Controller
 {
-    public function index(Request $request) {
+    public function index() {
         $dropdown_item_list = DropdownItem::get();
 
         return view('backend.inventory.dropdown_item.index', compact('dropdown_item_list'));
