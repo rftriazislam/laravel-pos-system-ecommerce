@@ -63,7 +63,7 @@
               </a>
               <ul class="menu-content">
                   <li class="{{ 'poin-of-sales.index' === Route::currentRouteName() ? 'active' : '' }}">
-                      <a href="{{route('poin-of-sales.index')}}" class="d-flex align-items-center {{ areActiveRoutes(['poin-of-sales.index', 'poin-of-sales.create'])}}">
+                      <a href="{{route('poin-of-sales.index')}}" class="d-flex align-items-center">
                           <span class="menu-title text-truncate">{{translate('POS Manager')}}</span>
                       </a>
                   </li>
@@ -99,21 +99,21 @@
                         </a>
                     </li>
                     <li class="{{ 'products.admin' === Route::currentRouteName() ? 'active' : '' }}">
-                        <a href="{{route('products.admin')}}" class="d-flex align-items-center {{ areActiveRoutes(['products.admin', 'products.create', 'products.admin.edit']) }}" >
+                        <a href="{{route('products.admin')}}" class="d-flex align-items-center" >
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{ translate('In House Products') }}</span>
                         </a>
                     </li>
                     {{-- @if(get_setting('vendor_system_activation') == 1)
                         <li class="{{ 'products.seller' === Route::currentRouteName() ? 'active' : '' }}">
-                            <a href="{{route('products.seller')}}" class="d-flex align-items-center {{ areActiveRoutes(['products.seller', 'products.seller.edit']) }}">
+                            <a href="{{route('products.seller')}}" class="d-flex align-items-center">
                                 <i data-feather="circle"></i>
                                 <span class="menu-title text-truncate">{{ translate('Seller Products') }}</span>
                             </a>
                         </li>
                     @endif --}}
                     {{-- <li class="{{ 'digitalproducts.index' === Route::currentRouteName() ? 'active' : '' }}">
-                        <a href="{{route('digitalproducts.index')}}" class="d-flex align-items-center {{ areActiveRoutes(['digitalproducts.index', 'digitalproducts.create', 'digitalproducts.edit']) }}">
+                        <a href="{{route('digitalproducts.index')}}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{ translate('Digital Products') }}</span>
                         </a>
@@ -131,25 +131,25 @@
                         </a>
                     </li> --}}
                     <li class="{{ 'categories.index' === Route::currentRouteName() ? 'active' : '' }}">
-                        <a href="{{route('categories.index')}}" class="d-flex align-items-center {{ areActiveRoutes(['categories.index', 'categories.create', 'categories.edit'])}}">
+                        <a href="{{route('categories.index')}}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{translate('Category')}}</span>
                         </a>
                     </li>
                     <li class="{{ 'brands.index' === Route::currentRouteName() ? 'active' : '' }}">
-                        <a href="{{route('brands.index')}}" class="d-flex align-items-center {{ areActiveRoutes(['brands.index', 'brands.create', 'brands.edit'])}}" >
+                        <a href="{{route('brands.index')}}" class="d-flex align-items-center" >
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{translate('Brand')}}</span>
                         </a>
                     </li>
-                    {{-- <li class="{{ 'attributes.index' === Route::currentRouteName() ? 'active' : '' }}">
-                        <a href="{{route('attributes.index')}}" class="d-flex align-items-center {{ areActiveRoutes(['attributes.index','attributes.create','attributes.edit'])}}">
+                    <li class="{{ 'attributes.index' === Route::currentRouteName() ? 'active' : '' }}">
+                        <a href="{{route('attributes.index')}}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{translate('Attribute')}}</span>
                         </a>
-                    </li> --}}
+                    </li>
                     {{-- <li class="{{ 'colors' === Route::currentRouteName() ? 'active' : '' }}">
-                        <a href="{{route('colors')}}" class="d-flex align-items-center {{ areActiveRoutes(['attributes.index','attributes.create','attributes.edit'])}}">
+                        <a href="{{route('colors')}}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{translate('Colors')}}</span>
                         </a>
@@ -174,7 +174,7 @@
             <ul class="menu-content">
                 @if(Auth::user()->user_type == 'admin' || in_array('3', json_decode(Auth::user()->staff->role->permissions)))
                     <li class="{{ 'all_orders.index' === Route::currentRouteName() ? 'active' : '' }}">
-                        <a href="{{ route('all_orders.index') }}" class="d-flex align-items-center {{ areActiveRoutes(['all_orders.index', 'all_orders.show'])}}">
+                        <a href="{{ route('all_orders.index') }}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{translate('All Orders')}}</span>
                         </a>
@@ -183,7 +183,7 @@
 
                 @if(Auth::user()->user_type == 'admin' || in_array('4', json_decode(Auth::user()->staff->role->permissions)))
                     <li class="{{ 'inhouse_orders.index' === Route::currentRouteName() ? 'active' : '' }}">
-                        <a href="{{ route('inhouse_orders.index') }}" class="d-flex align-items-center {{ areActiveRoutes(['inhouse_orders.index', 'inhouse_orders.show'])}}" >
+                        <a href="{{ route('inhouse_orders.index') }}" class="d-flex align-items-center" >
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{translate('Inhouse orders')}}</span>
                         </a>
@@ -191,7 +191,7 @@
                 @endif
                 @if(Auth::user()->user_type == 'admin' || in_array('5', json_decode(Auth::user()->staff->role->permissions)))
                   <li class="{{ 'seller_orders.index' === Route::currentRouteName() ? 'active' : '' }}">
-                    <a href="{{ route('seller_orders.index') }}" class="d-flex align-items-center {{ areActiveRoutes(['seller_orders.index', 'seller_orders.show'])}}">
+                    <a href="{{ route('seller_orders.index') }}" class="d-flex align-items-center">
                         <i data-feather="circle"></i>
                         <span class="menu-title text-truncate">{{translate('Seller Orders')}}</span>
                     </a>
@@ -199,7 +199,7 @@
                 @endif
                 @if(Auth::user()->user_type == 'admin' || in_array('6', json_decode(Auth::user()->staff->role->permissions)))
                     <li class="{{ 'pick_up_point.order_index' === Route::currentRouteName() ? 'active' : '' }}">
-                        <a href="{{ route('pick_up_point.order_index') }}" class="d-flex align-items-center {{ areActiveRoutes(['pick_up_point.order_index','pick_up_point.order_show'])}}">
+                        <a href="{{ route('pick_up_point.order_index') }}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{translate('Pick-up Point Order')}}</span>
                         </a>
@@ -219,19 +219,19 @@
                 </a>
                 <ul class="menu-content">
                     <li class="{{ 'delivery-boys.index' === Route::currentRouteName() ? 'active' : '' }}">
-                        <a href="{{route('delivery-boys.index')}}" class="d-flex align-items-center {{ areActiveRoutes(['delivery-boys.index'])}}">
+                        <a href="{{route('delivery-boys.index')}}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{translate('All Delivery Boy')}}</span>
                         </a>
                     </li>
                     <li class="{{ 'delivery-boys.create' === Route::currentRouteName() ? 'active' : '' }}">
-                        <a href="{{route('delivery-boys.create')}}" class="d-flex align-items-center {{ areActiveRoutes(['delivery-boys.create'])}}">
+                        <a href="{{route('delivery-boys.create')}}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{translate('Add Delivery Boy')}}</span>
                         </a>
                     </li>
                     <li class="{{ 'delivery-boy.cancel-request' === Route::currentRouteName() ? 'active' : '' }}">
-                        <a href="{{route('delivery-boy.cancel-request')}}" class="d-flex align-items-center {{ areActiveRoutes(['delivery-boy.cancel-request'])}}">
+                        <a href="{{route('delivery-boy.cancel-request')}}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{translate('Cancel Request')}}</span>
                         </a>
@@ -258,7 +258,7 @@
                   </a>
                   <ul class="menu-content">
                       <li class="{{ 'refund_requests_all' === Route::currentRouteName() ? 'active' : '' }}">
-                          <a href="{{route('refund_requests_all')}}" class="d-flex align-items-center {{ areActiveRoutes(['refund_requests_all', 'reason_show'])}}">
+                          <a href="{{route('refund_requests_all')}}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                               <span class="menu-title text-truncate">{{translate('Refund Requests')}}</span>
                           </a>
@@ -309,7 +309,7 @@
                             </a>
                         </li>
                         <li class="{{ 'customer_packages.index' === Route::currentRouteName() ? 'active' : '' }}">
-                            <a href="{{ route('customer_packages.index') }}" class="d-flex align-items-center {{ areActiveRoutes(['customer_packages.index', 'customer_packages.create', 'customer_packages.edit'])}}" target="_self">
+                            <a href="{{ route('customer_packages.index') }}" class="d-flex align-items-center" target="_self">
                                 <i data-feather="circle"></i>
                                 <span class="menu-item text-truncate">{{ translate('Classified Packages') }}</span>
                             </a>
@@ -332,7 +332,7 @@
                         @php
                             $sellers = \App\Seller::where('verification_status', 0)->where('verification_info', '!=', null)->count();
                         @endphp
-                        <a href="{{ route('sellers.index') }}" class="d-flex align-items-center {{ areActiveRoutes(['sellers.index', 'sellers.create', 'sellers.edit', 'sellers.payment_history','sellers.approved','sellers.profile_modal','sellers.show_verification_request'])}}">
+                        <a href="{{ route('sellers.index') }}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{ translate('All Seller') }}</span>
                             @if($sellers > 0)<span class="badge badge-info">{{ $sellers }}</span> @endif
@@ -359,7 +359,7 @@
 
                     @if (\App\Addon::where('unique_identifier', 'seller_subscription')->first() != null && \App\Addon::where('unique_identifier', 'seller_subscription')->first()->activated)
                         <li class="{{ 'seller_packages.index' === Route::currentRouteName() ? 'active' : '' }}">
-                            <a href="{{ route('seller_packages.index') }}" class="d-flex align-items-center {{ areActiveRoutes(['seller_packages.index', 'seller_packages.create', 'seller_packages.edit'])}}">
+                            <a href="{{ route('seller_packages.index') }}" class="d-flex align-items-center">
                                 <i data-feather="circle"></i>
                                 <span class="menu-title text-truncate">{{ translate('Seller Packages') }}</span>
                               @if (env("DEMO_MODE") == "On")
@@ -380,7 +380,7 @@
 
         @if(Auth::user()->user_type == 'admin' || in_array('22', json_decode(Auth::user()->staff->role->permissions)))
         <li class="nav-item">
-            <a href="{{ route('uploaded-files.index') }}" class="d-flex align-items-center {{ areActiveRoutes(['uploaded-files.create'])}}">
+            <a href="{{ route('uploaded-files.index') }}" class="d-flex align-items-center">
                     <i data-feather='slack'></i>
                 <span class="menu-title text-truncate">{{ translate('Uploaded Files') }}</span>
             </a>
@@ -396,31 +396,31 @@
                 </a>
                 <ul class="menu-content">
                     <li class="{{ 'in_house_sale_report.index' === Route::currentRouteName() ? 'active' : '' }}">
-                        <a href="{{ route('in_house_sale_report.index') }}" class="d-flex align-items-center {{ areActiveRoutes(['in_house_sale_report.index'])}}">
+                        <a href="{{ route('in_house_sale_report.index') }}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{ translate('In House Product Sale') }}</span>
                         </a>
                     </li>
                     <li class="{{ 'seller_sale_report.index' === Route::currentRouteName() ? 'active' : '' }}">
-                        <a href="{{ route('seller_sale_report.index') }}" class="d-flex align-items-center {{ areActiveRoutes(['seller_sale_report.index'])}}">
+                        <a href="{{ route('seller_sale_report.index') }}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{ translate('Seller Products Sale') }}</span>
                         </a>
                     </li>
                     <li class="{{ 'stock_report.index' === Route::currentRouteName() ? 'active' : '' }}">
-                        <a href="{{ route('stock_report.index') }}" class="d-flex align-items-center {{ areActiveRoutes(['stock_report.index'])}}">
+                        <a href="{{ route('stock_report.index') }}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{ translate('Products Stock') }}</span>
                         </a>
                     </li>
                     <li class="{{ 'wish_report.index' === Route::currentRouteName() ? 'active' : '' }}">
-                        <a href="{{ route('wish_report.index') }}" class="d-flex align-items-center {{ areActiveRoutes(['wish_report.index'])}}">
+                        <a href="{{ route('wish_report.index') }}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{ translate('Products wishlist') }}</span>
                         </a>
                     </li>
                     <li class="{{ 'user_search_report.index' === Route::currentRouteName() ? 'active' : '' }}">
-                        <a href="{{ route('user_search_report.index') }}" class="d-flex align-items-center {{ areActiveRoutes(['user_search_report.index'])}}">
+                        <a href="{{ route('user_search_report.index') }}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{ translate('User Searches') }}</span>
                         </a>
@@ -449,13 +449,13 @@
             </a>
             <ul class="menu-content">
                 <li class="{{ 'blog.index' === Route::currentRouteName() ? 'active' : '' }}">
-                    <a href="{{ route('blog.index') }}" class="d-flex align-items-center {{ areActiveRoutes(['blog.create', 'blog.edit'])}}">
+                    <a href="{{ route('blog.index') }}" class="d-flex align-items-center">
                         <i data-feather="circle"></i>
                         <span class="menu-title text-truncate">{{ translate('All Posts') }}</span>
                     </a>
                 </li>
                 <li class="{{ 'blog-category.index' === Route::currentRouteName() ? 'active' : '' }}">
-                    <a href="{{ route('blog-category.index') }}" class="d-flex align-items-center {{ areActiveRoutes(['blog-category.create', 'blog-category.edit'])}}">
+                    <a href="{{ route('blog-category.index') }}" class="d-flex align-items-center">
                         <i data-feather="circle"></i>
                         <span class="menu-title text-truncate">{{ translate('Categories') }}</span>
                     </a>
@@ -474,7 +474,7 @@
                 <ul class="menu-content">
                     @if(Auth::user()->user_type == 'admin' || in_array('2', json_decode(Auth::user()->staff->role->permissions)))
                         <li class="{{ 'flash_deals.index' === Route::currentRouteName() ? 'active' : '' }}">
-                            <a href="{{ route('flash_deals.index') }}" class="d-flex align-items-center {{ areActiveRoutes(['flash_deals.index', 'flash_deals.create', 'flash_deals.edit'])}}">
+                            <a href="{{ route('flash_deals.index') }}" class="d-flex align-items-center">
                                 <i data-feather="circle"></i>
                                 <span class="menu-title text-truncate">{{ translate('Flash deals') }}</span>
                             </a>
@@ -505,9 +505,39 @@
                         </a>
                     </li>
                     <li class="{{ 'coupon.index' === Route::currentRouteName() ? 'active' : '' }}">
-                        <a href="{{route('coupon.index')}}" class="d-flex align-items-center {{ areActiveRoutes(['coupon.index','coupon.create','coupon.edit'])}}">
+                        <a href="{{route('coupon.index')}}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{ translate('Coupon') }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        @endif
+
+        <!-- Inventory -->
+        @if(Auth::user()->user_type == 'admin' || in_array('11', json_decode(Auth::user()->staff->role->permissions)))
+            <li class="nav-item">
+                <a href="javascript:void(0)" class="d-flex align-items-center">
+                    <i data-feather='slack'></i>
+                    <span class="menu-title text-truncate">{{ translate('Inventory') }}</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="{{ 'dropdown_item.index' === Route::currentRouteName() ? 'active' : '' }}">
+                        <a href="{{ route('dropdown_item.index') }}" class="d-flex align-items-center">
+                            <i data-feather="circle"></i>
+                            <span class="menu-title text-truncate">{{ translate('Dropdown Item') }}</span>
+                        </a>
+                    </li>
+                    <li class="{{ 'raw_materials_type.index' === Route::currentRouteName() ? 'active' : '' }}">
+                        <a href="{{route('raw_materials_type.index')}}" class="d-flex align-items-center">
+                            <i data-feather="circle"></i>
+                            <span class="menu-title text-truncate">{{ translate('Raw Materials Type') }}</span>
+                        </a>
+                    </li>
+                    <li class="{{ 'raw_materials.index' === Route::currentRouteName() ? 'active' : '' }}">
+                        <a href="{{ route('raw_materials.index') }}" class="d-flex align-items-center">
+                            <i data-feather="circle"></i>
+                            <span class="menu-title text-truncate">{{ translate('Raw Materials') }}</span>
                         </a>
                     </li>
                 </ul>
@@ -530,7 +560,7 @@
                                       ->count();
                       @endphp
                       <li class="{{ 'support_ticket.admin_index' === Route::currentRouteName() ? 'active' : '' }}">
-                          <a href="{{ route('support_ticket.admin_index') }}" class="d-flex align-items-center {{ areActiveRoutes(['support_ticket.admin_index', 'support_ticket.admin_show'])}}">
+                          <a href="{{ route('support_ticket.admin_index') }}" class="d-flex align-items-center">
                                 <i data-feather="circle"></i>
                               <span class="menu-title text-truncate">{{translate('Ticket')}}</span>
                               @if($support_ticket > 0)<span class="badge badge-info">{{ $support_ticket }}</span>@endif
@@ -543,7 +573,7 @@
                   @endphp
                   @if(Auth::user()->user_type == 'admin' || in_array('12', json_decode(Auth::user()->staff->role->permissions)))
                       <li class="{{ 'conversations.admin_index' === Route::currentRouteName() ? 'active' : '' }}">
-                          <a href="{{ route('conversations.admin_index') }}" class="d-flex align-items-center {{ areActiveRoutes(['conversations.admin_index', 'conversations.admin_show'])}}">
+                          <a href="{{ route('conversations.admin_index') }}" class="d-flex align-items-center">
                                 <i data-feather="circle"></i>
                               <span class="menu-title text-truncate">{{translate('Product Queries')}}</span>
                               @if (count($conversation) > 0)
@@ -578,7 +608,7 @@
                           </a>
                       </li>
                       <li class="{{ 'affiliate.users' === Route::currentRouteName() ? 'active' : '' }}">
-                          <a href="{{route('affiliate.users')}}" class="d-flex align-items-center {{ areActiveRoutes(['affiliate.users', 'affiliate_users.show_verification_request', 'affiliate_user.payment_history'])}}">
+                          <a href="{{route('affiliate.users')}}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                               <span class="menu-title text-truncate">{{translate('Affiliate Users')}}</span>
                           </a>
@@ -617,7 +647,7 @@
                   </a>
                   <ul class="menu-content">
                       <li class="{{ 'manual_payment_methods.index' === Route::currentRouteName() ? 'active' : '' }}">
-                          <a href="{{ route('manual_payment_methods.index') }}" class="d-flex align-items-center {{ areActiveRoutes(['manual_payment_methods.index', 'manual_payment_methods.create', 'manual_payment_methods.edit'])}}">
+                          <a href="{{ route('manual_payment_methods.index') }}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                               <span class="menu-title text-truncate">{{translate('Manual Payment Methods')}}</span>
                           </a>
@@ -689,13 +719,13 @@
                         </a>
                     </li>
                     <li class="{{ 'set_product_points' === Route::currentRouteName() ? 'active' : '' }}">
-                        <a href="{{route('set_product_points')}}" class="d-flex align-items-center {{ areActiveRoutes(['set_product_points', 'product_club_point.edit'])}}">
+                        <a href="{{route('set_product_points')}}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{translate('Set Product Point')}}</span>
                         </a>
                     </li>
                     <li class="{{ 'club_points.index' === Route::currentRouteName() ? 'active' : '' }}">
-                        <a href="{{route('club_points.index')}}" class="d-flex align-items-center {{ areActiveRoutes(['club_points.index', 'club_point.details'])}}">
+                        <a href="{{route('club_points.index')}}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{translate('User Points')}}</span>
                         </a>
@@ -786,7 +816,7 @@
                     </a>
                 </li>
                 <li class="{{ 'website.pages' === Route::currentRouteName() ? 'active' : '' }}">
-                    <a href="{{ route('website.pages') }}" class="d-flex align-items-center {{ areActiveRoutes(['website.pages', 'custom-pages.create' ,'custom-pages.edit'])}}">
+                    <a href="{{ route('website.pages') }}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                         <span class="menu-title text-truncate">{{translate('Pages')}}</span>
                     </a>
@@ -824,7 +854,7 @@
                     </a>
                 </li>
                 <li class="{{ 'languages.index' === Route::currentRouteName() ? 'active' : '' }}">
-                    <a href="{{route('languages.index')}}" class="d-flex align-items-center {{ areActiveRoutes(['languages.index', 'languages.create', 'languages.store', 'languages.show', 'languages.edit'])}}">
+                    <a href="{{route('languages.index')}}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                         <span class="menu-title text-truncate">{{translate('Languages')}}</span>
                     </a>
@@ -837,13 +867,13 @@
                     </a>
                 </li>
                 <li class="{{ 'tax.index' === Route::currentRouteName() ? 'active' : '' }}">
-                    <a href="{{route('tax.index')}}" class="d-flex align-items-center {{ areActiveRoutes(['tax.index', 'tax.create', 'tax.store', 'tax.show', 'tax.edit'])}}">
+                    <a href="{{route('tax.index')}}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                         <span class="menu-title text-truncate">{{translate('Vat & TAX')}}</span>
                     </a>
                 </li>
                 <li class="{{ 'pick_up_points.index' === Route::currentRouteName() ? 'active' : '' }}">
-                    <a href="{{route('pick_up_points.index')}}" class="d-flex align-items-center {{ areActiveRoutes(['pick_up_points.index','pick_up_points.create','pick_up_points.edit'])}}">
+                    <a href="{{route('pick_up_points.index')}}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                         <span class="menu-title text-truncate">{{translate('Pickup point')}}</span>
                     </a>
@@ -910,17 +940,17 @@
                     </a>
                     <ul class="aiz-side-nav-list level-3">
                         <li class="{{ 'shipping_configuration.index' === Route::currentRouteName() ? 'active' : '' }}">
-                            <a href="{{route('shipping_configuration.index')}}" class="d-flex align-items-center {{ areActiveRoutes(['shipping_configuration.index','shipping_configuration.edit','shipping_configuration.update'])}}">
+                            <a href="{{route('shipping_configuration.index')}}" class="d-flex align-items-center">
                                 <span class="menu-title text-truncate">{{translate('Shipping Configuration')}}</span>
                             </a>
                         </li>
                         <li class="{{ 'countries.index' === Route::currentRouteName() ? 'active' : '' }}">
-                            <a href="{{route('countries.index')}}" class="d-flex align-items-center {{ areActiveRoutes(['countries.index','countries.edit','countries.update'])}}">
+                            <a href="{{route('countries.index')}}" class="d-flex align-items-center">
                                 <span class="menu-title text-truncate">{{translate('Shipping Countries')}}</span>
                             </a>
                         </li>
                         <li class="{{ 'cities.index' === Route::currentRouteName() ? 'active' : '' }}">
-                            <a href="{{route('cities.index')}}" class="d-flex align-items-center {{ areActiveRoutes(['cities.index','cities.edit','cities.update'])}}">
+                            <a href="{{route('cities.index')}}" class="d-flex align-items-center">
                                 <span class="menu-title text-truncate">{{translate('Shipping Cities')}}</span>
                             </a>
                         </li>
@@ -942,13 +972,13 @@
                 </a>
                 <ul class="menu-content">
                     <li class="{{ 'staffs.index' === Route::currentRouteName() ? 'active' : '' }}">
-                        <a href="{{ route('staffs.index') }}" class="d-flex align-items-center {{ areActiveRoutes(['staffs.index', 'staffs.create', 'staffs.edit'])}}">
+                        <a href="{{ route('staffs.index') }}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{translate('All staffs')}}</span>
                         </a>
                     </li>
                     <li class="{{ 'roles.index' === Route::currentRouteName() ? 'active' : '' }}">
-                        <a href="{{route('roles.index')}}" class="d-flex align-items-center {{ areActiveRoutes(['roles.index', 'roles.create', 'roles.edit'])}}">
+                        <a href="{{route('roles.index')}}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{translate('Staff permissions')}}</span>
                         </a>
@@ -983,13 +1013,20 @@
         <!-- Addon Manager -->
         {{-- @if(Auth::user()->user_type == 'admin' || in_array('21', json_decode(Auth::user()->staff->role->permissions)))
             <li class="{{ 'addons.index' === Route::currentRouteName() ? 'active' : '' }}">
-                <a href="{{route('addons.index')}}" class="d-flex align-items-center {{ areActiveRoutes(['addons.index', 'addons.create'])}}">
+                <a href="{{route('addons.index')}}" class="d-flex align-items-center">
                     <i class="las la-wrench aiz-side-nav-icon"></i>
                     <i data-feather='slack'></i>
                     <span class="menu-title text-truncate">{{translate('Addon Manager')}}</span>
                 </a>
             </li>
         @endif --}}
+
+        <li class="nav-item">
+            <a href="{{route('clear')}}" class="nav-link d-flex align-items-center" target="_blank">
+                <i data-feather="trash-2"></i>
+                <span>{{ translate('Clear Cache') }}</span>
+            </a>
+        </li>
      
       {{-- Foreach menu item ends --}}
     </ul>

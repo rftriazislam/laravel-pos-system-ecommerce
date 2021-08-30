@@ -329,3 +329,14 @@ Route::get('/mobile-page/{slug}', 'PageController@mobile_custom_page')->name('mo
 
 //Custom page
 Route::get('/{slug}', 'PageController@show_custom_page')->name('custom-pages.show_custom_page');
+
+Route::get('/clear',function () {
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('config:cache');
+    Artisan::call('view:clear');
+    Artisan::call('route:clear');
+
+    // return 'Clear All Successfully';
+    return view('backend.miscellaneous.clear_cache');
+})->name('clear');

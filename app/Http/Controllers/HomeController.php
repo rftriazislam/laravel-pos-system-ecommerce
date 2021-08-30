@@ -215,7 +215,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('frontend.index');
+        return view('frontend.home.index');
     }
 
     public function flash_deal_details($slug)
