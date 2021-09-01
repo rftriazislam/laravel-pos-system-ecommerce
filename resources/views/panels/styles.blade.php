@@ -4,12 +4,13 @@
 @if($configData['direction'] === 'rtl' && isset($configData['direction']))
 	<link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/vendors-rtl.min.css')) }}" />
 @else
-	<link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/vendors.min.css')) }}" />
+	<link rel="stylesheet" href="{{ asset('public'.mix('vendors/css/vendors.min.css')) }}" />
 @endif
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
 <!-- vendor css files select 2 -->
 <link rel="stylesheet" href="{{ asset('resources/'.mix('vendors/css/forms/select/select2.min.css')) }}" />
+<link rel="stylesheet" href="{{ URL::asset('public/vendors/css/tagify/tagify.css') }}" />
 @yield('vendor-style')
 <!-- END: Vendor CSS-->
 
