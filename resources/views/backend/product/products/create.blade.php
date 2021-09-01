@@ -29,7 +29,7 @@
                                 <input type="text" class="form-control" name="name" placeholder="{{ translate('Product Name') }}" onchange="update_sku()" required>
                             </div>
                         </div>
-                        
+
                         <div class="form-group p-1 row" id="category">
                             <label class="col-md-3 col-from-label">{{translate('Category')}} <span class="text-danger">*</span></label>
                             <div class="col-md-8">
@@ -115,7 +115,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                     </div>
-                                    
+
                                     <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                     <input type="hidden" name="photos" class="selected-files">
                                 </div>
@@ -131,7 +131,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                     </div>
-                                   
+
                                     <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                     <input type="hidden" name="thumbnail_img" class="selected-files">
                                 </div>
@@ -440,7 +440,7 @@
                 </div>
 
                 {{-- Stock Visibility State --}}
-                
+
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">
@@ -629,7 +629,7 @@
             </div>
             <div class="col-lg-8">
 
-               
+
 
                 <div class="demo-inline-spacing btn-toolbar d-flex justify-content-end mb-3" role="toolbar" aria-label="Toolbar with button groups">
                     <div class="btn-group mr-2" role="group" aria-label="First group">
@@ -654,13 +654,12 @@
 <script type="text/javascript">
     $("[name=shipping_type]").on("change", function (){
         $(".flat_rate_shipping_div").hide();
-        
+
         if($(this).val() == 'flat_rate'){
             $(".flat_rate_shipping_div").show();
         }
 
     });
-
     function add_more_customer_choice_option(i, name){
         $.ajax({
             headers: {
@@ -689,7 +688,7 @@
            }
        });
 
-        
+
     }
 
     $('input[name="colors_active"]').on('change', function() {
