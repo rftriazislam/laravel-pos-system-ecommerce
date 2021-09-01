@@ -5,15 +5,15 @@
 				<div class="uppy-modal-nav">
 					<ul class="nav nav-tabs border-0">
 						<li class="nav-item">
-							<a class="nav-link active font-weight-medium text-dark" data-toggle="tab" href="#aiz-select-file">{{ translate('Select File') }}</a>
+							<a class="nav-link  font-weight-medium text-dark " data-toggle="tab" href="#aiz-select-file">{{ translate('Select File') }}</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link font-weight-medium text-dark" data-toggle="tab" href="#aiz-upload-new">{{ translate('Upload New') }}</a>
 						</li>
 					</ul>
 				</div>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true"></span>
+				<button type="button" class="btn-close p-1 m-1" data-bs-dismiss="modal" aria-label="Close" >
+					<span aria-hidden="false"></span>
 				</button>
 			</div>
 			<div class="modal-body">
@@ -61,6 +61,7 @@
 					<div class="tab-pane h-100" id="aiz-upload-new">
 						<div id="aiz-upload-files" class="h-100">
 						</div>
+
 					</div>
 				</div>
 			</div>

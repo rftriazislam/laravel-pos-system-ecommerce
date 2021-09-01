@@ -45,8 +45,8 @@
         </div>
     </form>
 
-    <div class="table-responsive">
-        <table class="table table-bordered">
+    <div class="table-responsive p-1">
+        <table class="table ">
             <thead>
                 <tr>
                     <th data-breakpoints="lg">#</th>

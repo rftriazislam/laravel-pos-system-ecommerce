@@ -3,14 +3,14 @@
 @section('title', 'Customer List')
 
 @section('vendor-style')
-	{{-- Page Css files --}}
+	{{-- Page CSS files --}}
 	<link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/tables/datatable/dataTables.bootstrap4.min.css')) }}">
 	<link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/tables/datatable/responsive.bootstrap4.min.css')) }}">
 	<link rel="stylesheet" href="{{ asset('public/'.mix('vendors/css/tables/datatable/buttons.bootstrap4.min.css')) }}">
 @endsection
 
 @section('page-style')
-	{{-- Page Css files --}}
+	{{-- Page CSS files --}}
 	<link rel="stylesheet" href="{{ asset('public/'.mix('css/base/plugins/forms/form-validation.css')) }}">
 	<link rel="stylesheet" href="{{ asset('public/'.mix('css/base/pages/app-user.css')) }}">
 @endsection
