@@ -1,4 +1,10 @@
 @extends('frontend.master.master_page')
+        
+<!-- Begin Quickview -->
+@section('sliders')
+    @include('frontend.home.slider');
+@endsection
+<!-- End Quickview -->
 
 @section('page_content')                
     <!-- Begin Ads -->

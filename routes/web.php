@@ -57,7 +57,13 @@ Route::get('/users/registration', 'HomeController@registration')->name('user.reg
 Route::post('/users/login/cart', 'HomeController@cart_login')->name('cart.login.submit');
 
 //Home Page
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/','HomeController@index')->name('home');
+Route::get('/all-product/{category_id}','FrontendController@all_product')->name('all_product');
+Route::get('/list_all-product/{category_id}','FrontendController@list_all_product')->name('list_all_product');
+Route::post('/product-quick-view/','FrontendController@product_quick_view')->name('product_quick_view');
+Route::get('/product-details/{product_id}','FrontendController@product_details')->name('product_details');
+Route::get('/contact/','FrontendController@contact')->name('contact');
+
 Route::post('/home/section/featured', 'HomeController@load_featured_section')->name('home.section.featured');
 Route::post('/home/section/best_selling', 'HomeController@load_best_selling_section')->name('home.section.best_selling');
 Route::post('/home/section/home_categories', 'HomeController@load_home_categories_section')->name('home.section.home_categories');
