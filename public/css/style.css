@@ -485,6 +485,24 @@ label.aiz-megabox {
 
 /*tagify tag input*/
 
+.tagify {
+    --tags-border-color: #e2e5ec;
+    --tag-bg: #e2e5ec;
+    --tag-hover: #d9e6ff;
+    --tag-text-color: #212529;
+    --tag-text-color--edit: #212529;
+    --tag-pad: 0.3rem 0.5rem;
+    --tag-inset-shadow-size: 1.4em;
+    --tag-invalid-color: #d39494;
+    --tag-invalid-bg: rgba(253, 57, 75, 0.5);
+    --tag-remove-bg: rgba(253, 57, 75, 0.3);
+    --tag-remove-btn-bg: none;
+    --tag-remove-btn-bg--hover: #fd394b;
+    --tag--min-width: 1ch;
+    --tag--max-width: auto;
+    --tag-hide-transition: 0.3s;
+    --loader-size: 0.8em;
+}
 .aiz-tag-input {
     height: auto;
     padding: 0.465rem 1rem 0.2rem;
