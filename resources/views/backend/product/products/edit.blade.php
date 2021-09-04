@@ -27,7 +27,7 @@
                         </li>
                         @endforeach
                     </ul>
-                   
+
                 </div> --}}
 
                  {{-- product information  --}}
@@ -47,9 +47,9 @@
                             <div class="col-lg-8">
                                 <select class="select2 form-select" name="category_id" id="category_id" data-selected="{{ $product->category_id }}" data-live-search="true" required>
                                     @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->getTranslation('name') }}</option>
+                                    <option value="{{ $category->id }}" @if($product->category_id == $category->id) selected @endif>{{ $category->getTranslation('name') }}</option>
                                     @foreach ($category->childrenCategories as $childCategory)
-                                    @include('categories.child_category', ['child_category' => $childCategory])
+                                    @include('categories.edit_child_category', ['child_category' => $childCategory])
                                     @endforeach
                                     @endforeach
                                 </select>
@@ -223,7 +223,7 @@
                                     {{-- <option
                                         value="{{ $color->code }}"
                                         data-content="<span><span class='size-15px d-inline-block mr-2 rounded border' style='background:{{ $color->code }}'></span><span>{{ $color->name }}</span></span>"
-                                        
+
                                         ></option> --}}
                                     @endforeach
                                 </select>
@@ -355,7 +355,7 @@
                         <div class="form-group p-1 row">
                             <label class="col-lg-3 col-from-label">{{translate('Description')}} <i class="las la-language text-danger" title="{{translate('Translatable')}}"></i></label>
                             <div class="col-lg-9">
-                                
+
                                 <textarea class="form-control" name="description">{{ $product->getTranslation('description', $lang) }}</textarea>
                             </div>
                         </div>
@@ -406,7 +406,7 @@
                         <div class="form-group p-1 row">
                             <label class="col-lg-3 col-from-label">{{translate('Description')}}</label>
                             <div class="col-lg-8">
-                                
+
                                 <textarea name="meta_description" rows="8" class="form-control">{{ $product->meta_description }}</textarea>
                             </div>
                         </div>
@@ -472,7 +472,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="form-group p-1 row">
                             <label class="col-md-6 col-from-label">{{translate('Is Product Quantity Mulitiply')}}</label>
                             <div class="col-md-6">
@@ -749,7 +749,7 @@
         var shipping_val = $("[name=shipping_type]:checked").val();
 
         $(".flat_rate_shipping_div").hide();
-        
+
         if(shipping_val == 'flat_rate'){
             $(".flat_rate_shipping_div").show();
         }
@@ -783,7 +783,7 @@
            }
        });
 
-        
+
     }
 
     $('input[name="colors_active"]').on('change', function() {

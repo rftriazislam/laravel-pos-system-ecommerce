@@ -145,16 +145,16 @@ class ProductController extends Controller
         $all_attribute_values = AttributeValue::with('attribute')->where('attribute_id', $request->attribute_id)->get();
 
         $html = '';
-        
+
         foreach ($all_attribute_values as $row) {
 //            $val = $row->id . ' | ' . $row->name;
             $html .= '<option value="' . $row->value . '">' . $row->value . '</option>';
         }
-        
-        
+
+
         echo json_encode($html);
         // $html = '';
-        
+
         // $html .= '<div class="form-group row">
         //             <div class="col-md-3">
         //                 <input type="hidden" name="choice_no[]" value="'. $request->id .'">
@@ -290,11 +290,11 @@ class ProductController extends Controller
         }
 
         $choice_options = array();
-        
+
         if($request->has('choice_no')){
             foreach ($request->choice_no as $key => $no) {
                 $str = 'choice_options_'.$no;
-                
+
                 $item['attribute_id'] = $no;
 
                 $data = array();
@@ -481,6 +481,7 @@ class ProductController extends Controller
             ->where('digital', 0)
             ->with('childrenCategories')
             ->get();
+
         return view('backend.product.products.edit', compact('product', 'categories', 'tags','lang'));
      }
 

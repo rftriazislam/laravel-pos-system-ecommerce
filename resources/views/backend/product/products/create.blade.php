@@ -3,7 +3,14 @@
 
 @section('title', 'Product Add')
 
+@section('head')
 
+
+<link rel="stylesheet" href="{{ asset('public/css/custom/custom.css') }}" />
+<style>
+
+</style>
+@endsection
 
 
 @section('content')
@@ -178,7 +185,7 @@
                                 <input type="text" class="form-control" value="{{translate('Colors')}}" disabled>
                             </div>
                             <div class="col-md-8">
-                                <select class="select2 form-select" data-live-search="true" data-selected-text-format="count" name="colors[]" id="colors" multiple disabled>
+                                <select class="form-control aiz-selectpicker" data-live-search="true" data-selected-text-format="count" name="colors[]" id="colors" multiple disabled>
                                     @foreach (\App\Color::orderBy('name', 'asc')->get() as $key => $color)
                                     <option  value="{{ $color->code }}" data-content="<span><span class='size-15px d-inline-block mr-2 rounded border' style='background:{{ $color->code }}'></span><span>{{ $color->name }}</span></span>">{{ $color->name }}</option>
                                     @endforeach
@@ -197,7 +204,7 @@
                                 <input type="text" class="form-control" value="{{translate('Attributes')}}" disabled>
                             </div>
                             <div class="col-md-8">
-                                <select name="choice_attributes[]" id="choice_attributes" class="select2 form-select" data-selected-text-format="count" data-live-search="true" multiple data-placeholder="{{ translate('Choose Attributes') }}">
+                                <select name="choice_attributes[]" id="choice_attributes" class="form-control aiz-selectpicker" data-selected-text-format="count" data-live-search="true" multiple data-placeholder="{{ translate('Choose Attributes') }}">
                                     @foreach (\App\Attribute::all() as $key => $attribute)
                                     <option value="{{ $attribute->id }}">{{ $attribute->getTranslation('name') }}</option>
                                     @endforeach
@@ -679,7 +686,7 @@
                         <input type="text" class="form-control" name="choice[]" value="'+name+'" placeholder="{{ translate('Choice Title') }}" readonly>\
                     </div>\
                     <div class="col-md-8">\
-                        <select class="select2 form-select attribute_choice" data-live-search="true" name="choice_options_'+ i +'[]" multiple>\
+                        <select class="select2 form-control attribute_choice" data-live-search="true" name="choice_options_'+ i +'[]" multiple>\
                             '+obj+'\
                         </select>\
                     </div>\
