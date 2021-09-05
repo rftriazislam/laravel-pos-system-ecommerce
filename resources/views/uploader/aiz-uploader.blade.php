@@ -1,5 +1,5 @@
 <div class="modal fade" id="aizUploaderModal" data-backdrop="static" role="dialog" aria-hidden="true" >
-	<div class="modal-dialog modal-adaptive" role="document">
+	<div class="modal-dialog modal-adaptive" style="margin: 1px auto !important;"  role="document">
 		<div class="modal-content h-100">
 			<div class="modal-header pb-0 bg-light">
 				<div class="uppy-modal-nav">
