@@ -34,7 +34,11 @@
         
         <!-- Style Switcher-->
         <link href="{{ asset('public/frontend/flatize/style-switcher/css/style-switcher.css') }}" rel="stylesheet">
-        <link href="{{ asset('public/frontend/flatize/css/colors/cyan/style.css') }}" rel="stylesheet" id="layoutstyle">
+        <link href="{{ asset('public/frontend/flatize/css/colors/green/style.css') }}" rel="stylesheet" id="layoutstyle">
 
         <!-- Theme Responsive-->
         <link href="{{ asset('public/frontend/flatize/css/theme-responsive.css') }}" rel="stylesheet">
+
+        <style type="text/css">
+            .main { margin-top: -42px; }
+        </style>

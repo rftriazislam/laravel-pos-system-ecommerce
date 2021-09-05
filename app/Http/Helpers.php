@@ -23,6 +23,7 @@ use Twilio\Rest\Client;
 use App\Wallet;
 use App\Order;
 use App\User;
+use App\Colors;
 
 //highlights the selected navigation on admin panel
 if (! function_exists('sendSMS')) {
@@ -176,6 +177,27 @@ if (! function_exists('sendSMS')) {
             MimoUtility::sendMessage($text, $to, $token);
             MimoUtility::logout($token);
         }
+    }
+}
+
+if (!function_exists('get_all_colors')) {
+    function get_all_product_colors($product_info = array()) {
+        $product_color = '';
+        foreach ($product_info as $product) {
+            if ($product_color) {
+                $product_color .= ',';
+            }
+            $product_color_array = json_decode($product->colors,true);
+            $product_color .= implode(',',$product_color_array);
+            // array_push($colors,$product_color);
+        }
+        $colors = explode(',', $product_color);
+        $unique_colors = array_unique($colors);
+        $unique_colors = implode(',',$unique_colors);
+
+        $colors_info = \DB::select("SELECT * FROM `colors` WHERE FIND_IN_SET(`code`,'$unique_colors')");
+        return $colors_info;
+        // echo "<pre>"; print_r($colors_info); exit();
     }
 }
 

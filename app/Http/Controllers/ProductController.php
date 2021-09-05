@@ -203,7 +203,7 @@ class ProductController extends Controller
         $product->photos = $request->photos;
         $product->thumbnail_img = $request->thumbnail_img;
         $product->unit = $request->unit;
-        $product->current_stock    = $request->current_stock;
+        // $product->current_stock    = $request->current_stock;
         $product->min_qty = $request->min_qty;
         $product->low_stock_quantity = $request->low_stock_quantity;
         $product->stock_visibility_state = $request->stock_visibility_state;

@@ -104,7 +104,12 @@ class HomeController extends Controller
      */
     public function admin_dashboard()
     {
-        return view('backend.dashboard');
+        $pageConfigs = [
+            'pageClass' => 'ecommerce-application',
+        ];
+        return view('backend.dashboard', [
+            'pageConfigs' => $pageConfigs
+        ]);
     }
 
     /**
@@ -663,7 +668,7 @@ class HomeController extends Controller
                 $quantity = translate('In Stock');
             }else{
                 $quantity = translate('Out Of Stock');
-            }            
+            }
         }
         if($quantity >= 1 && $product->min_qty < $quantity){
             $in_stock = 1;
