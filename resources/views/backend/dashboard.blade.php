@@ -1,4 +1,17 @@
-@extends('backend.layouts.app')
+{{-- @extends('backend.layouts.app') --}}
+@extends('layouts/contentLayoutMaster')
+
+@section('vendor-style')
+  {{-- Vendor Css files --}}
+  <link rel="stylesheet" href="{{ asset('resources'.mix('vendors/css/forms/spinner/jquery.bootstrap-touchspin.css')) }}">
+  <link rel="stylesheet" href="{{ asset('resources'.mix('vendors/css/extensions/swiper.min.css')) }}">
+@endsection
+
+@section('page-style')
+  {{-- Page Css files --}}
+  <link rel="stylesheet" href="{{ asset('public'.mix('css/base/pages/app-ecommerce-details.css')) }}">
+  <link rel="stylesheet" href="{{ asset('public'.mix('css/base/plugins/forms/form-number-input.css')) }}">
+@endsection
 
 @section('content')
 @if(env('MAIL_USERNAME') == null && env('MAIL_PASSWORD') == null)
@@ -11,8 +24,75 @@
 @endif
 @if(Auth::user()->user_type == 'admin' || in_array('1', json_decode(Auth::user()->staff->role->permissions)))
 <div class="row gutters-10">
-    <div class="col-lg-6">
-        <div class="row gutters-10">
+    <div class="col-lg-8">
+        <!-- Statistics Card -->
+        <div class="card card-statistics">
+            <div class="card-header">
+                <h4 class="card-title">Statistics</h4>
+                <div class="d-flex align-items-center">
+                    <p class="card-text font-small-2 me-25 mb-0">Updated 1 month ago</p>
+                </div>
+            </div>
+            <div class="card-body statistics-body">
+                <div class="row">
+                    <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
+                    <div class="d-flex flex-row">
+                        <div class="avatar bg-light-primary me-2">
+                        <div class="avatar-content">
+                            <i data-feather="trending-up" class="avatar-icon"></i>
+                        </div>
+                        </div>
+                        <div class="my-auto">
+                        <h4 class="fw-bolder mb-0">{{ \App\Customer::all()->count() }}</h4>
+                        <p class="card-text font-small-3 mb-0">{{ translate('Customer') }}</p>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
+                    <div class="d-flex flex-row">
+                        <div class="avatar bg-light-info me-2">
+                        <div class="avatar-content">
+                            <i data-feather="user" class="avatar-icon"></i>
+                        </div>
+                        </div>
+                        <div class="my-auto">
+                        <h4 class="fw-bolder mb-0">{{ \App\Order::all()->count() }}</h4>
+                        <p class="card-text font-small-3 mb-0">{{ translate('Order') }}</p>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-sm-0">
+                    <div class="d-flex flex-row">
+                        <div class="avatar bg-light-danger me-2">
+                        <div class="avatar-content">
+                            <i data-feather="box" class="avatar-icon"></i>
+                        </div>
+                        </div>
+                        <div class="my-auto">
+                        <h4 class="fw-bolder mb-0">{{ \App\Category::all()->count() }}</h4>
+                        <p class="card-text font-small-3 mb-0">{{ translate('Product category') }}</p>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="d-flex flex-row">
+                        <div class="avatar bg-light-success me-2">
+                        <div class="avatar-content">
+                            <i data-feather="dollar-sign" class="avatar-icon"></i>
+                        </div>
+                        </div>
+                        <div class="my-auto">
+                        <h4 class="fw-bolder mb-0">{{ \App\Brand::all()->count() }}</h4>
+                        <p class="card-text font-small-3 mb-0">{{ translate('Product brand') }}</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!--/ Statistics Card -->
+
+        {{-- <div class="row gutters-10">
             <div class="col-6">
                 <div class="bg-grad-2 text-white rounded-lg mb-4 overflow-hidden">
                     <div class="px-3 pt-3">
@@ -69,10 +149,10 @@
                     </svg>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 
-    <div class="col-lg-6">
+    <div class="col-lg-4">
         <div class="row gutters-10">
             <div class="col-6">
                 <div class="card">
@@ -130,11 +210,29 @@
         <h6 class="mb-0">{{ translate('Top 12 Products') }}</h6>
     </div>
     <div class="card-body">
-        <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="6" data-xl-items="5" data-lg-items="4" data-md-items="3" data-sm-items="2" data-arrows='true'>
+        <div class="swiper-responsive-breakpoints swiper-container px-4 py-2">
+            <div class="swiper-wrapper">
             @foreach (filter_products(\App\Product::where('published', 1)->orderBy('num_of_sale', 'desc'))->limit(12)->get() as $key => $product)
-                <div class="carousel-box">
-                    <div class="aiz-card-box border border-light rounded shadow-sm hov-shadow-md mb-2 has-transition bg-white">
-                        <div class="position-relative">
+                <div class="swiper-slide">
+                    <a href={{ route('product', $product->slug) }}>
+                        <div class="item-heading">
+                            <h5 class="text-truncate mb-0">{{ $product->getTranslation('name') }}</h5>
+                            {{-- <small class="text-body">by Apple</small> --}}
+                        </div>
+                        <div class="img-container w-50 mx-auto py-75">
+                            <img src="{{uploaded_asset($product->thumbnail_img)}}" class="img-fluid" alt="{{  $product->getTranslation('name')  }}" onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder.jpg') }}';"/>
+                        </div>
+                        <div class="item-meta">
+                            <ul class="unstyled-list list-inline mb-25">
+                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                            <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
+                            </ul>
+                            <p class="card-text text-primary mb-0">{{ home_discounted_base_price($product) }}</p>
+                        </div>
+                        {{-- <div class="position-relative">
                             <a href="{{ route('product', $product->slug) }}" class="d-block">
                                 <img
                                     class="img-fit lazyload mx-auto h-210px"
@@ -158,17 +256,29 @@
                             <h3 class="fw-600 fs-13 text-truncate-2 lh-1-4 mb-0">
                                 <a href="{{ route('product', $product->slug) }}" class="d-block text-reset">{{ $product->getTranslation('name') }}</a>
                             </h3>
-                        </div>
-                    </div>
+                        </div>             --}}
+                    </a>
                 </div>
             @endforeach
+            </div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
     </div>
 </div>
 
 
 @endsection
+@section('vendor-script')
+  {{-- Vendor js files --}}
+  <script src="{{ asset('resources/'.mix('vendors/js/forms/spinner/jquery.bootstrap-touchspin.js')) }}"></script>
+  <script src="{{ asset('resources/'.mix('vendors/js/extensions/swiper.min.js')) }}"></script>
+@endsection
+
 @section('script')
+  <script src="{{ asset('resources/'.mix('js/scripts/pages/app-ecommerce-details.js')) }}"></script>
+  <script src="{{ asset('resources/'.mix('js/scripts/forms/form-number-input.js')) }}"></script>
 <script type="text/javascript">
     AIZ.plugins.chart('#pie-1',{
         type: 'doughnut',

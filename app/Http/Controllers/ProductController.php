@@ -145,16 +145,16 @@ class ProductController extends Controller
         $all_attribute_values = AttributeValue::with('attribute')->where('attribute_id', $request->attribute_id)->get();
 
         $html = '';
-        
+
         foreach ($all_attribute_values as $row) {
 //            $val = $row->id . ' | ' . $row->name;
             $html .= '<option value="' . $row->value . '">' . $row->value . '</option>';
         }
-        
-        
+
+
         echo json_encode($html);
         // $html = '';
-        
+
         // $html .= '<div class="form-group row">
         //             <div class="col-md-3">
         //                 <input type="hidden" name="choice_no[]" value="'. $request->id .'">
@@ -203,7 +203,7 @@ class ProductController extends Controller
         $product->photos = $request->photos;
         $product->thumbnail_img = $request->thumbnail_img;
         $product->unit = $request->unit;
-        $product->current_stock    = $request->current_stock;
+        // $product->current_stock    = $request->current_stock;
         $product->min_qty = $request->min_qty;
         $product->low_stock_quantity = $request->low_stock_quantity;
         $product->stock_visibility_state = $request->stock_visibility_state;
@@ -290,11 +290,11 @@ class ProductController extends Controller
         }
 
         $choice_options = array();
-        
+
         if($request->has('choice_no')){
             foreach ($request->choice_no as $key => $no) {
                 $str = 'choice_options_'.$no;
-                
+
                 $item['attribute_id'] = $no;
 
                 $data = array();
