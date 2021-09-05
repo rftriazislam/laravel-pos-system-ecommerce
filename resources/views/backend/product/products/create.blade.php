@@ -8,7 +8,23 @@
 
 <link rel="stylesheet" href="{{ asset('public/css/custom/custom.css') }}" />
 <style>
-
+.input-group-text {
+    padding: 0.500rem 1rem;
+}
+/* .margin-left-7{
+    padding-top: 8px;
+} */
+textarea.form-control {
+    min-height: 2.714rem;
+    height: 150px;
+}
+.dropdown-menu[x-placement^=bottom], .dropdown-menu[x-placement^=left], .dropdown-menu[x-placement^=right], .dropdown-menu[x-placement^=top] {
+    right: auto;
+    bottom: auto;
+}.aiz-tag-input {
+    height: auto;
+    padding: 0.465rem 1rem 0.2rem;
+}
 </style>
 @endsection
 
@@ -119,11 +135,11 @@
                             <label class="col-md-3 col-form-label" for="signinSrEmail">{{translate('Gallery Images')}} <small>(600x600)</small></label>
                             <div class="col-md-8">
                                 <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
-                                    </div>
 
-                                    <div class="form-control file-amount">{{ translate('Choose File') }}</div>
+                                        <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+
+
+                                    <div class="form-control margin-left-7 file-amount">{{ translate('Choose File') }}</div>
                                     <input type="hidden" name="photos" class="selected-files">
                                 </div>
                                 <div class="file-preview box sm">
@@ -135,11 +151,11 @@
                             <label class="col-md-3 col-form-label" for="signinSrEmail">{{translate('Thumbnail Image')}} <small>(300x300)</small></label>
                             <div class="col-md-8">
                                 <div class="input-group" data-toggle="aizuploader" data-type="image">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
-                                    </div>
 
-                                    <div class="form-control file-amount">{{ translate('Choose File') }}</div>
+                                        <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+
+
+                                    <div class="form-control margin-left-7 file-amount">{{ translate('Choose File') }}</div>
                                     <input type="hidden" name="thumbnail_img" class="selected-files">
                                 </div>
                                 <div class="file-preview box sm">
@@ -321,9 +337,9 @@
                             <label class="col-md-3 col-form-label" for="signinSrEmail">{{translate('PDF Specification')}}</label>
                             <div class="col-md-8">
                                 <div class="input-group" data-toggle="aizuploader" data-type="document">
-                                    <div class="input-group-prepend">
+
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
-                                    </div>
+
                                     <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                     <input type="hidden" name="pdf" class="selected-files">
                                 </div>
@@ -356,9 +372,9 @@
                             <label class="col-md-3 col-form-label" for="signinSrEmail">{{ translate('Meta Image') }}</label>
                             <div class="col-md-8">
                                 <div class="input-group" data-toggle="aizuploader" data-type="image">
-                                    <div class="input-group-prepend">
+
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
-                                    </div>
+
                                     <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                     <input type="hidden" name="meta_img" class="selected-files">
                                 </div>
@@ -599,9 +615,9 @@
                             </label>
                             <div class="input-group">
                                 <input type="number" class="form-control" name="est_shipping_days" min="1" step="1" placeholder="Shipping Days">
-                                <div class="input-group-prepend">
+
                                     <span class="input-group-text" id="inputGroupPrepend">Days</span>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -686,7 +702,7 @@
                         <input type="text" class="form-control" name="choice[]" value="'+name+'" placeholder="{{ translate('Choice Title') }}" readonly>\
                     </div>\
                     <div class="col-md-8">\
-                        <select class="select2 form-control attribute_choice" data-live-search="true" name="choice_options_'+ i +'[]" multiple>\
+                        <select class="form-control aiz-selectpicker attribute_choice" data-live-search="true" name="choice_options_'+ i +'[]" multiple>\
                             '+obj+'\
                         </select>\
                     </div>\

@@ -6,11 +6,11 @@
     .form-group .bootstrap-select, .form-horizontal .bootstrap-select, .form-inline .bootstrap-select {
     margin-bottom: 0;
 }
-.bootstrap-select:not(.input-group-btn), .bootstrap-select[class*=col-] {
+/* .bootstrap-select:not(.input-group-btn), .bootstrap-select[class*=col-] {
     float: none;
     display: inline-block;
     margin-left: 0;
-}
+} */
 .bootstrap-select.form-control {
     margin-bottom: 0;
     padding: 0;
@@ -23,6 +23,7 @@
     height: calc(1.3125rem + 1.2rem + 2px);
     border: 1px solid #e2e5ec;
     color: #898b92;
+
 }
 .form-control {
     display: block;
@@ -385,4 +386,5 @@ a:not([href]) {
 .border {
     border: 1px solid #dee2e6!important;
 }
+
 
