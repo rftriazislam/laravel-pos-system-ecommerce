@@ -18,41 +18,31 @@
 					<aside class="block filter-blk">
 						<h4>Filter By Price</h4>
 						<div id="price-range">
-							<div class="padding-range">
-								<div id="slider-range"></div>
-							</div>
+							<div class="padding-range"><div id="slider-range"></div></div>
 							<label for="amount">Price:</label>
 							<input type="text" id="amount">
 							<p class="clearfix"><a href="#" class="btn btn-primary btn-sm">Apply Filter</a></p>
 						</div>
 					</aside>
 
-					@yield('categories')
-
-					<aside class="block blk-brands">
-						<h4>Brands</h4>
-						<ul class="list-unstyled list-cat">
-							<li><a href="#">Louis Vuitton</a></li>
-							<li><a href="#">Gucci</a></li>
-							<li><a href="#">Levi’s</a></li>
-							<li><a href="#">Prada</a></li>
-							<li><a href="#">Dolce & Gabbana</a></li>
-							<li><a href="#">Dior</a></li>
-							<li><a href="#">Burberry</a></li>
-						</ul>
-					</aside>
-
 					<aside class="block blk-colors">
 						<h4>Colors</h4>
 						<ul class="list-unstyled list-cat">
-							<li><a href="#">Black</a></li>
-							<li><a href="#">Blue</a></li>
+							@foreach ($colors_info as $color)
+								<li>
+									<input type="color" class="form-control" value="{{ $color->code }}" readonly>&nbsp;<a href="#">{{ $color->name }}</a>
+								</li>
+							@endforeach
+							{{-- <li><a href="#">Blue</a></li>
 							<li><a href="#">Navy</a></li>
 							<li><a href="#">Pink</a></li>
 							<li><a href="#">Purple</a></li>
-							<li><a href="#">Old Navy</a></li>
+							<li><a href="#">Old Navy</a></li> --}}
 						</ul>
 					</aside>
+
+					@yield('categories')
+
 					<aside class="block featured">
 						<h4>Featured</h4>
 						<ul class="list-unstyled list-thumbs-pro">

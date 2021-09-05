@@ -11,8 +11,9 @@ class FrontendController extends Controller
     public function all_product($category_id) {
         $products = Product::where('category_id',$category_id)->get();
         $category = Category::find($category_id);
+        $colors_info = get_all_product_colors($products);
 
-        return view('frontend.products.grid_view',compact('category_id','category','products'));
+        return view('frontend.products.grid_view',compact('category_id','category','products','colors_info'));
     }
 
     public function list_all_product($category_id) {
