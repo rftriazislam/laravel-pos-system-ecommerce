@@ -72,7 +72,9 @@
 					<div class="file-preview box sm"></div>
 				</td>
 				<td>
-					<button type="button" class="btn btn-icon btn-sm btn-danger" onclick="delete_variant(this)"><i class="las la-trash"></i></button>
+					<button type="button" class="btn btn-icon btn-sm confirm-delete  btn-outline-danger" onclick="delete_variant(this)">
+                        <i data-feather='trash-2'></i>
+                    </button>
 				</td>
 			</tr>
 		@endif
@@ -80,3 +82,7 @@
 	</tbody>
 </table>
 @endif
+
+<script>
+    feather.replace()
+</script>

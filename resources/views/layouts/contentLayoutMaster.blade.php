@@ -36,7 +36,6 @@
 
         {{-- Include core + vendor Styles --}}
         @include('panels/styles')
-
     </head>
     <!-- END: Head-->
 

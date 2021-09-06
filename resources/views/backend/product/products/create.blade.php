@@ -3,7 +3,9 @@
 
 @section('title', 'Product Add')
 
-
+@section('page-style')
+    <link rel="stylesheet" href="{{ asset('public/css/custom/custom.css') }}" />
+@endsection
 
 
 @section('content')
@@ -112,11 +114,11 @@
                             <label class="col-md-3 col-form-label" for="signinSrEmail">{{translate('Gallery Images')}} <small>(600x600)</small></label>
                             <div class="col-md-8">
                                 <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
-                                    </div>
 
-                                    <div class="form-control file-amount">{{ translate('Choose File') }}</div>
+                                        <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+
+
+                                    <div class="form-control margin-left-7 file-amount">{{ translate('Choose File') }}</div>
                                     <input type="hidden" name="photos" class="selected-files">
                                 </div>
                                 <div class="file-preview box sm">
@@ -128,11 +130,11 @@
                             <label class="col-md-3 col-form-label" for="signinSrEmail">{{translate('Thumbnail Image')}} <small>(300x300)</small></label>
                             <div class="col-md-8">
                                 <div class="input-group" data-toggle="aizuploader" data-type="image">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
-                                    </div>
 
-                                    <div class="form-control file-amount">{{ translate('Choose File') }}</div>
+                                        <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+
+
+                                    <div class="form-control margin-left-7 file-amount">{{ translate('Choose File') }}</div>
                                     <input type="hidden" name="thumbnail_img" class="selected-files">
                                 </div>
                                 <div class="file-preview box sm">
@@ -178,7 +180,7 @@
                                 <input type="text" class="form-control" value="{{translate('Colors')}}" disabled>
                             </div>
                             <div class="col-md-8">
-                                <select class="select2 form-select" data-live-search="true" data-selected-text-format="count" name="colors[]" id="colors" multiple disabled>
+                                <select class="form-control aiz-selectpicker" data-live-search="true" data-selected-text-format="count" name="colors[]" id="colors" multiple disabled>
                                     @foreach (\App\Color::orderBy('name', 'asc')->get() as $key => $color)
                                     <option  value="{{ $color->code }}" data-content="<span><span class='size-15px d-inline-block mr-2 rounded border' style='background:{{ $color->code }}'></span><span>{{ $color->name }}</span></span>">{{ $color->name }}</option>
                                     @endforeach
@@ -197,7 +199,7 @@
                                 <input type="text" class="form-control" value="{{translate('Attributes')}}" disabled>
                             </div>
                             <div class="col-md-8">
-                                <select name="choice_attributes[]" id="choice_attributes" class="select2 form-select" data-selected-text-format="count" data-live-search="true" multiple data-placeholder="{{ translate('Choose Attributes') }}">
+                                <select name="choice_attributes[]" id="choice_attributes" class="form-control aiz-selectpicker" data-selected-text-format="count" data-live-search="true" multiple data-placeholder="{{ translate('Choose Attributes') }}">
                                     @foreach (\App\Attribute::all() as $key => $attribute)
                                     <option value="{{ $attribute->id }}">{{ $attribute->getTranslation('name') }}</option>
                                     @endforeach
@@ -314,9 +316,9 @@
                             <label class="col-md-3 col-form-label" for="signinSrEmail">{{translate('PDF Specification')}}</label>
                             <div class="col-md-8">
                                 <div class="input-group" data-toggle="aizuploader" data-type="document">
-                                    <div class="input-group-prepend">
+
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
-                                    </div>
+
                                     <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                     <input type="hidden" name="pdf" class="selected-files">
                                 </div>
@@ -349,9 +351,9 @@
                             <label class="col-md-3 col-form-label" for="signinSrEmail">{{ translate('Meta Image') }}</label>
                             <div class="col-md-8">
                                 <div class="input-group" data-toggle="aizuploader" data-type="image">
-                                    <div class="input-group-prepend">
+
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
-                                    </div>
+
                                     <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                     <input type="hidden" name="meta_img" class="selected-files">
                                 </div>
@@ -592,9 +594,9 @@
                             </label>
                             <div class="input-group">
                                 <input type="number" class="form-control" name="est_shipping_days" min="1" step="1" placeholder="Shipping Days">
-                                <div class="input-group-prepend">
+
                                     <span class="input-group-text" id="inputGroupPrepend">Days</span>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -679,7 +681,7 @@
                         <input type="text" class="form-control" name="choice[]" value="'+name+'" placeholder="{{ translate('Choice Title') }}" readonly>\
                     </div>\
                     <div class="col-md-8">\
-                        <select class="select2 form-select attribute_choice" data-live-search="true" name="choice_options_'+ i +'[]" multiple>\
+                        <select class="form-control aiz-selectpicker attribute_choice" data-live-search="true" name="choice_options_'+ i +'[]" multiple>\
                             '+obj+'\
                         </select>\
                     </div>\
