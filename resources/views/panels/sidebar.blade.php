@@ -193,18 +193,18 @@
                   <li class="{{ 'seller_orders.index' === Route::currentRouteName() ? 'active' : '' }}">
                     <a href="{{ route('seller_orders.index') }}" class="d-flex align-items-center">
                         <i data-feather="circle"></i>
-                        <span class="menu-title text-truncate">{{translate('Seller Orders')}}</span>
+                        <span class="menu-title text-truncate">{{translate('User\'s Orders')}}</span>
                     </a>
                 </li>
                 @endif
-                @if(Auth::user()->user_type == 'admin' || in_array('6', json_decode(Auth::user()->staff->role->permissions)))
+                {{-- @if(Auth::user()->user_type == 'admin' || in_array('6', json_decode(Auth::user()->staff->role->permissions)))
                     <li class="{{ 'pick_up_point.order_index' === Route::currentRouteName() ? 'active' : '' }}">
                         <a href="{{ route('pick_up_point.order_index') }}" class="d-flex align-items-center">
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{translate('Pick-up Point Order')}}</span>
                         </a>
                     </li>
-                @endif
+                @endif --}}
             </ul>
         </li>
 
@@ -465,7 +465,7 @@
         @endif --}}
 
         <!-- marketing -->
-        @if(Auth::user()->user_type == 'admin' || in_array('11', json_decode(Auth::user()->staff->role->permissions)))
+        {{-- @if(Auth::user()->user_type == 'admin' || in_array('11', json_decode(Auth::user()->staff->role->permissions)))
             <li class="nav-item">
                 <a href="javascript:void(0)" class="d-flex align-items-center">
                     <i data-feather='slack'></i>
@@ -512,7 +512,7 @@
                     </li>
                 </ul>
             </li>
-        @endif
+        @endif --}}
 
         <!-- Inventory -->
         @if(Auth::user()->user_type == 'admin' || in_array('11', json_decode(Auth::user()->staff->role->permissions)))
@@ -1027,7 +1027,7 @@
                 <span>{{ translate('Clear Cache') }}</span>
             </a>
         </li>
-     
+
       {{-- Foreach menu item ends --}}
     </ul>
   </div>
