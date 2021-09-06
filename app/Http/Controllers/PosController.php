@@ -350,8 +350,11 @@ class PosController extends Controller
                             return 0;
                         }
                         else {
-                            $product->current_stock -= $cartItem['quantity'];
-                            $product->save();
+                            $product_stock = $product->stocks->first();
+                            $product_stock->qty -= $cartItem['quantity'];
+                            $product_stock->save();
+                            // $product->current_stock -= $cartItem['quantity'];
+                            // $product->save();
                         }
                     }
 

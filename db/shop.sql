@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 27, 2021 at 05:41 AM
+-- Generation Time: Sep 05, 2021 at 04:56 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -425,8 +425,25 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `parent_id`, `level`, `name`, `order_level`, `commision_rate`, `banner`, `icon`, `featured`, `top`, `digital`, `slug`, `meta_title`, `meta_description`, `created_at`, `updated_at`) VALUES
-(1, 0, 0, 'Demo category 1', 0, 0.00, 'uploads/categories/banner/category-banner.jpg', 'uploads/categories/icon/KjJP9wuEZNL184XVUk3S7EiZ8NnBN99kiU4wdvp3.png', 1, 1, 0, 'Demo-category-1', 'Demo category 1', NULL, '2019-08-06 12:06:58', '2019-08-06 06:06:58'),
-(2, 0, 0, 'Demo category 2', 0, 0.00, 'uploads/categories/banner/category-banner.jpg', 'uploads/categories/icon/h9XhWwI401u6sRoLITEk9SUMRAlWN8moGrpPfS6I.png', 1, 0, 0, 'Demo-category-2', 'Demo category 2', NULL, '2019-08-06 12:06:58', '2019-08-06 06:06:58');
+(1, 0, 0, 'MAN', 0, 0.00, NULL, NULL, 0, 0, 0, 'MAN-nnJFw', NULL, NULL, '2021-08-30 06:59:34', '2021-08-30 06:59:34'),
+(2, 0, 0, 'WOMAN', 0, 0.00, NULL, NULL, 0, 0, 0, 'WOMAN-6XWVX', NULL, NULL, '2021-08-30 06:59:56', '2021-08-30 06:59:56'),
+(3, 1, 1, 'Jackets', 12, 0.00, NULL, NULL, 0, 0, 0, 'Jackets-r2p8o', 'ss', 'ass', '2021-08-30 07:04:23', '2021-08-30 07:04:23'),
+(4, 1, 1, 'Blazers', 0, 0.00, NULL, NULL, 0, 0, 0, 'Blazers-UAlsk', 'ssa', 'ssa', '2021-08-30 07:05:01', '2021-08-30 07:05:01'),
+(5, 1, 1, 'Suits', 12, 0.00, NULL, NULL, 0, 0, 0, 'Suits-EuoMT', 'da', 'da', '2021-08-30 07:05:29', '2021-08-30 07:05:29'),
+(6, 1, 1, 'Trousers', 0, 0.00, NULL, NULL, 0, 0, 0, 'Trousers-pnS12', NULL, NULL, '2021-08-30 07:23:40', '2021-08-30 07:23:40'),
+(7, 1, 1, 'Jeans', 0, 0.00, NULL, NULL, 0, 0, 0, 'Jeans-ndn1G', NULL, NULL, '2021-08-30 07:23:56', '2021-08-30 07:23:56'),
+(8, 1, 1, 'Shirts', 0, 0.00, NULL, NULL, 0, 0, 0, 'Shirts-sRmzZ', NULL, NULL, '2021-08-30 07:24:08', '2021-08-30 07:24:08'),
+(9, 1, 1, 'Swim wear', 0, 0.00, NULL, NULL, 0, 0, 0, 'Swim-wear-1ZSjJ', NULL, NULL, '2021-08-30 07:24:32', '2021-08-30 07:24:32'),
+(10, 0, 0, 'Accessories', 0, 0.00, NULL, NULL, 0, 0, 0, 'Accessories-vd67G', NULL, NULL, '2021-08-30 07:24:47', '2021-08-30 07:24:47'),
+(11, 2, 1, 'coats', 0, 0.00, NULL, NULL, 0, 0, 0, 'coats-dNRcw', NULL, NULL, '2021-08-30 07:25:12', '2021-08-30 07:25:12'),
+(12, 2, 1, 'Outer wear', 0, 0.00, NULL, NULL, 0, 0, 0, 'Outer-wear-otvu5', NULL, NULL, '2021-08-30 07:25:34', '2021-08-30 07:25:34'),
+(13, 2, 1, 'Dresses', 0, 0.00, NULL, NULL, 0, 0, 0, 'Dresses-M0mGX', NULL, NULL, '2021-08-30 07:25:50', '2021-08-30 07:25:50'),
+(14, 2, 1, 'Tops', 0, 0.00, NULL, NULL, 0, 0, 0, 'Tops-8faho', NULL, NULL, '2021-08-30 07:26:03', '2021-08-30 07:26:03'),
+(15, 2, 1, 'Trousers', 0, 0.00, NULL, NULL, 0, 0, 0, 'Trousers-hvTL5', NULL, NULL, '2021-08-30 07:26:32', '2021-08-30 07:26:32'),
+(16, 2, 1, 'Shirts', 0, 0.00, NULL, NULL, 0, 0, 0, 'Shirts-FLTb2', NULL, NULL, '2021-08-30 07:26:48', '2021-08-30 07:26:48'),
+(17, 2, 1, 'Jeans', 0, 0.00, NULL, NULL, 0, 0, 0, 'Jeans-f2LD4', NULL, NULL, '2021-08-30 07:27:03', '2021-08-30 07:27:03'),
+(18, 2, 1, 'Shoes', 0, 0.00, NULL, NULL, 0, 0, 0, 'Shoes-24T9p', NULL, NULL, '2021-08-30 07:27:21', '2021-08-30 07:27:21'),
+(19, 2, 1, 'T-shirts', 0, 0.00, NULL, NULL, 0, 0, 0, 'T-shirts-KIOmL', NULL, NULL, '2021-08-30 07:27:44', '2021-08-30 07:27:44');
 
 -- --------------------------------------------------------
 
@@ -442,6 +459,31 @@ CREATE TABLE `category_translations` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `category_translations`
+--
+
+INSERT INTO `category_translations` (`id`, `category_id`, `name`, `lang`, `created_at`, `updated_at`) VALUES
+(1, 1, 'MAN', '', '2021-08-30 06:47:30', '2021-08-30 06:59:34'),
+(2, 2, 'WOMAN', '', '2021-08-30 06:59:56', '2021-08-30 06:59:56'),
+(3, 3, 'Jackets', '', '2021-08-30 07:04:23', '2021-08-30 07:04:23'),
+(4, 4, 'Blazers', '', '2021-08-30 07:05:01', '2021-08-30 07:05:01'),
+(5, 5, 'Suits', '', '2021-08-30 07:05:29', '2021-08-30 07:05:29'),
+(6, 6, 'Trousers', '', '2021-08-30 07:23:40', '2021-08-30 07:23:40'),
+(7, 7, 'Jeans', '', '2021-08-30 07:23:56', '2021-08-30 07:23:56'),
+(8, 8, 'Shirts', '', '2021-08-30 07:24:08', '2021-08-30 07:24:08'),
+(9, 9, 'Swim wear', '', '2021-08-30 07:24:32', '2021-08-30 07:24:32'),
+(10, 10, 'Accessories', '', '2021-08-30 07:24:47', '2021-08-30 07:24:47'),
+(11, 11, 'coats', '', '2021-08-30 07:25:12', '2021-08-30 07:25:12'),
+(12, 12, 'Outer wear', '', '2021-08-30 07:25:34', '2021-08-30 07:25:34'),
+(13, 13, 'Dresses', '', '2021-08-30 07:25:50', '2021-08-30 07:25:50'),
+(14, 14, 'Tops', '', '2021-08-30 07:26:03', '2021-08-30 07:26:03'),
+(15, 15, 'Trousers', '', '2021-08-30 07:26:32', '2021-08-30 07:26:32'),
+(16, 16, 'Shirts', '', '2021-08-30 07:26:48', '2021-08-30 07:26:48'),
+(17, 17, 'Jeans', '', '2021-08-30 07:27:03', '2021-08-30 07:27:03'),
+(18, 18, 'Shoes', '', '2021-08-30 07:27:21', '2021-08-30 07:27:21'),
+(19, 19, 'T-shirts', '', '2021-08-30 07:27:44', '2021-08-30 07:27:44');
 
 -- --------------------------------------------------------
 
@@ -1162,9 +1204,11 @@ CREATE TABLE `dropdown_items` (
 --
 
 INSERT INTO `dropdown_items` (`id`, `name`, `value`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Color', '{\"values\":[\"Black\",\"White\",\"Red\",\"Blue\"]}', 1, '2021-08-24 16:42:29', '2021-08-26 20:41:01'),
+(1, 'Color', '{\"values\":[\"Black\",\"White\",\"Red\",\"Blue\",\"Dew Hunt\"]}', 1, '2021-08-24 16:42:29', '2021-08-31 13:20:22'),
 (5, 'Country', '{\"values\":[\"Bangladesh\",\"USA\",\"UK\"]}', 1, '2021-08-25 09:04:59', '2021-08-26 16:43:06'),
-(7, 'Unit', '{\"values\":[\"Goj\",\"Meter\"]}', 0, '2021-08-25 14:16:30', '2021-08-26 16:43:58');
+(7, 'Unit', '{\"values\":[\"Goj\",\"Meter\"]}', 0, '2021-08-25 14:16:30', '2021-08-26 16:43:58'),
+(8, 'abc', '{\"values\":[\"a\",\"b\",\"d\"]}', 1, '2021-08-27 10:57:53', '2021-08-27 10:58:29'),
+(9, 'Type a', '{\"values\":[\"d\",\"e\",\"w\"]}', 1, '2021-08-27 11:01:05', '2021-08-27 11:01:32');
 
 -- --------------------------------------------------------
 
@@ -1668,6 +1712,7 @@ CREATE TABLE `products` (
   `added_by` varchar(6) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'admin',
   `user_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
+  `related_product_ids` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `brand_id` int(11) DEFAULT NULL,
   `photos` varchar(2000) COLLATE utf8_unicode_ci DEFAULT NULL,
   `thumbnail_img` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -1717,6 +1762,33 @@ CREATE TABLE `products` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `added_by`, `user_id`, `category_id`, `related_product_ids`, `brand_id`, `photos`, `thumbnail_img`, `video_provider`, `video_link`, `tags`, `description`, `unit_price`, `purchase_price`, `variant_product`, `attributes`, `choice_options`, `colors`, `variations`, `todays_deal`, `published`, `stock_visibility_state`, `cash_on_delivery`, `featured`, `seller_featured`, `current_stock`, `unit`, `min_qty`, `low_stock_quantity`, `discount`, `discount_type`, `discount_start_date`, `discount_end_date`, `tax`, `tax_type`, `shipping_type`, `shipping_cost`, `is_quantity_multiplied`, `est_shipping_days`, `num_of_sale`, `meta_title`, `meta_description`, `meta_img`, `pdf`, `slug`, `rating`, `barcode`, `digital`, `file_name`, `file_path`, `created_at`, `updated_at`) VALUES
+(1, 'Marketer', 'admin', 9, 8, '1,2,3,4,5', 1, '59,58,2,1', '34', 'youtube', NULL, 'man,small', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 200.00, NULL, 1, '[]', '[]', '[\"#F0F8FF\",\"#9966CC\",\"#FAEBD7\",\"#00FFFF\"]', NULL, 0, 1, 'quantity', 1, 1, 0, 6, 'pce', 1, 1, 0.00, 'amount', 0, 0, NULL, NULL, 'free', '0', 0, NULL, 1, 'Marketer', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '28', NULL, 'marketer-lwnl0', 0.00, NULL, 0, NULL, NULL, '2021-08-30 06:11:24', '2021-09-01 11:24:09'),
+(2, 'product 1', 'admin', 9, 8, NULL, 1, '30', '30', 'youtube', NULL, '', NULL, 200.00, NULL, 0, '[]', '[]', '[\"#F0F8FF\",\"#9966CC\",\"#FAEBD7\"]', NULL, 0, 1, 'quantity', 1, 0, 0, 2, 'PC', 1, 1, 0.00, 'amount', 0, 0, NULL, NULL, 'free', '0', 0, NULL, 0, 'product 1', '', '30', NULL, 'product-1-vr09n', 0.00, NULL, 0, NULL, NULL, '2021-08-30 07:33:59', '2021-08-30 13:56:29'),
+(3, 'Denim shirt', 'admin', 9, 3, NULL, 1, '30', '30', 'youtube', NULL, '', NULL, 2222.00, NULL, 0, '[]', '[]', '[]', NULL, 0, 1, 'quantity', 1, 0, 0, 2, 'PC', 1, 1, 0.00, 'amount', NULL, NULL, NULL, NULL, 'free', '0', 0, NULL, 0, 'Denim shirt', '', '30', NULL, 'Denim-shirt-Iu81K', 0.00, NULL, 0, NULL, NULL, '2021-08-30 07:37:44', '2021-08-30 07:37:44'),
+(4, 'Linen shirt with ribbon at the front', 'admin', 9, 1, NULL, NULL, '33', '33', 'youtube', NULL, '', NULL, 21111.00, NULL, 0, '[]', '[]', '[]', NULL, 0, 1, 'quantity', 1, 0, 0, 21, 'PC', 1, 1, 0.00, 'amount', 0, 0, NULL, NULL, 'free', '0', 0, NULL, 0, 'Linen shirt with ribbon at the front', '', '33', NULL, 'linen-shirt-with-ribbon-at-the-front-kcb5g', 0.00, NULL, 0, NULL, NULL, '2021-08-30 13:58:20', '2021-08-30 13:59:07'),
+(5, 'Linen Blazers with ribbon at the front', 'admin', 9, 4, NULL, NULL, '46', '46', 'youtube', NULL, '', NULL, 2500.00, NULL, 0, '[]', '[]', '[]', NULL, 0, 1, 'quantity', 1, 0, 0, 2, 'PC', 1, 1, 0.00, 'amount', NULL, NULL, NULL, NULL, 'free', '0', 0, NULL, 0, 'Linen Blazers with ribbon at the front', '', '46', NULL, 'Linen-Blazers-with-ribbon-at-the-front-ebrdz', 0.00, NULL, 0, NULL, NULL, '2021-08-30 14:08:09', '2021-08-30 14:08:09'),
+(6, 'Striped sweater', 'admin', 9, 1, NULL, NULL, '39', '43', 'youtube', NULL, '', NULL, 2300.00, NULL, 0, '[]', '[]', '[]', NULL, 0, 1, 'quantity', 1, 0, 0, 25, 'PC', 1, 1, 0.00, 'amount', 0, 0, NULL, NULL, 'free', '0', 0, NULL, 0, 'Striped sweater', '', '43', NULL, 'striped-sweater-3blmh', 0.00, NULL, 0, NULL, NULL, '2021-08-30 14:08:59', '2021-08-30 14:16:33'),
+(7, 'Striped sweater', 'admin', 9, 1, NULL, NULL, '36', '36', 'youtube', NULL, '', NULL, 2300.00, NULL, 0, '[]', '[]', '[]', NULL, 0, 1, 'quantity', 1, 0, 0, 25, 'PC', 1, 1, 0.00, 'amount', 0, 0, NULL, NULL, 'free', '0', 0, NULL, 0, 'Striped sweater', '', '36', NULL, 'striped-sweater-kz3fe', 0.00, NULL, 0, NULL, NULL, '2021-08-30 14:09:01', '2021-08-30 14:09:57'),
+(8, 'Checked shirt with pocket', 'admin', 9, 1, NULL, NULL, '37', '37', 'youtube', NULL, '', NULL, 2500.00, NULL, 0, '[]', '[]', '[]', NULL, 0, 1, 'quantity', 1, 0, 0, 2, 'PC', 1, 1, 0.00, 'amount', 0, 0, NULL, NULL, 'free', '0', 0, NULL, 0, 'Checked shirt with pocket', '', '37', NULL, 'checked-shirt-with-pocket-fdor7', 0.00, NULL, 0, NULL, NULL, '2021-08-30 14:11:02', '2021-08-30 14:15:05'),
+(9, 'Denim shirt', 'admin', 9, 8, NULL, NULL, '47', '47', 'youtube', NULL, '', NULL, 0.00, NULL, 0, '[]', '[]', '[\"#F0F8FF\",\"#9966CC\"]', NULL, 0, 1, 'quantity', 1, 0, 0, 0, 'PC', 1, 1, 0.00, 'amount', NULL, NULL, NULL, NULL, 'free', '0', 0, NULL, 0, 'Denim shirt', '', '47', NULL, 'Denim-shirt-HYw2N', 0.00, NULL, 0, NULL, NULL, '2021-08-30 14:11:49', '2021-08-30 14:11:49'),
+(10, 'Poplin shirt with fine pleated bands', 'admin', 9, 8, NULL, NULL, '49', '49', 'youtube', NULL, '', NULL, 2500.00, NULL, 0, '[]', '[]', '[\"#F0F8FF\",\"#9966CC\",\"#FAEBD7\"]', NULL, 0, 1, 'quantity', 1, 0, 0, 5, 'PC', 1, 1, 0.00, 'amount', NULL, NULL, NULL, NULL, 'free', '0', 0, NULL, 0, 'Poplin shirt with fine pleated bands', '', '49', NULL, 'Poplin-shirt-with-fine-pleated-bands-BVDnQ', 0.00, NULL, 0, NULL, NULL, '2021-08-30 14:13:06', '2021-08-30 14:13:06'),
+(11, 'Waistcoat with top stitching', 'admin', 9, 9, NULL, NULL, '43', '43', 'youtube', NULL, '', NULL, 2500.00, NULL, 0, '[]', '[]', '[]', NULL, 0, 1, 'quantity', 1, 0, 0, 5, 'PC', 1, 1, 0.00, 'amount', NULL, NULL, NULL, NULL, 'free', '0', 0, NULL, 0, 'Waistcoat with top stitching', '', '43', NULL, 'Waistcoat-with-top-stitching-1DsPG', 0.00, NULL, 0, NULL, NULL, '2021-08-30 14:14:20', '2021-08-30 14:14:20'),
+(12, 'Classic blazer', 'admin', 9, 12, NULL, NULL, '50', '50', 'youtube', NULL, '', NULL, 3000.00, NULL, 0, '[]', '[]', '[]', NULL, 0, 1, 'quantity', 1, 0, 0, 3, 'PC', 1, 1, 0.00, 'amount', NULL, NULL, NULL, NULL, 'free', '0', 0, NULL, 0, 'Classic blazer', '', '50', NULL, 'Classic-blazer-hnbhX', 0.00, NULL, 0, NULL, NULL, '2021-08-30 14:18:01', '2021-08-30 14:18:01'),
+(13, 'Classic blazer 2', 'admin', 9, 12, NULL, NULL, '45', '45', 'youtube', NULL, '', NULL, 1200.00, NULL, 0, '[]', '[]', '[]', NULL, 0, 1, 'quantity', 1, 0, 0, 5, 'PC', 1, 1, 0.00, 'amount', NULL, NULL, NULL, NULL, 'free', '0', 0, NULL, 0, 'Classic blazer 2', '', '45', NULL, 'Classic-blazer-2-npMje', 0.00, NULL, 0, NULL, NULL, '2021-08-30 14:19:03', '2021-08-30 14:19:03'),
+(14, 'Striped full skirt', 'admin', 9, 13, NULL, NULL, '41', '41', 'youtube', NULL, '', NULL, 1500.00, NULL, 0, '[]', '[]', '[]', NULL, 0, 1, 'quantity', 1, 0, 0, 2, 'PC', 1, 1, 0.00, 'amount', NULL, NULL, NULL, NULL, 'free', '0', 0, NULL, 0, 'Striped full skirt', '', '41', NULL, 'Striped-full-skirt-advut', 0.00, NULL, 0, NULL, NULL, '2021-08-30 14:20:07', '2021-08-30 14:20:07'),
+(15, 'Striped full skirt 2', 'admin', 9, 13, NULL, NULL, '42', '42', 'youtube', NULL, '', NULL, 3200.00, NULL, 0, '[]', '[]', '[]', NULL, 0, 1, 'quantity', 1, 0, 0, 3, 'PC', 1, 1, 0.00, 'amount', NULL, NULL, NULL, NULL, 'free', '0', 0, NULL, 0, 'Striped full skirt 2', '', '42', NULL, 'Striped-full-skirt-2-QdFK1', 0.00, NULL, 0, NULL, NULL, '2021-08-30 14:20:53', '2021-08-30 14:20:53'),
+(16, 'Striped full skirt 4', 'admin', 9, 13, NULL, NULL, '44', '44', 'youtube', NULL, '', NULL, 4500.00, NULL, 0, '[]', '[]', '[]', NULL, 0, 1, 'quantity', 1, 0, 0, 6, 'PC', 1, 1, 0.00, 'amount', NULL, NULL, NULL, NULL, 'free', '0', 0, NULL, 0, 'Striped full skirt 4', '', '44', NULL, 'Striped-full-skirt-4-s7z0l', 0.00, NULL, 0, NULL, NULL, '2021-08-30 14:21:35', '2021-08-30 14:21:35'),
+(17, 'Structured double-breasted blazer 1', 'admin', 9, 11, NULL, NULL, '52', '52', 'youtube', NULL, '', NULL, 3000.00, NULL, 0, '[]', '[]', '[]', NULL, 0, 1, 'quantity', 1, 0, 0, 3, 'PC', 1, 1, 0.00, 'amount', NULL, NULL, NULL, NULL, 'free', '0', 0, NULL, 0, 'Structured double-breasted blazer 1', '', '52', NULL, 'Structured-double-breasted-blazer-1-LFnLf', 0.00, NULL, 0, NULL, NULL, '2021-08-30 14:26:23', '2021-08-30 14:26:23'),
+(18, 'Sheer overlay dress', 'admin', 9, 15, NULL, NULL, '54', '54', 'youtube', NULL, '', NULL, 0.00, NULL, 0, '[]', '[]', '[]', NULL, 0, 1, 'quantity', 1, 0, 0, 0, 'PC', 1, 1, 0.00, 'amount', NULL, NULL, NULL, NULL, 'free', '0', 0, NULL, 0, 'Sheer overlay dress', '', '54', NULL, 'Sheer-overlay-dress-fUwsr', 0.00, NULL, 0, NULL, NULL, '2021-08-30 14:28:49', '2021-08-30 14:28:49'),
+(19, 'Sheer overlay dress 2', 'admin', 9, 15, NULL, NULL, '56', '56', 'youtube', NULL, '', NULL, 300.00, NULL, 0, '[]', '[]', '[]', NULL, 0, 1, 'quantity', 1, 0, 0, 7, 'PC', 1, 1, 0.00, 'amount', NULL, NULL, NULL, NULL, 'free', '0', 0, NULL, 0, 'Sheer overlay dress 2', '', '56', NULL, 'Sheer-overlay-dress-2-Z2pYA', 0.00, NULL, 0, NULL, NULL, '2021-08-30 14:29:33', '2021-08-30 14:29:33'),
+(20, 'Knit top with jewelled neckline', 'admin', 9, 14, NULL, NULL, '55', '55', 'youtube', NULL, '', NULL, 300.00, NULL, 0, '[]', '[]', '[]', NULL, 0, 1, 'quantity', 1, 0, 0, 3, 'PC', 1, 1, 0.00, 'amount', NULL, NULL, NULL, NULL, 'free', '0', 0, NULL, 0, 'Knit top with jewelled neckline', '', '55', NULL, 'Knit-top-with-jewelled-neckline-ISPhn', 0.00, NULL, 0, NULL, NULL, '2021-08-30 14:30:55', '2021-08-30 14:30:55'),
+(21, 'Embroidered sleeveless jumpsuit', 'admin', 9, 16, NULL, NULL, '57', '57', 'youtube', NULL, '', NULL, 2500.00, NULL, 0, '[]', '[]', '[]', NULL, 0, 1, 'quantity', 1, 0, 0, 5, 'PC', 1, 1, 0.00, 'amount', NULL, NULL, NULL, NULL, 'free', '0', 0, NULL, 0, 'Embroidered sleeveless jumpsuit', '', '57', NULL, 'Embroidered-sleeveless-jumpsuit-WiLGg', 0.00, NULL, 0, NULL, NULL, '2021-08-30 14:33:18', '2021-08-30 14:33:18');
+
 -- --------------------------------------------------------
 
 --
@@ -1728,12 +1800,42 @@ CREATE TABLE `product_stocks` (
   `product_id` int(11) NOT NULL,
   `variant` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `sku` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `price` double(20,2) NOT NULL DEFAULT 0.00,
-  `qty` int(11) NOT NULL DEFAULT 0,
+  `price` double(20,2) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
   `image` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `product_stocks`
+--
+
+INSERT INTO `product_stocks` (`id`, `product_id`, `variant`, `sku`, `price`, `qty`, `image`, `created_at`, `updated_at`) VALUES
+(6, 3, '', NULL, 2222.00, 2, NULL, '2021-08-30 07:37:44', '2021-08-30 07:37:44'),
+(7, 2, '', NULL, 200.00, 2, NULL, '2021-08-30 13:56:29', '2021-08-30 13:56:29'),
+(10, 4, '', NULL, 21111.00, 21, NULL, '2021-08-30 14:06:37', '2021-08-30 14:06:37'),
+(11, 5, '', NULL, 2500.00, 2, NULL, '2021-08-30 14:08:09', '2021-08-30 14:08:09'),
+(14, 7, '', NULL, 2300.00, 25, NULL, '2021-08-30 14:09:57', '2021-08-30 14:09:57'),
+(16, 9, '', NULL, 0.00, 0, NULL, '2021-08-30 14:11:49', '2021-08-30 14:11:49'),
+(17, 10, '', NULL, 2500.00, 5, NULL, '2021-08-30 14:13:06', '2021-08-30 14:13:06'),
+(18, 11, '', NULL, 2500.00, 5, NULL, '2021-08-30 14:14:20', '2021-08-30 14:14:20'),
+(19, 8, '', NULL, 2500.00, 2, NULL, '2021-08-30 14:15:05', '2021-08-30 14:15:05'),
+(20, 6, '', NULL, 2300.00, 25, NULL, '2021-08-30 14:16:33', '2021-08-30 14:16:33'),
+(21, 12, '', NULL, 3000.00, 3, NULL, '2021-08-30 14:18:01', '2021-08-30 14:18:01'),
+(22, 13, '', NULL, 1200.00, 5, NULL, '2021-08-30 14:19:03', '2021-08-30 14:19:03'),
+(23, 14, '', NULL, 1500.00, 2, NULL, '2021-08-30 14:20:07', '2021-08-30 14:20:07'),
+(24, 15, '', NULL, 3200.00, 3, NULL, '2021-08-30 14:20:53', '2021-08-30 14:20:53'),
+(25, 16, '', NULL, 4500.00, 6, NULL, '2021-08-30 14:21:35', '2021-08-30 14:21:35'),
+(26, 17, '', NULL, 3000.00, 3, NULL, '2021-08-30 14:26:23', '2021-08-30 14:26:23'),
+(27, 18, '', NULL, 0.00, 0, NULL, '2021-08-30 14:28:49', '2021-08-30 14:28:49'),
+(28, 19, '', NULL, 300.00, 7, NULL, '2021-08-30 14:29:33', '2021-08-30 14:29:33'),
+(29, 20, '', NULL, 300.00, 3, NULL, '2021-08-30 14:30:55', '2021-08-30 14:30:55'),
+(30, 21, '', NULL, 2500.00, 5, NULL, '2021-08-30 14:33:18', '2021-08-30 14:33:18'),
+(47, 1, 'AliceBlue', 'rgh254dgfh5', 10.00, 5, NULL, '2021-09-01 11:24:09', '2021-09-01 11:24:09'),
+(48, 1, 'Amethyst', 'fsdgh546', 20.00, 5, NULL, '2021-09-01 11:24:09', '2021-09-01 11:24:09'),
+(49, 1, 'AntiqueWhite', 'hdfgh54541614', 30.00, 5, NULL, '2021-09-01 11:24:09', '2021-09-01 11:24:09'),
+(50, 1, 'Aqua', 'gh3564d6gfh4', 50.00, 5, NULL, '2021-09-01 11:24:09', '2021-09-01 11:24:09');
 
 -- --------------------------------------------------------
 
@@ -1751,6 +1853,33 @@ CREATE TABLE `product_taxes` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `product_taxes`
+--
+
+INSERT INTO `product_taxes` (`id`, `product_id`, `tax_id`, `tax`, `tax_type`, `created_at`, `updated_at`) VALUES
+(6, 3, 3, 0.00, 'amount', '2021-08-30 07:37:44', '2021-08-30 07:37:44'),
+(7, 2, 3, 0.00, 'amount', '2021-08-30 13:56:29', '2021-08-30 13:56:29'),
+(10, 4, 3, 0.00, 'amount', '2021-08-30 14:06:37', '2021-08-30 14:06:37'),
+(11, 5, 3, 0.00, 'amount', '2021-08-30 14:08:09', '2021-08-30 14:08:09'),
+(14, 7, 3, 0.00, 'amount', '2021-08-30 14:09:57', '2021-08-30 14:09:57'),
+(16, 9, 3, 0.00, 'amount', '2021-08-30 14:11:49', '2021-08-30 14:11:49'),
+(17, 10, 3, 0.00, 'amount', '2021-08-30 14:13:06', '2021-08-30 14:13:06'),
+(18, 11, 3, 0.00, 'amount', '2021-08-30 14:14:20', '2021-08-30 14:14:20'),
+(19, 8, 3, 0.00, 'amount', '2021-08-30 14:15:05', '2021-08-30 14:15:05'),
+(20, 6, 3, 0.00, 'amount', '2021-08-30 14:16:33', '2021-08-30 14:16:33'),
+(21, 12, 3, 0.00, 'amount', '2021-08-30 14:18:01', '2021-08-30 14:18:01'),
+(22, 13, 3, 0.00, 'amount', '2021-08-30 14:19:03', '2021-08-30 14:19:03'),
+(23, 14, 3, 0.00, 'amount', '2021-08-30 14:20:07', '2021-08-30 14:20:07'),
+(24, 15, 3, 0.00, 'amount', '2021-08-30 14:20:53', '2021-08-30 14:20:53'),
+(25, 16, 3, 0.00, 'amount', '2021-08-30 14:21:35', '2021-08-30 14:21:35'),
+(26, 17, 3, 0.00, 'amount', '2021-08-30 14:26:23', '2021-08-30 14:26:23'),
+(27, 18, 3, 0.00, 'amount', '2021-08-30 14:28:49', '2021-08-30 14:28:49'),
+(28, 19, 3, 0.00, 'amount', '2021-08-30 14:29:33', '2021-08-30 14:29:33'),
+(29, 20, 3, 0.00, 'amount', '2021-08-30 14:30:55', '2021-08-30 14:30:55'),
+(30, 21, 3, 0.00, 'amount', '2021-08-30 14:33:18', '2021-08-30 14:33:18'),
+(41, 1, 3, 0.00, 'amount', '2021-09-01 11:24:09', '2021-09-01 11:24:09');
+
 -- --------------------------------------------------------
 
 --
@@ -1763,10 +1892,38 @@ CREATE TABLE `product_translations` (
   `name` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `unit` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `description` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
-  `lang` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `lang` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `product_translations`
+--
+
+INSERT INTO `product_translations` (`id`, `product_id`, `name`, `unit`, `description`, `lang`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Marketer', 'pce', 'sadasd', '', '2021-08-30 06:11:24', '2021-08-30 06:11:24'),
+(2, 2, 'product 1', 'PC', NULL, '', '2021-08-30 07:33:59', '2021-08-30 07:33:59'),
+(3, 3, 'Denim shirt', 'PC', NULL, '', '2021-08-30 07:37:44', '2021-08-30 07:37:44'),
+(4, 4, 'Linen shirt with ribbon at the front', 'PC', NULL, '', '2021-08-30 13:58:20', '2021-08-30 13:58:20'),
+(5, 5, 'Linen Blazers with ribbon at the front', 'PC', NULL, '', '2021-08-30 14:08:09', '2021-08-30 14:08:09'),
+(6, 6, 'Striped sweater', 'PC', NULL, '', '2021-08-30 14:08:59', '2021-08-30 14:08:59'),
+(7, 7, 'Striped sweater', 'PC', NULL, '', '2021-08-30 14:09:01', '2021-08-30 14:09:01'),
+(8, 8, 'Checked shirt with pocket', 'PC', NULL, '', '2021-08-30 14:11:02', '2021-08-30 14:11:02'),
+(9, 9, 'Denim shirt', 'PC', NULL, '', '2021-08-30 14:11:49', '2021-08-30 14:11:49'),
+(10, 10, 'Poplin shirt with fine pleated bands', 'PC', NULL, '', '2021-08-30 14:13:06', '2021-08-30 14:13:06'),
+(11, 11, 'Waistcoat with top stitching', 'PC', NULL, '', '2021-08-30 14:14:20', '2021-08-30 14:14:20'),
+(12, 12, 'Classic blazer', 'PC', NULL, '', '2021-08-30 14:18:01', '2021-08-30 14:18:01'),
+(13, 13, 'Classic blazer 2', 'PC', NULL, '', '2021-08-30 14:19:03', '2021-08-30 14:19:03'),
+(14, 14, 'Striped full skirt', 'PC', NULL, '', '2021-08-30 14:20:07', '2021-08-30 14:20:07'),
+(15, 15, 'Striped full skirt 2', 'PC', NULL, '', '2021-08-30 14:20:53', '2021-08-30 14:20:53'),
+(16, 16, 'Striped full skirt 4', 'PC', NULL, '', '2021-08-30 14:21:35', '2021-08-30 14:21:35'),
+(17, 17, 'Structured double-breasted blazer 1', 'PC', NULL, '', '2021-08-30 14:26:23', '2021-08-30 14:26:23'),
+(18, 18, 'Sheer overlay dress', 'PC', NULL, '', '2021-08-30 14:28:49', '2021-08-30 14:28:49'),
+(19, 19, 'Sheer overlay dress 2', 'PC', NULL, '', '2021-08-30 14:29:33', '2021-08-30 14:29:33'),
+(20, 20, 'Knit top with jewelled neckline', 'PC', NULL, '', '2021-08-30 14:30:55', '2021-08-30 14:30:55'),
+(21, 21, 'Embroidered sleeveless jumpsuit', 'PC', NULL, '', '2021-08-30 14:33:18', '2021-08-30 14:33:18'),
+(22, 1, 'Marketer', 'pce', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', NULL, '2021-08-31 17:34:47', '2021-08-31 17:39:51');
 
 -- --------------------------------------------------------
 
@@ -1836,7 +1993,8 @@ CREATE TABLE `raw_materials_types` (
 
 INSERT INTO `raw_materials_types` (`id`, `name`, `value`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'Fabrics', '{\"attributes\":[\"Nature\",\"color\",\"Country\",\"Unit\"]}', 1, '2021-08-24 16:42:29', '2021-08-26 16:44:29'),
-(5, 'Buttons', '{\"attributes\":[\"Nature\",\"Color\"]}', 1, '2021-08-25 09:04:59', '2021-08-25 15:11:22');
+(5, 'Buttons', '{\"attributes\":[\"Nature\",\"Color\"]}', 1, '2021-08-25 09:04:59', '2021-08-25 15:11:22'),
+(6, 'Type', '{\"attributes\":[\"Type a\",\"Type b\",\"Type C\"]}', 1, '2021-08-27 10:58:44', '2021-08-27 11:00:38');
 
 -- --------------------------------------------------------
 
@@ -3583,7 +3741,10 @@ INSERT INTO `translations` (`id`, `lang`, `lang_key`, `lang_value`, `created_at`
 (1714, 'en', 'Category and Brand should be in numerical id', 'Category and Brand should be in numerical id', '2021-08-26 17:49:26', '2021-08-26 17:49:26'),
 (1715, 'en', 'You can download the pdf to get Category and Brand id', 'You can download the pdf to get Category and Brand id', '2021-08-26 17:49:26', '2021-08-26 17:49:26'),
 (1716, 'en', 'Upload Product File', 'Upload Product File', '2021-08-26 17:49:26', '2021-08-26 17:49:26'),
-(1717, 'en', 'Clear Cache', 'Clear Cache', '2021-08-26 20:53:26', '2021-08-26 20:53:26');
+(1717, 'en', 'Clear Cache', 'Clear Cache', '2021-08-26 20:53:26', '2021-08-26 20:53:26'),
+(1718, 'en', 'abc', 'abc', '2021-08-27 10:58:10', '2021-08-27 10:58:10'),
+(1719, 'en', 'Type a', 'Type a', '2021-08-27 11:01:19', '2021-08-27 11:01:19'),
+(1720, 'en', 'Category Information', 'Category Information', '2021-09-01 12:03:10', '2021-09-01 12:03:10');
 
 -- --------------------------------------------------------
 
@@ -3603,6 +3764,71 @@ CREATE TABLE `uploads` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `uploads`
+--
+
+INSERT INTO `uploads` (`id`, `file_original_name`, `file_name`, `user_id`, `file_size`, `extension`, `type`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'cohen1-articleInline', 'uploads/all/m03eKaHdAivsZBGEQA9rTMXs34bUylm54L62dUQ9.jpg', 9, 18661, 'jpg', 'image', '2021-07-26 06:57:55', '2021-07-26 06:57:55', NULL),
+(2, '20022018095116436A5188', 'uploads/all/aE2IM5LUoW5qlP0N7KxkQiUaqWoUW0crUWlpcRpu.jpg', 9, 99698, 'jpg', 'image', '2021-07-31 03:11:39', '2021-07-31 03:11:39', NULL),
+(3, 'aa', 'uploads/all/ZjDHgO3vrT57yUsgVOeTEPfPrrv9khnouonFsDEn.png', 10, 242988, 'png', 'image', '2021-08-14 06:22:30', '2021-08-14 06:22:30', NULL),
+(4, 'ppppp', 'uploads/all/GovVR6wm0cVwQbT3Ntk4gnlegApL3tlWhoAMNRUm.png', 10, 14579, 'png', 'image', '2021-08-23 06:09:06', '2021-08-23 06:09:06', NULL),
+(5, 'aa', 'uploads/all/yDWtBgqLuoFRhE3meqzZntlPwXAZy1hT3TnKyUts.png', 10, 242988, 'png', 'image', '2021-08-24 01:37:37', '2021-08-30 14:24:07', '2021-08-30 14:24:07'),
+(6, 'aa', 'uploads/all/UkDkZzkrgbvRdSbBPJgjkq4tzybvhdR99FN96N1v.png', 10, 242988, 'png', 'image', '2021-08-24 03:06:07', '2021-08-24 03:06:07', NULL),
+(7, 'aa', 'uploads/all/Rf8E6bqbMRIf03VyrOsgjXEo6ruYk3PAOdMDheJc.png', 10, 242988, 'png', 'image', '2021-08-24 03:07:50', '2021-08-24 03:07:50', NULL),
+(8, '6a', 'uploads/all/h92uuUjtYKVYMwWeqdp1DVXEP3v4TlxYDr5LLJ52.png', 10, 41522, 'png', 'image', '2021-08-26 02:38:35', '2021-08-26 02:38:35', NULL),
+(9, 'sss', 'uploads/all/l2rZlzUDJSLufCbVeKxnYJHwsBgYdcrW23WAcNC7.png', 10, 49599, 'png', 'image', '2021-08-26 02:38:50', '2021-08-26 02:38:50', NULL),
+(10, '6a', 'uploads/all/XfZF2Rv7cNCvviQBOGjMSyG9uwxYvZXsqH4voacW.png', 10, 41522, 'png', 'image', '2021-08-26 02:41:54', '2021-08-26 02:41:54', NULL),
+(11, '6a', 'uploads/all/pN3zlqvDUcO8ZttTMxCDiE0atVsXJdDa2LJ7V4xY.png', 10, 41522, 'png', 'image', '2021-08-26 03:01:39', '2021-08-26 03:01:39', NULL),
+(12, '3a', 'uploads/all/zR64hH1dCXhYDYw9Br4ewtIWAreoCr8vxUCNxmLH.png', 10, 27421, 'png', 'image', '2021-08-26 03:07:09', '2021-08-26 03:07:09', NULL),
+(13, '6a', 'uploads/all/opT0vHStdaW7uKTvQkLCcqXcK2bE3kkG7IEVFyu5.png', 10, 41522, 'png', 'image', '2021-08-26 03:09:54', '2021-08-26 03:09:54', NULL),
+(14, 'aa', 'uploads/all/QKZG2Kd64X9sY2NApe4AXGUOCfpov8GfM8AMPrWL.png', 10, 242988, 'png', 'image', '2021-08-26 03:10:49', '2021-08-26 03:10:49', NULL),
+(15, '3a', 'uploads/all/qevHEo0vOeps3S8F4nfyJvJCcX29EZAejqNyuGDb.png', 10, 27421, 'png', 'image', '2021-08-26 03:12:26', '2021-08-26 03:12:26', NULL),
+(16, '6a', 'uploads/all/DTPJ2Acukaf0NCPMldIEOLbkCbrMWZvIpqIa4dqf.png', 10, 41522, 'png', 'image', '2021-08-26 03:37:26', '2021-08-26 03:37:26', NULL),
+(17, '6a', 'uploads/all/afWJEa4s8kOGQSIXOFS9rp4de3vKe100Z8Vnr4KG.png', 10, 41522, 'png', 'image', '2021-08-26 03:39:07', '2021-08-26 03:39:07', NULL),
+(18, 'aa', 'uploads/all/3I4DvI2o2xM7srGEg2iOq6RSNi7m8s9PsQrvonTr.png', 10, 242988, 'png', 'image', '2021-08-26 03:39:36', '2021-08-26 03:39:36', NULL),
+(19, 'aa', 'uploads/all/arOYCVAqQWFaOHoIzm4loaPeIz4vlGTYTRe9vS0Q.png', 10, 242988, 'png', 'image', '2021-08-26 03:45:35', '2021-08-26 03:45:35', NULL),
+(20, '6a', 'uploads/all/rkCYuTLJd8x9GIzgoY393Ukep0IwLBU67vcXfO8f.png', 10, 41522, 'png', 'image', '2021-08-26 03:49:49', '2021-08-30 14:24:55', '2021-08-30 14:24:55'),
+(21, '6a', 'uploads/all/Iq5PJtjH5wq35yD05zxz9gJjFMAHxDJRjCGMAgzS.png', 10, 41522, 'png', 'image', '2021-08-26 03:54:31', '2021-08-26 03:54:31', NULL),
+(22, '6a', 'uploads/all/RokM24VuxW2AqMoGzKuV6rhmBd9QJBJsJFzFpJVK.png', 10, 41522, 'png', 'image', '2021-08-26 03:56:23', '2021-08-26 03:56:23', NULL),
+(23, '6a', 'uploads/all/4aSDStJdG5nFTgGE21XG9gEoz1TxXMkUfjJRmBFp.png', 10, 41522, 'png', 'image', '2021-08-26 03:59:36', '2021-08-26 03:59:36', NULL),
+(24, 'aa', 'uploads/all/rpUhJLIOisg2PyYBDgSgkay5X928pmsNSmF6mVuJ.png', 10, 242988, 'png', 'image', '2021-08-26 04:04:11', '2021-08-26 04:04:11', NULL),
+(25, 'slq', 'uploads/all/EBb8ynzQqBlrftHk4Mg3dlIS6eYM8XkPNc8xCPjy.png', 10, 243629, 'png', 'image', '2021-08-26 04:05:58', '2021-08-26 04:05:58', NULL),
+(26, 'ss', 'uploads/all/cnKNFTzz4bxw89W0ExldqkTboxDhX8gQvJsWJ2By.png', 10, 21938, 'png', 'image', '2021-08-26 04:07:59', '2021-08-30 14:24:47', '2021-08-30 14:24:47'),
+(27, 'sae', 'uploads/all/Vw2QlhI5v97DFappG83z8DaBMXuoYbWIZY017yWI.png', 10, 22497, 'png', 'image', '2021-08-26 04:09:28', '2021-08-30 14:24:37', '2021-08-30 14:24:37'),
+(28, 'sa', 'uploads/all/QZFRRrrluSKw0CGS2hkJfYwDa3QYxvbuRLkAuE0k.png', 10, 43264, 'png', 'image', '2021-08-26 04:09:42', '2021-08-30 14:24:19', '2021-08-30 14:24:19'),
+(29, 'slq', 'uploads/all/GCMGuUT92mPoXgEMyl1Xga2gm2kc0BL8a3Nk1Za9.png', 10, 243629, 'png', 'image', '2021-08-26 04:09:50', '2021-08-30 14:24:29', '2021-08-30 14:24:29'),
+(30, 'd71045b2-4300-4395-b110-f652fa00e9e51579211471795-1', 'uploads/all/GNUryr5ussDxS5IBGK358ekR1Jnk9Oi8Yi36kniG.webp', 10, 26842, 'webp', 'image', '2021-08-30 07:34:44', '2021-08-30 07:34:44', NULL),
+(31, '418P5ate-zL', 'uploads/all/ZzYeG8w9hkCMW82C3iCwE6R5kkbCKhR66jweEcOm.jpg', 10, 25623, 'jpg', 'image', '2021-08-30 07:36:02', '2021-08-30 07:36:02', NULL),
+(32, 'download', 'uploads/all/1AGrlMYp3ezqTOHG0Uq8nFkUPQnqKaEKdj4fT32D.jpg', 10, 11069, 'jpg', 'image', '2021-08-30 07:36:02', '2021-08-30 07:36:02', NULL),
+(33, 'children-clothes-hanging-on-hangers-260nw-455876137', 'uploads/all/YUfZuiQQrkYH5UGh6W9emCzUcE21ayTYGSzHGxh8.webp', 10, 33360, 'webp', 'image', '2021-08-30 07:36:02', '2021-08-30 07:36:02', NULL),
+(34, 'depositphotos_12746726-stock-photo-fashion-man-wearing-sunglasses-thinking', 'uploads/all/9e2dx6UYQGQSA3CoPkxqJnyUgxAnsPB2vGyV75yo.jpg', 10, 201254, 'jpg', 'image', '2021-08-30 07:36:02', '2021-08-30 07:36:02', NULL),
+(35, 'images (1)', 'uploads/all/EzBHQdxlPvfMkqurQJFxk2aYZgb7IL6ovntgSnyQ.jpg', 10, 10114, 'jpg', 'image', '2021-08-30 07:36:03', '2021-08-30 07:36:03', NULL),
+(36, 'depositphotos_220018004-stock-photo-relaxed-casual-man-wearing-jeans', 'uploads/all/hmoASucNgzCaVK5pBdZsXLhD5oXoJMi9WtXJQFXx.jpg', 10, 60129, 'jpg', 'image', '2021-08-30 07:36:03', '2021-08-30 07:36:03', NULL),
+(37, 'happy-young-smiling-casual-man-wearing-jeans-crossed-arms-looking-up-full-body-length-portrait-isolated-over-white-background-90239385', 'uploads/all/e538BlmY13mhjGH66Nh1saPTc4Xt8HseFsoUNCuf.jpg', 10, 107617, 'jpg', 'image', '2021-08-30 07:36:03', '2021-08-30 07:36:03', NULL),
+(38, 'images (2)', 'uploads/all/PSfuO3IttVpcDYSQDj2lNDqRqUkczOUvMP1rH6TJ.jpg', 10, 9870, 'jpg', 'image', '2021-08-30 07:36:03', '2021-08-30 07:36:03', NULL),
+(39, 'images', 'uploads/all/POySUBtbCLIyBJ75aeXG0aDka71m3M96i5Ph35q6.jpg', 10, 7338, 'jpg', 'image', '2021-08-30 07:36:03', '2021-08-30 07:36:03', NULL),
+(40, 'fabric-657000_1280', 'uploads/all/Hz4IEHqktgLn8wIXzKCpNP4mkMWTnZEyEaFmmOa8.jpg', 10, 511157, 'jpg', 'image', '2021-08-30 07:36:04', '2021-08-30 07:36:04', NULL),
+(41, 'ladies-western-wear-dress-250x250', 'uploads/all/7knXDR72xAp9Icrn2wyO91b0SVcBvjPlB2UE5Uwm.jpg', 10, 8957, 'jpg', 'image', '2021-08-30 07:36:04', '2021-08-30 07:36:04', NULL),
+(42, 'Ladies-Fancy-Western-Dress', 'uploads/all/nvdX6gHhu7MKl5wz8KYsqLIAnnhAOcX4Sz85ouZK.jpg', 10, 46529, 'jpg', 'image', '2021-08-30 07:36:04', '2021-08-30 07:36:04', NULL),
+(43, 'istockphoto-672448966-1024x1024', 'uploads/all/nZZJ46tQKBvm0qhS0fQWcJHRMTy5pkL6eoWXlmpA.jpg', 10, 71514, 'jpg', 'image', '2021-08-30 07:36:04', '2021-08-30 07:36:04', NULL),
+(44, 'ladies-navy-blue-printed-one-piece-dress-500x500', 'uploads/all/wutE9dOyyYfKfbrrBez1s7KqseLa4Qok18Je2VSj.jpg', 10, 26112, 'jpg', 'image', '2021-08-30 07:36:04', '2021-08-30 07:36:04', NULL),
+(45, 'photo-1572804013427-4d7ca7268217', 'uploads/all/KJ67FkatoPpB7Mg756flcq5dqVqtDBsyVuHW8rJl.jpg', 10, 158919, 'jpg', 'image', '2021-08-30 07:36:05', '2021-08-30 07:36:05', NULL),
+(46, 'new-fashion-casual-blazer-men-cotton-slim-men-s-cloth-tops-korea-style-Casual-suit-blaser', 'uploads/all/Voz355qZgwIe3CU4LfuMPuarfVRrsa1MmYhuYlVY.webp', 10, 46816, 'webp', 'image', '2021-08-30 07:36:05', '2021-08-30 07:36:05', NULL),
+(47, 'photo-1618001789159-ffffe6f96ef2', 'uploads/all/c2BznZ8wR99KDhbk6IFebHiIFpS7Q9U7qU8FpUVH.jpg', 10, 165048, 'jpg', 'image', '2021-08-30 07:36:05', '2021-08-30 07:36:05', NULL),
+(48, 'photo-1626557981101-aae6f84aa6ff', 'uploads/all/8O8W9j3d4GmHVjg1C5VWjcLcOhM2bWxtrMzbJuwR.jpg', 10, 216411, 'jpg', 'image', '2021-08-30 07:36:05', '2021-08-30 07:36:05', NULL),
+(49, 'types-of-shirts-for-men-bewakoof-blog-1-1610963787', 'uploads/all/t9TjY4C84npVXBzH5VTMgOaV7Zl8rf3GXMSZ8r3S.webp', 10, 60898, 'webp', 'image', '2021-08-30 07:36:06', '2021-08-30 07:36:06', NULL),
+(50, 'xl-one-piece-nevy-blue-line-maa-fab-original-imafwyy36gpfv9yd', 'uploads/all/pVPQSeXaelgTn3nsKkFeRYq2ggx5Mv9XEMA01sor.jpg', 10, 14289, 'jpeg', 'image', '2021-08-30 07:36:06', '2021-08-30 07:36:06', NULL),
+(51, 'terry cloth trend', 'uploads/all/HtJRgRQRrApYL3mKRqL70OjOOTBSnSpRuahjZGn5.jpg', 10, 209227, 'jpg', 'image', '2021-08-30 07:36:07', '2021-08-30 07:36:07', NULL),
+(52, '43075772_99-99999999_01', 'uploads/all/Nnv1hgxgtFWnfoa1Z2eFVmRu5pWQMXaYJf8nBvjC.webp', 10, 25654, 'webp', 'image', '2021-08-30 14:25:53', '2021-08-30 14:25:53', NULL),
+(53, 'download (1)', 'uploads/all/8EZcvB2A4FyKfWHLxxY3bwy1nBHOunPZuUeZuZpZ.jpg', 10, 9510, 'jpg', 'image', '2021-08-30 14:26:00', '2021-08-30 14:26:00', NULL),
+(54, 'images (5)', 'uploads/all/PftUk823tUeeg4O8tD9z9ACGD1ZJdmtUluru5Fhe.jpg', 10, 16013, 'jpg', 'image', '2021-08-30 14:28:34', '2021-08-30 14:28:34', NULL),
+(55, 'images (4)', 'uploads/all/9DbbNLom6b2fyHcM8TJPHlcRvOlAvibSFYb0bXyf.jpg', 10, 14508, 'jpg', 'image', '2021-08-30 14:28:35', '2021-08-30 14:28:35', NULL),
+(56, 'images (3)', 'uploads/all/ZMjfzJWJFdxqykQyWREsNlJPmtCfNVJ0B8oHldtz.jpg', 10, 17411, 'jpg', 'image', '2021-08-30 14:28:35', '2021-08-30 14:28:35', NULL),
+(57, 'ffa037a1354ddf682dd6851f9967fb78', 'uploads/all/WuUqhuNjAI9NIyk7VcqSkSyVsGts0j1gY81Jdv0O.jpg', 10, 59209, 'jpg', 'image', '2021-08-30 14:32:51', '2021-08-30 14:32:51', NULL),
+(58, '120189360_10215486663114314_194788139839991735_o', 'uploads/all/cjlyuNFDJvSBKwtoy9ErMxjBQ307e4p5UyUdRWrv.jpg', 9, 126900, 'jpg', 'image', '2021-08-31 17:59:23', '2021-08-31 17:59:23', NULL),
+(59, 'kisspng-computer-icons-email-icon-design-equipo-comercial-5b525b3cdb7d21.311695661532123964899', 'uploads/all/7KMe0qloHbkDzPRzlXCpUn9afYM1Wbwj2QJsmlpp.jpg', 9, 42076, 'jpg', 'image', '2021-09-01 10:48:15', '2021-09-01 10:48:15', NULL);
 
 -- --------------------------------------------------------
 
@@ -4257,13 +4483,13 @@ ALTER TABLE `carts`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `category_translations`
 --
 ALTER TABLE `category_translations`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `cities`
@@ -4359,7 +4585,7 @@ ALTER TABLE `customer_product_translations`
 -- AUTO_INCREMENT for table `dropdown_items`
 --
 ALTER TABLE `dropdown_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `flash_deals`
@@ -4479,25 +4705,25 @@ ALTER TABLE `policies`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `product_stocks`
 --
 ALTER TABLE `product_stocks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `product_taxes`
 --
 ALTER TABLE `product_taxes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `product_translations`
 --
 ALTER TABLE `product_translations`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `proxypay_payments`
@@ -4515,7 +4741,7 @@ ALTER TABLE `raw_materials`
 -- AUTO_INCREMENT for table `raw_materials_types`
 --
 ALTER TABLE `raw_materials_types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `reviews`
@@ -4605,13 +4831,13 @@ ALTER TABLE `ticket_replies`
 -- AUTO_INCREMENT for table `translations`
 --
 ALTER TABLE `translations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1718;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1721;
 
 --
 -- AUTO_INCREMENT for table `uploads`
 --
 ALTER TABLE `uploads`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `users`

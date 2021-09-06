@@ -20,16 +20,16 @@
 
 <!-- BEGIN: Page CSS-->
 @if($configData['mainLayoutType'] === 'horizontal')
-	<link rel="stylesheet" href="{{ asset('public/'.mix('css/base/core/menu/menu-types/horizontal-menu.css')) }}" />
+	<link rel="stylesheet" href="{{ asset('public'.mix('css/base/core/menu/menu-types/horizontal-menu.css')) }}" />
 @else
-	<link rel="stylesheet" href="{{ asset('public/'.mix('css/base/core/menu/menu-types/vertical-menu.css')) }}" />
+	<link rel="stylesheet" href="{{ asset('public'.mix('css/base/core/menu/menu-types/vertical-menu.css')) }}" />
 @endif
 
 {{-- Page Styles --}}
 @yield('page-style')
 
 <!-- laravel style -->
-<link rel="stylesheet" href="{{ asset('public/'.mix('css/overrides.css')) }}" />
+<link rel="stylesheet" href="{{ asset('public'.mix('css/overrides.css')) }}" />
 
 <!-- BEGIN: Custom CSS-->
 
