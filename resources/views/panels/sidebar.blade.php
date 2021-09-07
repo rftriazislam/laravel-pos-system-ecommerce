@@ -182,22 +182,22 @@
                     </li>
                 @endif
 
-                @if(Auth::user()->user_type == 'admin' || in_array('4', json_decode(Auth::user()->staff->role->permissions)))
+                {{-- @if(Auth::user()->user_type == 'admin' || in_array('4', json_decode(Auth::user()->staff->role->permissions)))
                     <li class="{{ 'inhouse_orders.index' === Route::currentRouteName() ? 'active' : '' }}">
                         <a href="{{ route('inhouse_orders.index') }}" class="d-flex align-items-center" >
                             <i data-feather="circle"></i>
                             <span class="menu-title text-truncate">{{translate('Inhouse orders')}}</span>
                         </a>
                     </li>
-                @endif
-                @if(Auth::user()->user_type == 'admin' || in_array('5', json_decode(Auth::user()->staff->role->permissions)))
+                @endif --}}
+                {{-- @if(Auth::user()->user_type == 'admin' || in_array('5', json_decode(Auth::user()->staff->role->permissions)))
                   <li class="{{ 'seller_orders.index' === Route::currentRouteName() ? 'active' : '' }}">
                     <a href="{{ route('seller_orders.index') }}" class="d-flex align-items-center">
                         <i data-feather="circle"></i>
                         <span class="menu-title text-truncate">{{translate('User\'s Orders')}}</span>
                     </a>
                 </li>
-                @endif
+                @endif --}}
                 {{-- @if(Auth::user()->user_type == 'admin' || in_array('6', json_decode(Auth::user()->staff->role->permissions)))
                     <li class="{{ 'pick_up_point.order_index' === Route::currentRouteName() ? 'active' : '' }}">
                         <a href="{{ route('pick_up_point.order_index') }}" class="d-flex align-items-center">
