@@ -62,6 +62,11 @@ Route::get('/all-product/{category_id}','FrontendController@all_product')->name(
 Route::get('/list_all-product/{category_id}','FrontendController@list_all_product')->name('list_all_product');
 Route::post('/product-quick-view/','FrontendController@product_quick_view')->name('product_quick_view');
 Route::get('/product-details/{product_id}','FrontendController@product_details')->name('product_details');
+Route::get('/view-cart/','FrontendController@view_cart')->name('view_cart');
+Route::get('/check-out/','FrontendController@checkout')->name('checkout');
+Route::post('/add-item-to-cart/','FrontendController@add_item_to_cart')->name('add_item_to_cart');
+Route::post('/update-cart-item/','FrontendController@update_cart_item')->name('update_cart_item');
+Route::post('/remove-item-from-cart/','FrontendController@remove_item_from_cart')->name('remove_item_from_cart');
 Route::get('/contact/','FrontendController@contact')->name('contact');
 
 Route::post('/home/section/featured', 'HomeController@load_featured_section')->name('home.section.featured');
@@ -343,6 +348,6 @@ Route::get('/admin/clear',function () {
     Artisan::call('view:clear');
     Artisan::call('route:clear');
 
-    // return 'Clear All Successfully';
+    return 'Clear All Successfully';
     return view('backend.miscellaneous.clear_cache');
 })->name('clear');

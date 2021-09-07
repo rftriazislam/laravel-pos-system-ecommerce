@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 05, 2021 at 04:56 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.11
+-- Host: 127.0.0.1:8111
+-- Generation Time: Sep 07, 2021 at 10:17 AM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 7.4.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -1767,10 +1767,10 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `added_by`, `user_id`, `category_id`, `related_product_ids`, `brand_id`, `photos`, `thumbnail_img`, `video_provider`, `video_link`, `tags`, `description`, `unit_price`, `purchase_price`, `variant_product`, `attributes`, `choice_options`, `colors`, `variations`, `todays_deal`, `published`, `stock_visibility_state`, `cash_on_delivery`, `featured`, `seller_featured`, `current_stock`, `unit`, `min_qty`, `low_stock_quantity`, `discount`, `discount_type`, `discount_start_date`, `discount_end_date`, `tax`, `tax_type`, `shipping_type`, `shipping_cost`, `is_quantity_multiplied`, `est_shipping_days`, `num_of_sale`, `meta_title`, `meta_description`, `meta_img`, `pdf`, `slug`, `rating`, `barcode`, `digital`, `file_name`, `file_path`, `created_at`, `updated_at`) VALUES
-(1, 'Marketer', 'admin', 9, 8, '1,2,3,4,5', 1, '59,58,2,1', '34', 'youtube', NULL, 'man,small', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 200.00, NULL, 1, '[]', '[]', '[\"#F0F8FF\",\"#9966CC\",\"#FAEBD7\",\"#00FFFF\"]', NULL, 0, 1, 'quantity', 1, 1, 0, 6, 'pce', 1, 1, 0.00, 'amount', 0, 0, NULL, NULL, 'free', '0', 0, NULL, 1, 'Marketer', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '28', NULL, 'marketer-lwnl0', 0.00, NULL, 0, NULL, NULL, '2021-08-30 06:11:24', '2021-09-01 11:24:09'),
+(1, 'Marketer', 'admin', 9, 8, '2,3,4,5', 1, '2,1,58', '34', 'youtube', NULL, 'man,small', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 200.00, NULL, 1, '[]', '[]', '[\"#F0F8FF\",\"#9966CC\",\"#FAEBD7\",\"#00FFFF\",\"#00FFFF\"]', NULL, 0, 1, 'quantity', 1, 1, 0, 6, 'pce', 1, 1, 0.00, 'amount', 0, 0, NULL, NULL, 'free', '0', 0, NULL, 1, 'Marketer', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '28', NULL, 'marketer-lwnl0', 0.00, NULL, 0, NULL, NULL, '2021-08-30 06:11:24', '2021-09-05 12:42:14'),
 (2, 'product 1', 'admin', 9, 8, NULL, 1, '30', '30', 'youtube', NULL, '', NULL, 200.00, NULL, 0, '[]', '[]', '[\"#F0F8FF\",\"#9966CC\",\"#FAEBD7\"]', NULL, 0, 1, 'quantity', 1, 0, 0, 2, 'PC', 1, 1, 0.00, 'amount', 0, 0, NULL, NULL, 'free', '0', 0, NULL, 0, 'product 1', '', '30', NULL, 'product-1-vr09n', 0.00, NULL, 0, NULL, NULL, '2021-08-30 07:33:59', '2021-08-30 13:56:29'),
 (3, 'Denim shirt', 'admin', 9, 3, NULL, 1, '30', '30', 'youtube', NULL, '', NULL, 2222.00, NULL, 0, '[]', '[]', '[]', NULL, 0, 1, 'quantity', 1, 0, 0, 2, 'PC', 1, 1, 0.00, 'amount', NULL, NULL, NULL, NULL, 'free', '0', 0, NULL, 0, 'Denim shirt', '', '30', NULL, 'Denim-shirt-Iu81K', 0.00, NULL, 0, NULL, NULL, '2021-08-30 07:37:44', '2021-08-30 07:37:44'),
-(4, 'Linen shirt with ribbon at the front', 'admin', 9, 1, NULL, NULL, '33', '33', 'youtube', NULL, '', NULL, 21111.00, NULL, 0, '[]', '[]', '[]', NULL, 0, 1, 'quantity', 1, 0, 0, 21, 'PC', 1, 1, 0.00, 'amount', 0, 0, NULL, NULL, 'free', '0', 0, NULL, 0, 'Linen shirt with ribbon at the front', '', '33', NULL, 'linen-shirt-with-ribbon-at-the-front-kcb5g', 0.00, NULL, 0, NULL, NULL, '2021-08-30 13:58:20', '2021-08-30 13:59:07'),
+(4, 'Linen shirt with ribbon at the front', 'admin', 9, 8, NULL, NULL, '33', '33', 'youtube', NULL, '', NULL, 21111.00, NULL, 0, '[]', '[]', '[]', NULL, 0, 1, 'quantity', 1, 0, 0, 21, 'PC', 1, 1, 0.00, 'amount', 0, 0, NULL, NULL, 'free', '0', 0, NULL, 0, 'Linen shirt with ribbon at the front', '', '33', NULL, 'linen-shirt-with-ribbon-at-the-front-kcb5g', 0.00, NULL, 0, NULL, NULL, '2021-08-30 13:58:20', '2021-08-30 13:59:07'),
 (5, 'Linen Blazers with ribbon at the front', 'admin', 9, 4, NULL, NULL, '46', '46', 'youtube', NULL, '', NULL, 2500.00, NULL, 0, '[]', '[]', '[]', NULL, 0, 1, 'quantity', 1, 0, 0, 2, 'PC', 1, 1, 0.00, 'amount', NULL, NULL, NULL, NULL, 'free', '0', 0, NULL, 0, 'Linen Blazers with ribbon at the front', '', '46', NULL, 'Linen-Blazers-with-ribbon-at-the-front-ebrdz', 0.00, NULL, 0, NULL, NULL, '2021-08-30 14:08:09', '2021-08-30 14:08:09'),
 (6, 'Striped sweater', 'admin', 9, 1, NULL, NULL, '39', '43', 'youtube', NULL, '', NULL, 2300.00, NULL, 0, '[]', '[]', '[]', NULL, 0, 1, 'quantity', 1, 0, 0, 25, 'PC', 1, 1, 0.00, 'amount', 0, 0, NULL, NULL, 'free', '0', 0, NULL, 0, 'Striped sweater', '', '43', NULL, 'striped-sweater-3blmh', 0.00, NULL, 0, NULL, NULL, '2021-08-30 14:08:59', '2021-08-30 14:16:33'),
 (7, 'Striped sweater', 'admin', 9, 1, NULL, NULL, '36', '36', 'youtube', NULL, '', NULL, 2300.00, NULL, 0, '[]', '[]', '[]', NULL, 0, 1, 'quantity', 1, 0, 0, 25, 'PC', 1, 1, 0.00, 'amount', 0, 0, NULL, NULL, 'free', '0', 0, NULL, 0, 'Striped sweater', '', '36', NULL, 'striped-sweater-kz3fe', 0.00, NULL, 0, NULL, NULL, '2021-08-30 14:09:01', '2021-08-30 14:09:57'),
@@ -1832,10 +1832,10 @@ INSERT INTO `product_stocks` (`id`, `product_id`, `variant`, `sku`, `price`, `qt
 (28, 19, '', NULL, 300.00, 7, NULL, '2021-08-30 14:29:33', '2021-08-30 14:29:33'),
 (29, 20, '', NULL, 300.00, 3, NULL, '2021-08-30 14:30:55', '2021-08-30 14:30:55'),
 (30, 21, '', NULL, 2500.00, 5, NULL, '2021-08-30 14:33:18', '2021-08-30 14:33:18'),
-(47, 1, 'AliceBlue', 'rgh254dgfh5', 10.00, 5, NULL, '2021-09-01 11:24:09', '2021-09-01 11:24:09'),
-(48, 1, 'Amethyst', 'fsdgh546', 20.00, 5, NULL, '2021-09-01 11:24:09', '2021-09-01 11:24:09'),
-(49, 1, 'AntiqueWhite', 'hdfgh54541614', 30.00, 5, NULL, '2021-09-01 11:24:09', '2021-09-01 11:24:09'),
-(50, 1, 'Aqua', 'gh3564d6gfh4', 50.00, 5, NULL, '2021-09-01 11:24:09', '2021-09-01 11:24:09');
+(59, 1, 'AliceBlue', 'rgh254dgfh5', 10.00, 5, NULL, '2021-09-05 12:42:14', '2021-09-05 12:42:14'),
+(60, 1, 'Amethyst', 'fsdgh546', 20.00, 5, NULL, '2021-09-05 12:42:14', '2021-09-05 12:42:14'),
+(61, 1, 'AntiqueWhite', 'hdfgh54541614', 30.00, 5, NULL, '2021-09-05 12:42:14', '2021-09-05 12:42:14'),
+(62, 1, 'Aqua', 'gh3564d6gfh4', 50.00, 5, NULL, '2021-09-05 12:42:14', '2021-09-05 12:42:14');
 
 -- --------------------------------------------------------
 
@@ -1878,7 +1878,7 @@ INSERT INTO `product_taxes` (`id`, `product_id`, `tax_id`, `tax`, `tax_type`, `c
 (28, 19, 3, 0.00, 'amount', '2021-08-30 14:29:33', '2021-08-30 14:29:33'),
 (29, 20, 3, 0.00, 'amount', '2021-08-30 14:30:55', '2021-08-30 14:30:55'),
 (30, 21, 3, 0.00, 'amount', '2021-08-30 14:33:18', '2021-08-30 14:33:18'),
-(41, 1, 3, 0.00, 'amount', '2021-09-01 11:24:09', '2021-09-01 11:24:09');
+(44, 1, 3, 0.00, 'amount', '2021-09-05 12:42:14', '2021-09-05 12:42:14');
 
 -- --------------------------------------------------------
 
@@ -3744,7 +3744,9 @@ INSERT INTO `translations` (`id`, `lang`, `lang_key`, `lang_value`, `created_at`
 (1717, 'en', 'Clear Cache', 'Clear Cache', '2021-08-26 20:53:26', '2021-08-26 20:53:26'),
 (1718, 'en', 'abc', 'abc', '2021-08-27 10:58:10', '2021-08-27 10:58:10'),
 (1719, 'en', 'Type a', 'Type a', '2021-08-27 11:01:19', '2021-08-27 11:01:19'),
-(1720, 'en', 'Category Information', 'Category Information', '2021-09-01 12:03:10', '2021-09-01 12:03:10');
+(1720, 'en', 'Category Information', 'Category Information', '2021-09-01 12:03:10', '2021-09-01 12:03:10'),
+(1721, 'en', 'Details Info', 'Details Info', '2021-09-05 12:09:26', '2021-09-05 12:09:26'),
+(1722, 'en', 'Copy Link', 'Copy Link', '2021-09-05 12:09:26', '2021-09-05 12:09:26');
 
 -- --------------------------------------------------------
 
@@ -4711,13 +4713,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `product_stocks`
 --
 ALTER TABLE `product_stocks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `product_taxes`
 --
 ALTER TABLE `product_taxes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `product_translations`
@@ -4831,7 +4833,7 @@ ALTER TABLE `ticket_replies`
 -- AUTO_INCREMENT for table `translations`
 --
 ALTER TABLE `translations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1721;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1723;
 
 --
 -- AUTO_INCREMENT for table `uploads`
