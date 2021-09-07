@@ -64,11 +64,13 @@
               <ul class="menu-content">
                   <li class="{{ 'poin-of-sales.index' === Route::currentRouteName() ? 'active' : '' }}">
                       <a href="{{route('poin-of-sales.index')}}" class="d-flex align-items-center">
+                            <i data-feather="circle"></i>
                           <span class="menu-title text-truncate">{{translate('POS Manager')}}</span>
                       </a>
                   </li>
                   <li class="{{ 'poin-of-sales.activation' === Route::currentRouteName() ? 'active' : '' }}">
                       <a href="{{route('poin-of-sales.activation')}}" class="d-flex align-items-center">
+                            <i data-feather="circle"></i>
                           <span class="menu-title text-truncate">{{translate('POS Configuration')}}</span>
                       </a>
                   </li>
