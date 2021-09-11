@@ -3,29 +3,8 @@
 
 @section('title', 'Product Add')
 
-@section('head')
-
-
-<link rel="stylesheet" href="{{ asset('public/css/custom/custom.css') }}" />
-<style>
-.input-group-text {
-    padding: 0.500rem 1rem;
-}
-/* .margin-left-7{
-    padding-top: 8px;
-} */
-textarea.form-control {
-    min-height: 2.714rem;
-    height: 150px;
-}
-.dropdown-menu[x-placement^=bottom], .dropdown-menu[x-placement^=left], .dropdown-menu[x-placement^=right], .dropdown-menu[x-placement^=top] {
-    right: auto;
-    bottom: auto;
-}.aiz-tag-input {
-    height: auto;
-    padding: 0.465rem 1rem 0.2rem;
-}
-</style>
+@section('page-style')
+    <link rel="stylesheet" href="{{ asset('public/css/custom/custom.css') }}" />
 @endsection
 
 

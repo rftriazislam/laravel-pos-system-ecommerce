@@ -63,16 +63,14 @@
 				</td>
 				<td>
 					<div class=" input-group " data-toggle="aizuploader" data-type="image">
-						<div class="input-group-prepend">
-							<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse') }}</div>
-						</div>
+						<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse') }}</div>
 						<div class="form-control file-amount text-truncate">{{ translate('Choose File') }}</div>
 						<input type="hidden" name="img_{{ $str }}" class="selected-files">
 					</div>
 					<div class="file-preview box sm"></div>
 				</td>
 				<td>
-					<button type="button" class="btn btn-icon btn-sm confirm-delete  btn-outline-danger" onclick="delete_variant(this)">
+					<button type="button" class="btn btn-icon btn-sm confirm-delete btn-outline-danger" onclick="delete_variant(this)">
                         <i data-feather='trash-2'></i>
                     </button>
 				</td>

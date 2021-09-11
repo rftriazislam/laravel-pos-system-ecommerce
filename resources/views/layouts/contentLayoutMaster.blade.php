@@ -36,8 +36,6 @@
 
         {{-- Include core + vendor Styles --}}
         @include('panels/styles')
-
-        @yield('head')
     </head>
     <!-- END: Head-->
 

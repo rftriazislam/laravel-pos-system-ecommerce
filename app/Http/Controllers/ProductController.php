@@ -926,13 +926,15 @@ class ProductController extends Controller
         if($request->has('choice_no')){
             foreach ($request->choice_no as $key => $no) {
                 $name = 'choice_options_'.$no;
-                $data = array();
-                // foreach (json_decode($request[$name][0]) as $key => $item) {
-                foreach ($request[$name] as $key => $item) {
-                    // array_push($data, $item->value);
-                    array_push($data, $item);
+                if($request[$name]){
+                    $data = array();
+                    // foreach (json_decode($request[$name][0]) as $key => $item) {
+                    foreach ($request[$name] as $key => $item) {
+                        // array_push($data, $item->value);
+                        array_push($data, $item);
+                    }
+                    array_push($options, $data);
                 }
-                array_push($options, $data);
             }
         }
 
