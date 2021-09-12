@@ -62,6 +62,7 @@
 
                                 <div class="col-lg-2 ml-auto">
                                     <select class="form-control " name="delivery_status" id="basicSelect" onchange="sort_orders()">
+                                        <option value="">{{ translate('Select Status') }}</option>
                                         <option value="pending" @if ($delivery_status == 'pending') selected @endif>{{ translate('Pending') }}</option>
                                         <option value="confirmed" @if ($delivery_status == 'confirmed') selected @endif>{{ translate('Confirmed') }}</option>
                                         <option value="picked_up" @if ($delivery_status == 'picked_up') selected @endif>{{ translate('Picked Up') }}</option>
@@ -96,6 +97,7 @@
                         <thead>
                             <tr>
                                 {{-- <th>#</th> --}}
+                                <th>{{ translate('SL') }}</th>
                                 <th>
                                     <div class="form-group">
                                         <div class="aiz-checkbox-inline">

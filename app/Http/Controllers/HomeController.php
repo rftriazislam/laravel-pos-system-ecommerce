@@ -220,7 +220,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('frontend.home.index');
+        return view('frontend.flatize.home.index');
     }
 
     public function flash_deal_details($slug)

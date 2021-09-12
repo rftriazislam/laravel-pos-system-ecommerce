@@ -8,6 +8,7 @@
         "php": "^7.1.3",
         "anandsiddharth/laravel-paytm-wallet": "^1.0",
         "cinetpay/cinetpay-php": "^1.9",
+        "darryldecode/cart": "^4.2",
         "fideloper/proxy": "^4.0",
         "gabrielbull/ups-api": "^0.8.0",
         "guzzlehttp/guzzle": "^6.5",
@@ -54,7 +55,8 @@
         },
         "files": [
             "app/Http/Helpers.php",
-            "app/Helpers/MenuHelper.php"
+            "app/Helpers/MenuHelper.php",
+            "app/Helpers/ProductHelper.php"
         ]
     },
     "autoload-dev": {
