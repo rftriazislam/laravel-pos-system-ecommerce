@@ -275,12 +275,7 @@ a:not([href]) {
     top: auto;
     bottom: 100%;
     margin-top: 0;
-<<<<<<< HEAD
-    margin-bottom: .125rem;
-
-=======
     margin-bottom: 0.125rem;
->>>>>>> 460e85d2f5390737ac46d96473ee81d94d2572d8
 }
 .dropdown-menu {
     border-color: #e2e5ec;
