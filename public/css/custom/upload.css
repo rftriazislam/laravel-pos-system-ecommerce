@@ -1,0 +1,194 @@
+
+.card .card-body {
+    padding: 20px 25px;
+    border-radius: 4px;
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.gutters-5 {
+    margin-right: -5px;
+    margin-left: -5px;
+}
+.gutters-5 > .col, .gutters-5 > [class*="col-"] {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+.w-140px, .size-140px {
+    width: 140px;
+}
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.modal.fade .modal-dialog-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    margin:0;
+    width: 400px;
+    max-width: 80vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    background-color: #fff;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-transform: translate(50px, 0);
+    transform: translate(50px, 0);
+}
+.modal-dialog-right .modal-content {
+    height: 100%;
+    border: 0;
+    border-radius: 0;
+}
+.modal-content .modal-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    position: relative;
+    padding: 12px 25px;
+    border-bottom: 1px solid #ebedf2;
+    min-height: 60px;
+    background-color: transparent;
+}
+.modal-content .modal-body {
+    padding: 20px 25px;
+    overflow-y: auto;
+    max-height: 70vh;
+}
+.modal-content {
+    border: 1px solid rgba(20, 20, 35, 0.2);
+}
+.card {
+    -webkit-box-shadow: 0 0 13px 0 rgb(82 63 105 / 5%);
+    box-shadow: 0 0 13px 0 rgb(82 63 105 / 5%);
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-color: #ebedf2;
+}
+.card .card-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    position: relative;
+    padding: 12px 25px;
+    border-bottom: 1px solid #ebedf2;
+    min-height: 50px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background-color: transparent;
+}
+
+.card .card-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    position: relative;
+    padding: 12px 25px;
+    border-bottom: 1px solid #ebedf2;
+    min-height: 50px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background-color: transparent;
+}
+.card .card-body {
+    padding: 20px 25px;
+    border-radius: 4px;
+}
+.h-420px, .size-420px {
+    height: 420px;
+}
+.uppy-Informer[aria-hidden=true] {
+    opacity: 0;
+    transform: translateY(350%);
+    transition: all .3s ease-in;
+    z-index: -1000;
+}
+
+.uppy-Informer {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    opacity: 1;
+    transform: none;
+    transition: all .25s ease-in;
+    z-index: 1005;
+}
+.uppy-size--md .uppy-Informer p {
+    font-size: 14px;
+    line-height: 1.3;
+    max-width: 500px;
+    padding: 10px 20px;
+}
+.uppy-Informer p {
+    display: inline-block;
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.4;
+    font-weight: 400;
+    padding: 6px 15px;
+    background-color: #757575;
+    color: #fff;
+    border-radius: 18px;
+    max-width: 90%;
+}
+
+.uppy-DashboardContent-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 12px;
+    line-height: 40px;
+    font-weight: 500;
+    width: 100%;
+    max-width: 170px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-x: hidden;
+    margin: auto;
+}
+@media (min-width: 992px){
+.w-lg-220px, .size-lg-220px {
+    width: 220px;
+}}

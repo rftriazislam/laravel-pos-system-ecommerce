@@ -1,18 +1,12 @@
-@extends('layouts/contentLayoutMaster')
+@extends('backend.layouts.app')
 {{-- @extends('backend.layouts.app') --}}
-
-
- @section('page-style')
- <link rel="stylesheet" href="{{ asset('public/css/custom/upload.css') }}" />
-@endsection
-
 @section('content')
-<div class="aiz-titlebar text-left mt-1 mb-1">
+<div class="aiz-titlebar text-left mt-2 mb-3">
 	<div class="row align-items-center">
 		<div class="col-md-6">
 			<h1 class="h3">{{translate('All uploaded files')}}</h1>
 		</div>
-		<div class="col-md-6 text-right" style="text-align: right;">
+		<div class="col-md-6 text-md-right">
 			<a href="{{ route('uploaded-files.create') }}" class="btn btn-primary">
 				<span>{{translate('Upload New File')}}</span>
 			</a>
@@ -23,11 +17,11 @@
 <div class="card">
     <form id="sort_uploads" action="">
         <div class="card-header row gutters-5">
-            <div class="col">
+            <div class="col-md-3">
                 <h5 class="mb-0 h6">{{translate('All files')}}</h5>
             </div>
             <div class="col-md-3 ml-auto mr-0">
-                <select class="form-control " name="sort" onchange="sort_uploads()">
+                <select class="form-control form-control-xs aiz-selectpicker" name="sort" onchange="sort_uploads()">
                     <option value="newest" @if($sort_by == 'newest') selected="" @endif>{{ translate('Sort by newest') }}</option>
                     <option value="oldest" @if($sort_by == 'oldest') selected="" @endif>{{ translate('Sort by oldest') }}</option>
                     <option value="smallest" @if($sort_by == 'smallest') selected="" @endif>{{ translate('Sort by smallest') }}</option>
@@ -56,23 +50,23 @@
     				<div class="aiz-file-box">
     					<div class="dropdown-file" >
     						<a class="dropdown-link" data-toggle="dropdown">
-    							<i data-feather='more-vertical'></i>
+    							<i class="la la-ellipsis-v"></i>
     						</a>
     						<div class="dropdown-menu dropdown-menu-right">
     							<a href="javascript:void(0)" class="dropdown-item" onclick="detailsInfo(this)" data-id="{{ $file->id }}">
-    								<i data-feather='alert-circle'></i>
+    								<i class="las la-info-circle mr-2"></i>
     								<span>{{ translate('Details Info') }}</span>
     							</a>
     							<a href="{{ my_asset($file->file_name) }}" target="_blank" download="{{ $file_name }}.{{ $file->extension }}" class="dropdown-item">
-                                    <i data-feather='arrow-down'></i>
+    								<i class="la la-download mr-2"></i>
     								<span>{{ translate('Download') }}</span>
     							</a>
     							<a href="javascript:void(0)" class="dropdown-item" onclick="copyUrl(this)" data-url="{{ my_asset($file->file_name) }}">
-    								<i data-feather='clipboard'></i>
+    								<i class="las la-clipboard mr-2"></i>
     								<span>{{ translate('Copy Link') }}</span>
     							</a>
     							<a href="javascript:void(0)" class="dropdown-item confirm-alert" data-href="{{ route('uploaded-files.destroy', $file->id ) }}" data-target="#delete-modal">
-    								<i data-feather='trash-2'></i>
+    								<i class="las la-trash mr-2"></i>
     								<span>{{ translate('Delete') }}</span>
     							</a>
     						</div>
@@ -111,22 +105,22 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title h6">{{ translate('Delete Confirmation') }}</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true" ></button>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
             </div>
             <div class="modal-body text-center">
                 <p class="mt-1">{{ translate('Are you sure to delete this file?') }}</p>
-                <button type="button" class="btn btn-danger mt-2" data-bs-dismiss="modal">{{ translate('Cancel') }}</button>
+                <button type="button" class="btn btn-link mt-2" data-dismiss="modal">{{ translate('Cancel') }}</button>
                 <a href="" class="btn btn-primary mt-2 comfirm-link">{{ translate('Delete') }}</a>
             </div>
         </div>
     </div>
 </div>
 <div id="info-modal" class="modal fade">
-	<div class="modal-dialog modal-dialog-right" style="margin:0 2.44% 0 0;">
+	<div class="modal-dialog modal-dialog-right">
 			<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title h6">{{ translate('File Info') }}</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" style="margin: -0.1rem 1.2rem -0.4rem auto;">
+				<button type="button" class="close" data-dismiss="modal">
 				</button>
 			</div>
 			<div class="modal-body c-scrollbar-light position-relative" id="info-modal-content">
