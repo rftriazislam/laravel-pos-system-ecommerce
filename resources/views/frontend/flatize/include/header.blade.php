@@ -4,7 +4,7 @@
         <meta name="description" content="Flatize - Shop HTML5 Responsive Template">
         <meta name="author" content="pixelgeeklab.com">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Flatize - Shop HTML5 Responsive Template</title>
+        <title>Yara | {{ isset($title) ? $title : '' }}</title>
 
         <!-- Google Fonts -->
         {{-- <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'> --}}

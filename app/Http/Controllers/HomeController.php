@@ -47,6 +47,7 @@ class HomeController extends Controller
 
     public function registration(Request $request)
     {
+        $title = "Registration";
         if(Auth::check() && Auth::user()->user_type == 'customer'){
             return redirect()->route('home');
         }
@@ -68,7 +69,7 @@ class HomeController extends Controller
 
             }
         }
-        return view('frontend.flatize.include.registration');
+        return view('frontend.flatize.include.registration',compact('title'));
         // return view('frontend.user_registration');
     }
 
@@ -217,7 +218,8 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('frontend.flatize.home.index');
+        $title = "Home";
+        return view('frontend.flatize.home.index',compact('title'));
     }
 
     public function flash_deal_details($slug)

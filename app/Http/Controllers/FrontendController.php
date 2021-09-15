@@ -13,19 +13,21 @@ use Auth;
 class FrontendController extends Controller
 {
     public function all_product($category_id) {
+        $title = "All Products";
         $products = get_all_product_info_by_category_id($category_id);
         $category = Category::find($category_id);
         $colors_info = get_all_product_colors($products);
 
-        return view('frontend.flatize.products.grid_view',compact('category_id','category','products','colors_info'));
+        return view('frontend.flatize.products.grid_view',compact('title','category_id','category','products','colors_info'));
     }
 
     public function list_all_product($category_id) {
+        $title = "All Products";
         $products = get_all_product_info_by_category_id($category_id);
         $category = Category::find($category_id);
         $colors_info = get_all_product_colors($products);
 
-        return view('frontend.flatize.products.list_view',compact('category_id','category','products','colors_info'));
+        return view('frontend.flatize.products.list_view',compact('title','category_id','category','products','colors_info'));
     }
 
     public function product_quick_view(Request $request) {
@@ -40,6 +42,7 @@ class FrontendController extends Controller
     }
 
     public function product_details($product_id) {
+        $title = "Products Details";
         $product = get_product_info_by_product_id($product_id);
         $category = Category::find($product->category_id);
         $product->images = get_product_all_images_by_image_ids($product->photos);
@@ -53,11 +56,12 @@ class FrontendController extends Controller
             ->where('id','<',$product_id)
             ->max('id');
 
-        return view('frontend.flatize.products.product_details',compact('category','product','related_products','previous_product_id','next_product_id'));
+        return view('frontend.flatize.products.product_details',compact('title','category','product','related_products','previous_product_id','next_product_id'));
     }
 
     public function contact() {
-        return view('frontend.flatize.contact.index');
+        $title = "Contact";
+        return view('frontend.flatize.contact.index',compact('title'));
     }
 
     public function add_item_to_cart(Request $request) {
