@@ -34,7 +34,6 @@ class FrontendController extends Controller
         $product_info = json_decode($request->product_info,true);
         $category_info = json_decode($request->category_info,true);
         $product_info['images'] = get_product_all_images_by_image_ids($product_info['photos']);
-        // dd($product_info);
 
         $output = view('frontend.flatize.products.product_quickview',compact('category_info','product_info'))->render();
 

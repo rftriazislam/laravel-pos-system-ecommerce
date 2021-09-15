@@ -218,7 +218,7 @@
                                 $tab_content_status = 'active';
                             }
                             $new_products = get_all_new_products_by_category_id($tab_content_category->id);
-                            $category = get_category_info_by_id($tab_content_category->category_id);
+                            $category = get_category_info_by_id($tab_content_category->id);
                         @endphp
                         <div class="tab-pane {{ $tab_content_status }}" id="{{ strtolower($tab_content_category->name) }}">
                             <div class="row">
