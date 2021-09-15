@@ -90,9 +90,11 @@
                             @endif
                             <th data-breakpoints="sm">{{translate('Info')}}</th>
                             <th data-breakpoints="md">{{translate('Total Stock')}}</th>
-                            <th data-breakpoints="lg">{{translate('Todays Deal')}}</th>
-                            <th data-breakpoints="lg">{{translate('Published')}}</th>
-                            <th data-breakpoints="lg">{{translate('Featured')}}</th>
+                            {{-- <th data-breakpoints="lg">{{translate('Todays Deal')}}</th> --}}
+                            {{-- <th data-breakpoints="lg">{{translate('Published')}}</th> --}}
+                            {{-- <th data-breakpoints="lg">{{translate('Featured')}}</th> --}}
+                            <th data-breakpoints="lg">{{translate('Menu Visibility')}}</th>
+                            <th data-breakpoints="lg">{{translate('New Collection')}}</th>
                             <th data-breakpoints="sm" class="text-right">{{translate('Options')}}</th>
                         </tr>
                     </thead>
@@ -134,8 +136,7 @@
                                             $qty += $stock->qty;
                                             echo $stock->variant.' - '.$stock->qty.'<br>';
                                         }
-                                    }
-                                    else {
+                                    } else {
                                         //$qty = $product->current_stock;
                                         $qty = optional($product->stocks->first())->qty;
                                         echo $qty;
@@ -145,21 +146,33 @@
                                     <span class="badge badge-inline badge-danger">Low</span>
                                 @endif
                             </td>
-                            <td>
+                            {{-- <td>
                                 <label class="form-check form-check-success form-switch mb-0">
-                                    <input onchange="update_todays_deal(this)" value="{{ $product->id }}" type="checkbox" class="form-check-input" <?php if ($product->todays_deal == 1) echo "checked"; ?> >
+                                    <input onchange="update_todays_deal(this)" value="{{ $product->id }}" type="checkbox" class="form-check-input" {{ $product->todays_deal == 1 ? "checked" : "" }} >
+                                    <span class="slider round"></span>
+                                </label>
+                            </td> --}}
+                            {{-- <td>
+                                <label class="form-check form-check-success form-switch mb-0">
+                                    <input onchange="update_published(this)" value="{{ $product->id }}" type="checkbox" class="form-check-input" {{ $product->published == 1) ? "checked" : "" }}>
                                     <span class="slider round"></span>
                                 </label>
                             </td>
                             <td>
                                 <label class="form-check form-check-success form-switch mb-0">
-                                    <input onchange="update_published(this)" value="{{ $product->id }}" type="checkbox" class="form-check-input" <?php if ($product->published == 1) echo "checked"; ?> >
+                                    <input onchange="update_featured(this)" value="{{ $product->id }}" type="checkbox" class="form-check-input" {{ $product->featured == 1) ? "checked" : "" }}>
+                                    <span class="slider round"></span>
+                                </label>
+                            </td> --}}
+                            <td>
+                                <label class="form-check form-check-success form-switch mb-0">
+                                    <input onchange="update_menu_visibility(this)" value="{{ $product->id }}" type="checkbox" class="form-check-input" {{ $product->menu_visibility == 1 ? "checked" : "" }}>
                                     <span class="slider round"></span>
                                 </label>
                             </td>
                             <td>
                                 <label class="form-check form-check-success form-switch mb-0">
-                                    <input onchange="update_featured(this)" value="{{ $product->id }}" type="checkbox" class="form-check-input" <?php if ($product->featured == 1) echo "checked"; ?> >
+                                    <input onchange="update_new_collection(this)" value="{{ $product->id }}" type="checkbox" class="form-check-input" {{ $product->new_collection == 1 ? "checked" : "" }} >
                                     <span class="slider round"></span>
                                 </label>
                             </td>
@@ -268,6 +281,40 @@
             $.post('{{ route('products.featured') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
                     AIZ.plugins.notify('success', '{{ translate('Featured products updated successfully') }}');
+                }
+                else{
+                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                }
+            });
+        }
+
+        function update_menu_visibility(el){
+            if(el.checked){
+                var status = 1;
+            }
+            else{
+                var status = 0;
+            }
+            $.post('{{ route('products.update_menu_visibility') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
+                if(data == 1){
+                    AIZ.plugins.notify('success', '{{ translate('This product visible in menu successfully') }}');
+                }
+                else{
+                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                }
+            });
+        }
+
+        function update_new_collection(el){
+            if(el.checked){
+                var status = 1;
+            }
+            else{
+                var status = 0;
+            }
+            $.post('{{ route('products.update_new_collection') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
+                if(data == 1){
+                    AIZ.plugins.notify('success', '{{ translate('Now this product is new collection') }}');
                 }
                 else{
                     AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');

@@ -58,11 +58,36 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
 
     // Inventory End
 
+    // Frontend Settings Start
+
+    // Home Page
+    Route::get('/home-page','FrontendSettingsController@home_page')->name('frontend_settings.home_page');
+    Route::post('/add-product-category','FrontendSettingsController@add_product_category')->name('frontend_settings.add_product_category');
+    Route::post('/advertise-section','FrontendSettingsController@advertise_section')->name('frontend_settings.advertise_section');
+    Route::get('/advertise-section/{action}/{index}','FrontendSettingsController@advertise_section_action')->name('frontend_settings.advertise_section_action');
+    Route::post('/slider-section','FrontendSettingsController@slider_section')->name('frontend_settings.slider_section');
+    Route::get('/slider-section/{action}/{index}','FrontendSettingsController@slider_section_action')->name('frontend_settings.slider_section_action');
+
+    // Contact Page
+    Route::get('/contact-page','FrontendSettingsController@contact_page')->name('frontend_settings.contact_page');
+    Route::get('/contact-page/action-form','FrontendSettingsController@contact_page_form')->name('frontend_settings.contact_page_form');
+    Route::post('/contact-page/action','FrontendSettingsController@contact_page_action')->name('frontend_settings.contact_page_action');
+
+    // Home Page
+    Route::get('/frontend-general-settings','FrontendSettingsController@general_settings')->name('frontend_settings.general_settings');
+    Route::post('/frontend-logo','FrontendSettingsController@frontend_logo')->name('frontend_settings.frontend_logo');
+    Route::get('/frontend-logo/{action}/{index}','FrontendSettingsController@frontend_logo_action')->name('frontend_settings.frontend_logo_action');
+    Route::post('/social-media','FrontendSettingsController@social_media')->name('frontend_settings.social_media');
+    Route::post('/copyright','FrontendSettingsController@copyright')->name('frontend_settings.copyright');
+
+    // Frontend Settings End
+
     Route::resource('categories', 'CategoryController');
    
     Route::get('/categories/edit/{id}', 'CategoryController@edit')->name('categories.edit');
     Route::get('/categories/destroy/{id}', 'CategoryController@destroy')->name('categories.destroy');
     Route::post('/categories/featured', 'CategoryController@updateFeatured')->name('categories.featured');
+    Route::post('/categories/update_menu_visibility', 'CategoryController@update_menu_visibility')->name('categories.update_menu_visibility');
 
     Route::resource('brands', 'BrandController');
     Route::get('/brands/edit/{id}', 'BrandController@edit')->name('brands.edit');
@@ -76,6 +101,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::get('/products/seller/{id}/edit', 'ProductController@seller_product_edit')->name('products.seller.edit');
     Route::post('/products/todays_deal', 'ProductController@updateTodaysDeal')->name('products.todays_deal');
     Route::post('/products/featured', 'ProductController@updateFeatured')->name('products.featured');
+    Route::post('/products/product_menu_visibility', 'ProductController@update_menu_visibility')->name('products.update_menu_visibility');
+    Route::post('/products/update_new_collection', 'ProductController@update_new_collection')->name('products.update_new_collection');
     Route::post('/products/get_products_by_subcategory', 'ProductController@get_products_by_subcategory')->name('products.get_products_by_subcategory');
     Route::post('/bulk-product-delete', 'ProductController@bulk_product_delete')->name('bulk-product-delete');
     

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Session;
 use Auth;
 use Hash;
+use App\Address;
 use App\Category;
 use App\FlashDeal;
 use App\Brand;
@@ -32,9 +33,13 @@ use Illuminate\Auth\Events\PasswordReset;
 
 class HomeController extends Controller
 {
-    public function login()
+    public function __construct()
     {
-        if(Auth::check()){
+        //$this->middleware('auth');
+    }
+
+    public function login() {
+        if (Auth::check() && Auth::user()->user_type == 'customer') {
             return redirect()->route('home');
         }
         return view('frontend.user_login');
@@ -42,12 +47,10 @@ class HomeController extends Controller
 
     public function registration(Request $request)
     {
-        if(Auth::check()){
+        if(Auth::check() && Auth::user()->user_type == 'customer'){
             return redirect()->route('home');
         }
-        if($request->has('referral_code') &&
-                \App\Addon::where('unique_identifier', 'affiliate_system')->first() != null &&
-                \App\Addon::where('unique_identifier', 'affiliate_system')->first()->activated) {
+        if($request->has('referral_code') && \App\Addon::where('unique_identifier', 'affiliate_system')->first() != null && \App\Addon::where('unique_identifier', 'affiliate_system')->first()->activated) {
 
             try {
                 $affiliate_validation_time = \App\AffiliateConfig::where('type', 'validation_time')->first();
@@ -65,7 +68,8 @@ class HomeController extends Controller
 
             }
         }
-        return view('frontend.user_registration');
+        return view('frontend.flatize.include.registration');
+        // return view('frontend.user_registration');
     }
 
     public function cart_login(Request $request)
@@ -87,21 +91,6 @@ class HomeController extends Controller
         return back();
     }
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //$this->middleware('auth');
-    }
-
-    /**
-     * Show the admin dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function admin_dashboard()
     {
         $pageConfigs = [
@@ -112,18 +101,14 @@ class HomeController extends Controller
         ]);
     }
 
-    /**
-     * Show the customer/seller dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function dashboard()
     {
         if(Auth::user()->user_type == 'seller'){
             return view('frontend.user.seller.dashboard');
         }
         elseif(Auth::user()->user_type == 'customer'){
-            return view('frontend.user.customer.dashboard');
+            return view('frontend.flatize.home.index');
+            // return view('frontend.user.customer.dashboard');
         }
         elseif(Auth::user()->user_type == 'delivery_boy'){
             return view('delivery_boys.frontend.dashboard');
@@ -136,7 +121,16 @@ class HomeController extends Controller
     public function profile(Request $request)
     {
         if(Auth::user()->user_type == 'customer'){
-            return view('frontend.user.customer.profile');
+            $user_id = Auth::user()->id;
+            $address_info = Address::where('user_id','=',$user_id)->first();
+            $address_button = 'Save Address';
+            $address_form_action = route('addresses.store');
+            if ($address_info) {
+                $address_button = 'Update Address';
+                $address_form_action = route('addresses.update', $address_info->id);
+            }
+            return view('frontend.flatize.my_account.account_information',compact('address_info','address_form_action','address_button'));
+            // return view('frontend.user.customer.profile');
         }
         elseif(Auth::user()->user_type == 'delivery_boy'){
             return view('delivery_boys.frontend.profile');
@@ -148,6 +142,7 @@ class HomeController extends Controller
 
     public function customer_update_profile(Request $request)
     {
+        // dd($request->all());
         if(env('DEMO_MODE') == 'On'){
             flash(translate('Sorry! the action is not permitted in demo '))->error();
             return back();
@@ -155,16 +150,23 @@ class HomeController extends Controller
 
         $user = Auth::user();
         $user->name = $request->name;
-        $user->address = $request->address;
-        $user->country = $request->country;
-        $user->city = $request->city;
-        $user->postal_code = $request->postal_code;
         $user->phone = $request->phone;
+        $user->email = $request->email;
+
+        if (isset($request->photo)) {
+            $user->avatar_original = upload_image($request->photo,'public/uploads/customer_images/');
+        } else {
+            $user->avatar_original = $request->previous_photo;
+        }
 
         if($request->new_password != null && ($request->new_password == $request->confirm_password)){
             $user->password = Hash::make($request->new_password);
         }
-        $user->avatar_original = $request->photo;
+
+        // $user->address = $request->address;
+        // $user->country = $request->country;
+        // $user->city = $request->city;
+        // $user->postal_code = $request->postal_code;
 
         if($user->save()){
             flash(translate('Your Profile has been updated successfully!'))->success();
@@ -213,11 +215,6 @@ class HomeController extends Controller
         return back();
     }
 
-    /**
-     * Show the application frontend home.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return view('frontend.flatize.home.index');

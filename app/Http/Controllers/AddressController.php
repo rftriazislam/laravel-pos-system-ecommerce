@@ -88,7 +88,7 @@ class AddressController extends Controller
         $address = Address::findOrFail($id);
         
         $address->address = $request->address;
-        $address->country = $request->country;
+        // $address->country = $request->country;
         $address->city = $request->city;
         $address->postal_code = $request->postal_code;
         $address->phone = $request->phone;

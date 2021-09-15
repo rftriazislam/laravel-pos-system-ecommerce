@@ -1,3 +1,7 @@
+<style type="text/css">
+    .btn-white { color: white !important; }
+</style>
+
 <h3>Recently added item(s)</h3>
 <ul class="list-unstyled list-thumbs-pro">
     @foreach ($cart_contents as $content)
@@ -11,7 +15,7 @@
                 <div class="product-thumb-info-content">
                     <h4><a href="shop-product-detail2.html">{{ $content->name }}</a></h4>
                     <span class="item-cat"><small><a href="{{ route('all_product',$content->attributes['category_id']) }}">{{ $content->attributes['category_name'] }}</a></small></span>
-                    <span class="price">৳{{ number_format($content->price * $content->quantity) }}</span>
+                    <span class="price">৳ {{ number_format($content->price * $content->quantity) }}</span>
                 </div>
             </div>
         </li>
@@ -19,7 +23,7 @@
 </ul>
 <ul class="list-inline cart-subtotals text-right">
     <li class="cart-subtotal"><strong>Subtotal</strong></li>
-    <li class="price"><span class="amount"><strong>৳{{ number_format($subtotal) }}</strong></span></li>
+    <li class="price"><span class="amount"><strong>৳ {{ number_format($subtotal) }}</strong></span></li>
 </ul>
 <div class="cart-buttons text-right">
     <a href="{{ route('view_cart') }}" class="btn btn-white">View Cart</a>

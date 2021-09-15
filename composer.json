@@ -56,7 +56,9 @@
         "files": [
             "app/Http/Helpers.php",
             "app/Helpers/MenuHelper.php",
-            "app/Helpers/ProductHelper.php"
+            "app/Helpers/ProductHelper.php",
+            "app/Helpers/FrontendHelper.php",
+            "app/Helpers/CommonHelper.php"
         ]
     },
     "autoload-dev": {

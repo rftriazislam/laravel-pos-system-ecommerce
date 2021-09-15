@@ -6,30 +6,6 @@
 	</style>
 @endsection
 
-@section('categories')
-	<aside class="block blk-cat">
-		<h4>Man Category</h4>
-		<ul class="list-unstyled list-cat">
-            @foreach (get_categories_by_parent_id(1) as $man_category)
-                <li>
-                    <a href="{{ route('list_all_product',$man_category->id) }}">{{ $man_category->name }}</a>
-                </li>
-            @endforeach
-		</ul>
-	</aside>
-
-	<aside class="block blk-cat">
-		<h4>Woman Category</h4>
-		<ul class="list-unstyled list-cat">
-            @foreach (get_categories_by_parent_id(2) as $women_category)
-                <li>
-                    <a href="{{ route('list_all_product',$women_category->id) }}">{{ $women_category->name }}</a>
-                </li>
-            @endforeach
-		</ul>
-	</aside>
-@endsection
-
 @section('product_view')
 	<div class="toolbar clearfix">
 		<ul class="list-inline list-icons pull-left">
@@ -59,13 +35,13 @@
 					<div class="col-xs-7 col-sm-9">
 						<div class="product-thumb-info-content">
 							<h4><a href="{{ route('product_details',$product->id) }}">{{ $product->name }}</a></h4>
-							<div class="reviews-counter clearfix">
+							{{-- <div class="reviews-counter clearfix">
 								<div class="rating five-stars pull-left">
 									<div class="star-rating"></div>
 									<div class="star-bg"></div>
 								</div>
 								<span>3 Reviews</span> | <a href="#">Add Your Review</a>
-							</div>
+							</div> --}}
 							<p class="price">৳ {{ number_format($product->unit_price) }}</p>
 							<p class="text-justify">{{ $product->description }}</p>
 							<p class="btn-group">
@@ -75,7 +51,7 @@
 								<a href="javascript:void(0);" category-info="{{ $category }}" product-info="{{ $product }}" class="view-product">
 									<span><i class="fa fa-eye"></i></span>
 								</a>
-								<a href="#"><span><i class="fa fa-heart-o"></i></span></a>
+								{{-- <a href="#"><span><i class="fa fa-heart-o"></i></span></a> --}}
 							</p>
 						</div>
 					</div>	

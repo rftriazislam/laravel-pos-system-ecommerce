@@ -7,8 +7,10 @@
         <title>Flatize - Shop HTML5 Responsive Template</title>
 
         <!-- Google Fonts -->
-        <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300' rel='stylesheet' type='text/css'>
+        {{-- <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'> --}}
+        {{-- <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300' rel='stylesheet' type='text/css'> --}}
+        <link href='{{ asset('public/frontend/flatize/fonts/ttf/Codec-Cold-Regular.ttf') }}' rel='stylesheet' type='text/css'>
+        <link href='{{ asset('public/frontend/flatize/fonts/otf/Codec-Cold-Regular.otf') }}' rel='stylesheet' type='text/css'>
 
         <!-- Bootstrap -->
         <link href="{{ asset('public/frontend/flatize/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -43,5 +45,15 @@
         <link href="{{ asset('public/sweetalert2/dist/sweetalert2.css') }}" rel="stylesheet">
 
         <style type="text/css">
+            #top { margin-bottom: -22px; font-size: 12px; }
+            .menu-shop, .my-account { padding-top: 5px; }
+            .menu-shop i { font-size: 30px }
             .main { margin-top: -42px; }
+            .shopping-bag { font-size: 10px; width: 19px; height: 19px; top: 5px; line-height: 21px; }
+            .avatar {
+                vertical-align: middle;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+            }
         </style>

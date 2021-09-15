@@ -9,6 +9,7 @@
             url: "{{ route('product_quick_view') }}",
             data: {"_token": "{{ csrf_token() }}",product_info:product_info,category_info:category_info},
             success: function (data) {
+                console.log(data.output);
             	$('.quick-view-div').html(data.output);
             	$('.quickview-wrapper').modal('show');
             },
@@ -62,24 +63,28 @@
             url: "{{ route('add_item_to_cart') }}",
             data: {"_token": "{{ csrf_token() }}",cart_qty:cart_qty,product_id:product_id},
             success: function (data) {
-                if (data.is_cart_empty == false) {
-                    $('.total-items').html(data.total_items);
-                    $('#recently-added-item-div').html(data.recently_added_items);
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: 'Item Added To Cart.',
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
+                if (data.is_login == false) {
+                    $('#login-modal').modal('show');
                 } else {
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'error',
-                        title: 'Something Went Wrong.',
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
+                    if (data.is_cart_empty == false) {
+                        $('.total-items').html(data.total_items);
+                        $('#recently-added-item-div').html(data.recently_added_items);
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Item Added To Cart.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    } else {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'error',
+                            title: 'Something Went Wrong.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
                 }
             },
             error: function (error) {
@@ -94,14 +99,18 @@
             url: "{{ route('update_cart_item') }}",
             data: {"_token": "{{ csrf_token() }}",item_id:item_id,qty:qty},
             success: function (data) {
-                $('#cart-table-div').html(data.cart_table);
-                $('#shopping-bag-summary-div').html(data.shopping_bag_summary);
-                if (data.is_cart_empty == false) {
-                    $('.total-items').html(data.total_items);
-                    $('#recently-added-item-div').html(data.recently_added_items);
+                if (data.is_login == false) {
+                    $('#login-modal').modal('show');
                 } else {
-                    $('.total-items').html(0);
-                    $('#recently-added-item-div').html('Your Cart Is Empty');
+                    $('#cart-table-div').html(data.cart_table);
+                    $('#shopping-bag-summary-div').html(data.shopping_bag_summary);
+                    if (data.is_cart_empty == false) {
+                        $('.total-items').html(data.total_items);
+                        $('#recently-added-item-div').html(data.recently_added_items);
+                    } else {
+                        $('.total-items').html(0);
+                        $('#recently-added-item-div').html('Your Cart Is Empty');
+                    }
                 }
             },
             error: function (error) {
@@ -117,22 +126,26 @@
             url: "{{ route('remove_item_from_cart') }}",
             data: {"_token": "{{ csrf_token() }}",item_id:item_id},
             success: function (data) {
-                $('#cart-table-div').html(data.cart_table);
-                $('#shopping-bag-summary-div').html(data.shopping_bag_summary);
-                if (data.is_cart_empty == false) {
-                    $('.total-items').html(data.total_items);
-                    $('#recently-added-item-div').html(data.recently_added_items);
+                if (data.is_login == false) {
+                    $('#login-modal').modal('show');
                 } else {
-                    $('.total-items').html(0);
-                    $('#recently-added-item-div').html('Your Cart Is Empty');
+                    $('#cart-table-div').html(data.cart_table);
+                    $('#shopping-bag-summary-div').html(data.shopping_bag_summary);
+                    if (data.is_cart_empty == false) {
+                        $('.total-items').html(data.total_items);
+                        $('#recently-added-item-div').html(data.recently_added_items);
+                    } else {
+                        $('.total-items').html(0);
+                        $('#recently-added-item-div').html('Your Cart Is Empty');
+                    }
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Item Removed From Cart.',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                 }
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Item Removed From Cart.',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
             },
             error: function (error) {
                 // console.log(error);

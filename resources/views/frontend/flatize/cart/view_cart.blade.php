@@ -17,7 +17,7 @@
 				<div id="cart-table-div">
 					@include('frontend.flatize.cart.cart_table', ['cart_contents'=>$cart_contents])							
 				</div>
-				<div class="row">
+				{{-- <div class="row">
 					<div class="col-xs-6">
 						<div class="featured-box featured-box-secondary">
 							<div class="box-content">
@@ -64,7 +64,7 @@
 							</div>
 						</div>
 					</div>						
-				</div>
+				</div> --}}
 			</div>
 
 			<div class="col-md-4">

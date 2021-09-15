@@ -68,6 +68,7 @@ Route::post('/add-item-to-cart/','FrontendController@add_item_to_cart')->name('a
 Route::post('/update-cart-item/','FrontendController@update_cart_item')->name('update_cart_item');
 Route::post('/remove-item-from-cart/','FrontendController@remove_item_from_cart')->name('remove_item_from_cart');
 Route::get('/contact/','FrontendController@contact')->name('contact');
+Route::post('/place-order/','FrontendController@place_order')->name('place_order');
 
 Route::post('/home/section/featured', 'HomeController@load_featured_section')->name('home.section.featured');
 Route::post('/home/section/best_selling', 'HomeController@load_best_selling_section')->name('home.section.best_selling');

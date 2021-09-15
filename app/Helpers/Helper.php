@@ -4,6 +4,7 @@ namespace App\Helpers;
 
 use Config;
 use DB;
+use App\Category;
 
 class Helper
 {

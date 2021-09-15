@@ -26,9 +26,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="summary entry-summary">
-
-                                    <h3>Denim Trousers with faux leather details</h3>
-                                    
+                                    <h3>Denim Trousers with faux leather details</h3>                                    
                                     <div class="reviews-counter clearfix">
                                         <div class="rating five-stars pull-left">
                                             <div class="star-rating"></div>
@@ -37,9 +35,7 @@
                                         <span>3 Reviews</span>
                                     </div>
 
-                                    <p class="price">
-                                        <span class="amount">$29.99</span>
-                                    </p>
+                                    <p class="price"><span class="amount">$29.99</span></p>
                                     
                                     <ul class="list-inline list-select clearfix">
                                         <li>

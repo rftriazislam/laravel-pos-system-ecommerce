@@ -13,15 +13,10 @@ use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
-        $sort_search =null;
-//        $categories = Category::orderBy('name', 'asc');
+        $sort_search = null;
+        // $categories = Category::orderBy('name', 'asc');
         $categories = Category::orderBy('order_level', 'desc');
         if ($request->has('search')){
             $sort_search = $request->search;
@@ -31,12 +26,6 @@ class CategoryController extends Controller
         return view('backend.product.categories.index', compact('categories', 'sort_search'));
     }
     
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function test()
     {
         // echo "dddd";
@@ -47,11 +36,6 @@ class CategoryController extends Controller
         return view('backend.test', ['breadcrumbs' => $breadcrumbs]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $categories = Category::where('parent_id', 0)
@@ -61,12 +45,6 @@ class CategoryController extends Controller
         return view('backend.product.categories.create', compact('categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $category = new Category;
@@ -108,23 +86,11 @@ class CategoryController extends Controller
         return redirect()->route('categories.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Request $request, $id)
     {
         $lang = $request->lang;
@@ -138,13 +104,6 @@ class CategoryController extends Controller
         return view('backend.product.categories.edit', compact('category', 'categories', 'lang'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $category = Category::findOrFail($id);
@@ -202,12 +161,6 @@ class CategoryController extends Controller
         return back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $category = Category::findOrFail($id);
@@ -228,10 +181,18 @@ class CategoryController extends Controller
         return redirect()->route('categories.index');
     }
 
-    public function updateFeatured(Request $request)
-    {
+    public function updateFeatured(Request $request) {
         $category = Category::findOrFail($request->id);
         $category->featured = $request->status;
+        if($category->save()){
+            return 1;
+        }
+        return 0;
+    }
+
+    public function update_menu_visibility(Request $request) {
+        $category = Category::findOrFail($request->id);
+        $category->menu_visibility = $request->status;
         if($category->save()){
             return 1;
         }

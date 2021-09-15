@@ -1,4 +1,8 @@
-@extends('frontend.master.master_page')
+@extends('frontend.flatize.master.master_page')
+
+@php
+	$contact_page = get_frontend_settings_value('Contact Section');
+@endphp
 
 @section('page_content')
 	<!-- Begin page top -->
@@ -14,8 +18,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-6 animation">
-				<div class="contact-content">
-					
+				<div class="contact-content">					
 					<h4>Contact Form</h4>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>Nam scelerisque faucibus risus non iaculis.</p>
 					<form id="contact-form" name="form1" method="post" action="send_contact.php">
@@ -74,12 +77,13 @@
 			<div class="col-sm-6 animation">
 				<div class="contact-content">
 					<h4>Get in touch</h4>
-					<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.</p>
+					<p class="text-justify">{{ $contact_page['get_in_touch'] }}</p>
 					<address>
-						<i class="fa fa-map-marker"></i> Alexander Street. Vancouver, BC<br>
-						V6A 1E1 Canada<br><i class="fa fa-phone"></i> 012.345.6789<br>
-						<i class="fa fa-print"></i> 012.345.6789<br>
-						<i class="fa fa-envelope"></i> <a href="mailto:mail@domainname.com">mail@domainname.com</a>
+						<i class="fa fa-map-marker"></i> {{ $contact_page['address'] }}<br>
+						<i class="fa fa-phone"></i> {{ $contact_page['phone'] }}<br>
+						<i class="fa fa-print"></i> {{ $contact_page['fax'] }}<br>
+						{{-- <i class="fa fa-envelope"></i> <a href="mailto:mail@domainname.com">mail@domainname.com</a> --}}
+						<i class="fa fa-envelope"></i> {{ $contact_page['email'] }}
 					</address>
 				</div>
 			</div>

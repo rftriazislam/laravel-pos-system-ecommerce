@@ -546,6 +546,36 @@
             </li>
         @endif
 
+        <!-- Frontend Settings -->
+        @if(Auth::user()->user_type == 'admin' || in_array('11', json_decode(Auth::user()->staff->role->permissions)))
+            <li class="nav-item">
+                <a href="javascript:void(0)" class="d-flex align-items-center">
+                    <i data-feather='slack'></i>
+                    <span class="menu-title text-truncate">{{ translate('Frontend Settings') }}</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="{{ 'frontend_settings.general_settings' === Route::currentRouteName() ? 'active' : '' }}">
+                        <a href="{{ route('frontend_settings.general_settings') }}" class="d-flex align-items-center">
+                            <i data-feather="circle"></i>
+                            <span class="menu-title text-truncate">{{ translate('General Settings') }}</span>
+                        </a>
+                    </li>
+                    <li class="{{ 'frontend_settings.home_page' === Route::currentRouteName() ? 'active' : '' }}">
+                        <a href="{{ route('frontend_settings.home_page') }}" class="d-flex align-items-center">
+                            <i data-feather="circle"></i>
+                            <span class="menu-title text-truncate">{{ translate('Home Page') }}</span>
+                        </a>
+                    </li>
+                    <li class="{{ 'frontend_settings.contact_page' === Route::currentRouteName() ? 'active' : '' }}">
+                        <a href="{{route('frontend_settings.contact_page')}}" class="d-flex align-items-center">
+                            <i data-feather="circle"></i>
+                            <span class="menu-title text-truncate">{{ translate('Contact Page') }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        @endif
+
         <!-- Support -->
         {{-- @if(Auth::user()->user_type == 'admin' || in_array('12', json_decode(Auth::user()->staff->role->permissions)))
           <li class="nav-item">

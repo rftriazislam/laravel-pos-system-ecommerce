@@ -35,16 +35,14 @@
                     
                     <div class="col-sm-6">
                         <div class="summary entry-summary">
-
-                            <h3>{{ $product_info['name'] }}</h3>
-                            
-                            <div class="reviews-counter clearfix">
+                            <h3>{{ $product_info['name'] }}</h3>                            
+                            {{-- <div class="reviews-counter clearfix">
                                 <div class="rating five-stars pull-left">
                                     <div class="star-rating"></div>
                                     <div class="star-bg"></div>
                                 </div>
                                 <span>3 Reviews</span>
-                            </div>
+                            </div> --}}
 
                             <p class="price">
                                 <span class="amount">৳ {{ number_format($product_info['unit_price']) }}</span>
@@ -76,16 +74,16 @@
                                     <input type="text" class="input-text qty" title="Qty" value="1" name="quantity" min="1" step="1">
                                     <input type="button" class="plus" value="+">
                                 </div>
-                                <a href="#" class="btn btn-grey">
+                                {{-- <a href="#" class="btn btn-grey">
                                     <span><i class="fa fa-heart"></i></span>
-                                </a>
+                                </a> --}}
                                 <button class="btn btn-primary btn-icon add_item_to_cart" product-id="{{ $product_info['id'] }}">
                                     <i class="fa fa-shopping-cart"></i> Add to cart
                                 </button>
                             </div>
                             
                             <ul class="list-unstyled product-meta">
-                                <li>Sku: 54329843</li>
+                                {{-- <li>Sku: 54329843</li> --}}
                                 @php
                                     $category_name = '';
                                     if (isset($product_info['category_name'])) {
@@ -94,7 +92,7 @@
                                         $category_name = $category_info['name'];
                                     }                                    
                                 @endphp
-                                <li>Categories: {{ $category_name }}</li>
+                                <li>Categories: <a href="{{ route('all_product',$category_info['id']) }}">{{ $category_name }}</a></li>
                                 <li>Tags: {{ $product_info['tags'] }}</li>
                             </ul>
                             
@@ -109,15 +107,15 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="panel panel-default">
+                                {{-- <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Addition Information</a> </h4>
                                     </div>
                                     <div id="collapseTwo" class="panel-collapse collapse text-justify">
                                         <div class="panel-body"> <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p> </div>
                                     </div>
-                                </div>
-                                <div class="panel panel-default">
+                                </div> --}}
+                                {{-- <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Reviews (3)</a> </h4>
                                     </div>
@@ -157,7 +155,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

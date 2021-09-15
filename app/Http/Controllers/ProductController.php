@@ -899,10 +899,19 @@ class ProductController extends Controller
         return 0;
     }
 
-    public function updateSellerFeatured(Request $request)
+    public function update_menu_visibility(Request $request) {
+        $product = Product::findOrFail($request->id);
+        $product->menu_visibility = $request->status;
+        if($product->save()){
+            return 1;
+        }
+        return 0;
+    }
+
+    public function update_new_collection(Request $request)
     {
         $product = Product::findOrFail($request->id);
-        $product->seller_featured = $request->status;
+        $product->new_collection = $request->status;
         if($product->save()){
             return 1;
         }
