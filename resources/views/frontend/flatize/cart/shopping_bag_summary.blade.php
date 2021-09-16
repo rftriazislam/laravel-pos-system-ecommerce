@@ -6,7 +6,7 @@
 			<tbody>
 				<tr class="cart-subtotal">
 					<th>Cart Subtotal</th>
-					<td class="product-price"><span class="amount">৳{{ number_format($subtotal) }}</span></td>
+					<td class="product-price"><span class="amount">৳ {{ number_format($subtotal) }}</span></td>
 				</tr>
 				<tr class="shipping">
 					<th>Shipping</th>
@@ -16,12 +16,10 @@
 				</tr>
 				<tr class="total">
 					<th>Total</th>
-					<td class="product-price"><span class="amount">৳{{ number_format($total) }}</span></td>
+					<td class="product-price"><span class="amount">৳ {{ number_format($total) }}</span></td>
 				</tr>
 			</tbody>
 		</table>
-		<p><input type="submit" value="Update Shopping Bag" class="btn btn-default btn-block btn-sm" data-loading-text="Loading..."></p>
-		<p><input type="submit" value="Proceed To checkout" class="btn btn-primary btn-block btn-sm" data-loading-text="Loading..."></p>
-		<p><input type="submit" value="Continue Shopping" class="btn btn-grey btn-block btn-sm" data-loading-text="Loading..."></p>
+		<p><a href="{{ route('checkout') }}" class="btn btn-primary btn-block btn-sm">Proceed To checkout</a></p>
 	</div>
 </div>

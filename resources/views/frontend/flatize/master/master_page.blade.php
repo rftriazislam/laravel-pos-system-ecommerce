@@ -8,7 +8,9 @@
     <body>
         <div id="page">
             <header>
-        		@include('frontend.flatize.include.top_navbar');
+                @if (auth::user() && auth::user()['user_type'] == 'customer')
+                    @include('frontend.flatize.include.top_navbar');
+                @endif
         		@include('frontend.flatize.include.menu');
             </header>
             
@@ -34,6 +36,10 @@
         <!-- Begin Search -->
 		@include('frontend.flatize.include.search_modal')
         <!-- End Search -->
+        
+        <!-- Begin Login Modal -->
+        @include('frontend.flatize.include.login_modal')
+        <!-- End Login Modal -->
         
         <!-- Begin Quickview -->
         @yield('modal_section')

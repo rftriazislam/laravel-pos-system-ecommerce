@@ -115,13 +115,10 @@ class LoginController extends Controller
     public function authenticated()
     {
         if(session('temp_user_id') != null){
-            Cart::where('temp_user_id', session('temp_user_id'))
-                    ->update(
-                            [
-                                'user_id' => auth()->user()->id,
-                                'temp_user_id' => null
-                            ]
-            );
+            Cart::where('temp_user_id', session('temp_user_id'))->update([
+                'user_id' => auth()->user()->id,
+                'temp_user_id' => null
+            ]);
 
             Session::forget('temp_user_id');
         }

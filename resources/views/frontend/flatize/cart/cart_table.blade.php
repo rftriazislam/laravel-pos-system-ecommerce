@@ -25,7 +25,7 @@
 							<td class="product-name">
 								<a href="shop-product-sidebar.html">{{ $content->name }}</a>
 							</td>
-							<td class="product-price"><span class="amount">৳{{ number_format($content->price) }}</span></td>
+							<td class="product-price"><span class="amount">৳ {{ number_format($content->price) }}</span></td>
 							<td class="product-quantity">												
 								<div class="quantity">
 									<input type="button" class="minus" index="{{ $content->id }}" value="-">
@@ -33,7 +33,7 @@
 									<input type="button" class="plus" index="{{ $content->id }}" value="+">
 								</div>												
 							</td>
-							<td class="product-subtotal"><span class="amount">৳{{ number_format($content->price * $content->quantity) }}</span></td>
+							<td class="product-subtotal"><span class="amount">৳ {{ number_format($content->price * $content->quantity) }}</span></td>
 							<td class="product-remove">
 								<a title="Remove this item" class="remove remove_item_from_cart" href="javascript:vois(0)" item-id="{{ $content->id }}"><i class="fa fa-times-circle"></i></a>
 							</td>

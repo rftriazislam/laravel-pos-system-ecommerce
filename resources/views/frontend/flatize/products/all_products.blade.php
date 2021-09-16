@@ -41,54 +41,55 @@
 						</ul>
 					</aside>
 
-					@yield('categories')
+					{{-- <aside class="block blk-cat">
+						<h4>Man Category</h4>
+						<ul class="list-unstyled list-cat">
+				            @foreach (get_categories_by_parent_id(1) as $man_category)
+				                <li>
+				                    <a href="{{ route('all_product',$man_category->id) }}">{{ $man_category->name }}</a>
+				                </li>
+				            @endforeach
+						</ul>
+					</aside>
+
+					<aside class="block blk-cat">
+						<h4>Woman Category</h4>
+						<ul class="list-unstyled list-cat">
+				            @foreach (get_categories_by_parent_id(2) as $women_category)
+				                <li>
+				                    <a href="{{ route('all_product',$women_category->id) }}">{{ $women_category->name }}</a>
+				                </li>
+				            @endforeach
+						</ul>
+					</aside> --}}
 
 					<aside class="block featured">
-						<h4>Featured</h4>
-						<ul class="list-unstyled list-thumbs-pro">
-							<li class="product">
-								<div class="product-thumb-info">
-									<div class="product-thumb-info-image">
-										<a href="shop-product-detail1.html"><img alt="" width="60" src="{{ asset('public/frontend/flatize/images/content/products/product-7.jpg') }}"></a>
-									</div>
-									
-									<div class="product-thumb-info-content">
-										<h4><a href="shop-product-detail2.html">Striped sweater</a></h4>
-										<span class="item-cat"><small><a href="#">Stock clearance</a></small></span>
-										<span class="price">29.99 USD</span>
-									</div>
-								</div>
-							</li>
-							<li class="product">
-								<div class="product-thumb-info">
-									<div class="product-thumb-info-image">
-										<a href="shop-product-detail1.html"><img alt="" width="60" src="{{ asset('public/frontend/flatize/images/content/products/product-8.jpg') }}"></a>
-									</div>
-									
-									<div class="product-thumb-info-content">
-										<h4><a href="shop-product-detail2.html">Checked shirt with pocket</a></h4>
-										<span class="item-cat"><small><a href="#">Shirts</a></small></span>
-										<span class="price">29.99 USD</span>
-									</div>
-								</div>
-							</li>
-							<li class="product">
-								<div class="product-thumb-info">
-									<div class="product-thumb-info-image">
-										<a href="shop-product-detail1.html"><img alt="" width="60" src="{{ asset('public/frontend/flatize/images/content/products/product-9.jpg') }}"></a>
-									</div>
-									
-									<div class="product-thumb-info-content">
-										<h4><a href="shop-product-detail2.html">Classic blazer</a></h4>
-										<span class="item-cat"><small><a href="#">Outerwear</a></small></span>
-										<span class="price">29.99 USD</span>
-									</div>
-								</div>
-							</li>
-						</ul>
+						@foreach (get_all_parent_categories() as $parent_category)
+							<h4>{{ $parent_category->name }}</h4>
+							<ul class="list-unstyled list-thumbs-pro">
+								@foreach (get_all_products_for_menu_by_category_id($parent_category->id) as $product)
+									<li class="product">
+										<div class="product-thumb-info">
+											<div class="product-thumb-info-image">
+												<a href="{{ route('product_details',$product->id) }}">
+													<img alt="" width="60" height="80px" src="{{ asset('public/'.$product->image_path) }}">
+												</a>
+											</div>
+											
+											<div class="product-thumb-info-content">
+												<h4><a href="{{ route('product_details',$product->id) }}">{{ $product->name }}</a></h4>
+												{{-- <span class="item-cat"><small><a href="#">Stock clearance</a></small></span> --}}
+												<span class="price">৳ {{ $product->unit_price }}</span>
+											</div>
+										</div>
+									</li>
+								@endforeach
+							</ul>
+						@endforeach
 					</aside>
 				</aside>
 			</div>
+			
 			<div class="col-md-9">
 				<!-- Begin Lookbook Women -->
 				<section id="lookbook">

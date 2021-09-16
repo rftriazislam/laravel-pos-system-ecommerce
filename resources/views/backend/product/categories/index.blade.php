@@ -33,6 +33,7 @@
                     <th data-breakpoints="lg">{{translate('Banner')}}</th>
                     <th data-breakpoints="lg">{{translate('Icon')}}</th>
                     <th data-breakpoints="lg">{{translate('Featured')}}</th>
+                    <th data-breakpoints="lg">{{translate('Menu Visibility')}}</th>
                     <th data-breakpoints="lg">{{translate('Commission')}}</th>
                     <th width="15%" class="text-right">{{translate('Options')}}</th>
                 </tr>
@@ -52,8 +53,8 @@
                                 —
                             @endif
                         </td>
-			<td>{{ $category->order_level }}</td>
-			<td>{{ $category->level }}</td>
+            			<td>{{ $category->order_level }}</td>
+            			<td>{{ $category->level }}</td>
                         <td>
                             @if($category->banner != null)
                                 <img src="{{ uploaded_asset($category->banner) }}" alt="{{translate('Banner')}}" class="h-50px">
@@ -73,6 +74,12 @@
                         <td>
                             <label class="form-check form-check-success form-switch mb-0">
                                 <input type="checkbox"  class="form-check-input" onchange="update_featured(this)"  value="{{ $category->id }}" <?php if($category->featured == 1) echo "checked";?>>
+                                <span></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="form-check form-check-success form-switch mb-0">
+                                <input type="checkbox"  class="form-check-input" onchange="update_menu_visibility(this)"  value="{{ $category->id }}" <?php if($category->menu_visibility == 1) echo "checked";?>>
                                 <span></span>
                             </label>
                         </td>
@@ -112,9 +119,26 @@
             else{
                 var status = 0;
             }
-            $.post('{{ route('categories.featured') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
+            $.post('{{ route('categories.featured') }}',{_token:'{{ csrf_token() }}',id:el.value, status:status},function(data){
                 if(data == 1){
                     AIZ.plugins.notify('success', '{{ translate('Featured categories updated successfully') }}');
+                }
+                else{
+                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                }
+            });
+        }
+
+        function update_menu_visibility(el) {
+            if (el.checked) {
+                var status = 1;
+            } else {
+                var status = 0;
+            }
+
+            $.post('{{ route('categories.update_menu_visibility') }}',{_token:'{{ csrf_token() }}',id:el.value,status:status},function(data) {
+                if(data == 1){
+                    AIZ.plugins.notify('success', '{{ translate('This category visible in menu successfully') }}');
                 }
                 else{
                     AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
