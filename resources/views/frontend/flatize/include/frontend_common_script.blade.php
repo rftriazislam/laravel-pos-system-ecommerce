@@ -9,7 +9,6 @@
             url: "{{ route('product_quick_view') }}",
             data: {"_token": "{{ csrf_token() }}",product_info:product_info,category_info:category_info},
             success: function (data) {
-                console.log(data.output);
             	$('.quick-view-div').html(data.output);
             	$('.quickview-wrapper').modal('show');
             },
