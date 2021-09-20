@@ -11,31 +11,27 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="product-preview">
-                            <div id="slider" class="flexslider">
-                                <ul class="slides">
+                                <ul class="bxslider" id="slider1">
                                     @if ($product_info['images'])
                                         @foreach ($product_info['images'] as $image)
-                                            <li><img class="quick-view-img" src="{{ asset('public/'.$image->file_name) }}" /></li>
+                                            <li><img class="img-responsive" src="{{ asset('public/'.$image->file_name) }}" /></li>
                                         @endforeach
                                     @endif
                                 </ul>
-                            </div>
 
-                            <div id="carousel" class="flexslider">
-                                <ul class="slides">
+                                <ul class="list-inline bx-pager">
                                     @if ($product_info['images'])
                                         @foreach ($product_info['images'] as $image)
-                                            <li><img class="quick-view-index-img" src="{{ asset('public/'.$image->file_name) }}" /></li>
+                                            <li><a data-slide-index={{$loop->index}} href=""><img class="img-responsive" src="{{ asset('public/'.$image->file_name) }}" /></a></li>
                                         @endforeach
                                     @endif
                                 </ul>
-                            </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-sm-6">
                         <div class="summary entry-summary">
-                            <h3>{{ $product_info['name'] }}</h3>                            
+                            <h3>{{ $product_info['name'] }}</h3>
                             {{-- <div class="reviews-counter clearfix">
                                 <div class="rating five-stars pull-left">
                                     <div class="star-rating"></div>
@@ -47,7 +43,7 @@
                             <p class="price">
                                 <span class="amount">৳ {{ number_format($product_info['unit_price']) }}</span>
                             </p>
-                            
+
                             <ul class="list-inline list-select clearfix">
                                 <li>
                                     <div class="list-sort">
@@ -81,7 +77,7 @@
                                     <i class="fa fa-shopping-cart"></i> Add to cart
                                 </button>
                             </div>
-                            
+
                             <ul class="list-unstyled product-meta">
                                 {{-- <li>Sku: 54329843</li> --}}
                                 @php
@@ -90,12 +86,12 @@
                                         $category_name = $product_info['category_name'];
                                     } else if (isset($category_info['name'])) {
                                         $category_name = $category_info['name'];
-                                    }                                    
+                                    }
                                 @endphp
                                 <li>Categories: <a href="{{ route('all_product',$category_info['id']) }}">{{ $category_name }}</a></li>
                                 <li>Tags: {{ $product_info['tags'] }}</li>
                             </ul>
-                            
+
                             <div class="panel-group" id="accordion">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
@@ -166,23 +162,16 @@
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function(){  
-        $('#carousel').flexslider({
-            animation: "slide",
-            controlNav: false,
-            animationLoop: false,
-            slideshow: false,
-            itemWidth: 210,
-            itemMargin: 5,
-            asNavFor: '#slider'
-        });
+    $(document).ready(function(){
+        $('.quickview-wrapper').on('shown.bs.modal', function (e) {
+				e.preventDefault();
+				proload.reloadSlider();
+			});
 
-        $('#slider').flexslider({
-            animation: "slide",
-            controlNav: false,
-            animationLoop: false,
-            slideshow: false,
-            sync: "#carousel"
+        var proload = $('#slider1').bxSlider({
+            pagerCustom: '.bx-pager',
+            controls: false,
+            adaptiveHeight : 'true'
         });
     });
 </script>
