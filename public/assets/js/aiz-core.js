@@ -1121,8 +1121,8 @@ $.fn.toggleAttr = function (attr, attr1, attr2) {
                     },
                     type: type,
                     template:
-                        '<div data-notify="container" class="aiz-notify alert alert-{0}" role="alert">' +
-                        '<button type="button" aria-hidden="true" data-notify="dismiss" class="close"><i class="las la-times"></i></button>' +
+                        '<div data-notify="container" class="aiz-notify alert bg-{0}" role="alert" style="color:white">' +
+                        '<button type="button" aria-hidden="true" data-notify="dismiss" class="close"><b style="color:black">X</b></button>' +
                         '<span data-notify="message">{2}</span>' +
                         '<div class="progress" data-notify="progressbar">' +
                         '<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +

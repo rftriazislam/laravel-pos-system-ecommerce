@@ -40,3 +40,4 @@
 	{{-- user custom styles --}}
 	<link rel="stylesheet" href="{{ asset('public/'.mix('css/style.css')) }}" />
 @endif
+<link rel="stylesheet" href="{{ asset('public/css/custom/modal.css') }}" />
