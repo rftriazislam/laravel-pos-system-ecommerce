@@ -61,7 +61,7 @@
             </div>
         </div>
         <div class="row gutters-5 ">
-            <div class="col  text-md-left">
+            <div class="col-7  text-md-left">
                 <address>
                     <strong class="text-main">{{ json_decode($order->shipping_address)->name }}</strong><br>
                     {{ json_decode($order->shipping_address)->email }}<br>
@@ -77,8 +77,8 @@
                 <a href="{{ uploaded_asset(json_decode($order->manual_payment_data)->photo) }}" target="_blank"><img src="{{ uploaded_asset(json_decode($order->manual_payment_data)->photo) }}" alt="" height="100"></a>
                 @endif
             </div>
-            <div class="col-md-4 ml-auto">
-                <table>
+            <div class="col-md-5 ml-auto">
+                <table style="width: 100%">
                     <tbody>
                         <tr>
                             <td class="text-main text-bold">{{translate('Order #')}}</td>
@@ -91,9 +91,9 @@
                             @endphp
                             <td class="text-right">
                                 @if($status == 'delivered')
-                                <span class="badge badge-inline badge-success">{{ translate(ucfirst(str_replace('_', ' ', $status))) }}</span>
+                                <span class="btn btn-inline btn-success btn-sm">{{ translate(ucfirst(str_replace('_', ' ', $status))) }}</span>
                                 @else
-                                <span class="badge badge-inline badge-info">{{ translate(ucfirst(str_replace('_', ' ', $status))) }}</span>
+                                <span class="btn btn-inline btn-info btn-sm">{{ translate(ucfirst(str_replace('_', ' ', $status))) }}</span>
                                 @endif
                             </td>
                         </tr>

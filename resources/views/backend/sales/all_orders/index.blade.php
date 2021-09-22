@@ -17,7 +17,7 @@
                                     <h5 class="mb-md-0 h6">{{ translate('All Orders') }}</h5>
                                 </div>
 
-                                <div class="col-lg-2 ml-auto">
+                                {{-- <div class="col-lg-2 ml-auto">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             {{ translate('Bulk Action') }}
@@ -27,6 +27,18 @@
                                                 {{ translate('Delete selection') }}
                                             </a>
                                         </div>
+                                    </div>
+                                </div> --}}
+                                <div class="col-lg-2 ml-auto">
+                                    <button class="btn border dropdown-toggle" type="button" data-toggle="dropdown">
+                                        {{translate('Bulk Action')}}
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="#" onclick="bulk_delete()"> {{translate('Delete selection')}}</a>
+                    <!--                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModal">
+                                            <i class="las la-sync-alt"></i>
+                                            {{translate('Change Order Status')}}
+                                        </a>-->
                                     </div>
                                 </div>
 
